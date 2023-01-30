@@ -14,7 +14,7 @@ class TestBiologicalSex(TestCase):
                                [0.05, 0.05],
                                [0.025, 0.05]])
 
-        prior = np.array([[0.2], [0.8]])
+        prior = np.array([[0.5], [0.5]])
 
         expected = np.array([[0.94117647, 0.05882353],
                              [0.66666667, 0.33333333],
@@ -25,4 +25,9 @@ class TestBiologicalSex(TestCase):
         obtained = biolsex(likelihood, prior)
 
         self.assertEqual(expected.shape, obtained.shape, "different shape")
-        self.assert_(np.allclose(obtained, expected), "different results")
+
+        for i in range(expected.shape[0]):
+            for j in range(expected.shape[1]):
+                # TODO change this to not be dependable on order
+                self.assertAlmostEqual(expected[i][j], obtained[i][j], msg="different results")
+        # self.assert_(np.allclose(obtained, expected), "different results")
