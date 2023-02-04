@@ -1,28 +1,27 @@
 import numpy as np
-from pandas import DataFrame
+import pandas as pd
+from pandas import Series
 
 
-def biolsex(context: DataFrame, scenery: DataFrame) -> DataFrame:
+def biolsex(prior: Series, likelihood: Series) -> Series:
     """
     Computes the score for biological sex, given:
-    :param likelihood: an np.array of shape (n, m) representing P(FC= x | MP= y) TODO new likelihood['M']['F'] FC=M MP=F
-    :param prior: an np.array of shape (m, 1) representing P(MP= y) TODO new prior['F'] MP=F
+    # TODO update docstring
+    :param likelihood: an np.array of shape (n, m) representing P(FC= x | MP= y)
+    :param prior: an np.array of shape (m, 1) representing P(MP= y)
     :return: posterior: an np.array of shape (n, m) representing P(FC=x |MP=y) * P(MP= x) / P(FC= y)
-    TODO new return format (double index MP, FC)
-    FC / MP     M   F   O
-    F          0.1 0.2
-    PF         0.6
-    I
-
     """
-    likelihood = scenery.sort_index().unstack().values[:, :].astype(float)
-    prior = context.sort_index().array.astype(float)
+    likelihood.fillna(0, inplace=True)  # TODO what should we do with NaN values?
 
-    l_n, l_m = likelihood.shape
-    evidence = np.matmul(likelihood, prior).reshape(l_n, 1)
+    evidence = {}
+    for fc_value, mp_value in likelihood.index:
+        evidence.setdefault(fc_value, 0)
+        evidence[fc_value] += likelihood[fc_value][mp_value] * prior[mp_value]
 
-    prior_as_matrix = np.array(list(prior) * l_n).reshape(likelihood.shape)  # todo: low priority, find a way to avoid using list()
-    posterior = likelihood * prior_as_matrix / evidence
+    posterior = []
+    for fc_value, mp_value in likelihood.index:
+        pos_value = likelihood[fc_value][mp_value] * prior[mp_value] / evidence[fc_value]
+        posterior.append({'FC': fc_value, 'MP': mp_value, 'posterior': pos_value})
 
-    return posterior
+    return pd.DataFrame(posterior).set_index(['FC', 'MP'])['posterior']
 
