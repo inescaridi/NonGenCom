@@ -2,31 +2,20 @@ import numpy as np
 import pandas as pd
 
 from nonGenCom.BiologicalSex import biolsex
+from nonGenCom.Config import Config
 
 
 class ScoreCalculator:
     def __init__(self):
-        cont_aux = pd.read_csv("default_inputs/contexts.csv", skiprows=1, header=None).transpose()
-        cont_aux[0] = cont_aux[0].str.upper()
-        cont_columns = cont_aux.iloc[0]
-        self.contexts = cont_aux.drop(index=0).set_axis(cont_columns, axis=1).set_index('MP')
-
-        scen_aux = pd.read_csv("default_inputs/sceneries.csv", skiprows=1, header=None).transpose()
-        scen_aux[0] = scen_aux[0].str.upper()
-        scen_aux[1] = scen_aux[1].str.upper()
-        scen_columns = scen_aux.iloc[0]
-        self.sceneries = scen_aux.drop(index=0).set_axis(scen_columns, axis=1).set_index(['FC', 'MP'])
-        # TODO add check for order of FC and MP
-
-        self.biolsex = None
+        self.config = Config()
 
     def fc_score_biolsex(self, fc_db, mp_db, fc_element_id, context_name, scenery_name):
-        self.context = self.contexts[context_name]  # prior
-        self.scenery = self.sceneries[scenery_name]  # likelihood
+        self.context = self.config.getContext(context_name)  # prior
+        self.scenery = self.config.getScenery(scenery_name)  # likelihood
         print(context_name, "\n", self.context)
         print(scenery_name, "\n", self.scenery)
 
-        self.biolsex = biolsex(self.scenery, self.context)
+        self.biolsex = biolsex(self.context, self.scenery)
         # TODO change biolsex to receive and return pandas dataframes as input (so we don't depend on order)
 
         fc_row = fc_db[fc_db.id == fc_element_id]

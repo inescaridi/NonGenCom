@@ -3,18 +3,23 @@ from unittest import TestCase
 import numpy as np
 
 from nonGenCom.BiologicalSex import biolsex
+from nonGenCom.Config import TestConfig
 
 
 class TestBiologicalSex(TestCase):
 
     def test_biolsex(self):
-        likelihood = np.array([[0.8, 0.05],
-                               [0.1, 0.05],
-                               [0.025, 0.8],
-                               [0.05, 0.05],
-                               [0.025, 0.05]])
+        config = TestConfig()
+        context = config.getContext("Context1")
+        scenery = config.getScenery("Scenery1")
 
-        prior = np.array([[0.5], [0.5]])
+        # likelihood = np.array([[0.8, 0.05],
+        #                        [0.1, 0.05],
+        #                        [0.025, 0.8],
+        #                        [0.05, 0.05],
+        #                        [0.025, 0.05]])
+        #
+        # prior = np.array([[0.5], [0.5]])
 
         expected = np.array([[0.94117647, 0.05882353],
                              [0.66666667, 0.33333333],
@@ -22,7 +27,7 @@ class TestBiologicalSex(TestCase):
                              [0.5, 0.5],
                              [0.33333333, 0.66666667]])
 
-        obtained = biolsex(likelihood, prior)
+        obtained = biolsex(context, scenery)
 
         self.assertEqual(expected.shape, obtained.shape, "different shape")
 

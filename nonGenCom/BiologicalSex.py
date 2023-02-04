@@ -1,7 +1,8 @@
 import numpy as np
+from pandas import DataFrame
 
 
-def biolsex(likelihood, prior):
+def biolsex(context: DataFrame, scenery: DataFrame) -> DataFrame:
     """
     Computes the score for biological sex, given:
     :param likelihood: an np.array of shape (n, m) representing P(FC= x | MP= y) TODO new likelihood['M']['F'] FC=M MP=F
@@ -14,8 +15,11 @@ def biolsex(likelihood, prior):
     I
 
     """
+    likelihood = scenery.sort_index().unstack().values[:, :].astype(float)
+    prior = context.sort_index().array.astype(float)
+
     l_n, l_m = likelihood.shape
-    evidence = np.matmul(likelihood, prior)
+    evidence = np.matmul(likelihood, prior).reshape(l_n, 1)
 
     prior_as_matrix = np.array(list(prior) * l_n).reshape(likelihood.shape)  # todo: low priority, find a way to avoid using list()
     posterior = likelihood * prior_as_matrix / evidence
