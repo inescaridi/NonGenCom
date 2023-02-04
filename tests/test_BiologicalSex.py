@@ -13,11 +13,12 @@ class TestBiologicalSex(TestCase):
         context = config.getContext("Context1")
         scenery = config.getScenery("Scenery1")
 
-        expected = np.array([[0.9411764706, 0.05882352941],
-                             [0.8, 0.2],
-                             [0, 1],
-                             [0, 1],
-                             [0, 1]])
+        # expected = np.array([[0.9411764706, 0.05882352941],
+        #                      [0.8, 0.2],
+        #                      [0, 1],
+        #                      [0, 1],
+        #                      [0, 1]])
+        expected = config.getPosterior("Posterior1")
 
         obtained = biolsex(context, scenery)
 
