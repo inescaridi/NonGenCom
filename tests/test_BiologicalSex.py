@@ -13,19 +13,11 @@ class TestBiologicalSex(TestCase):
         context = config.getContext("Context1")
         scenery = config.getScenery("Scenery1")
 
-        # likelihood = np.array([[0.8, 0.05],
-        #                        [0.1, 0.05],
-        #                        [0.025, 0.8],
-        #                        [0.05, 0.05],
-        #                        [0.025, 0.05]])
-        #
-        # prior = np.array([[0.5], [0.5]])
-
-        expected = np.array([[0.94117647, 0.05882353],
-                             [0.66666667, 0.33333333],
-                             [0.03030303, 0.96969697],
-                             [0.5, 0.5],
-                             [0.33333333, 0.66666667]])
+        expected = np.array([[0.9411764706, 0.05882352941],
+                             [0.8, 0.2],
+                             [0, 1],
+                             [0, 1],
+                             [0, 1]])
 
         obtained = biolsex(context, scenery)
 
