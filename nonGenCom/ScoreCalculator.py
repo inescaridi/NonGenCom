@@ -18,6 +18,7 @@ class ScoreCalculator:
         print(scenery_name, "\n", self.scenery)
 
         self.biolsex = biolsex(self.context, self.scenery)
+        print("Posterior", "\n", self.biolsex)
 
         fc_row = fc_db[fc_db[fc_index_colname] == fc_element_id]
 
