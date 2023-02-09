@@ -7,10 +7,12 @@ minAge = -1
 maxAge = 100
 
 
-def likelihood_age(forensic_age, missing_person_age):
+def age_conditional_probability(category, missing_person_age):
     """
-    :param forensic_age: corresponds to one of the six categories (fetus, infant, child, teenager, adult, elderly) commonly known as x
-    :param missing_person_age: possibly, number between min and max age, commonly known as y
+    The method computes de conditional probability of a chosen range of ages given it was a particular age
+    or more formally:   P(FC = category | MP = missing_person_age)
+    :param category: corresponds to a set of two values, representing a gap of ages (a,b), a < b
+    :param missing_person_age: number between min and max age, representing the actual age of the remains
     :return:
     """
     mu, sigma = missing_person_age, math.sqrt(obtain_sigma(missing_person_age))  # mean and standard deviation
