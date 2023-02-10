@@ -1,11 +1,19 @@
+import os
+import sys
+
 import pandas as pd
+from pandas import Series
 
 from nonGenCom.Utils import convert_all_cells_to_float
 
 
 class Config:
     def __init__(self, contexts_path="nonGenCom/default_inputs/contexts.csv", sceneries_path="nonGenCom/default_inputs/sceneries.csv"):
-        # TODO change working dir to "base" dir?
+        # change working dir to "base" dir
+        os.chdir(sys.path[0])
+        if not os.path.isdir('nonGenCom'):  # may be already working on base dir
+            os.chdir("..")
+
         cont_aux = pd.read_csv(contexts_path, skiprows=1, header=None).transpose()
         cont_aux[0] = cont_aux[0].str.upper()
         cont_columns = cont_aux.iloc[0]
@@ -20,10 +28,22 @@ class Config:
         convert_all_cells_to_float(self.sceneries)
         # TODO add check for order of FC and MP
 
-    def get_context(self, context_name):  # prior
+    def get_context(self, context_name: str) -> Series:
+        """
+        Get context (aka prior)
+
+        :param context_name: str:
+        :return:
+        """
         return self.contexts[context_name]
 
-    def get_scenery(self, scenery_name):  # likelihood
+    def get_scenery(self, scenery_name: str) -> Series:
+        """
+        Get scenery (aka likelihood)
+
+        :param scenery_name: str:
+        :return:
+        """
         return self.sceneries[scenery_name]
 
 
