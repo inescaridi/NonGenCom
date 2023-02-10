@@ -1,5 +1,8 @@
+from typing import List
+
 import numpy as np
 import pandas as pd
+from pandas import DataFrame
 
 from nonGenCom.BiologicalSex import biolsex
 from nonGenCom.Config import Config
@@ -8,37 +11,48 @@ from nonGenCom.Config import Config
 class ScoreCalculator:
     def __init__(self):
         self.config = Config()
+        self.biolsex = None
 
-    def fc_score_biolsex(self, fc_db, mp_db, fc_element_id, context_name, scenery_name,
-                         fc_index_colname, fc_biolsex_colname, mp_biolsex_colname):
+        self.biolsex_score_colname = 'score_biolsex'
+
+    def fc_score_biolsex(self, fc_db: DataFrame, mp_db: DataFrame, fc_elements_id: List,
+                         context_name: str, scenery_name: str,
+                         fc_index_colname: str, fc_biolsex_colname: str, mp_biolsex_colname: str) -> DataFrame:
         # TODO move all database "config" (column names mostly) to a class
-        self.context = self.config.get_context(context_name)  # prior
-        self.scenery = self.config.get_scenery(scenery_name)  # likelihood
-        print(context_name, "\n", self.context)
-        print(scenery_name, "\n", self.scenery)
+        context = self.config.get_context(context_name)  # prior
+        scenery = self.config.get_scenery(scenery_name)  # likelihood
+        print(f"Context: {context_name}\n", context, "\n")
+        print(f"Scenery: {scenery_name}\n", scenery, "\n")
 
-        self.biolsex = biolsex(self.context, self.scenery)
-        print("Posterior", "\n", self.biolsex)
+        self.biolsex = biolsex(context, scenery)
+        print("Posterior\n", self.biolsex, "\n")
 
-        fc_row = fc_db[fc_db[fc_index_colname] == fc_element_id]
+        fc_rows: DataFrame = fc_db[fc_db[fc_index_colname].isin(fc_elements_id)]
 
-        mp_db['score'] = mp_db.apply(lambda mp_row:
-                                     self._compare_fc_to_mp(fc_row, mp_row, fc_biolsex_colname, mp_biolsex_colname),
-                                     axis=1)
+        merged = fc_rows.merge(mp_db, how='cross', suffixes=('_FC', '_MP'))
 
-        return mp_db
+        # BIOLSEX SCORE CALCULATION
+        if fc_biolsex_colname == mp_biolsex_colname:  # there can be a collision on merge
+            fc_biolsex_colname += '_FC'
+            mp_biolsex_colname += '_MP'
 
-    def _compare_fc_to_mp(self, fc_row, mp_row, fc_biolsex_colname, mp_biolsex_colname):
-        # TODO adapt the right part to match output from biolsex
-        fc_value = self._get_biolsex_index(fc_row[fc_biolsex_colname])
-        mp_value = self._get_biolsex_index(mp_row[mp_biolsex_colname])
+        # create new FC and MP biological sex columns according to the renaming dict returned by _get_biolsex_renames
+        merged['fc_biolsex_index_aux'] = merged[fc_biolsex_colname].map(self._get_biolsex_renames())
+        merged['mp_biolsex_index_aux'] = merged[mp_biolsex_colname].map(self._get_biolsex_renames())
 
-        return self.biolsex[fc_value][mp_value]
+        # set the same index as biolsex
+        merged = merged.set_index(['fc_biolsex_index_aux', 'mp_biolsex_index_aux'])
+        merged.index = merged.index.rename(['FC', 'MP'])
+
+        # merge with biolsex
+        merged = merged.join(self.biolsex).rename(columns={'posterior': self.biolsex_score_colname})\
+            .reset_index(drop=True)\
+            .sort_values(self.biolsex_score_colname, ascending=False)
+
+        return merged
 
     @staticmethod
-    def _get_biolsex_index(value):
-        if isinstance(value, pd.Series):
-            value = value[0]
+    def _get_biolsex_renames():
         renames = {
             'Indeterminate': 'I',
             'Probable Male': 'PM',
@@ -47,4 +61,4 @@ class ScoreCalculator:
             'Female': 'F',
         }
         # TODO move this to a configuration file
-        return renames[value]
+        return renames

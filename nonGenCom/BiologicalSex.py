@@ -20,7 +20,7 @@ def biolsex(prior: Series, likelihood: Series) -> Series:
 
     posterior = []
     for fc_value, mp_value in likelihood.index:
-        pos_value = likelihood[fc_value][mp_value] * prior[mp_value] / evidence[fc_value]
+        pos_value = round(likelihood[fc_value][mp_value] * prior[mp_value] / evidence[fc_value], 4)
         posterior.append({'FC': fc_value, 'MP': mp_value, 'posterior': pos_value})
 
     return pd.DataFrame(posterior).set_index(['FC', 'MP'])['posterior']
