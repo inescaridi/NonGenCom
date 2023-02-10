@@ -1,5 +1,3 @@
-import pandas as pd
-
 from nonGenCom.BiologicalSex import profiling_biolsex
 from nonGenCom.Config import Config
 
