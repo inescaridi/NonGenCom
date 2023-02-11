@@ -1,6 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+import statistics as st
 import math
 
 minAge = -1
@@ -15,11 +14,12 @@ def age_conditional_probability(category, missing_person_age):
     :param missing_person_age: number between min and max age, representing the actual age of the remains
     :return:
     """
-    mu, sigma = missing_person_age, math.sqrt(obtain_sigma(missing_person_age))  # mean and standard deviation
-    s = np.random.normal(mu, sigma, 1000)
-    sns.displot(s)
+    mu, sigma = missing_person_age, math.sqrt(obtain_sigma(missing_person_age))
+    normal_distribution = st.NormalDist(mu, sigma)
+    upper = normal_distribution.cdf(category[1]) - normal_distribution.cdf(category[0])
+    lower = normal_distribution.cdf(maxAge) - normal_distribution.cdf(minAge)
+    return upper/lower
 
-    plt.show()
 
 
 def obtain_sigma(age):
