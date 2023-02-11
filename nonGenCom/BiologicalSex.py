@@ -1,6 +1,5 @@
 from typing import List
 
-import numpy as np
 import pandas as pd
 from pandas import Series
 
@@ -48,7 +47,7 @@ def profiling_biolsex(likelihood: Series, prior: Series,
     :return:
     """
     if cos_pairs is None:
-        cos_pairs = [('F', 'F'), ('M', 'M')]
+        cos_pairs = [('F', 'F'), ('M', 'M')]  # TODO move this "defaults" to config file
 
     if cow_pairs is None:
         cow_pairs = cos_pairs + [('PF', 'F'), ('PM', 'M'),

@@ -8,7 +8,7 @@ from nonGenCom.Utils import convert_all_cells_to_float
 
 
 class Config:
-    def __init__(self, contexts_path="nonGenCom/default_inputs/contexts.csv", sceneries_path="nonGenCom/default_inputs/sceneries.csv"):
+    def __init__(self, contexts_path="nonGenCom/default_inputs/biolsex_contexts.csv", sceneries_path="nonGenCom/default_inputs/biolsex_sceneries.csv"):
         # change working dir to "base" dir
         os.chdir(sys.path[0])
         if not os.path.isdir('nonGenCom'):  # may be already working on base dir
