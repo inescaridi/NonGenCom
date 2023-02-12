@@ -1,2 +1,2 @@
 # NonGenCom
-Librería con funciones independientes para comparar 2 bases de datos, generando scores en base a variables no-genéticas
+Library with independent functions to compare two databases (Forensic Case Database and Missing Person Database), generating scores based on non-genetic variables.
