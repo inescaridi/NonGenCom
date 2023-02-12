@@ -21,14 +21,14 @@ class ScoreCalculator:
         """
         # TODO complete docstring
 
-        :param fc_db:
-        :param mp_db:
-        :param context_name:
-        :param scenery_name:
-        :param fc_index_colname:
-        :param fc_biolsex_colname:
-        :param mp_biolsex_colname:
-        :param fc_elements_id: Optional[List]: if None is passed then uses full fc_db for comparison,
+        :param fc_db: Forensic Case Database
+        :param mp_db: Missing Person Database
+        :param context_name: chosen context
+        :param scenery_name: chosen scenery
+        :param fc_index_colname: colname of Fosensic Case ID
+        :param fc_biolsex_colname: colname of biological sex variable in Fosensic Case Database
+        :param mp_biolsex_colname: colname of biological sex variable in Missing Person Database
+        :param fc_elements_id: Optional[List]: if None is passed then uses full fc_db for for FC-selection comparison,
         otherwise filter by IDs included in fc_elements_id
         :return:
         """
