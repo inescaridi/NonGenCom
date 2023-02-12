@@ -6,10 +6,11 @@ from pandas import Series
 
 def biolsex(prior: Series, likelihood: Series) -> Series:
     """
-    Computes the score for biological sex, given:
+    Computes the the posterior probability (the scores for FC-selection searches) for a given scenery and context.
+    using the biological sex variable, given:
     # TODO update docstring
-    :param likelihood: Series: representing P(FC= x | MP= y)
-    :param prior: Series: representing P(MP= y)
+    :param likelihood: Series: representing P(FC= x | MP= y)  (scenery)
+    :param prior: Series: representing P(MP= y) (context)
     :return: posterior: Series: a Series representing P(FC=x |MP=y) * P(MP= x) / P(FC= y)
     """
     likelihood.fillna(0, inplace=True)  # TODO what should we do with NaN values?
@@ -33,18 +34,16 @@ def profiling_biolsex(likelihood: Series, prior: Series,
     """
     # TODO complete
     # TODO in general: add types to docstring
-
-    :param likelihood: Series: representing P(FC= x | MP= y)
-    :param prior: Series: representing P(MP= y)
-    :param cos_pairs: List[str]: the Strong Consistency metric (CoS) measures the probability of matching the sex of MP
-    with that of FC.
-    :param cow_pairs: List[str]: the Weak Consistency metric (CoW) measures the probability that the sex of FC or the
-    potential sex of FC matches that of MP.
-    :param ins_pairs: List[str]: the Strong Inconsistency metric (InS) measures the probability that the sex of MP
-    does not coincide with the sex assigned to FC.
-    :param inw_pairs: List[str]: the Weak Inconsistency metric (InW) measures the probability that the sex of MP
-    does not coincide with the sex assigned to FC or the potential sex of FC.
-    :return:
+    Computes the performance metrics Strong Consistency (CoS), Weak consistency (CoW), Strong Inconsistency (InS),
+    and Weak Inconsistency (InW) for a given scenery and context based on the biological sex variable.
+   
+    :param likelihood: Series: representing P(FC= x | MP= y) (scenery)
+    :param prior: Series: representing P(MP= y) (context)
+    :param cos_pairs: List[str]: inputs to define Strong Consistency metric (CoS)
+    :param cow_pairs: List[str]: inputs to define Weak Consistency metric (CoW)
+    :param ins_pairs: List[str]: inputs to define Strong Inconsistency metric (InS)
+    :param inw_pairs: List[str]: inputs to define Weak Inconsistency metric (InW)
+    :return: metrics CoS, CoW, InS, InW
     """
     if cos_pairs is None:
         cos_pairs = [('F', 'F'), ('M', 'M')]  # TODO move this "defaults" to config file
