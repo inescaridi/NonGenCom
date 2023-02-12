@@ -57,7 +57,7 @@ def profiling_biolsex(likelihood: Series, prior: Series,
         ins_pairs = [('M', 'F'), ('F', 'M')]
 
     if inw_pairs is None:
-        inw_pairs = ins_pairs + [('PM', 'F'), ('PF', 'M'), ('PF', 'O'), ('PM', 'O')]
+        inw_pairs = ins_pairs + [('PM', 'F'), ('PF', 'M')]
 
     cos = cow = ins = inw = 0
 
