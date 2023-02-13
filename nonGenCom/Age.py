@@ -3,6 +3,13 @@ import numpy as np
 import math
 
 
+def likelihood_age_two(min_age, max_age):
+    category_ranges = []
+    for j in range(min_age, max_age - 1):
+        category_ranges.append((j, j + 1))
+    return likelihood_age(min_age, max_age, category_ranges)
+
+
 def likelihood_age(min_age, max_age, category_ranges):
     """
     The method computes de conditional probability of a chosen range of ages given it was a particular age
