@@ -1,7 +1,5 @@
 import statistics as st
 import numpy as np
-import math
-
 
 def likelihood_age_two(min_age, max_age):
     category_ranges = []
