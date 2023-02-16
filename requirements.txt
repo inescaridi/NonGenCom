@@ -1,0 +1,8 @@
+aiohttp==3.8.3
+dynaconf==3.1.11
+msal==1.20.0
+pandas==1.5.3
+pydantic==1.10.2
+PyYAML==6.0
+typer==0.6.1
+rich==12.6.0

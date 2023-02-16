@@ -1,0 +1,26 @@
+[default]
+
+BIOLOGICAL_SEX__CONTEXT = """
+Context,prior,prior,prior,prior
+MP,f,m,o,u
+Female bias,"0.8","0.16","0.04",0
+Male bias,"0.16","0.8","0.04",0
+Other bias,"0.25","0.25","0.5",0
+Standard,"0.48","0.48","0.04",0
+Uniform,"0.33","0.33","0.34",0
+"""
+
+BIOLOGICAL_SEX__SCENARIOS = """
+Scenery,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood,Likelihood
+FC,f,f,f,f,pf,pf,pf,pf,m,m,m,m,pm,pm,pm,pm,i,i,i,i
+MP,m,f,o,u,m,f,o,u,m,f,o,u,m,f,o,u,m,f,o,u
+High,"0.0015","0.9025","0.2",NA,"0.0285","0.0475","0.2",NA,"0.9025","0.0015","0.2",NA,"0.0475","0.0285","0.2",NA,"0.02","0.02","0.2",NA
+Medium,"0.008","0.81","0.2",NA,"0.072","0.09","0.2",NA,"0.81","0.008","0.2",NA,"0.09","0.072","0.2",NA,"0.02","0.02","0,2",NA
+Low,"0.036","0.64","0.2",NA,"0.144","0.16","0.2",NA,"0.64","0.036","0.2",NA,"0.16","0.144","0.2",NA,"0.02","0.02","0.2",NA
+Random,"0.2","0.2","0.2",NA,"0.2","0.2","0.2",NA,"0.2","0.2","0.2",NA,"0.2","0.2","0.2",NA,"0.2","0.2","0.2",NA
+Systematic error,"0.38075","0.36125","0.2",NA,"0.17425","0.06375","0.2",NA,"0.36125","0.38075","0.2",NA,"0.06375","0.17425","0.2",NA,"0.02","0.02","0.2",NA
+"""
+
+BIOLOGICAL_SEX__SCORE_COLNAME = "biological_sex_score"
+
+BIOLOGICAL_SEX__MAPPING = {"Indeterminate"="I", "Probable Male"="PM", "Probable Female"="PF", "Male"="M", "Female"="F"}
