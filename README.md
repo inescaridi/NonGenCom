@@ -1,4 +1,4 @@
-# MPDM Admin CLI
+# Resolve CLI
 
 
 
