@@ -4,16 +4,14 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame
 
-from nonGenCom.BiologicalSex import biolsex
-from nonGenCom.Config import Config
+from nonGenCom.BiologicalSex import BiologicalSex
 
 
 class ScoreCalculator:
     def __init__(self):
-        self.config = Config()
-        self.biolsex = None
+        self.biolsex_posterior = None
 
-        self.biolsex_score_colname = 'score_biolsex'
+        self.biolsex_score_colname = 'score_biolsex'  # TODO move to BiologicalSex class
 
     def fc_score_biolsex(self, fc_db: DataFrame, mp_db: DataFrame, context_name: str, scenery_name: str,
                          fc_index_colname: str, fc_biolsex_colname: str, mp_biolsex_colname: str,
@@ -33,13 +31,10 @@ class ScoreCalculator:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        context = self.config.get_context(context_name)  # prior
-        scenery = self.config.get_scenery(scenery_name)  # likelihood
-        print(f"Context: {context_name}\n", context, "\n")
-        print(f"Scenery: {scenery_name}\n", scenery, "\n")
-
-        self.biolsex = biolsex(context, scenery)
-        print("Posterior\n", self.biolsex, "\n")
+        self.biolsex_posterior = BiologicalSex().get_posterior(context_name, scenery_name)
+        print(f"Context: {context_name}")
+        print(f"Scenery: {scenery_name}")
+        print("Posterior\n", self.biolsex_posterior, "\n")
 
         if fc_elements_id is None:
             fc_rows = fc_db.copy()
@@ -62,7 +57,7 @@ class ScoreCalculator:
         merged.index = merged.index.rename(['FC', 'MP'])
 
         # merge with biolsex
-        merged = merged.join(self.biolsex).rename(columns={'posterior': self.biolsex_score_colname})\
+        merged = merged.join(self.biolsex_posterior).rename(columns={'posterior': self.biolsex_score_colname})\
             .reset_index(drop=True)\
             .sort_values(self.biolsex_score_colname, ascending=False)
 

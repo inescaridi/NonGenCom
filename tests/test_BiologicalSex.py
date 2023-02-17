@@ -1,19 +1,16 @@
 from unittest import TestCase
 
-from nonGenCom.BiologicalSex import biolsex
-from nonGenCom.Config import TestConfig
+from nonGenCom.BiologicalSex import BiologicalSex
+from nonGenCom.Utils import load_fc_mp_indexed_file
 
 
 class TestBiologicalSex(TestCase):
 
-    def test_biolsex(self):
-        config = TestConfig()
-        context = config.get_context("Context1")
-        scenery = config.get_scenery("Scenery1")
+    def test_posterior(self):
+        biolsex = BiologicalSex("tests/resources/biolsex_context_examples.csv", "tests/resources/biolsex_scenery_examples.csv")
 
-        expected = config.get_posterior("Posterior1")
-
-        obtained = biolsex(context, scenery)
+        expected = load_fc_mp_indexed_file("tests/resources/biolsex_posterior_examples.csv")["Posterior1"]
+        obtained = biolsex.get_posterior("Context1", "Scenery1")
 
         self.assertEqual(expected.shape, obtained.shape, "different shape")
 

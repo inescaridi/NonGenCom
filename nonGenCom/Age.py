@@ -1,49 +1,69 @@
 import statistics as st
+from typing import List, Tuple
+
 import numpy as np
+import pandas as pd
+from pandas import Series
 
-def likelihood_age_two(min_age, max_age):
-    category_ranges = []
-    for j in range(min_age, max_age - 1):
-        category_ranges.append((j, j + 1))
-    return likelihood_age(min_age, max_age, category_ranges)
-
-
-def likelihood_age(min_age, max_age, category_ranges):
-    """
-    The method computes de conditional probability of a chosen range of ages given it was a particular age
-    or more formally:   P(FC = category | MP = missing_person_age)
-    :param min_age minimum possible age
-    :param max_age maximum possible age
-    :param category_ranges: corresponds to a set of two values, representing a gap of ages (a,b), a < b
-    :param missing_person_age: number between min and max age, representing the actual age of the remains
-    :return:
-    """
-    matrix_shape = (len(category_ranges), max_age - min_age + 1)
-    likelihood_matrix = np.zeros(matrix_shape, float)
-    for missing_person_age in range(min_age, max_age):
-        mu, sigma = missing_person_age, obtain_sigma(missing_person_age, min_age)
-        normal_distribution = st.NormalDist(mu, sigma)
-        lower = normal_distribution.cdf(max_age) - normal_distribution.cdf(min_age)
-
-        category_index = 0
-        for age_limit in category_ranges:
-            upper = normal_distribution.cdf(age_limit[1]) - normal_distribution.cdf(age_limit[0])
-            likelihood_matrix[category_index][missing_person_age] = upper / lower
-            category_index = category_index + 1
-
-    return likelihood_matrix
+from nonGenCom.Variable import Variable
+from nonGenCom.Utils import load_fc_mp_indexed_file
 
 
-def obtain_sigma(age, min_age):
-    """
-    according to age, obtains value of sigma (or variance for normal distribution)
-    :param age
-    :param min_age
-    :return:
-    """
-    if min_age <= age or age <= 1:
-        return 0.5
-    elif 1 < age or age <= 15:
-        return 2
-    else:
-        return 5
+class Age(Variable):
+    def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv",
+                 sceneries_path=None):
+        super().__init__(contexts_path, sceneries_path)
+        self.sigmas = load_fc_mp_indexed_file("nonGenCom/default_inputs/age_sigma.csv")
+
+    def get_posterior(self, context_name: str, scenery_name: str = None) -> Series:
+        prior = self.get_context(context_name)
+        if scenery_name is not None and scenery_name in self.sceneries:
+            likelihood = self.get_scenery(scenery_name)
+        else:
+            min_age, max_age, category_ranges = self._get_config_from_sigmas()
+            likelihood = self.get_likelihood_v1(min_age, max_age, category_ranges)
+
+        return self._calculate_bayes(prior, likelihood)
+
+    def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
+                  ins_pairs: List[str] = None, inw_pairs: List[str] = None):
+        pass
+
+    def get_likelihood_v1(self, min_age: int, max_age: int, category_ranges: dict[str, Tuple[int, int]]) -> Series:
+        """
+        The method computes de conditional probability of a chosen range of ages given it was a particular age
+        or more formally:   P(FC = category | MP = missing_person_age)
+        :param min_age minimum possible age
+        :param max_age maximum possible age
+        :param category_ranges: dict: with category name as key and range as value
+        :return:
+        """
+
+        likelihood = []
+        for category_name, category_range in category_ranges.items():
+            for mp_age in range(min_age, max_age):
+                sigma = float(self.sigmas.loc[category_name, str(mp_age)] if (category_name, str(mp_age)) in self.sigmas.index else 0.5)
+                normal_distribution = st.NormalDist(mp_age, sigma)
+                lower = normal_distribution.cdf(max_age) - normal_distribution.cdf(min_age)
+
+                category_min_age, category_max_age = category_range
+                upper = normal_distribution.cdf(category_max_age) - normal_distribution.cdf(category_min_age)
+                value = upper / lower
+                likelihood.append({'FC': category_name, 'MP': str(mp_age), 'likelihood': value})
+
+        print("likelihood_v1\n", likelihood)  # TODO remove or use logger
+        return pd.DataFrame(likelihood).set_index(['FC', 'MP'])['likelihood']
+
+    def get_likelihood_v2(self, min_age: int, max_age: int):
+        category_ranges = {}
+        for i in range(min_age, max_age - 1):
+            category_ranges[f"Category_{i}"] = (i, i + 1)
+        return self.get_likelihood_v1(min_age, max_age, category_ranges)
+
+    def _get_config_from_sigmas(self) -> tuple[int, int, dict[str, Tuple[int, int]]]:
+        sigmas_no_index = self.sigmas.reset_index()
+        sigmas_no_index['MP'] = sigmas_no_index['MP'].astype(int)
+        min_age, max_age = sigmas_no_index['MP'].min(), sigmas_no_index['MP'].max()
+        cat_range_as_list: dict = sigmas_no_index.groupby('FC').agg({'MP': (min, max)}).T.to_dict('list')
+        return min_age, max_age, {k: tuple(v) for k, v in cat_range_as_list.items()}
+

@@ -1,36 +1,19 @@
 from unittest import TestCase
-from nonGenCom.Age import likelihood_age, likelihood_age_two, obtain_sigma
-import statistics as st
+
+import pandas as pd
+
+from nonGenCom.Age import Age
+
 
 class TestAge(TestCase):
 
-    def test_likelihood_age_without_negative_ages(self):
-        min_age, max_age = 0, 100
-        ranges = [(min_age, 2), (2, 10), (10, 18), (18, 65), (65, max_age)]
-        matrix = likelihood_age(min_age, max_age, ranges)
+    def test_likelihood(self):
+        age_var = Age()  # TODO add context examples for age
 
-        self.assertEqual(matrix.shape, (len(ranges), 101), "Shape of matrix is incorrect")
+        expected = pd.read_csv("tests/resources/age_posterior_v1.csv").set_index(['FC', 'MP'])['likelihood']
+        obtained = age_var.get_posterior("Standard")
 
-        age = 10
-        mu, sigma = age, obtain_sigma(age, min_age)
-        normal_distribution = st.NormalDist(mu, sigma)
-        lower = normal_distribution.cdf(max_age) - normal_distribution.cdf(min_age)
-        upper = normal_distribution.cdf(18) - normal_distribution.cdf(10) #teenage
+        self.assertEqual(expected.shape, obtained.shape, "different shape")
 
-        self.assertEqual(upper/lower, matrix[2][age], "Values obtain are not the same")
-
-
-    def test_likelihood_age_with_negative_ages(self):
-        min_age, max_age = -1, 100
-        ranges = [(min_age, 0), (0, 2), (2, 10), (10, 18), (18, 65), (65, max_age)]
-        matrix = likelihood_age(min_age, max_age, ranges)
-
-        self.assertEqual(matrix.shape, (len(ranges), 102), "Shape of matrix is incorrect")
-
-        age = 10
-        mu, sigma = age, obtain_sigma(age, min_age)
-        normal_distribution = st.NormalDist(mu, sigma)
-        lower = normal_distribution.cdf(max_age) - normal_distribution.cdf(min_age)
-        upper = normal_distribution.cdf(18) - normal_distribution.cdf(10) #teenage
-
-        self.assertEqual(upper/lower, matrix[2][age], "Values obtain are not the same")
+        for fc_value, mp_value in expected.index:
+            self.assertAlmostEqual(expected[fc_value][mp_value], obtained[fc_value][mp_value], msg="different results")
