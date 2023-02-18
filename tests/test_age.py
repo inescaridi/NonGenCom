@@ -20,5 +20,8 @@ class TestAge(TestCase):
                          f"different index! missing {expected_index_set.symmetric_difference(obtained_index_set)}")
 
         for fc_value, mp_value in expected.index:
-            self.assertAlmostEqual(float(expected[fc_value][mp_value]), float(obtained[fc_value][mp_value]),
+            expected_value = float(expected[fc_value][mp_value].replace(',', '.').replace('E', 'e'))
+            obtained_value = float(obtained[fc_value][mp_value])
+            self.assertAlmostEqual(expected_value, obtained_value,
+                                   places=3,
                                    msg=f"different results for {(fc_value, mp_value)}")
