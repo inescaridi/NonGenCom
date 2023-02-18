@@ -66,11 +66,11 @@ class ScoreCalculator:
     @staticmethod
     def _get_biolsex_renames():
         renames = {
-            'Indeterminate': 'I',
-            'Probable Male': 'PM',
-            'Probable Female': 'PF',
-            'Male': 'M',
-            'Female': 'F',
+            'Indeterminate': 'i',
+            'Probable Male': 'pm',
+            'Probable Female': 'pf',
+            'Male': 'm',
+            'Female': 'f',
         }
         # TODO move this to a configuration file
         return renames
