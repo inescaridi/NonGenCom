@@ -11,7 +11,7 @@ class TestAge(TestCase):
         age_var = Age()  # TODO add test context for age
 
         expected = pd.read_csv("tests/resources/age_likelihood_v1.csv", dtype=str).set_index(['FC', 'MP'])['likelihood']
-        min_age, max_age, category_ranges = age_var._get_category_ranges()
+        min_age, max_age, category_ranges = age_var.get_category_ranges()
         obtained = age_var.get_likelihood_v1(min_age, max_age, category_ranges)
 
         expected_index_set = set(expected.index)

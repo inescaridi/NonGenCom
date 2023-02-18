@@ -22,7 +22,7 @@ class Age(Variable):
         if scenery_name is not None and scenery_name in self.sceneries:
             likelihood = self.get_scenery(scenery_name)
         else:
-            min_age, max_age, category_ranges = self._get_category_ranges()
+            min_age, max_age, category_ranges = self.get_category_ranges()
             likelihood = self.get_likelihood_v1(min_age, max_age, category_ranges)
             print("likelihood_v1\n", likelihood)  # TODO remove or use logger
 
@@ -65,7 +65,7 @@ class Age(Variable):
             category_ranges[f"Category_{i}"] = (i, i + 1)
         return self.get_likelihood_v1(min_age, max_age, category_ranges)
 
-    def _get_category_ranges(self) -> tuple[int, int, dict[str, Tuple[int, int]]]:
+    def get_category_ranges(self) -> tuple[int, int, dict[str, Tuple[int, int]]]:
         sigmas_no_index = self.sigmas.reset_index()
         sigmas_no_index['MP'] = sigmas_no_index['MP'].astype(int)
         min_age, max_age = sigmas_no_index['MP'].min(), sigmas_no_index['MP'].max()
