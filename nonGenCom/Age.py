@@ -43,18 +43,20 @@ class Age(Variable):
         """
 
         likelihood = []
-        for category_name, category_range in category_ranges.items():
-            for mp_age in range(min_age, max_age+1):
-                if str(mp_age) not in self.sigmas.index:
-                    print(f"missing {mp_age} in sigma file!")
-                sigma = float(self.sigmas.loc[str(mp_age)])
+        for mp_age in range(min_age, max_age + 1):
+            if str(mp_age) not in self.sigmas.index:
+                print(f"missing {mp_age} in sigma file!")
 
-                normal_distribution = st.NormalDist(mp_age, sigma)
-                lower = normal_distribution.cdf(max_age) - normal_distribution.cdf(min_age)
+            sigma = float(self.sigmas.loc[str(mp_age)])
+            normal_distribution = st.NormalDist(mp_age, sigma)
+            lower = normal_distribution.cdf(max_age) - normal_distribution.cdf(min_age)
 
+            for category_name, category_range in category_ranges.items():
                 category_min_age, category_max_age = category_range
-                upper = normal_distribution.cdf(category_max_age) - normal_distribution.cdf(category_min_age)
+
+                upper = normal_distribution.cdf(min(category_max_age+1, max_age)) - normal_distribution.cdf(category_min_age)
                 value = upper / lower
+
                 likelihood.append({'FC': category_name, 'MP': str(mp_age), 'likelihood': value})
 
         return pd.DataFrame(likelihood).set_index(['FC', 'MP'])['likelihood']
