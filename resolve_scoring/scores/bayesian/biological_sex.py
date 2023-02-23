@@ -7,9 +7,10 @@ from typing import Any
 from .bayesian import BayesianScore
 from ...models.settings import BiologicalSexSettings
 
+
 def parse_float(n: Any) -> float:
     if isinstance(n, str):
-        n = n.replace(',', '.')
+        n = n.replace(",", ".")
     return float(n)
 
 

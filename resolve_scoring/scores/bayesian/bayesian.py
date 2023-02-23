@@ -45,8 +45,10 @@ class BayesianScore(BaseScore):
         df = input_df.copy()
         df = df.set_index([req_colname, src_colname])
         df.index = df.index.rename([self.l_index, self.t_index])
-        df = df.join(self.posterior).rename(
-            columns={"posterior": score_colname}
-        ).reset_index(drop=True)
+        df = (
+            df.join(self.posterior)
+            .rename(columns={"posterior": score_colname})
+            .reset_index(drop=True)
+        )
 
         return df
