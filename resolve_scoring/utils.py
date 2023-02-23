@@ -26,7 +26,7 @@ def print_prometheus_report(registry: CollectorRegistry):
             for sample in metric.samples:
                 if sample.name.endswith("_sum"):
                     table.add_row(
-                        metric.name, metric.documentation, f"{sample.value:.4f}"
+                        metric.name, metric.documentation, f"{round(sample.value, 3):.3f}"
                     )
 
     console.print(table)

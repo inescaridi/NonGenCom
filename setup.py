@@ -52,7 +52,7 @@ setup(
     scripts=[],
     entry_points={
         "console_scripts": [
-            "resolve-scoring-cli = resolve_scoring.main:app",
+            "resolve-scoring-cli = resolve_scoring.cli:app",
         ]
     },
 )
