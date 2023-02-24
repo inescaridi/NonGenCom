@@ -38,9 +38,12 @@ $ resolve-scoring-cli score --help
 # In an activated venv
 $ resolve-scoring-cli score \
     -r "legacy/tests/resources/Database_FC_proof1_ID.csv" \
+    --req-id-field "ID" \
     -s "legacy/tests/resources/Database_MP_proof1_ID.csv" \
     -o "C:\Temp\resolve-out.csv" \
     --biosex-context "Female bias" \
     --biosex-scenario "High" \
+    --biosex-req-field "FC estimate Biological Sex" \
+    --biosex-src-field "Sex" \
     -i "FC-4" -i "FC-8"
 ```

@@ -21,13 +21,19 @@ def print_prometheus_report(registry: CollectorRegistry):
     table.add_column("Step desc.", no_wrap=True)
     table.add_column("Time (s)", no_wrap=True)
 
+    total = 0.
+
     for metric in registry.collect():
         if metric.type == "summary":
             for sample in metric.samples:
                 if sample.name.endswith("_sum"):
+                    total += sample.value
+
                     table.add_row(
-                        metric.name, metric.documentation, f"{round(sample.value, 3):.3f}"
+                        metric.name, metric.documentation, f"{round(sample.value, 3):.3f}",
                     )
+    
+    table.add_row("", "Total", f"{round(total, 3):.3f}", style="bold")
 
     console.print(table)
 
