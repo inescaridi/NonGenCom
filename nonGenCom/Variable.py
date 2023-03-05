@@ -7,6 +7,8 @@ from nonGenCom.Utils import load_contexts, load_sceneries
 
 
 class Variable:
+    DECIMAL_PRECISION = 8
+
     def __init__(self, contexts_path, sceneries_path):
         self.contexts = load_contexts(contexts_path)
         self.sceneries = load_sceneries(sceneries_path) if sceneries_path is not None else pd.DataFrame()
@@ -41,14 +43,9 @@ class Variable:
     def _calculate_bayes(self, prior: Series, likelihood: Series) -> Series:
         likelihood.fillna(0, inplace=True)  # TODO what should we do with NaN values?
 
-        evidence = {}
-        for fc_value, mp_value in likelihood.index:
-            evidence.setdefault(fc_value, 0)
-            evidence[fc_value] += likelihood[fc_value][mp_value] * prior[mp_value]
+        likelihood_x_prior = likelihood.multiply(prior, level=1)
+        evidence = likelihood_x_prior.groupby('FC').sum()
 
-        posterior = []
-        for fc_value, mp_value in likelihood.index:
-            pos_value = round(likelihood[fc_value][mp_value] * prior[mp_value] / evidence[fc_value], 4)
-            posterior.append({'FC': fc_value, 'MP': mp_value, 'posterior': pos_value})
+        posterior = likelihood_x_prior.multiply(evidence ** -1, level=0)
 
-        return pd.DataFrame(posterior).set_index(['FC', 'MP'])['posterior']
+        return posterior
