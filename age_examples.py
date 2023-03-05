@@ -2,16 +2,16 @@ from nonGenCom.AgeV1 import AgeV1
 from nonGenCom.AgeV2 import AgeV2
 
 if __name__ == '__main__':
-    # print("Age V1:")
-    # age_v1 = AgeV1()  # TODO add test context for age
-    #
-    # likelihood_v1 = age_v1.get_likelihood()
-    # print("* Likelihood:\n", likelihood_v1)
-    # likelihood_v1.to_csv("age_example_likelihood_v1.csv")
-    #
-    # posterior = age_v1.get_posterior("Standard")
-    # print("* Posterior:\n", posterior)
-    # posterior.to_csv("age_example_posterior.csv")
+    print("Age V1:")
+    age_v1 = AgeV1()  # TODO add test context for age
+
+    likelihood_v1 = age_v1.get_likelihood()
+    print("* Likelihood:\n", likelihood_v1)
+    likelihood_v1.to_csv("age_example_likelihood_v1.csv")
+
+    posterior = age_v1.get_posterior("Standard")
+    print("* Posterior:\n", posterior)
+    posterior.to_csv("age_example_posterior.csv")
 
     # --------------
     print("\nAge V2:")
