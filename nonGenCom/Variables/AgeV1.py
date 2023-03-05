@@ -3,6 +3,8 @@ from nonGenCom.Utils import load_fc_indexed_file
 
 
 class AgeV1(Age):
+    SCORE_COLNAME = 'age_v1_score'
+
     def __init__(self, category_ranges_path="nonGenCom/default_inputs/age_ranges.csv",
                  contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
@@ -15,7 +17,3 @@ class AgeV1(Age):
         self.max_age = int(ranges_df.age.max())
 
         self.version_name = 'V1'
-
-    @property
-    def score_column_name(self):
-        return 'age_v1_score'

@@ -9,6 +9,8 @@ from nonGenCom.Variables.Variable import Variable
 
 
 class Age(Variable):
+    SCORE_COLNAME = 'SHOULD USE AGE V1 OR V2'
+
     def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv",
                  category_ranges_path="nonGenCom/default_inputs/age_ranges.csv"):
@@ -64,7 +66,3 @@ class Age(Variable):
         # print(f"Age_{self.version_name}\n", likelihood_list)  # TODO remove or use logger
 
         return likelihood
-
-    @property
-    def score_column_name(self):
-        return 'SHOULD USE AGE V1 OR V2'

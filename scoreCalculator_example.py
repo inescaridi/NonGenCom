@@ -10,6 +10,7 @@ if __name__ == '__main__':
     mp_db = pd.read_csv("tests/resources/Database_MP_proof1_ID.csv")
     mp_db['Age'] = mp_db['Age'].astype('Int64')
 
+    # FC-SELECTION
     # remove the last parameter for comparing against whole fc database
     # be careful with matching column renames
     merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-4"])
@@ -22,4 +23,11 @@ if __name__ == '__main__':
 
               )
 
-    result.to_csv("scoreCalculator_example_output.csv", index=False)
+    result['Final Score T1'] = result[BiologicalSex.SCORE_COLNAME] * result[AgeV1.SCORE_COLNAME]
+    result['Final Score T2'] = result[BiologicalSex.SCORE_COLNAME] * result[AgeV2.SCORE_COLNAME]
+
+    result.sort_values('Final Score T2', ascending=False, inplace=True)
+
+    result.to_csv("scoreCalculator_example_fc_select_output.csv", index=False)
+
+    # MP-SELECTION

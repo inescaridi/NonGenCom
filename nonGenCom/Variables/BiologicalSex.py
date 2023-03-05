@@ -6,6 +6,8 @@ from nonGenCom.Variables.Variable import Variable
 
 
 class BiologicalSex(Variable):
+    SCORE_COLNAME = 'biolsex_score'
+
     def __init__(self, contexts_path="nonGenCom/default_inputs/biolsex_contexts.csv",
                  sceneries_path="nonGenCom/default_inputs/biolsex_sceneries.csv"):
         super().__init__(contexts_path, sceneries_path)
@@ -72,10 +74,6 @@ class BiologicalSex(Variable):
                 inw += value
 
         return cos, cow, ins, inw
-
-    @property
-    def score_column_name(self):
-        return 'biolsex_score'
 
     @property
     def renames(self) -> dict[str, str]:
