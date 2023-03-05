@@ -86,3 +86,6 @@ class BiologicalSex(Variable):
         }
         # TODO move this to a configuration file
         return renames
+
+    def get_likelihood(self, scenery_name: str) -> Series:
+        return self.get_scenery(scenery_name)

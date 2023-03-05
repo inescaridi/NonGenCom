@@ -38,7 +38,7 @@ class Age(Variable):
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
         pass
 
-    def get_likelihood(self) -> Series:
+    def get_likelihood(self, scenery_name=None) -> Series:
         """
         The method computes de conditional probability of a chosen range of ages given it was a particular age
         or more formally:   P(FC = category | MP = missing_person_age)

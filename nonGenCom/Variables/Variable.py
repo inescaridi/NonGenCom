@@ -73,7 +73,7 @@ class Variable:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        likelihood = self.get_scenery(scenery_name)
+        likelihood = self.get_likelihood(scenery_name)
         print(f"Scenery: {scenery_name}")
 
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
@@ -106,6 +106,9 @@ class Variable:
     def get_posterior(self, context_name: str, scenery_name: str) -> Series:
         raise NotImplementedError
 
+    def get_likelihood(self, scenery_name: str) -> Series:
+        raise NotImplementedError
+
     def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
         raise NotImplementedError
@@ -117,7 +120,8 @@ class Variable:
         :param context_name: str:
         :return:
         """
-        return self.contexts[context_name]
+        if context_name in self.contexts:
+            return self.contexts[context_name]
 
     def get_scenery(self, scenery_name: str) -> Series:
         """
@@ -126,7 +130,8 @@ class Variable:
         :param scenery_name: str:
         :return:
         """
-        return self.sceneries[scenery_name]
+        if scenery_name in self.sceneries:
+            return self.sceneries[scenery_name]
 
     def _calculate_bayes(self, prior: Series, likelihood: Series) -> Series:
         likelihood.fillna(0, inplace=True)  # TODO what should we do with NaN values?
