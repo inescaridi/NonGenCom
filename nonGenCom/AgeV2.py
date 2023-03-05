@@ -45,7 +45,7 @@ class AgeV2(Age):
         l_categories = self.likelihood.index.get_level_values(0).isin(c_range)
         e_categories = self.evidence.index.get_level_values(0).isin(c_range)
 
-        sum_likelihoods_x_prior = sum(self.likelihood.loc[l_categories & mp_age] * self.prior[mp_age])
+        sum_likelihoods_x_prior = sum(self.likelihood.multiply(self.prior[mp_age], level=1).loc[l_categories & mp_age])
 
         posterior = round(sum_likelihoods_x_prior / sum(self.evidence.loc[e_categories]), self.DECIMAL_PRECISION)
         return posterior
