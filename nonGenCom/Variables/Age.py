@@ -1,16 +1,15 @@
 import statistics as st
-from typing import List, Tuple
+from typing import List
 
 import pandas as pd
 from pandas import Series
 
 from nonGenCom.Utils import load_mp_indexed_file, load_fc_indexed_file
-from nonGenCom.Variable import Variable
+from nonGenCom.Variables.Variable import Variable
 
 
 class Age(Variable):
-    def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv",
-                 sceneries_path=None,
+    def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv",
                  category_ranges_path="nonGenCom/default_inputs/age_ranges.csv"):
         super().__init__(contexts_path, sceneries_path)
@@ -26,7 +25,7 @@ class Age(Variable):
 
     def get_posterior(self, context_name: str, scenery_name: str = None) -> Series:
         prior = self.get_context(context_name)
-        if scenery_name is not None and scenery_name in self.sceneries:
+        if scenery_name is not None and scenery_name != '' and scenery_name in self.sceneries:
             likelihood = self.get_scenery(scenery_name)
         else:
             likelihood = self.get_likelihood()
@@ -65,3 +64,7 @@ class Age(Variable):
         # print(f"Age_{self.version_name}\n", likelihood_list)  # TODO remove or use logger
 
         return likelihood
+
+    @property
+    def score_column_name(self):
+        return 'SHOULD USE AGE V1 OR V2'

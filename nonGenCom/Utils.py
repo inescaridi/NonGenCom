@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional, List
 
 import numpy as np
 import pandas as pd
@@ -58,3 +58,14 @@ def parse_float(n: Any) -> float:
 
 def convert_all_cells_to_float(df: DataFrame) -> None:
     df[:] = np.vectorize(parse_float)(df)
+
+
+def merge_dbs(db1: DataFrame, db2: DataFrame, db1_index_colname: str, db1_suffix: str, db2_suffix: str,
+              db1_elements_id: Optional[List] = None):
+    if db1_elements_id is None:
+        db1_rows = db1.copy()
+    else:
+        db1_rows: DataFrame = db1[db1[db1_index_colname].isin(db1_elements_id)]
+
+    merged_dbs = db1_rows.merge(db2, how='cross', suffixes=(db1_suffix, db2_suffix))
+    return merged_dbs

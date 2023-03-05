@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from nonGenCom.BiologicalSex import BiologicalSex
+from nonGenCom.Variables.BiologicalSex import BiologicalSex
 from nonGenCom.Utils import load_fc_mp_indexed_file
 
 

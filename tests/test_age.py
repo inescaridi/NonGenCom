@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-from nonGenCom.AgeV1 import AgeV1
+from nonGenCom.Variables.AgeV1 import AgeV1
 
 
 class TestAge(TestCase):

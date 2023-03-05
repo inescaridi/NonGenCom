@@ -9,11 +9,33 @@ from nonGenCom.Utils import load_contexts, load_sceneries
 class Variable:
     DECIMAL_PRECISION = 8
 
-    def __init__(self, contexts_path, sceneries_path):
-        self.contexts = load_contexts(contexts_path)
-        self.sceneries = load_sceneries(sceneries_path) if sceneries_path is not None else pd.DataFrame()
+    def __init__(self, contexts_path: str, sceneries_path: str):
+        """
+        :param contexts_path:
+        :param sceneries_path:
+        """
+        self.contexts = pd.DataFrame()
+        self.sceneries = pd.DataFrame()
 
-        # TODO ask: should Variable receive context_name and scenery_name and save all information for next op?
+        if contexts_path is not None:
+            try:
+                self.contexts = load_contexts(contexts_path)
+            except FileNotFoundError:
+                print(f"Contexts file not found: {contexts_path}")
+
+        if sceneries_path is not None:
+            try:
+                self.sceneries = load_sceneries(sceneries_path)
+            except FileNotFoundError:
+                print(f"Sceneries file not found: {sceneries_path}")
+
+    @property
+    def score_column_name(self) -> str:
+        raise NotImplementedError
+
+    @property
+    def renames(self) -> dict[str, str]:
+        return {}
 
     def get_posterior(self, context_name: str, scenery_name: str) -> Series:
         raise NotImplementedError

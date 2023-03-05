@@ -1,4 +1,4 @@
-from nonGenCom.BiologicalSex import BiologicalSex
+from nonGenCom.Variables.BiologicalSex import BiologicalSex
 
 if __name__ == '__main__':
     context_name = "Female bias"

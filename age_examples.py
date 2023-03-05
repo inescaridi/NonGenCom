@@ -1,5 +1,5 @@
-from nonGenCom.AgeV1 import AgeV1
-from nonGenCom.AgeV2 import AgeV2
+from nonGenCom.Variables.AgeV1 import AgeV1
+from nonGenCom.Variables.AgeV2 import AgeV2
 
 if __name__ == '__main__':
     print("Age V1:")

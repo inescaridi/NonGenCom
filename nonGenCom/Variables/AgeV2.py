@@ -1,12 +1,9 @@
-import pandas as pd
-
-from nonGenCom.Age import Age
+from nonGenCom.Variables.Age import Age
 
 
 class AgeV2(Age):
     def __init__(self, min_age: int = -1, max_age: int = 100,
-                 contexts_path="nonGenCom/default_inputs/age_contexts.csv",
-                 sceneries_path=None,
+                 contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
         super().__init__(contexts_path, sceneries_path, sigmas_path)
 
@@ -49,3 +46,7 @@ class AgeV2(Age):
 
         posterior = round(sum_likelihoods_x_prior / sum(self.evidence.loc[e_categories]), self.DECIMAL_PRECISION)
         return posterior
+
+    @property
+    def score_column_name(self):
+        return 'age_v2_score'

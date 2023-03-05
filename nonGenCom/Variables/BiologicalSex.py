@@ -1,26 +1,25 @@
 from typing import List
 
-import pandas as pd
 from pandas import Series
 
-from nonGenCom.Variable import Variable
+from nonGenCom.Variables.Variable import Variable
 
 
 class BiologicalSex(Variable):
     def __init__(self, contexts_path="nonGenCom/default_inputs/biolsex_contexts.csv",
                  sceneries_path="nonGenCom/default_inputs/biolsex_sceneries.csv"):
         super().__init__(contexts_path, sceneries_path)
-        self.score_column_name = 'score_biolsex'
 
-    def get_posterior(self, context_name: str, scenery_name: str) -> Series:
+    def get_posterior(self, context_name: str = None, scenery_name: str = None) -> Series:
         """
-        Computes the the posterior probability (the scores for FC-selection searches) for a given scenery and context.
+        Computes the posterior probability (the scores for FC-selection searches) for a given scenery and context.
         using the biological sex variable, given:
         # TODO update docstring
         :param context_name: representing P(MP= y) (context)
         :param scenery_name: representing P(FC= x | MP= y)  (scenery)
         :return: posterior: Series: representing P(FC=x |MP=y) * P(MP= x) / P(FC= y)
         """
+
         prior = self.get_context(context_name)
         likelihood = self.get_scenery(scenery_name)
         return self._calculate_bayes(prior, likelihood)
@@ -73,3 +72,19 @@ class BiologicalSex(Variable):
                 inw += value
 
         return cos, cow, ins, inw
+
+    @property
+    def score_column_name(self):
+        return 'biolsex_score'
+
+    @property
+    def renames(self) -> dict[str, str]:
+        renames = {
+            'Indeterminate': 'i',
+            'Probable Male': 'pm',
+            'Probable Female': 'pf',
+            'Male': 'm',
+            'Female': 'f',
+        }
+        # TODO move this to a configuration file
+        return renames
