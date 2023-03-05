@@ -8,11 +8,6 @@ from nonGenCom.BiologicalSex import BiologicalSex
 
 
 class ScoreCalculator:
-    def __init__(self):
-        self.biolsex_posterior = None
-
-        self.biolsex_score_colname = 'score_biolsex'  # TODO move to BiologicalSex class
-
     def fc_score_biolsex(self, fc_db: DataFrame, mp_db: DataFrame, context_name: str, scenery_name: str,
                          fc_index_colname: str, fc_biolsex_colname: str, mp_biolsex_colname: str,
                          fc_elements_id: Optional[List] = None) -> DataFrame:
@@ -31,7 +26,8 @@ class ScoreCalculator:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        self.biolsex_posterior = BiologicalSex().get_posterior(context_name, scenery_name)
+        biolsex_var = BiologicalSex()
+        self.biolsex_posterior = biolsex_var.get_posterior(context_name, scenery_name)
         print(f"Context: {context_name}")
         print(f"Scenery: {scenery_name}")
         print("Posterior\n", self.biolsex_posterior, "\n")
@@ -41,7 +37,7 @@ class ScoreCalculator:
         else:
             fc_rows: DataFrame = fc_db[fc_db[fc_index_colname].isin(fc_elements_id)]
 
-        merged = fc_rows.merge(mp_db, how='cross', suffixes=('_FC', '_MP'))
+        merged_dbs = fc_rows.merge(mp_db, how='cross', suffixes=('_FC', '_MP'))
 
         # BIOLSEX SCORE CALCULATION
         if fc_biolsex_colname == mp_biolsex_colname:  # there can be a collision on merge
@@ -49,19 +45,19 @@ class ScoreCalculator:
             mp_biolsex_colname += '_MP'
 
         # create new FC and MP biological sex columns according to the renaming dict returned by _get_biolsex_renames
-        merged['fc_biolsex_index_aux'] = merged[fc_biolsex_colname].map(self._get_biolsex_renames())
-        merged['mp_biolsex_index_aux'] = merged[mp_biolsex_colname].map(self._get_biolsex_renames())
+        merged_dbs['fc_biolsex_index_aux'] = merged_dbs[fc_biolsex_colname].map(self._get_biolsex_renames())
+        merged_dbs['mp_biolsex_index_aux'] = merged_dbs[mp_biolsex_colname].map(self._get_biolsex_renames())
 
         # set the same index as biolsex
-        merged = merged.set_index(['fc_biolsex_index_aux', 'mp_biolsex_index_aux'])
-        merged.index = merged.index.rename(['FC', 'MP'])
+        merged_dbs = merged_dbs.set_index(['fc_biolsex_index_aux', 'mp_biolsex_index_aux'])
+        merged_dbs.index = merged_dbs.index.rename(['FC', 'MP'])
 
         # merge with biolsex
-        merged = merged.join(self.biolsex_posterior).rename(columns={'posterior': self.biolsex_score_colname})\
+        merged_dbs = merged_dbs.join(self.biolsex_posterior.rename(biolsex_var.score_column_name))\
             .reset_index(drop=True)\
-            .sort_values(self.biolsex_score_colname, ascending=False)
+            .sort_values(biolsex_var.score_column_name, ascending=False)
 
-        return merged
+        return merged_dbs
 
     @staticmethod
     def _get_biolsex_renames():

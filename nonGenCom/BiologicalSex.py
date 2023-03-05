@@ -10,6 +10,7 @@ class BiologicalSex(Variable):
     def __init__(self, contexts_path="nonGenCom/default_inputs/biolsex_contexts.csv",
                  sceneries_path="nonGenCom/default_inputs/biolsex_sceneries.csv"):
         super().__init__(contexts_path, sceneries_path)
+        self.score_column_name = 'score_biolsex'
 
     def get_posterior(self, context_name: str, scenery_name: str) -> Series:
         """
