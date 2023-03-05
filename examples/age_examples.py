@@ -7,11 +7,11 @@ if __name__ == '__main__':
 
     likelihood_v1 = age_v1.get_likelihood()
     print("* Likelihood:\n", likelihood_v1)
-    likelihood_v1.to_csv("age_example_likelihood_v1.csv")
+    likelihood_v1.to_csv("examples/age_example_likelihood_v1.csv")
 
     posterior = age_v1.get_posterior("Standard")
     print("* Posterior:\n", posterior)
-    posterior.to_csv("age_example_posterior.csv")
+    posterior.to_csv("examples/age_example_posterior.csv")
 
     # --------------
     print("\nAge V2:")
@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     likelihood_v2 = age_v2.get_likelihood()
     print("* Likelihood v2:\n", likelihood_v2)
-    likelihood_v2.to_csv("age_example_likelihood_v2.csv")
+    likelihood_v2.to_csv("examples/age_example_likelihood_v2.csv")
 
     age_v2.set_context('Standard')
 

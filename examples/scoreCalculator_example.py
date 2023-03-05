@@ -6,8 +6,8 @@ from nonGenCom.Variables.AgeV2 import AgeV2
 from nonGenCom.Variables.BiologicalSex import BiologicalSex
 
 if __name__ == '__main__':
-    fc_db = pd.read_csv("tests/resources/Database_FC_proof1_ID.csv")
-    mp_db = pd.read_csv("tests/resources/Database_MP_proof1_ID.csv")
+    fc_db = pd.read_csv("../tests/resources/Database_FC_proof1_ID.csv")
+    mp_db = pd.read_csv("../tests/resources/Database_MP_proof1_ID.csv")
     mp_db['Age'] = mp_db['Age'].astype('Int64')
 
     # FC-SELECTION
@@ -28,6 +28,6 @@ if __name__ == '__main__':
 
     result.sort_values('Final Score T2', ascending=False, inplace=True)
 
-    result.to_csv("scoreCalculator_example_fc_select_output.csv", index=False)
+    result.to_csv("examples/scoreCalculator_example_fc_select_output.csv", index=False)
 
     # MP-SELECTION
