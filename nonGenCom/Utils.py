@@ -5,6 +5,11 @@ import pandas as pd
 from pandas import DataFrame
 
 
+# CONSTANTS
+FC_INDEX_NAME = 'FC_i'
+MP_INDEX_NAME = 'MP_i'
+
+
 def load_fc_mp_indexed_file(path, to_upper=False):
     res_aux = pd.read_csv(path, header=None, dtype=str).transpose()  # dtype=str is for int/float indexes in FC or MP
     # check for order and names of FC and MP
@@ -14,28 +19,30 @@ def load_fc_mp_indexed_file(path, to_upper=False):
     if to_upper:
         res_aux[0] = res_aux[0].str.upper()
         res_aux[1] = res_aux[1].str.upper()
-    result = res_aux.drop(index=0).set_axis(scen_columns, axis=1).set_index(['FC', 'MP'])
+    result = res_aux.drop(index=0).set_axis(scen_columns, axis=1).rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
+        .set_index([FC_INDEX_NAME, MP_INDEX_NAME])
     convert_all_cells_to_float(result)
     return result
 
 
-def _load_one_indexed_file(path, index_name, to_upper=False):
+def _load_one_indexed_file(path, original_index, new_index_name, to_upper=False):
     res_aux = pd.read_csv(path, header=None, dtype=str).transpose()  # dtype=str is for int/float indexes in MP
     if to_upper:
         res_aux[0] = res_aux[0].str.upper()
     cont_columns = res_aux.iloc[0]
 
-    result = res_aux.drop(index=0).set_axis(cont_columns, axis=1).set_index(index_name)
+    result = res_aux.drop(index=0).set_axis(cont_columns, axis=1).rename(columns={original_index: new_index_name})\
+        .set_index(new_index_name)
     convert_all_cells_to_float(result)
     return result
 
 
 def load_mp_indexed_file(path):
-    return _load_one_indexed_file(path, 'MP')
+    return _load_one_indexed_file(path, 'MP', MP_INDEX_NAME)
 
 
 def load_fc_indexed_file(path):
-    return _load_one_indexed_file(path, 'FC')
+    return _load_one_indexed_file(path, 'FC', FC_INDEX_NAME)
 
 
 def load_contexts(contexts_path):

@@ -2,6 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
+from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME
 from nonGenCom.Variables.AgeV1 import AgeV1
 
 
@@ -10,7 +11,9 @@ class TestAge(TestCase):
     def test_likelihood_v1(self):
         age_var = AgeV1()  # TODO add test context for age
 
-        expected = pd.read_csv("tests/resources/age_likelihood_v1.csv", dtype=str).set_index(['FC', 'MP'])['likelihood']
+        expected = pd.read_csv("tests/resources/age_likelihood_v1.csv", dtype=str)\
+            .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
+            .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
         obtained = age_var.get_likelihood()
 
         expected_index_set = set(expected.index)

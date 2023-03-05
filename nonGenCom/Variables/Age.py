@@ -4,7 +4,7 @@ from typing import List
 import pandas as pd
 from pandas import Series
 
-from nonGenCom.Utils import load_mp_indexed_file, load_fc_indexed_file
+from nonGenCom.Utils import load_mp_indexed_file, load_fc_indexed_file, FC_INDEX_NAME, MP_INDEX_NAME
 from nonGenCom.Variables.Variable import Variable
 
 
@@ -17,7 +17,7 @@ class Age(Variable):
 
         # default values
         ranges_df = load_fc_indexed_file(category_ranges_path)
-        self.category_ranges = ranges_df.groupby('FC').agg({'age': (min, max)})['age'].apply(tuple, axis=1).to_dict()
+        self.category_ranges = ranges_df.groupby(FC_INDEX_NAME).agg({'age': (min, max)})['age'].apply(tuple, axis=1).to_dict()
         self.category_ranges_for_likelihood = {}
         self.min_age: int = -1
         self.max_age: int = 100
@@ -58,9 +58,9 @@ class Age(Variable):
                 upper = normal_distribution.cdf(min(category_max_age+1, self.max_age)) - normal_distribution.cdf(category_min_age)
                 value = upper / lower
 
-                likelihood_list.append({'FC': category_name, 'MP': str(mp_age), 'likelihood': value})
+                likelihood_list.append({FC_INDEX_NAME: category_name, MP_INDEX_NAME: str(mp_age), 'likelihood': value})
 
-        likelihood = pd.DataFrame(likelihood_list).set_index(['FC', 'MP'])['likelihood']
+        likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
         # print(f"Age_{self.version_name}\n", likelihood_list)  # TODO remove or use logger
 
         return likelihood
