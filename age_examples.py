@@ -1,7 +1,7 @@
-from nonGenCom.Age import Age
+from nonGenCom.AgeV1 import AgeV1
 
 if __name__ == '__main__':
-    age_var = Age()  # TODO add test context for age
+    age_var = AgeV1()  # TODO add test context for age
 
     min_age, max_age, category_ranges = age_var.get_category_ranges()
 

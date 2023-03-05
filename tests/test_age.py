@@ -2,17 +2,16 @@ from unittest import TestCase
 
 import pandas as pd
 
-from nonGenCom.Age import Age
+from nonGenCom.AgeV1 import AgeV1
 
 
 class TestAge(TestCase):
 
-    def test_likelihood(self):
-        age_var = Age()  # TODO add test context for age
+    def test_likelihood_v1(self):
+        age_var = AgeV1()  # TODO add test context for age
 
         expected = pd.read_csv("tests/resources/age_likelihood_v1.csv", dtype=str).set_index(['FC', 'MP'])['likelihood']
-        min_age, max_age, category_ranges = age_var.get_category_ranges()
-        obtained = age_var.get_likelihood_v1(min_age, max_age, category_ranges)
+        obtained = age_var.get_likelihood()
 
         expected_index_set = set(expected.index)
         obtained_index_set = set(expected.index)
