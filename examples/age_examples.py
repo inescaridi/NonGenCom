@@ -27,3 +27,10 @@ if __name__ == '__main__':
     mp_age = 35
     posterior = age_v2.get_posterior_for_case(fc_category, mp_age)
     print(f"* Posterior for case fc_category {fc_category} and mp_age {mp_age}:\n", posterior)
+
+    ## for testing only
+    from_age = 15
+    to_age = 24
+    mp_age = 25
+    posterior = age_v2._get_posterior_for_case_in_range(from_age, to_age, mp_age)
+    print(f"* Posterior for case in range {fc_category} and mp_age {mp_age}:\n", posterior)

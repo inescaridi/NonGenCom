@@ -57,7 +57,14 @@ class AgeV2(Age):
                 return self.posteriors[fc_category][mp_age]
 
         min_v, max_v = self.category_ranges[fc_category]
-        c_range = range(int(min_v), int(max_v) + 1)
+        posterior = self._get_posterior_for_case_in_range(min_v, max_v, mp_age)
+        print(f"AgeV2 Posterior for case FC: {fc_category}, MP: {mp_age} is {posterior}")
+
+        self.posteriors.setdefault(fc_category, {})[mp_age] = posterior
+        return posterior
+
+    def _get_posterior_for_case_in_range(self, from_age: int, to_age: int, mp_age: int) -> float:
+        c_range = range(int(from_age), int(to_age) + 1)
 
         l_categories = self.likelihood.index.get_level_values(0).isin(c_range)
         e_categories = self.evidence.index.get_level_values(0).isin(c_range)
@@ -65,9 +72,6 @@ class AgeV2(Age):
         sum_likelihoods_x_prior = sum(self.likelihood.multiply(self.prior[mp_age], level=1).loc[l_categories & mp_age])
 
         posterior = round(sum_likelihoods_x_prior / sum(self.evidence.loc[e_categories]), self.DECIMAL_PRECISION)
-        print(f"AgeV2 Posterior for case FC: {fc_category}, MP: {mp_age} is {posterior}")
-
-        self.posteriors.setdefault(fc_category, {})[mp_age] = posterior
         return posterior
 
     def add_score_fc_by_apply(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
