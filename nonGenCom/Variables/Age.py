@@ -18,9 +18,7 @@ class Age(Variable):
         self.sigmas = load_mp_indexed_file(sigmas_path)
 
         # default values
-        ranges_df = load_fc_indexed_file(category_ranges_path)
-        self.category_ranges = ranges_df.groupby(FC_INDEX_NAME).agg({'age': (min, max)})['age'].apply(tuple, axis=1).to_dict()
-        self.category_ranges_for_likelihood = {}
+        self.category_ranges = {}
         self.min_age: int = -1
         self.max_age: int = 100
         self.version_name = 'BASE'
@@ -54,7 +52,7 @@ class Age(Variable):
             normal_distribution = st.NormalDist(mp_age, sigma)
             lower = normal_distribution.cdf(self.max_age) - normal_distribution.cdf(self.min_age)
 
-            for category_name, category_range in self.category_ranges_for_likelihood.items():
+            for category_name, category_range in self.category_ranges.items():
                 category_min_age, category_max_age = category_range
 
                 upper = normal_distribution.cdf(min(category_max_age+1, self.max_age)) - normal_distribution.cdf(category_min_age)
@@ -65,4 +63,4 @@ class Age(Variable):
         likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
         # print(f"Age_{self.version_name}\n", likelihood_list)  # TODO remove or use logger
 
-        return likelihood
+        return likelihood.astype(float).round(self.DECIMAL_PRECISION)

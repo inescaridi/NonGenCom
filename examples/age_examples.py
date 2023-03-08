@@ -23,14 +23,11 @@ if __name__ == '__main__':
 
     age_v2.set_context('Standard')
 
-    fc_category = 'Adult'
+    fc_min_age = 18
+    fc_max_age = 64
     mp_age = 35
-    posterior = age_v2.get_posterior_for_case(fc_category, mp_age)
-    print(f"* Posterior for case fc_category {fc_category} and mp_age {mp_age}:\n", posterior)
+    posterior = age_v2.get_posterior_for_case(fc_min_age, fc_max_age, mp_age)
+    print(f"* Posterior for case fc range ({fc_min_age}, {fc_max_age}) and mp_age {mp_age}:\n", posterior)
 
-    ## for testing only
-    from_age = 15
-    to_age = 24
-    mp_age = 25
-    posterior = age_v2._get_posterior_for_case_in_range(from_age, to_age, mp_age)
-    print(f"* Posterior for case in range {fc_category} and mp_age {mp_age}:\n", posterior)
+    # for testing only
+    print(f"* Evidence: {age_v2.evidence}")

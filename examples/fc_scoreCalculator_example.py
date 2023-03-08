@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # FC-SELECTION
     # remove the last parameter for comparing against whole fc database
     # be careful with matching column renames
-    merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-4"])
+    merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-1024", "FC-1063"])
     # merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-4", "FC-149", "FC-233", "FC-354", "FC-573", "FC-991"])
 
     result = (merged_dbs

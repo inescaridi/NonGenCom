@@ -32,5 +32,17 @@ class TestAge(TestCase):
     def test_posterior_v2(self):
         age_v2 = AgeV2()
         age_v2.set_context('Standard')
-        posterior = age_v2.get_posterior_for_case('Adult', 35)
-        self.assertEqual(219.34608484, posterior)
+        posterior = age_v2.get_posterior_for_case(18, 64, 35)
+        self.assertEqual(0.46055822, age_v2._get_evidence_for_range(range(18, 65)))
+        self.assertEqual(0.99931286, posterior)
+
+    def test_evidence_v2(self):
+        age_v2 = AgeV2()
+        age_v2.set_context('Standard')
+
+        expected = pd.read_csv("tests/resources/age_evidence_v2.csv").set_index('FC')['Evidence']
+        obtained = age_v2.get_evidence()
+
+        for fc_value in expected.index:
+            self.assertAlmostEqual(expected.loc[fc_value], obtained.loc[fc_value],
+                                   msg=f"different results for {fc_value}")

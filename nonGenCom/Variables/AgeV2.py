@@ -1,4 +1,5 @@
 from optparse import Option
+from typing import Any
 
 import pandas as pd
 from pandas import DataFrame
@@ -19,9 +20,9 @@ class AgeV2(Age):
         self.max_age = max_age
 
         category_ranges = {}
-        for i in range(self.min_age, self.max_age - 1):
-            category_ranges[i] = (i, i + 1)
-        self.category_ranges_for_likelihood = category_ranges
+        for i in range(self.min_age, self.max_age):
+            category_ranges[i] = (i, i)
+        self.category_ranges = category_ranges
 
         self.version_name = 'V2'
 
@@ -36,43 +37,45 @@ class AgeV2(Age):
     def set_context(self, context_name):
         self.prior = self.get_context(context_name)
 
-    def get_posterior_for_case(self, fc_category: str, mp_age: int) -> float:
+    def get_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_age: int) -> float | None:
         if pd.isna(mp_age):
             return None
 
+        key = (fc_min_age, fc_max_age)
+        if key in self.posteriors:
+            if mp_age in self.posteriors[key]:
+                return self.posteriors[key][mp_age]
+
+        from_age = fc_min_age if not pd.isna(fc_min_age) else self.min_age
+        to_age = fc_max_age if not pd.isna(fc_max_age) else self.max_age
+
+        fc_age_range = range(from_age, to_age)
+
+        l_filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
+                   (self.likelihood.index.get_level_values(1) == str(mp_age))
+
+        sum_likelihoods_x_prior = sum(self.likelihood.loc[l_filter]) * self.prior[mp_age]
+
+        posterior = round(sum_likelihoods_x_prior / self._get_evidence_for_range(fc_age_range), self.DECIMAL_PRECISION)
+
+        self.posteriors.setdefault(key, {})[mp_age] = posterior
+        return posterior
+
+    def _get_evidence_for_range(self, fc_age_range: range):
+        evidence = self.get_evidence()
+        e_filter = evidence.index.get_level_values(0).isin(fc_age_range)
+        return round(sum(evidence.loc[e_filter]), self.DECIMAL_PRECISION)
+
+    def get_evidence(self):
         if self.evidence is None:
             if self.prior is None:
                 print("WARNING context not setted")
-            print(f"Calculating evidence")
+            print("Calculating evidence")
 
             likelihood_x_prior = self.likelihood.multiply(self.prior, level=1)
             self.evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
-
-            # change FC index to int
-            idx = self.likelihood.index
-            self.likelihood.index = self.likelihood.index.set_levels(idx.levels[0].astype(int), level=0)
-
-        if fc_category in self.posteriors:
-            if mp_age in self.posteriors[fc_category]:
-                return self.posteriors[fc_category][mp_age]
-
-        min_v, max_v = self.category_ranges[fc_category]
-        posterior = self._get_posterior_for_case_in_range(min_v, max_v, mp_age)
-        print(f"AgeV2 Posterior for case FC: {fc_category}, MP: {mp_age} is {posterior}")
-
-        self.posteriors.setdefault(fc_category, {})[mp_age] = posterior
-        return posterior
-
-    def _get_posterior_for_case_in_range(self, from_age: int, to_age: int, mp_age: int) -> float:
-        c_range = range(int(from_age), int(to_age) + 1)
-
-        l_categories = self.likelihood.index.get_level_values(0).isin(c_range)
-        e_categories = self.evidence.index.get_level_values(0).isin(c_range)
-
-        sum_likelihoods_x_prior = sum(self.likelihood.multiply(self.prior[mp_age], level=1).loc[l_categories & mp_age])
-
-        posterior = round(sum_likelihoods_x_prior / sum(self.evidence.loc[e_categories]), self.DECIMAL_PRECISION)
-        return posterior
+            print("Done")
+        return self.evidence
 
     def add_score_fc_by_apply(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
                               fc_value_colname: str, mp_value_colname: str) -> DataFrame:
@@ -81,7 +84,7 @@ class AgeV2(Age):
         print(f"Scenery: {scenery_name}")
 
         merged_dbs[self.SCORE_COLNAME] = merged_dbs.apply(
-            lambda row: self.get_posterior_for_case(row[fc_value_colname], row[mp_value_colname]), axis=1
+            lambda row: self.get_posterior_for_case(row[fc_value_colname], 0, row[mp_value_colname]), axis=1
         )
 
         merged_dbs = merged_dbs.reset_index(drop=True)\

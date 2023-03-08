@@ -1,1075 +1,1075 @@
-,FC,FC Age Category,FC estimate Biological Sex,ID
-0,"157,0000",Infant,Indeterminate,FC-1
-1,"158,0000",Infant,Indeterminate,FC-2
-2,"16,0000",Infant,Indeterminate,FC-3
-3,"100,0000",Infant,Indeterminate,FC-4
-4,"32,0000",Infant,Indeterminate,FC-5
-5,"40,0000",Infant,Indeterminate,FC-6
-6,"110,0000",Infant,Indeterminate,FC-7
-7,"159,0000",Infant,Indeterminate,FC-8
-8,"54,0000",Infant,Indeterminate,FC-9
-9,"141,0000",Infant,Indeterminate,FC-10
-10,"77,0000",Infant,Indeterminate,FC-11
-11,"133,0000",Infant,Indeterminate,FC-12
-12,"130,0000",Infant,Indeterminate,FC-13
-13,"174,0000",Infant,Indeterminate,FC-14
-14,"17,0000",Infant,Indeterminate,FC-15
-15,"66,0000",Infant,Indeterminate,FC-16
-16,"164,0000",Infant,Indeterminate,FC-17
-17,"78,0000",Infant,Indeterminate,FC-18
-18,"170,0000",Infant,Indeterminate,FC-19
-19,"44,0000",Infant,Indeterminate,FC-20
-20,"120,0000",Infant,Indeterminate,FC-21
-21,"153,0000",Infant,Indeterminate,FC-22
-22,"26,0000",Infant,Indeterminate,FC-23
-23,"106,0000",Infant,Indeterminate,FC-24
-24,"62,0000",Infant,Indeterminate,FC-25
-25,"68,0000",Infant,Indeterminate,FC-26
-26,"131,0000",Infant,Indeterminate,FC-27
-27,"12,0000",Infant,Indeterminate,FC-28
-28,"140,0000",Infant,Indeterminate,FC-29
-29,"60,0000",Infant,Indeterminate,FC-30
-30,"90,0000",Infant,Indeterminate,FC-31
-31,"156,0000",Infant,Indeterminate,FC-32
-32,"80,0000",Infant,Indeterminate,FC-33
-33,"37,0000",Infant,Indeterminate,FC-34
-34,"86,0000",Infant,Indeterminate,FC-35
-35,"104,0000",Infant,Indeterminate,FC-36
-36,"14,0000",Child,Indeterminate,FC-37
-37,"9,0000",Child,Indeterminate,FC-38
-38,"135,0000",Child,Indeterminate,FC-39
-39,"84,0000",Child,Indeterminate,FC-40
-40,"96,0000",Child,Indeterminate,FC-41
-41,"21,0000",Child,Indeterminate,FC-42
-42,"71,0000",Child,Indeterminate,FC-43
-43,"3,0000",Child,Indeterminate,FC-44
-44,"115,0000",Child,Indeterminate,FC-45
-45,"167,0000",Child,Indeterminate,FC-46
-46,"41,0000",Child,Indeterminate,FC-47
-47,"166,0000",Child,Indeterminate,FC-48
-48,"8,0000",Child,Indeterminate,FC-49
-49,"121,0000",Child,Indeterminate,FC-50
-50,"1,0000",Child,Indeterminate,FC-51
-51,"162,0000",Child,Indeterminate,FC-52
-52,"125,0000",Child,Indeterminate,FC-53
-53,"19,0000",Child,Indeterminate,FC-54
-54,"20,0000",Child,Indeterminate,FC-55
-55,"69,0000",Child,Indeterminate,FC-56
-56,"6,0000",Child,Indeterminate,FC-57
-57,"28,0000",Child,Indeterminate,FC-58
-58,"107,0000",Child,Indeterminate,FC-59
-59,"76,0000",Child,Indeterminate,FC-60
-60,"95,0000",Child,Indeterminate,FC-61
-61,"74,0000",Child,Indeterminate,FC-62
-62,"5,0000",Child,Indeterminate,FC-63
-63,"145,0000",Child,Indeterminate,FC-64
-64,"11,0000",Child,Indeterminate,FC-65
-65,"15,0000",Child,Indeterminate,FC-66
-66,"45,0000",Child,Indeterminate,FC-67
-67,"55,0000",Child,Indeterminate,FC-68
-68,"48,0000",Child,Indeterminate,FC-69
-69,"117,0000",Child,Indeterminate,FC-70
-70,"75,0000",Child,Indeterminate,FC-71
-71,"108,0000",Child,Indeterminate,FC-72
-72,"143,0000",Child,Indeterminate,FC-73
-73,"59,0000",Child,Indeterminate,FC-74
-74,"94,0000",Child,Indeterminate,FC-75
-75,"36,0000",Child,Indeterminate,FC-76
-76,"73,0000",Child,Indeterminate,FC-77
-77,"169,0000",Child,Indeterminate,FC-78
-78,"172,0000",Child,Indeterminate,FC-79
-79,"138,0000",Child,Indeterminate,FC-80
-80,"175,0000",Child,Indeterminate,FC-81
-81,"173,0000",Child,Indeterminate,FC-82
-82,"151,0000",Child,Indeterminate,FC-83
-83,"113,0000",Child,Indeterminate,FC-84
-84,"87,0000",Child,Indeterminate,FC-85
-85,"128,0000",Child,Indeterminate,FC-86
-86,"23,0000",Child,Indeterminate,FC-87
-87,"56,0000",Child,Indeterminate,FC-88
-88,"127,0000",Child,Indeterminate,FC-89
-89,"10,0000",Child,Indeterminate,FC-90
-90,"27,0000",Child,Indeterminate,FC-91
-91,"29,0000",Child,Indeterminate,FC-92
-92,"63,0000",Child,Indeterminate,FC-93
-93,"155,0000",Child,Indeterminate,FC-94
-94,"35,0000",Child,Indeterminate,FC-95
-95,"82,0000",Child,Indeterminate,FC-96
-96,"91,0000",Child,Indeterminate,FC-97
-97,"171,0000",Child,Indeterminate,FC-98
-98,"161,0000",Child,Indeterminate,FC-99
-99,"126,0000",Child,Indeterminate,FC-100
-100,"89,0000",Child,Indeterminate,FC-101
-101,"61,0000",Child,Indeterminate,FC-102
-102,"7,0000",Child,Indeterminate,FC-103
-103,"101,0000",Child,Indeterminate,FC-104
-104,"124,0000",Child,Indeterminate,FC-105
-105,"99,0000",Child,Indeterminate,FC-106
-106,"142,0000",Child,Indeterminate,FC-107
-107,"148,0000",Child,Indeterminate,FC-108
-108,"147,0000",Child,Indeterminate,FC-109
-109,"47,0000",Child,Indeterminate,FC-110
-110,"43,0000",Child,Indeterminate,FC-111
-111,"116,0000",Child,Indeterminate,FC-112
-112,"122,0000",Child,Indeterminate,FC-113
-113,"93,0000",Child,Indeterminate,FC-114
-114,"2,0000",Child,Indeterminate,FC-115
-115,"4,0000",Child,Indeterminate,FC-116
-116,"152,0000",Child,Indeterminate,FC-117
-117,"165,0000",Child,Indeterminate,FC-118
-118,"92,0000",Child,Indeterminate,FC-119
-119,"114,0000",Child,Indeterminate,FC-120
-120,"22,0000",Child,Indeterminate,FC-121
-121,"65,0000",Child,Indeterminate,FC-122
-122,"112,0000",Child,Indeterminate,FC-123
-123,"85,0000",Child,Indeterminate,FC-124
-124,"149,0000",Child,Indeterminate,FC-125
-125,"57,0000",Child,Indeterminate,FC-126
-126,"123,0000",Child,Indeterminate,FC-127
-127,"53,0000",Child,Indeterminate,FC-128
-128,"39,0000",Child,Indeterminate,FC-129
-129,"129,0000",Child,Indeterminate,FC-130
-130,"51,0000",Child,Indeterminate,FC-131
-131,"119,0000",Child,Indeterminate,FC-132
-132,"30,0000",Child,Indeterminate,FC-133
-133,"33,0000",Child,Indeterminate,FC-134
-134,"118,0000",Child,Indeterminate,FC-135
-135,"24,0000",Child,Indeterminate,FC-136
-136,"67,0000",Child,Indeterminate,FC-137
-137,"109,0000",Child,Indeterminate,FC-138
-138,"168,0000",Child,Indeterminate,FC-139
-139,"163,0000",Child,Indeterminate,FC-140
-140,"139,0000",Child,Indeterminate,FC-141
-141,"160,0000",Child,Indeterminate,FC-142
-142,"137,0000",Child,Indeterminate,FC-143
-143,"18,0000",Child,Indeterminate,FC-144
-144,"88,0000",Child,Indeterminate,FC-145
-145,"98,0000",Child,Indeterminate,FC-146
-146,"81,0000",Child,Indeterminate,FC-147
-147,"50,0000",Child,Indeterminate,FC-148
-148,"49,0000",Child,Indeterminate,FC-149
-149,"52,0000",Child,Indeterminate,FC-150
-150,"46,0000",Adolescent,Probable Male,FC-151
-151,"83,0000",Adolescent,Indeterminate,FC-152
-152,"25,0000",Adolescent,Indeterminate,FC-153
-153,"102,0000",Adolescent,Indeterminate,FC-154
-154,"72,0000",Adolescent,Probable Female,FC-155
-155,"150,0000",Adolescent,Indeterminate,FC-156
-156,"136,0000",Adolescent,Indeterminate,FC-157
-157,"97,0000",Adolescent,Indeterminate,FC-158
-158,"105,0000",Adolescent,Indeterminate,FC-159
-159,"132,0000",Adolescent,Indeterminate,FC-160
-160,"154,0000",Adolescent,Indeterminate,FC-161
-161,"134,0000",Adolescent,Indeterminate,FC-162
-162,"13,0000",Adolescent,Indeterminate,FC-163
-163,"31,0000",Adolescent,Indeterminate,FC-164
-164,"34,0000",Adolescent,Probable Male,FC-165
-165,"42,0000",Adolescent,Indeterminate,FC-166
-166,"70,0000",Adolescent,Indeterminate,FC-167
-167,"38,0000",Adolescent,Probable Male,FC-168
-168,"146,0000",Adolescent,Indeterminate,FC-169
-169,"64,0000",Adolescent,Indeterminate,FC-170
-170,"58,0000",Adolescent,Indeterminate,FC-171
-171,"111,0000",Adolescent,Indeterminate,FC-172
-172,"79,0000",Adolescent,Indeterminate,FC-173
-173,"103,0000",Adolescent,Indeterminate,FC-174
-174,"144,0000",Adolescent,Indeterminate,FC-175
-175,"358,0000",Adolescent,Indeterminate,FC-176
-176,"205,0000",Adolescent,Indeterminate,FC-177
-177,"235,0000",Adolescent,Indeterminate,FC-178
-178,"302,0000",Adolescent,Indeterminate,FC-179
-179,"356,0000",Adolescent,Probable Female,FC-180
-180,"367,0000",Adolescent,Indeterminate,FC-181
-181,"345,0000",Adolescent,Indeterminate,FC-182
-182,"388,0000",Adolescent,Indeterminate,FC-183
-183,"213,0000",Adolescent,Indeterminate,FC-184
-184,"227,0000",Adolescent,Indeterminate,FC-185
-185,"289,0000",Adolescent,Indeterminate,FC-186
-186,"316,0000",Adolescent,Indeterminate,FC-187
-187,"176,0000",Adolescent,Indeterminate,FC-188
-188,"201,0000",Adolescent,Indeterminate,FC-189
-189,"311,0000",Adolescent,Indeterminate,FC-190
-190,"351,0000",Adolescent,Indeterminate,FC-191
-191,"353,0000",Adolescent,Probable Male,FC-192
-192,"382,0000",Adolescent,Indeterminate,FC-193
-193,"346,0000",Adolescent,Indeterminate,FC-194
-194,"375,0000",Adolescent,Indeterminate,FC-195
-195,"261,0000",Adolescent,Indeterminate,FC-196
-196,"328,0000",Adolescent,Indeterminate,FC-197
-197,"323,0000",Adolescent,Indeterminate,FC-198
-198,"381,0000",Adolescent,Indeterminate,FC-199
-199,"181,0000",Adolescent,Indeterminate,FC-200
-200,"364,0000",Adolescent,Indeterminate,FC-201
-201,"196,0000",Adolescent,Indeterminate,FC-202
-202,"215,0000",Adolescent,Indeterminate,FC-203
-203,"350,0000",Adolescent,Probable Male,FC-204
-204,"220,0000",Adolescent,Indeterminate,FC-205
-205,"232,0000",Adolescent,Indeterminate,FC-206
-206,"359,0000",Adolescent,Indeterminate,FC-207
-207,"207,0000",Adolescent,Indeterminate,FC-208
-208,"287,0000",Adolescent,Probable Female,FC-209
-209,"209,0000",Adolescent,Indeterminate,FC-210
-210,"291,0000",Adolescent,Probable Female,FC-211
-211,"258,0000",Adolescent,Probable Female,FC-212
-212,"275,0000",Adolescent,Probable Female,FC-213
-213,"303,0000",Adolescent,Probable Male,FC-214
-214,"377,0000",Adolescent,Indeterminate,FC-215
-215,"244,0000",Adolescent,Indeterminate,FC-216
-216,"265,0000",Adolescent,Probable Female,FC-217
-217,"334,0000",Adolescent,Probable Male,FC-218
-218,"214,0000",Adolescent,Indeterminate,FC-219
-219,"253,0000",Adolescent,Indeterminate,FC-220
-220,"221,0000",Adolescent,Indeterminate,FC-221
-221,"180,0000",Adolescent,Indeterminate,FC-222
-222,"300,0000",Adolescent,Probable Male,FC-223
-223,"342,0000",Adolescent,Probable Male,FC-224
-224,"310,0000",Adolescent,Probable Male,FC-225
-225,"319,0000",Adolescent,Probable Male,FC-226
-226,"373,0000",Adolescent,Indeterminate,FC-227
-227,"231,0000",Adolescent,Indeterminate,FC-228
-228,"229,0000",Adolescent,Indeterminate,FC-229
-229,"257,0000",Adolescent,Indeterminate,FC-230
-230,"267,0000",Adolescent,Probable Female,FC-231
-231,"276,0000",Adolescent,Probable Female,FC-232
-232,"188,0000",Adolescent,Indeterminate,FC-233
-233,"366,0000",Adolescent,Indeterminate,FC-234
-234,"354,0000",Adolescent,Indeterminate,FC-235
-235,"269,0000",Adolescent,Probable Female,FC-236
-236,"234,0000",Adolescent,Indeterminate,FC-237
-237,"182,0000",Adolescent,Indeterminate,FC-238
-238,"268,0000",Adolescent,Probable Male,FC-239
-239,"183,0000",Adolescent,Indeterminate,FC-240
-240,"224,0000",Adolescent,Indeterminate,FC-241
-241,"223,0000",Adolescent,Indeterminate,FC-242
-242,"236,0000",Adolescent,Indeterminate,FC-243
-243,"293,0000",Adolescent,Probable Male,FC-244
-244,"329,0000",Adolescent,Probable Female,FC-245
-245,"184,0000",Adolescent,Indeterminate,FC-246
-246,"390,0000",Adolescent,Probable Female,FC-247
-247,"198,0000",Adolescent,Indeterminate,FC-248
-248,"237,0000",Adolescent,Indeterminate,FC-249
-249,"312,0000",Adolescent,Probable Male,FC-250
-250,"247,0000",Adolescent,Indeterminate,FC-251
-251,"286,0000",Adolescent,Probable Male,FC-252
-252,"307,0000",Adolescent,Probable Male,FC-253
-253,"341,0000",Adolescent,Probable Female,FC-254
-254,"361,0000",Adolescent,Probable Female,FC-255
-255,"251,0000",Adolescent,Probable Male,FC-256
-256,"294,0000",Adolescent,Probable Male,FC-257
-257,"297,0000",Adolescent,Probable Male,FC-258
-258,"241,0000",Adolescent,Indeterminate,FC-259
-259,"271,0000",Adolescent,Probable Male,FC-260
-260,"189,0000",Adolescent,Indeterminate,FC-261
-261,"301,0000",Adolescent,Probable Male,FC-262
-262,"179,0000",Adolescent,Indeterminate,FC-263
-263,"210,0000",Adolescent,Indeterminate,FC-264
-264,"327,0000",Adolescent,Probable Male,FC-265
-265,"282,0000",Adolescent,Probable Male,FC-266
-266,"379,0000",Adolescent,Probable Female,FC-267
-267,"348,0000",Adolescent,Male,FC-268
-268,"284,0000",Adolescent,Female,FC-269
-269,"177,0000",Adolescent,Male,FC-270
-270,"389,0000",Adolescent,Female,FC-271
-271,"187,0000",Adolescent,Male,FC-272
-272,"306,0000",Adolescent,Male,FC-273
-273,"357,0000",Adolescent,Male,FC-274
-274,"239,0000",Adolescent,Male,FC-275
-275,"252,0000",Adolescent,Male,FC-276
-276,"380,0000",Adolescent,Female,FC-277
-277,"385,0000",Adolescent,Female,FC-278
-278,"225,0000",Adolescent,Male,FC-279
-279,"331,0000",Adolescent,Male,FC-280
-280,"248,0000",Adolescent,Male,FC-281
-281,"370,0000",Adolescent,Female,FC-282
-282,"246,0000",Adolescent,Male,FC-283
-283,"374,0000",Adolescent,Female,FC-284
-284,"292,0000",Adolescent,Male,FC-285
-285,"305,0000",Adolescent,Male,FC-286
-286,"344,0000",Adolescent,Male,FC-287
-287,"383,0000",Adolescent,Female,FC-288
-288,"197,0000",Adolescent,Male,FC-289
-289,"204,0000",Adolescent,Male,FC-290
-290,"211,0000",Adolescent,Male,FC-291
-291,"372,0000",Adolescent,Female,FC-292
-292,"279,0000",Adolescent,Female,FC-293
-293,"208,0000",Adolescent,Male,FC-294
-294,"219,0000",Adolescent,Male,FC-295
-295,"360,0000",Adolescent,Male,FC-296
-296,"333,0000",Adolescent,Male,FC-297
-297,"355,0000",Adolescent,Male,FC-298
-298,"264,0000",Adolescent,Female,FC-299
-299,"368,0000",Adolescent,Male,FC-300
-300,"192,0000",Adolescent,Male,FC-301
-301,"186,0000",Adolescent,Male,FC-302
-302,"281,0000",Adolescent,Female,FC-303
-303,"387,0000",Adolescent,Female,FC-304
-304,"238,0000",Adolescent,Male,FC-305
-305,"326,0000",Adolescent,Male,FC-306
-306,"243,0000",Adolescent,Male,FC-307
-307,"321,0000",Adolescent,Male,FC-308
-308,"228,0000",Adolescent,Male,FC-309
-309,"365,0000",Adolescent,Male,FC-310
-310,"263,0000",Adolescent,Female,FC-311
-311,"347,0000",Adolescent,Male,FC-312
-312,"378,0000",Adolescent,Female,FC-313
-313,"256,0000",Adolescent,Male,FC-314
-314,"324,0000",Adolescent,Male,FC-315
-315,"309,0000",Adolescent,Male,FC-316
-316,"190,0000",Adolescent,Male,FC-317
-317,"202,0000",Adolescent,Male,FC-318
-318,"250,0000",Adolescent,Male,FC-319
-319,"299,0000",Adolescent,Male,FC-320
-320,"325,0000",Adolescent,Male,FC-321
-321,"371,0000",Adolescent,Female,FC-322
-322,"185,0000",Adolescent,Male,FC-323
-323,"222,0000",Adolescent,Male,FC-324
-324,"295,0000",Adolescent,Male,FC-325
-325,"304,0000",Adolescent,Male,FC-326
-326,"320,0000",Adolescent,Male,FC-327
-327,"260,0000",Adolescent,Female,FC-328
-328,"343,0000",Adolescent,Male,FC-329
-329,"560,0000",Adult,Male,FC-330
-330,"885,0000",Adult,Female,FC-331
-331,"903,0000",Adult,Female,FC-332
-332,"272,0000",Adult,Female,FC-333
-333,"313,0000",Adult,Male,FC-334
-334,"262,0000",Adult,Female,FC-335
-335,"273,0000",Adult,Female,FC-336
-336,"562,0000",Adult,Male,FC-337
-337,"335,0000",Adult,Male,FC-338
-338,"277,0000",Adult,Female,FC-339
-339,"322,0000",Adult,Male,FC-340
-340,"538,0000",Adult,Male,FC-341
-341,"194,0000",Adult,Male,FC-342
-342,"411,0000",Adult,Male,FC-343
-343,"212,0000",Adult,Male,FC-344
-344,"255,0000",Adult,Male,FC-345
-345,"614,0000",Adult,Male,FC-346
-346,"665,0000",Adult,Male,FC-347
-347,"298,0000",Adult,Male,FC-348
-348,"249,0000",Adult,Male,FC-349
-349,"384,0000",Adult,Female,FC-350
-350,"278,0000",Adult,Female,FC-351
-351,"314,0000",Adult,Male,FC-352
-352,"285,0000",Adult,Female,FC-353
-353,"336,0000",Adult,Male,FC-354
-354,"200,0000",Adult,Male,FC-355
-355,"339,0000",Adult,Male,FC-356
-356,"678,0000",Adult,Male,FC-357
-357,"919,0000",Adult,Male,FC-358
-358,"288,0000",Adult,Female,FC-359
-359,"318,0000",Adult,Male,FC-360
-360,"338,0000",Adult,Male,FC-361
-361,"392,0000",Adult,Male,FC-362
-362,"216,0000",Adult,Male,FC-363
-363,"230,0000",Adult,Male,FC-364
-364,"217,0000",Adult,Male,FC-365
-365,"386,0000",Adult,Female,FC-366
-366,"283,0000",Adult,Female,FC-367
-367,"869,0000",Adult,Male,FC-368
-368,"266,0000",Adult,Female,FC-369
-369,"203,0000",Adult,Male,FC-370
-370,"259,0000",Adult,Female,FC-371
-371,"245,0000",Adult,Male,FC-372
-372,"363,0000",Adult,Male,FC-373
-373,"349,0000",Adult,Male,FC-374
-374,"734,0000",Adult,Male,FC-375
-375,"191,0000",Adult,Male,FC-376
-376,"199,0000",Adult,Male,FC-377
-377,"274,0000",Adult,Female,FC-378
-378,"376,0000",Adult,Female,FC-379
-379,"233,0000",Adult,Male,FC-380
-380,"240,0000",Adult,Male,FC-381
-381,"611,0000",Adult,Male,FC-382
-382,"290,0000",Adult,Female,FC-383
-383,"337,0000",Adult,Male,FC-384
-384,"470,0000",Adult,Male,FC-385
-385,"646,0000",Adult,Male,FC-386
-386,"206,0000",Adult,Male,FC-387
-387,"242,0000",Adult,Male,FC-388
-388,"280,0000",Adult,Female,FC-389
-389,"352,0000",Adult,Male,FC-390
-390,"419,0000",Adult,Male,FC-391
-391,"369,0000",Adult,Male,FC-392
-392,"218,0000",Adult,Male,FC-393
-393,"330,0000",Adult,Male,FC-394
-394,"332,0000",Adult,Male,FC-395
-395,"746,0000",Adult,Male,FC-396
-396,"296,0000",Adult,Male,FC-397
-397,"317,0000",Adult,Male,FC-398
-398,"178,0000",Adult,Male,FC-399
-399,"516,0000",Adult,Male,FC-400
-400,"893,0000",Adult,Female,FC-401
-401,"270,0000",Adult,Female,FC-402
-402,"315,0000",Adult,Male,FC-403
-403,"362,0000",Adult,Male,FC-404
-404,"195,0000",Adult,Male,FC-405
-405,"308,0000",Adult,Male,FC-406
-406,"226,0000",Adult,Male,FC-407
-407,"254,0000",Adult,Male,FC-408
-408,"703,0000",Adult,Male,FC-409
-409,"193,0000",Adult,Male,FC-410
-410,"836,0000",Adult,Female,FC-411
-411,"340,0000",Adult,Male,FC-412
-412,"651,0000",Adult,Male,FC-413
-413,"620,0000",Adult,Male,FC-414
-414,"721,0000",Adult,Male,FC-415
-415,"698,0000",Adult,Male,FC-416
-416,"435,0000",Adult,Male,FC-417
-417,"423,0000",Adult,Male,FC-418
-418,"830,0000",Adult,Female,FC-419
-419,"785,0000",Adult,Female,FC-420
-420,"905,0000",Adult,Female,FC-421
-421,"938,0000",Adult,Female,FC-422
-422,"391,0000",Adult,Male,FC-423
-423,"532,0000",Adult,Male,FC-424
-424,"627,0000",Adult,Male,FC-425
-425,"480,0000",Adult,Male,FC-426
-426,"770,0000",Adult,Female,FC-427
-427,"742,0000",Adult,Male,FC-428
-428,"751,0000",Adult,Male,FC-429
-429,"661,0000",Adult,Male,FC-430
-430,"884,0000",Adult,Female,FC-431
-431,"899,0000",Adult,Female,FC-432
-432,"590,0000",Adult,Male,FC-433
-433,"539,0000",Adult,Male,FC-434
-434,"736,0000",Adult,Male,FC-435
-435,"393,0000",Adult,Male,FC-436
-436,"444,0000",Adult,Male,FC-437
-437,"672,0000",Adult,Male,FC-438
-438,"887,0000",Adult,Female,FC-439
-439,"783,0000",Adult,Female,FC-440
-440,"544,0000",Adult,Male,FC-441
-441,"704,0000",Adult,Male,FC-442
-442,"531,0000",Adult,Male,FC-443
-443,"603,0000",Adult,Male,FC-444
-444,"683,0000",Adult,Male,FC-445
-445,"786,0000",Adult,Female,FC-446
-446,"680,0000",Adult,Male,FC-447
-447,"932,0000",Adult,Female,FC-448
-448,"923,0000",Adult,Male,FC-449
-449,"473,0000",Adult,Male,FC-450
-450,"415,0000",Adult,Male,FC-451
-451,"547,0000",Adult,Male,FC-452
-452,"460,0000",Adult,Male,FC-453
-453,"832,0000",Adult,Female,FC-454
-454,"822,0000",Adult,Female,FC-455
-455,"828,0000",Adult,Female,FC-456
-456,"569,0000",Adult,Male,FC-457
-457,"434,0000",Adult,Male,FC-458
-458,"826,0000",Adult,Female,FC-459
-459,"849,0000",Adult,Male,FC-460
-460,"522,0000",Adult,Male,FC-461
-461,"733,0000",Adult,Male,FC-462
-462,"868,0000",Adult,Male,FC-463
-463,"810,0000",Adult,Female,FC-464
-464,"866,0000",Adult,Male,FC-465
-465,"856,0000",Adult,Male,FC-466
-466,"596,0000",Adult,Male,FC-467
-467,"555,0000",Adult,Male,FC-468
-468,"568,0000",Adult,Male,FC-469
-469,"864,0000",Adult,Male,FC-470
-470,"821,0000",Adult,Female,FC-471
-471,"475,0000",Adult,Male,FC-472
-472,"909,0000",Adult,Female,FC-473
-473,"495,0000",Adult,Male,FC-474
-474,"860,0000",Adult,Male,FC-475
-475,"446,0000",Adult,Male,FC-476
-476,"877,0000",Adult,Male,FC-477
-477,"805,0000",Adult,Female,FC-478
-478,"798,0000",Adult,Female,FC-479
-479,"668,0000",Adult,Male,FC-480
-480,"510,0000",Adult,Male,FC-481
-481,"913,0000",Adult,Male,FC-482
-482,"425,0000",Adult,Male,FC-483
-483,"719,0000",Adult,Male,FC-484
-484,"740,0000",Adult,Male,FC-485
-485,"657,0000",Adult,Probable Male,FC-486
-486,"694,0000",Adult,Probable Male,FC-487
-487,"824,0000",Adult,Female,FC-488
-488,"504,0000",Adult,Male,FC-489
-489,"928,0000",Adult,Probable Male,FC-490
-490,"782,0000",Adult,Female,FC-491
-491,"654,0000",Adult,Male,FC-492
-492,"879,0000",Adult,Probable Male,FC-493
-493,"418,0000",Adult,Male,FC-494
-494,"872,0000",Adult,Probable Male,FC-495
-495,"762,0000",Adult,Female,FC-496
-496,"814,0000",Adult,Female,FC-497
-497,"660,0000",Adult,Probable Male,FC-498
-498,"710,0000",Adult,Probable Male,FC-499
-499,"886,0000",Adult,Female,FC-500
-500,"644,0000",Adult,Probable Male,FC-501
-501,"623,0000",Adult,Probable Male,FC-502
-502,"914,0000",Adult,Probable Male,FC-503
-503,"438,0000",Adult,Probable Male,FC-504
-504,"911,0000",Adult,Female,FC-505
-505,"497,0000",Adult,Probable Male,FC-506
-506,"817,0000",Adult,Female,FC-507
-507,"776,0000",Adult,Female,FC-508
-508,"855,0000",Adult,Probable Male,FC-509
-509,"417,0000",Adult,Probable Male,FC-510
-510,"557,0000",Adult,Probable Male,FC-511
-511,"394,0000",Adult,Probable Male,FC-512
-512,"554,0000",Adult,Probable Male,FC-513
-513,"496,0000",Adult,Probable Male,FC-514
-514,"541,0000",Adult,Probable Male,FC-515
-515,"891,0000",Adult,Probable Female,FC-516
-516,"682,0000",Adult,Probable Male,FC-517
-517,"781,0000",Adult,Indeterminate,FC-518
-518,"714,0000",Adult,Probable Male,FC-519
-519,"772,0000",Adult,Probable Female,FC-520
-520,"433,0000",Adult,Probable Male,FC-521
-521,"653,0000",Adult,Probable Male,FC-522
-522,"477,0000",Adult,Probable Male,FC-523
-523,"709,0000",Adult,Probable Male,FC-524
-524,"533,0000",Adult,Probable Male,FC-525
-525,"570,0000",Adult,Probable Male,FC-526
-526,"745,0000",Adult,Probable Male,FC-527
-527,"601,0000",Adult,Probable Male,FC-528
-528,"754,0000",Adult,Probable Female,FC-529
-529,"606,0000",Adult,Probable Male,FC-530
-530,"744,0000",Adult,Probable Male,FC-531
-531,"448,0000",Adult,Probable Male,FC-532
-532,"638,0000",Adult,Probable Male,FC-533
-533,"663,0000",Adult,Probable Male,FC-534
-534,"795,0000",Adult,Probable Female,FC-535
-535,"765,0000",Adult,Probable Female,FC-536
-536,"878,0000",Adult,Probable Male,FC-537
-537,"669,0000",Adult,Probable Male,FC-538
-538,"455,0000",Adult,Probable Male,FC-539
-539,"428,0000",Adult,Probable Male,FC-540
-540,"491,0000",Adult,Probable Male,FC-541
-541,"513,0000",Adult,Probable Male,FC-542
-542,"667,0000",Adult,Probable Male,FC-543
-543,"918,0000",Adult,Probable Male,FC-544
-544,"801,0000",Adult,Probable Female,FC-545
-545,"843,0000",Adult,Probable Male,FC-546
-546,"643,0000",Adult,Probable Male,FC-547
-547,"916,0000",Adult,Probable Male,FC-548
-548,"566,0000",Adult,Probable Male,FC-549
-549,"574,0000",Adult,Probable Male,FC-550
-550,"484,0000",Adult,Probable Male,FC-551
-551,"527,0000",Adult,Probable Male,FC-552
-552,"481,0000",Adult,Probable Male,FC-553
-553,"889,0000",Adult,Probable Female,FC-554
-554,"818,0000",Adult,Probable Female,FC-555
-555,"492,0000",Adult,Probable Male,FC-556
-556,"494,0000",Adult,Probable Male,FC-557
-557,"530,0000",Adult,Probable Male,FC-558
-558,"758,0000",Adult,Probable Female,FC-559
-559,"540,0000",Adult,Probable Male,FC-560
-560,"859,0000",Adult,Probable Male,FC-561
-561,"700,0000",Adult,Probable Male,FC-562
-562,"702,0000",Adult,Probable Male,FC-563
-563,"624,0000",Adult,Probable Male,FC-564
-564,"461,0000",Adult,Probable Male,FC-565
-565,"827,0000",Adult,Probable Female,FC-566
-566,"655,0000",Adult,Probable Male,FC-567
-567,"880,0000",Adult,Probable Male,FC-568
-568,"739,0000",Adult,Probable Male,FC-569
-569,"493,0000",Adult,Probable Male,FC-570
-570,"679,0000",Adult,Probable Male,FC-571
-571,"685,0000",Adult,Probable Male,FC-572
-572,"462,0000",Adult,Probable Male,FC-573
-573,"713,0000",Adult,Probable Male,FC-574
-574,"898,0000",Adult,Probable Female,FC-575
-575,"750,0000",Adult,Probable Male,FC-576
-576,"908,0000",Adult,Probable Female,FC-577
-577,"717,0000",Adult,Probable Male,FC-578
-578,"445,0000",Adult,Probable Male,FC-579
-579,"910,0000",Adult,Probable Female,FC-580
-580,"404,0000",Adult,Probable Male,FC-581
-581,"520,0000",Adult,Probable Male,FC-582
-582,"421,0000",Adult,Probable Male,FC-583
-583,"586,0000",Adult,Probable Male,FC-584
-584,"687,0000",Adult,Indeterminate,FC-585
-585,"940,0000",Adult,Indeterminate,FC-586
-586,"858,0000",Adult,Indeterminate,FC-587
-587,"426,0000",Adult,Probable Male,FC-588
-588,"922,0000",Adult,Indeterminate,FC-589
-589,"773,0000",Adult,Indeterminate,FC-590
-590,"715,0000",Adult,Indeterminate,FC-591
-591,"883,0000",Adult,Indeterminate,FC-592
-592,"840,0000",Adult,Female,FC-593
-593,"552,0000",Adult,Indeterminate,FC-594
-594,"512,0000",Adult,Indeterminate,FC-595
-595,"591,0000",Adult,Indeterminate,FC-596
-596,"599,0000",Adult,Indeterminate,FC-597
-597,"874,0000",Adult,Indeterminate,FC-598
-598,"517,0000",Adult,Indeterminate,FC-599
-599,"671,0000",Adult,Indeterminate,FC-600
-600,"771,0000",Adult,Female,FC-601
-601,"583,0000",Adult,Indeterminate,FC-602
-602,"628,0000",Adult,Indeterminate,FC-603
-603,"647,0000",Adult,Indeterminate,FC-604
-604,"482,0000",Adult,Indeterminate,FC-605
-605,"622,0000",Adult,Indeterminate,FC-606
-606,"881,0000",Adult,Male,FC-607
-607,"823,0000",Adult,Female,FC-608
-608,"812,0000",Adult,Indeterminate,FC-609
-609,"593,0000",Adult,Indeterminate,FC-610
-610,"732,0000",Adult,Male,FC-611
-611,"399,0000",Adult,Indeterminate,FC-612
-612,"592,0000",Adult,Indeterminate,FC-613
-613,"608,0000",Adult,Indeterminate,FC-614
-614,"747,0000",Adult,Male,FC-615
-615,"617,0000",Adult,Male,FC-616
-616,"572,0000",Adult,Male,FC-617
-617,"534,0000",Adult,Male,FC-618
-618,"490,0000",Adult,Male,FC-619
-619,"507,0000",Adult,Male,FC-620
-620,"549,0000",Adult,Male,FC-621
-621,"645,0000",Adult,Male,FC-622
-622,"561,0000",Adult,Male,FC-623
-623,"451,0000",Adult,Male,FC-624
-624,"629,0000",Adult,Male,FC-625
-625,"902,0000",Adult,Female,FC-626
-626,"618,0000",Adult,Male,FC-627
-627,"503,0000",Adult,Male,FC-628
-628,"831,0000",Adult,Female,FC-629
-629,"847,0000",Adult,Male,FC-630
-630,"926,0000",Adult,Male,FC-631
-631,"937,0000",Adult,Female,FC-632
-632,"509,0000",Adult,Male,FC-633
-633,"469,0000",Adult,Male,FC-634
-634,"398,0000",Adult,Male,FC-635
-635,"774,0000",Adult,Female,FC-636
-636,"581,0000",Adult,Male,FC-637
-637,"780,0000",Adult,Female,FC-638
-638,"553,0000",Adult,Male,FC-639
-639,"641,0000",Adult,Male,FC-640
-640,"825,0000",Adult,Female,FC-641
-641,"652,0000",Adult,Male,FC-642
-642,"506,0000",Adult,Male,FC-643
-643,"808,0000",Adult,Female,FC-644
-644,"489,0000",Adult,Male,FC-645
-645,"525,0000",Adult,Male,FC-646
-646,"718,0000",Adult,Male,FC-647
-647,"857,0000",Adult,Male,FC-648
-648,"403,0000",Adult,Male,FC-649
-649,"519,0000",Adult,Male,FC-650
-650,"441,0000",Adult,Male,FC-651
-651,"619,0000",Adult,Male,FC-652
-652,"934,0000",Adult,Female,FC-653
-653,"486,0000",Adult,Male,FC-654
-654,"427,0000",Adult,Male,FC-655
-655,"543,0000",Adult,Male,FC-656
-656,"735,0000",Adult,Male,FC-657
-657,"395,0000",Adult,Male,FC-658
-658,"895,0000",Adult,Female,FC-659
-659,"431,0000",Adult,Male,FC-660
-660,"728,0000",Adult,Male,FC-661
-661,"666,0000",Adult,Male,FC-662
-662,"906,0000",Adult,Female,FC-663
-663,"935,0000",Adult,Female,FC-664
-664,"729,0000",Adult,Male,FC-665
-665,"748,0000",Adult,Male,FC-666
-666,"424,0000",Adult,Male,FC-667
-667,"804,0000",Adult,Female,FC-668
-668,"708,0000",Adult,Male,FC-669
-669,"677,0000",Adult,Male,FC-670
-670,"788,0000",Adult,Female,FC-671
-671,"803,0000",Adult,Female,FC-672
-672,"621,0000",Adult,Male,FC-673
-673,"755,0000",Adult,Female,FC-674
-674,"693,0000",Adult,Male,FC-675
-675,"505,0000",Adult,Male,FC-676
-676,"563,0000",Adult,Male,FC-677
-677,"904,0000",Adult,Female,FC-678
-678,"873,0000",Adult,Male,FC-679
-679,"852,0000",Adult,Male,FC-680
-680,"594,0000",Adult,Male,FC-681
-681,"892,0000",Adult,Female,FC-682
-682,"681,0000",Adult,Male,FC-683
-683,"432,0000",Adult,Male,FC-684
-684,"784,0000",Adult,Female,FC-685
-685,"690,0000",Adult,Male,FC-686
-686,"478,0000",Adult,Male,FC-687
-687,"437,0000",Adult,Male,FC-688
-688,"775,0000",Adult,Female,FC-689
-689,"711,0000",Adult,Probable Male,FC-690
-690,"699,0000",Adult,Probable Male,FC-691
-691,"933,0000",Adult,Female,FC-692
-692,"609,0000",Adult,Probable Male,FC-693
-693,"815,0000",Adult,Female,FC-694
-694,"894,0000",Adult,Female,FC-695
-695,"901,0000",Adult,Female,FC-696
-696,"676,0000",Adult,Probable Male,FC-697
-697,"447,0000",Adult,Male,FC-698
-698,"459,0000",Adult,Male,FC-699
-699,"691,0000",Adult,Probable Male,FC-700
-700,"458,0000",Adult,Male,FC-701
-701,"397,0000",Adult,Male,FC-702
-702,"511,0000",Adult,Probable Male,FC-703
-703,"402,0000",Adult,Probable Male,FC-704
-704,"726,0000",Adult,Probable Male,FC-705
-705,"789,0000",Adult,Female,FC-706
-706,"791,0000",Adult,Female,FC-707
-707,"796,0000",Adult,Female,FC-708
-708,"756,0000",Adult,Female,FC-709
-709,"584,0000",Adult,Probable Male,FC-710
-710,"443,0000",Adult,Probable Male,FC-711
-711,"529,0000",Adult,Probable Male,FC-712
-712,"556,0000",Adult,Probable Male,FC-713
-713,"422,0000",Adult,Probable Male,FC-714
-714,"640,0000",Adult,Probable Male,FC-715
-715,"453,0000",Adult,Probable Male,FC-716
-716,"642,0000",Adult,Probable Male,FC-717
-717,"476,0000",Adult,Probable Male,FC-718
-718,"548,0000",Adult,Probable Male,FC-719
-719,"800,0000",Adult,Female,FC-720
-720,"414,0000",Adult,Probable Male,FC-721
-721,"752,0000",Adult,Probable Male,FC-722
-722,"850,0000",Adult,Probable Male,FC-723
-723,"790,0000",Adult,Female,FC-724
-724,"769,0000",Adult,Female,FC-725
-725,"508,0000",Adult,Probable Male,FC-726
-726,"875,0000",Adult,Probable Male,FC-727
-727,"761,0000",Adult,Female,FC-728
-728,"466,0000",Adult,Probable Male,FC-729
-729,"483,0000",Adult,Probable Male,FC-730
-730,"749,0000",Adult,Probable Male,FC-731
-731,"409,0000",Adult,Probable Male,FC-732
-732,"767,0000",Adult,Female,FC-733
-733,"429,0000",Adult,Probable Male,FC-734
-734,"465,0000",Adult,Probable Male,FC-735
-735,"559,0000",Adult,Probable Male,FC-736
-736,"416,0000",Adult,Probable Male,FC-737
-737,"813,0000",Adult,Female,FC-738
-738,"420,0000",Adult,Probable Male,FC-739
-739,"615,0000",Adult,Probable Male,FC-740
-740,"707,0000",Adult,Probable Male,FC-741
-741,"820,0000",Adult,Female,FC-742
-742,"854,0000",Adult,Probable Male,FC-743
-743,"410,0000",Adult,Probable Male,FC-744
-744,"523,0000",Adult,Probable Male,FC-745
-745,"806,0000",Adult,Female,FC-746
-746,"440,0000",Adult,Probable Male,FC-747
-747,"498,0000",Adult,Probable Male,FC-748
-748,"631,0000",Adult,Probable Male,FC-749
-749,"616,0000",Adult,Probable Male,FC-750
-750,"816,0000",Adult,Female,FC-751
-751,"664,0000",Adult,Probable Male,FC-752
-752,"589,0000",Adult,Probable Male,FC-753
-753,"811,0000",Adult,Female,FC-754
-754,"637,0000",Adult,Probable Male,FC-755
-755,"518,0000",Adult,Probable Male,FC-756
-756,"605,0000",Adult,Probable Male,FC-757
-757,"917,0000",Adult,Probable Male,FC-758
-758,"939,0000",Adult,Female,FC-759
-759,"656,0000",Adult,Probable Male,FC-760
-760,"488,0000",Adult,Probable Male,FC-761
-761,"521,0000",Adult,Probable Male,FC-762
-762,"542,0000",Adult,Probable Male,FC-763
-763,"896,0000",Adult,Female,FC-764
-764,"865,0000",Adult,Probable Male,FC-765
-765,"536,0000",Adult,Probable Male,FC-766
-766,"576,0000",Adult,Probable Male,FC-767
-767,"396,0000",Adult,Probable Male,FC-768
-768,"550,0000",Adult,Probable Male,FC-769
-769,"406,0000",Adult,Probable Male,FC-770
-770,"929,0000",Adult,Probable Male,FC-771
-771,"737,0000",Adult,Probable Male,FC-772
-772,"558,0000",Adult,Probable Male,FC-773
-773,"597,0000",Adult,Probable Male,FC-774
-774,"626,0000",Adult,Probable Male,FC-775
-775,"844,0000",Adult,Probable Male,FC-776
-776,"545,0000",Adult,Probable Male,FC-777
-777,"607,0000",Adult,Probable Male,FC-778
-778,"467,0000",Adult,Probable Male,FC-779
-779,"485,0000",Adult,Probable Male,FC-780
-780,"579,0000",Adult,Probable Male,FC-781
-781,"515,0000",Adult,Probable Male,FC-782
-782,"695,0000",Adult,Probable Male,FC-783
-783,"500,0000",Adult,Probable Male,FC-784
-784,"848,0000",Adult,Probable Male,FC-785
-785,"931,0000",Adult,Probable Male,FC-786
-786,"870,0000",Adult,Probable Male,FC-787
-787,"890,0000",Adult,Female,FC-788
-788,"612,0000",Adult,Probable Male,FC-789
-789,"731,0000",Adult,Probable Male,FC-790
-790,"692,0000",Adult,Probable Male,FC-791
-791,"757,0000",Adult,Female,FC-792
-792,"793,0000",Adult,Female,FC-793
-793,"925,0000",Adult,Probable Male,FC-794
-794,"725,0000",Adult,Probable Male,FC-795
-795,"551,0000",Adult,Probable Male,FC-796
-796,"630,0000",Adult,Probable Male,FC-797
-797,"658,0000",Adult,Probable Male,FC-798
-798,"764,0000",Adult,Female,FC-799
-799,"839,0000",Adult,Female,FC-800
-800,"405,0000",Adult,Probable Male,FC-801
-801,"930,0000",Adult,Probable Male,FC-802
-802,"565,0000",Adult,Probable Male,FC-803
-803,"588,0000",Adult,Probable Male,FC-804
-804,"684,0000",Adult,Probable Male,FC-805
-805,"907,0000",Adult,Female,FC-806
-806,"649,0000",Adult,Probable Male,FC-807
-807,"777,0000",Adult,Female,FC-808
-808,"442,0000",Adult,Probable Male,FC-809
-809,"712,0000",Adult,Probable Male,FC-810
-810,"778,0000",Adult,Female,FC-811
-811,"794,0000",Adult,Female,FC-812
-812,"610,0000",Adult,Probable Male,FC-813
-813,"487,0000",Adult,Probable Male,FC-814
-814,"524,0000",Adult,Probable Male,FC-815
-815,"401,0000",Adult,Probable Male,FC-816
-816,"636,0000",Adult,Probable Male,FC-817
-817,"720,0000",Adult,Probable Male,FC-818
-818,"456,0000",Adult,Probable Male,FC-819
-819,"472,0000",Adult,Probable Male,FC-820
-820,"634,0000",Adult,Probable Male,FC-821
-821,"799,0000",Adult,Female,FC-822
-822,"650,0000",Adult,Probable Male,FC-823
-823,"727,0000",Adult,Probable Male,FC-824
-824,"567,0000",Adult,Probable Male,FC-825
-825,"575,0000",Adult,Probable Male,FC-826
-826,"632,0000",Adult,Probable Male,FC-827
-827,"600,0000",Adult,Probable Male,FC-828
-828,"834,0000",Adult,Female,FC-829
-829,"502,0000",Adult,Probable Male,FC-830
-830,"454,0000",Adult,Probable Male,FC-831
-831,"738,0000",Adult,Probable Male,FC-832
-832,"670,0000",Adult,Probable Male,FC-833
-833,"546,0000",Adult,Probable Male,FC-834
-834,"829,0000",Adult,Indeterminate,FC-835
-835,"863,0000",Adult,Probable Male,FC-836
-836,"835,0000",Adult,Probable Female,FC-837
-837,"838,0000",Adult,Probable Female,FC-838
-838,"787,0000",Adult,Indeterminate,FC-839
-839,"876,0000",Adult,Probable Male,FC-840
-840,"407,0000",Adult,Probable Male,FC-841
-841,"537,0000",Adult,Probable Male,FC-842
-842,"689,0000",Adult,Probable Male,FC-843
-843,"705,0000",Adult,Probable Male,FC-844
-844,"716,0000",Adult,Probable Male,FC-845
-845,"580,0000",Adult,Probable Male,FC-846
-846,"633,0000",Adult,Probable Male,FC-847
-847,"841,0000",Adult,Female,FC-848
-848,"688,0000",Adult,Probable Male,FC-849
-849,"722,0000",Adult,Probable Male,FC-850
-850,"753,0000",Adult,Probable Female,FC-851
-851,"851,0000",Adult,Probable Male,FC-852
-852,"468,0000",Adult,Probable Male,FC-853
-853,"819,0000",Adult,Female,FC-854
-854,"436,0000",Adult,Probable Male,FC-855
-855,"936,0000",Adult,Female,FC-856
-856,"724,0000",Adult,Probable Male,FC-857
-857,"853,0000",Adult,Probable Male,FC-858
-858,"413,0000",Adult,Probable Male,FC-859
-859,"564,0000",Adult,Probable Male,FC-860
-860,"499,0000",Adult,Probable Male,FC-861
-861,"602,0000",Adult,Probable Male,FC-862
-862,"471,0000",Adult,Probable Male,FC-863
-863,"571,0000",Adult,Probable Male,FC-864
-864,"697,0000",Adult,Probable Male,FC-865
-865,"501,0000",Adult,Probable Male,FC-866
-866,"635,0000",Adult,Probable Male,FC-867
-867,"833,0000",Adult,Female,FC-868
-868,"598,0000",Adult,Probable Male,FC-869
-869,"792,0000",Adult,Female,FC-870
-870,"845,0000",Adult,Probable Male,FC-871
-871,"585,0000",Adult,Probable Male,FC-872
-872,"706,0000",Adult,Probable Male,FC-873
-873,"743,0000",Adult,Probable Male,FC-874
-874,"577,0000",Adult,Probable Male,FC-875
-875,"457,0000",Adult,Probable Male,FC-876
-876,"763,0000",Adult,Female,FC-877
-877,"766,0000",Adult,Female,FC-878
-878,"479,0000",Adult,Probable Male,FC-879
-879,"625,0000",Adult,Probable Male,FC-880
-880,"912,0000",Adult,Female,FC-881
-881,"861,0000",Adult,Probable Male,FC-882
-882,"604,0000",Adult,Probable Male,FC-883
-883,"862,0000",Adult,Probable Male,FC-884
-884,"659,0000",Adult,Probable Male,FC-885
-885,"464,0000",Adult,Probable Male,FC-886
-886,"802,0000",Adult,Female,FC-887
-887,"662,0000",Adult,Probable Male,FC-888
-888,"400,0000",Adult,Probable Male,FC-889
-889,"696,0000",Adult,Probable Male,FC-890
-890,"759,0000",Adult,Female,FC-891
-891,"867,0000",Adult,Probable Male,FC-892
-892,"897,0000",Adult,Female,FC-893
-893,"837,0000",Adult,Female,FC-894
-894,"686,0000",Adult,Probable Male,FC-895
-895,"535,0000",Adult,Probable Male,FC-896
-896,"582,0000",Adult,Probable Male,FC-897
-897,"528,0000",Adult,Probable Male,FC-898
-898,"797,0000",Adult,Female,FC-899
-899,"474,0000",Adult,Probable Male,FC-900
-900,"673,0000",Adult,Probable Male,FC-901
-901,"578,0000",Adult,Probable Male,FC-902
-902,"807,0000",Adult,Female,FC-903
-903,"450,0000",Adult,Probable Male,FC-904
-904,"408,0000",Adult,Probable Male,FC-905
-905,"882,0000",Adult,Male,FC-906
-906,"760,0000",Adult,Probable Female,FC-907
-907,"526,0000",Adult,Male,FC-908
-908,"595,0000",Adult,Male,FC-909
-909,"452,0000",Adult,Male,FC-910
-910,"809,0000",Adult,Female,FC-911
-911,"639,0000",Adult,Male,FC-912
-912,"768,0000",Adult,Probable Female,FC-913
-913,"779,0000",Adult,Indeterminate,FC-914
-914,"741,0000",Adult,Male,FC-915
-915,"900,0000",Adult,Female,FC-916
-916,"730,0000",Adult,Male,FC-917
-917,"871,0000",Adult,Male,FC-918
-918,"587,0000",Adult,Male,FC-919
-919,"842,0000",Adult,Female,FC-920
-920,"723,0000",Adult,Male,FC-921
-921,"613,0000",Adult,Male,FC-922
-922,"924,0000",Adult,Male,FC-923
-923,"675,0000",Adult,Male,FC-924
-924,"463,0000",Adult,Male,FC-925
-925,"674,0000",Adult,Male,FC-926
-926,"888,0000",Adult,Female,FC-927
-927,"430,0000",Adult,Male,FC-928
-928,"439,0000",Adult,Male,FC-929
-929,"921,0000",Elderly,Probable Male,FC-930
-930,"449,0000",Elderly,Male,FC-931
-931,"915,0000",Elderly,Probable Male,FC-932
-932,"927,0000",Elderly,Indeterminate,FC-933
-933,"412,0000",Elderly,Male,FC-934
-934,"942,0000",Elderly,Female,FC-935
-935,"648,0000",Elderly,Male,FC-936
-936,"846,0000",Elderly,Probable Male,FC-937
-937,"920,0000",Elderly,Probable Male,FC-938
-938,"514,0000",Elderly,Male,FC-939
-939,"701,0000",Elderly,Male,FC-940
-940,"573,0000",Elderly,Male,FC-941
-941,"998,0000",Elderly,Female,FC-942
-942,"953,0000",Elderly,Indeterminate,FC-943
-943,"987,0000",Elderly,Indeterminate,FC-944
-944,"973,0000",Elderly,Indeterminate,FC-945
-945,"946,0000",Elderly,Female,FC-946
-946,"966,0000",Elderly,Indeterminate,FC-947
-947,"951,0000",Elderly,Indeterminate,FC-948
-948,"961,0000",Elderly,Indeterminate,FC-949
-949,"1000,0000",Elderly,Female,FC-950
-950,"941,0000",Elderly,Female,FC-951
-951,"997,0000",Elderly,Female,FC-952
-952,"985,0000",Elderly,Indeterminate,FC-953
-953,"989,0000",Elderly,Indeterminate,FC-954
-954,"968,0000",Elderly,Indeterminate,FC-955
-955,"978,0000",Elderly,Indeterminate,FC-956
-956,"948,0000",Elderly,Indeterminate,FC-957
-957,"979,0000",Elderly,Male,FC-958
-958,"993,0000",Elderly,Female,FC-959
-959,"962,0000",Elderly,Male,FC-960
-960,"958,0000",Elderly,Male,FC-961
-961,"955,0000",Elderly,Male,FC-962
-962,"956,0000",Elderly,Male,FC-963
-963,"971,0000",Elderly,Male,FC-964
-964,"945,0000",Elderly,Female,FC-965
-965,"960,0000",Elderly,Male,FC-966
-966,"974,0000",Elderly,Male,FC-967
-967,"950,0000",Elderly,Male,FC-968
-968,"959,0000",Elderly,Male,FC-969
-969,"988,0000",Elderly,Male,FC-970
-970,"991,0000",Elderly,Male,FC-971
-971,"992,0000",Elderly,Male,FC-972
-972,"970,0000",Elderly,Male,FC-973
-973,"990,0000",Elderly,Male,FC-974
-974,"969,0000",Elderly,Male,FC-975
-975,"957,0000",Elderly,Male,FC-976
-976,"980,0000",Elderly,Male,FC-977
-977,"943,0000",Elderly,Female,FC-978
-978,"986,0000",Elderly,Male,FC-979
-979,"954,0000",Elderly,Male,FC-980
-980,"949,0000",Elderly,Male,FC-981
-981,"983,0000",Elderly,Male,FC-982
-982,"996,0000",Elderly,Probable Female,FC-983
-983,"995,0000",Elderly,Female,FC-984
-984,"977,0000",Elderly,Male,FC-985
-985,"976,0000",Elderly,Male,FC-986
-986,"967,0000",Elderly,Male,FC-987
-987,"963,0000",Elderly,Male,FC-988
-988,"947,0000",Elderly,Male,FC-989
-989,"975,0000",Elderly,Male,FC-990
-990,"994,0000",Elderly,Probable Female,FC-991
-991,"999,0000",Elderly,Probable Female,FC-992
-992,"965,0000",Elderly,Male,FC-993
-993,"981,0000",Elderly,Indeterminate,FC-994
-994,"982,0000",Elderly,Probable Male,FC-995
-995,"944,0000",Elderly,Probable Female,FC-996
-996,"984,0000",Elderly,Male,FC-997
-997,"972,0000",Elderly,Probable Male,FC-998
-998,"952,0000",Elderly,Indeterminate,FC-999
-999,"964,0000",Elderly,Male,FC-1000
-1000,DIG01-RP1-B027,Adult,Male,FC-1001
-1001,ODI02-RP1-B006,Adult,Male,FC-1002
-1002,DIG01-RP1-B018,Adult,Male,FC-1003
-1003,DIG01-RP1-B016,Adult,Male,FC-1004
-1004,BAB01-RP1-B001,Adult,Male,FC-1005
-1005,BAB01-RP2-B032,Adult,Male,FC-1006
-1006,DIG01-RP1-B034,Adult,Male,FC-1007
-1007,SUK04-RP1-B003,Adult,Male,FC-1008
-1008,ODI02-RP1-B010,Adult,Male,FC-1009
-1009,SUK55-RP1-001,Adult,Male,FC-1010
-1010,SUK55-RP1-002,Adult,Female,FC-1011
-1011,YAS02-RP1-BP063,,Male,FC-1012
-1012,YAS02-RP1-BP072,Adult,Indeterminate,FC-1013
-1013,YAS02-RP1-B087,Adult,Male,FC-1014
-1014,YAS02-RP1-B039,Adult,Male,FC-1015
-1015,ODI02-RP1-B009,Adult,Male,FC-1016
-1016,ODI02-RP1-B005,Adult,Male,FC-1017
-1017,ODI02-RP1-B004,Adult,Male,FC-1018
-1018,ODI02-RP1-B002,Adult,Male,FC-1019
-1019,YAS02-RP1-B065,Adult,Male,FC-1020
-1020,ODI02-RP1-B003,Adult,Male,FC-1021
-1021,AGU01-RP1-B017,Adult,Male,FC-1022
-1022,YAS02-RP1-BP042,,,FC-1023
-1023,MAC03-RP2-B006,Adult,Female,FC-1024
-1024,MAC03-RP2-B005,,Male,FC-1025
-1025,ARA04-RP2-B001,Adult,Male,FC-1026
-1026,ABG02-RP1-B001,Adult,Female,FC-1027
-1027,BAB01-RP3-B025,Adult,Male,FC-1028
-1028,GAG12-RP1-001,Adult,Male,FC-1029
-1029,YAS02-RP1-B054,Adult,Male,FC-1030
-1030,YAS02-RP1-B047,Adult,Male,FC-1031
-1031,LEC01-RP1-B002,Adult,Male,FC-1032
-1032,KUK01-RP1-B002,,Male,FC-1033
-1033,YAS02-RP1-B079,Adult,Male,FC-1034
-1034,DIG01-RP1-B006,,Male,FC-1035
-1035,BAB01-RP1-B003,Adult,Male,FC-1036
-1036,BAB01-RP3-B020,Adult,Male,FC-1037
-1037,BAB01-RP1-B011,Adult,Male,FC-1038
-1038,YAS02-RP2-B016,Adult,Female,FC-1039
-1039,DIG01-RP1-B014,Adult,Male,FC-1040
-1040,YAS02-RP1-B049,Adult,Male,FC-1041
-1041,BAB01-RP1-B009,,Male,FC-1042
-1042,BAB01-RP1-B012,Adult,Male,FC-1043
-1043,BAB01-RP1-B010,Adult,Male,FC-1044
-1044,BAB01-RP3-B023,Adult,Male,FC-1045
-1045,YAS02-RP1-BP064,,Male,FC-1046
-1046,YAS02-RP1-B089,Adult,Male,FC-1047
-1047,BAB01-RP1-B008,Adult,Male,FC-1048
-1048,YAS02-RP1-B080,Adult,Male,FC-1049
-1049,KOCH01-RP1-B001,Adult,,FC-1050
-1050,DIG01-RP1-B019,Adult,Male,FC-1051
-1051,GUL12-RP1-B003,Adult,Female,FC-1052
-1052,GUL12-RP1-B001,,Male,FC-1053
-1053,BAB01-RP1-B013,Adult,Male,FC-1054
-1054,BAB01-RP1-B002,Adult,Male,FC-1055
-1055,KOC02-RP1-B002,Adult,Female,FC-1056
-1056,KOC02-RP1-B001,Adult,Male,FC-1057
-1057,SUK37-RP1-B003,Adult,Female,FC-1058
-1058,ODI02-RP1-B007,Adult,Male,FC-1059
-1059,ODI02-RP1-B008,Adult,Male,FC-1060
-1060,ODI02-RP1-B001,Adult,Male,FC-1061
-1061,BAB01-RP3-B021,Adult,Male,FC-1062
-1062,SUK37-RP1-B001,Adult,Female,FC-1063
-1063,ARA05-RP1-B001,Adult,Male,FC-1064
-1064,YAS02-RP1-B056,Adult,Male,FC-1065
-1065,YAS02-RP3-B032,Adult,Male,FC-1066
-1066,DIG01-RP1-B017,Adult,Male,FC-1067
-1067,BAB01-RP3-B027,Adult,Male,FC-1068
-1068,BAB01-RP3-B017,Adult,Female,FC-1069
-1069,GUL12-RP1-B004,Adult,Male,FC-1070
-1070,GUL12-RP1-B002,Adult,Female,FC-1071
-1071,KOCH01-RP1-B003,Adult,,FC-1072
-1072,DIG01-RP1-B032,Adult,Male,FC-1073
-1073,BAB01-RP3-B024,Adult,Male,FC-1074
+ID,FC,FC Age,FC Age Minimum,FC Age Maximum,FC Age Category,FC estimate Biological Sex,FC (point estimate) height,FC height min estimated,FC height max estimated,FC Recovery Location,FC Estimated Date of Death/Burial,FC Recovery Date
+FC-1,"157,0000",0,0,2,Infant,Indeterminate,64,54,74,Aargau,,05/02/2022
+FC-2,"158,0000",0,0,2,Infant,Indeterminate,64,57,71,Bern,,02/08/2021
+FC-3,"16,0000",0,0,2,Infant,Indeterminate,50,40,60,Fribourg,,05/09/2021
+FC-4,"100,0000",0,0,2,Infant,Indeterminate,63,53,73,Glarus,,22/05/2022
+FC-5,"32,0000",0,0,2,Infant,Indeterminate,56,51,61,Jura,,10/02/2022
+FC-6,"40,0000",0,0,2,Infant,Indeterminate,62,54,70,Jura,,11/02/2022
+FC-7,"110,0000",0,0,2,Infant,Indeterminate,64,55,73,Luzern,,25/12/2021
+FC-8,"159,0000",0,0,2,Infant,Indeterminate,65,55,75,Nidwalden,,20/07/2021
+FC-9,"54,0000",0,0,2,Infant,Indeterminate,62,54,70,Schaffhausen,,07/02/2022
+FC-10,"141,0000",0,0,2,Infant,Indeterminate,64,57,71,Schwyz,,08/03/2022
+FC-11,"77,0000",0,0,2,Infant,Indeterminate,63,57,69,Solothurn,,03/11/2021
+FC-12,"133,0000",0,0,2,Infant,Indeterminate,64,59,69,Ticino,,26/06/2021
+FC-13,"130,0000",0,0,2,Infant,Indeterminate,64,58,70,Uri,,25/04/2022
+FC-14,"174,0000",0,0,2,Infant,Indeterminate,65,59,71,Valais,,21/11/2021
+FC-15,"17,0000",0,0,2,Infant,Indeterminate,55,45,65,Zug,,16/08/2021
+FC-16,"66,0000",0,0,2,Infant,Indeterminate,63,57,69,Zug,,14/11/2021
+FC-17,"164,0000",0,0,2,Infant,Indeterminate,65,58,72,Zug,,25/06/2021
+FC-18,"78,0000",1,0,2,Infant,Indeterminate,67,60,74,Appenzell,,28/01/2022
+FC-19,"170,0000",1,0,2,Infant,Indeterminate,69,59,79,Appenzell,,11/04/2022
+FC-20,"44,0000",1,0,2,Infant,Indeterminate,66,58,74,Basel,,16/03/2022
+FC-21,"120,0000",1,0,2,Infant,Indeterminate,68,59,77,Bern,,02/09/2021
+FC-22,"153,0000",1,0,2,Infant,Indeterminate,68,63,73,Bern,,23/05/2022
+FC-23,"26,0000",1,0,2,Infant,Indeterminate,65,56,74,Fribourg,,07/01/2022
+FC-24,"106,0000",1,0,2,Infant,Indeterminate,68,61,75,Glarus,,23/12/2021
+FC-25,"62,0000",1,0,2,Infant,Indeterminate,67,58,76,Neuchatel,,13/02/2022
+FC-26,"68,0000",1,0,2,Infant,Indeterminate,67,60,74,Schaffhausen,,11/11/2021
+FC-27,"131,0000",1,0,2,Infant,Indeterminate,68,63,73,Schaffhausen,,04/11/2021
+FC-28,"12,0000",1,0,2,Infant,Indeterminate,65,55,75,Schwyz,,11/08/2021
+FC-29,"140,0000",1,0,2,Infant,Indeterminate,68,59,77,Solothurn,,12/11/2021
+FC-30,"60,0000",1,0,2,Infant,Indeterminate,67,60,74,St Gallen,,13/08/2021
+FC-31,"90,0000",1,0,2,Infant,Indeterminate,68,62,74,St Gallen,,17/08/2021
+FC-32,"156,0000",1,0,2,Infant,Indeterminate,68,59,77,Thurgau,,14/03/2022
+FC-33,"80,0000",1,0,2,Infant,Indeterminate,67,58,76,Ticino,,12/11/2021
+FC-34,"37,0000",1,0,2,Infant,Indeterminate,66,60,72,Vaud,,10/07/2021
+FC-35,"86,0000",1,0,2,Infant,Indeterminate,67,57,77,Vaud,,30/04/2022
+FC-36,"104,0000",1,0,2,Infant,Indeterminate,68,61,75,Zug,,26/05/2022
+FC-37,"14,0000",2,2,10,Child,Indeterminate,69,63,75,Aargau,,19/02/2022
+FC-38,"9,0000",2,2,10,Child,Indeterminate,69,64,74,Fribourg,,21/05/2022
+FC-39,"135,0000",2,2,10,Child,Indeterminate,70,65,75,Fribourg,,05/04/2022
+FC-40,"84,0000",2,2,10,Child,Indeterminate,70,60,80,Glarus,,27/09/2021
+FC-41,"96,0000",2,2,10,Child,Indeterminate,70,61,79,Jura,,07/06/2022
+FC-42,"21,0000",2,2,10,Child,Indeterminate,69,62,76,Luzern,,28/04/2022
+FC-43,"71,0000",2,2,10,Child,Indeterminate,69,60,78,Schaffhausen,,31/12/2021
+FC-44,"3,0000",2,2,10,Child,Indeterminate,69,61,77,St Gallen,,19/06/2021
+FC-45,"115,0000",2,2,10,Child,Indeterminate,70,62,78,Ticino,,27/02/2022
+FC-46,"167,0000",2,2,10,Child,Indeterminate,70,60,80,Ticino,,10/12/2021
+FC-47,"41,0000",2,2,10,Child,Indeterminate,69,63,75,Valais,,11/02/2022
+FC-48,"166,0000",2,2,10,Child,Indeterminate,70,61,79,Zurich,,31/03/2022
+FC-49,"8,0000",3,2,10,Child,Indeterminate,70,60,80,Geneve,,02/04/2022
+FC-50,"121,0000",3,2,10,Child,Indeterminate,71,66,76,Graubunden,,01/12/2021
+FC-51,"1,0000",3,2,10,Child,Indeterminate,70,63,77,Luzern,,02/05/2022
+FC-52,"162,0000",3,2,10,Child,Indeterminate,71,66,76,Nidwalden,,28/02/2022
+FC-53,"125,0000",3,2,10,Child,Indeterminate,71,63,79,Obwalden,,21/06/2021
+FC-54,"19,0000",3,2,10,Child,Indeterminate,70,65,75,Schaffhausen,,12/04/2022
+FC-55,"20,0000",3,2,10,Child,Indeterminate,70,60,80,Solothurn,,13/04/2022
+FC-56,"69,0000",3,2,10,Child,Indeterminate,71,63,79,St Gallen,,16/09/2021
+FC-57,"6,0000",3,2,10,Child,Indeterminate,70,64,76,Ticino,,04/11/2021
+FC-58,"28,0000",3,2,10,Child,Indeterminate,71,65,77,Ticino,,07/01/2022
+FC-59,"107,0000",3,2,10,Child,Indeterminate,71,64,78,Valais,,09/05/2022
+FC-60,"76,0000",3,2,10,Child,Indeterminate,71,63,79,Zurich,,14/08/2021
+FC-61,"95,0000",4,2,10,Child,Indeterminate,72,64,80,Appenzell,,01/06/2022
+FC-62,"74,0000",4,2,10,Child,Indeterminate,72,66,78,Basel,,06/08/2021
+FC-63,"5,0000",4,2,10,Child,Indeterminate,71,65,77,Fribourg,,16/09/2021
+FC-64,"145,0000",4,2,10,Child,Indeterminate,72,63,81,Fribourg,,06/01/2022
+FC-65,"11,0000",4,2,10,Child,Indeterminate,72,63,81,Geneve,,10/05/2022
+FC-66,"15,0000",4,2,10,Child,Indeterminate,72,67,77,Glarus,,12/05/2022
+FC-67,"45,0000",4,2,10,Child,Indeterminate,72,65,79,Schaffhausen,,23/06/2021
+FC-68,"55,0000",4,2,10,Child,Indeterminate,72,65,79,Vaud,,03/02/2022
+FC-69,"48,0000",5,2,10,Child,Indeterminate,73,64,82,Appenzell,,24/04/2022
+FC-70,"117,0000",5,2,10,Child,Indeterminate,74,66,82,Appenzell,,11/10/2021
+FC-71,"75,0000",5,2,10,Child,Indeterminate,73,67,79,Bern,,03/07/2021
+FC-72,"108,0000",5,2,10,Child,Indeterminate,73,68,78,Bern,,05/10/2021
+FC-73,"143,0000",5,2,10,Child,Indeterminate,74,65,83,Fribourg,,05/02/2022
+FC-74,"59,0000",5,2,10,Child,Indeterminate,73,63,83,Geneve,,27/07/2021
+FC-75,"94,0000",5,2,10,Child,Indeterminate,73,65,81,Geneve,,05/01/2022
+FC-76,"36,0000",5,2,10,Child,Indeterminate,72,63,81,Jura,,01/01/2022
+FC-77,"73,0000",5,2,10,Child,Indeterminate,73,63,83,Jura,,09/01/2022
+FC-78,"169,0000",5,2,10,Child,Indeterminate,75,70,80,Luzern,,11/08/2021
+FC-79,"172,0000",5,2,10,Child,Indeterminate,75,70,80,Obwalden,,09/03/2022
+FC-80,"138,0000",5,2,10,Child,Indeterminate,74,64,84,Schaffhausen,,22/03/2022
+FC-81,"175,0000",5,2,10,Child,Indeterminate,75,70,80,Schaffhausen,,12/02/2022
+FC-82,"173,0000",5,2,10,Child,Indeterminate,75,69,81,Schwyz,,01/09/2021
+FC-83,"151,0000",5,2,10,Child,Indeterminate,75,70,80,Solothurn,,28/08/2021
+FC-84,"113,0000",5,2,10,Child,Indeterminate,74,67,81,Ticino,,19/06/2021
+FC-85,"87,0000",5,2,10,Child,Indeterminate,73,68,78,Uri,,08/08/2021
+FC-86,"128,0000",5,2,10,Child,Indeterminate,74,64,84,Uri,,11/10/2021
+FC-87,"23,0000",5,2,10,Child,Indeterminate,72,63,81,Zug,,05/02/2022
+FC-88,"56,0000",5,2,10,Child,Indeterminate,73,64,82,Zug,,28/12/2021
+FC-89,"127,0000",5,2,10,Child,Indeterminate,74,66,82,Zug,,18/09/2021
+FC-90,"10,0000",6,2,10,Child,Indeterminate,75,65,85,Aargau,,17/03/2022
+FC-91,"27,0000",6,2,10,Child,Indeterminate,76,66,86,Aargau,,13/01/2022
+FC-92,"29,0000",6,2,10,Child,Indeterminate,77,72,82,Aargau,,11/07/2021
+FC-93,"63,0000",6,2,10,Child,Indeterminate,78,68,88,Aargau,,21/09/2021
+FC-94,"155,0000",6,2,10,Child,Indeterminate,80,72,88,Aargau,,05/10/2021
+FC-95,"35,0000",6,2,10,Child,Indeterminate,77,72,82,Basel,,17/12/2021
+FC-96,"82,0000",6,2,10,Child,Indeterminate,79,70,88,Basel,,18/09/2021
+FC-97,"91,0000",6,2,10,Child,Indeterminate,80,70,90,Basel,,05/08/2021
+FC-98,"171,0000",6,2,10,Child,Indeterminate,82,74,90,Basel,,07/05/2022
+FC-99,"161,0000",6,2,10,Child,Indeterminate,81,76,86,Jura,,25/06/2021
+FC-100,"126,0000",6,2,10,Child,Indeterminate,80,73,87,Luzern,,11/08/2021
+FC-101,"89,0000",6,2,10,Child,Indeterminate,80,71,89,Schwyz,,16/01/2022
+FC-102,"61,0000",6,2,10,Child,Indeterminate,78,72,84,Uri,,01/06/2022
+FC-103,"7,0000",6,2,10,Child,Indeterminate,75,68,82,Valais,,11/05/2022
+FC-104,"101,0000",7,2,10,Child,Indeterminate,87,79,95,Aargau,,29/12/2021
+FC-105,"124,0000",7,2,10,Child,Indeterminate,89,81,97,Appenzell,,21/09/2021
+FC-106,"99,0000",7,2,10,Child,Indeterminate,86,81,91,Fribourg,,25/08/2021
+FC-107,"142,0000",7,2,10,Child,Indeterminate,89,84,94,Glarus,,30/04/2022
+FC-108,"148,0000",7,2,10,Child,Indeterminate,90,84,96,Luzern,,03/10/2021
+FC-109,"147,0000",7,2,10,Child,Indeterminate,89,83,95,Neuchatel,,17/09/2021
+FC-110,"47,0000",7,2,10,Child,Indeterminate,83,75,91,St Gallen,,08/09/2021
+FC-111,"43,0000",7,2,10,Child,Indeterminate,82,73,91,Uri,,15/02/2022
+FC-112,"116,0000",7,2,10,Child,Indeterminate,87,78,96,Valais,,25/09/2021
+FC-113,"122,0000",7,2,10,Child,Indeterminate,88,80,96,Valais,,12/08/2021
+FC-114,"93,0000",7,2,10,Child,Indeterminate,85,80,90,Vaud,,06/12/2021
+FC-115,"2,0000",7,2,10,Child,Indeterminate,82,76,88,Zug,,17/11/2021
+FC-116,"4,0000",8,2,10,Child,Indeterminate,90,85,95,Fribourg,,18/01/2022
+FC-117,"152,0000",8,2,10,Child,Indeterminate,99,93,105,Geneve,,19/02/2022
+FC-118,"165,0000",8,2,10,Child,Indeterminate,100,91,109,Geneve,,19/12/2021
+FC-119,"92,0000",8,2,10,Child,Indeterminate,92,86,98,Jura,,03/05/2022
+FC-120,"114,0000",8,2,10,Child,Indeterminate,95,89,101,Neuchatel,,05/03/2022
+FC-121,"22,0000",8,2,10,Child,Indeterminate,90,82,98,Nidwalden,,16/04/2022
+FC-122,"65,0000",8,2,10,Child,Indeterminate,91,85,97,Nidwalden,,24/09/2021
+FC-123,"112,0000",8,2,10,Child,Indeterminate,94,88,100,Obwalden,,31/10/2021
+FC-124,"85,0000",8,2,10,Child,Indeterminate,91,82,100,St Gallen,,21/04/2022
+FC-125,"149,0000",8,2,10,Child,Indeterminate,98,89,107,Thurgau,,06/07/2021
+FC-126,"57,0000",8,2,10,Child,Indeterminate,91,86,96,Ticino,,19/03/2022
+FC-127,"123,0000",8,2,10,Child,Indeterminate,95,86,104,Ticino,,09/06/2021
+FC-128,"53,0000",8,2,10,Child,Indeterminate,90,82,98,Zurich,,15/02/2022
+FC-129,"39,0000",9,2,10,Child,Indeterminate,102,93,111,Appenzell,,10/08/2021
+FC-130,"129,0000",9,2,10,Child,Indeterminate,104,95,113,Geneve,,06/08/2021
+FC-131,"51,0000",9,2,10,Child,Indeterminate,102,92,112,Glarus,,19/09/2021
+FC-132,"119,0000",9,2,10,Child,Indeterminate,103,95,111,Luzern,,26/03/2022
+FC-133,"30,0000",9,2,10,Child,Indeterminate,100,91,109,Obwalden,,12/02/2022
+FC-134,"33,0000",9,2,10,Child,Indeterminate,101,93,109,Obwalden,,06/11/2021
+FC-135,"118,0000",9,2,10,Child,Indeterminate,103,91,115,Schwyz,,23/04/2022
+FC-136,"24,0000",9,2,10,Child,Indeterminate,100,93,107,Solothurn,,23/05/2022
+FC-137,"67,0000",9,2,10,Child,Indeterminate,102,92,112,Ticino,,15/04/2022
+FC-138,"109,0000",9,2,10,Child,Indeterminate,103,91,115,Uri,,07/04/2022
+FC-139,"168,0000",9,2,10,Child,Indeterminate,107,98,116,Uri,,03/10/2021
+FC-140,"163,0000",9,2,10,Child,Indeterminate,106,96,116,Vaud,,20/02/2022
+FC-141,"139,0000",9,2,10,Child,Indeterminate,105,93,117,Zurich,,17/07/2021
+FC-142,"160,0000",9,2,10,Child,Indeterminate,106,97,115,Zurich,,25/07/2021
+FC-143,"137,0000",10,2,10,Child,Indeterminate,111,103,119,Graubunden,,02/03/2022
+FC-144,"18,0000",10,2,10,Child,Indeterminate,107,99,115,Nidwalden,,22/01/2022
+FC-145,"88,0000",10,2,10,Child,Indeterminate,110,100,120,Nidwalden,,15/04/2022
+FC-146,"98,0000",10,2,10,Child,Indeterminate,111,101,121,Nidwalden,,26/09/2021
+FC-147,"81,0000",10,2,10,Child,Indeterminate,110,102,118,Solothurn,,15/11/2021
+FC-148,"50,0000",10,2,10,Child,Indeterminate,108,97,119,Valais,,29/09/2021
+FC-149,"49,0000",10,2,10,Child,Indeterminate,108,96,120,Vaud,,30/09/2021
+FC-150,"52,0000",10,2,10,Child,Indeterminate,109,100,118,Vaud,,06/04/2022
+FC-151,"46,0000",11,11,19,Adolescent,Probable Male,112,102,122,Appenzell,,27/03/2022
+FC-152,"83,0000",11,11,19,Adolescent,Indeterminate,112,104,120,Geneve,,14/01/2022
+FC-153,"25,0000",11,11,19,Adolescent,Indeterminate,112,100,124,Glarus,,25/07/2021
+FC-154,"102,0000",11,11,19,Adolescent,Indeterminate,113,101,125,Luzern,,01/02/2022
+FC-155,"72,0000",11,11,19,Adolescent,Probable Female,112,104,120,Solothurn,,06/04/2022
+FC-156,"150,0000",11,11,19,Adolescent,Indeterminate,115,104,126,Uri,,02/07/2021
+FC-157,"136,0000",11,11,19,Adolescent,Indeterminate,115,106,124,Valais,,02/10/2021
+FC-158,"97,0000",11,11,19,Adolescent,Indeterminate,112,102,122,Zug,,09/12/2021
+FC-159,"105,0000",11,11,19,Adolescent,Indeterminate,113,104,122,Zug,,28/01/2022
+FC-160,"132,0000",11,11,19,Adolescent,Indeterminate,114,103,125,Zurich,,11/06/2021
+FC-161,"154,0000",11,11,19,Adolescent,Indeterminate,115,105,125,Zurich,,29/08/2021
+FC-162,"134,0000",12,11,19,Adolescent,Indeterminate,123,113,133,Appenzell,,11/01/2022
+FC-163,"13,0000",12,11,19,Adolescent,Indeterminate,116,107,125,Fribourg,,22/02/2022
+FC-164,"31,0000",12,11,19,Adolescent,Indeterminate,116,107,125,Nidwalden,,31/03/2022
+FC-165,"34,0000",12,11,19,Adolescent,Probable Male,116,104,128,Nidwalden,,27/10/2021
+FC-166,"42,0000",12,11,19,Adolescent,Indeterminate,118,108,128,Nidwalden,,19/03/2022
+FC-167,"70,0000",12,11,19,Adolescent,Indeterminate,121,109,133,Schwyz,,28/10/2021
+FC-168,"38,0000",12,11,19,Adolescent,Probable Male,117,107,127,Solothurn,,10/02/2022
+FC-169,"146,0000",12,11,19,Adolescent,Indeterminate,124,112,136,Solothurn,,31/05/2022
+FC-170,"64,0000",12,11,19,Adolescent,Indeterminate,121,111,131,St Gallen,,11/05/2022
+FC-171,"58,0000",12,11,19,Adolescent,Indeterminate,119,111,127,Thurgau,,14/08/2021
+FC-172,"111,0000",12,11,19,Adolescent,Indeterminate,122,112,132,Valais,,16/10/2021
+FC-173,"79,0000",12,11,19,Adolescent,Indeterminate,122,114,130,Vaud,,12/06/2021
+FC-174,"103,0000",12,11,19,Adolescent,Indeterminate,122,112,132,Zug,,19/07/2021
+FC-175,"144,0000",12,11,19,Adolescent,Indeterminate,123,113,133,Zurich,,02/11/2021
+FC-176,"358,0000",13,11,19,Adolescent,Indeterminate,128,118,138,Aargau,,01/06/2022
+FC-177,"205,0000",13,11,19,Adolescent,Indeterminate,124,113,135,Appenzell,,31/07/2021
+FC-178,"235,0000",13,11,19,Adolescent,Indeterminate,125,116,134,Bern,,12/06/2021
+FC-179,"302,0000",13,11,19,Adolescent,Indeterminate,126,117,135,Bern,,13/01/2022
+FC-180,"356,0000",13,11,19,Adolescent,Probable Female,128,118,138,Bern,,09/03/2022
+FC-181,"367,0000",13,11,19,Adolescent,Indeterminate,129,118,140,Geneve,,13/11/2021
+FC-182,"345,0000",13,11,19,Adolescent,Indeterminate,128,118,138,Glarus,,12/09/2021
+FC-183,"388,0000",13,11,19,Adolescent,Indeterminate,130,119,141,Graubunden,,20/11/2021
+FC-184,"213,0000",13,11,19,Adolescent,Indeterminate,125,117,133,Jura,,11/03/2022
+FC-185,"227,0000",13,11,19,Adolescent,Indeterminate,125,115,135,Jura,,18/07/2021
+FC-186,"289,0000",13,11,19,Adolescent,Indeterminate,125,114,136,Jura,,01/08/2021
+FC-187,"316,0000",13,11,19,Adolescent,Indeterminate,127,115,139,Jura,,11/08/2021
+FC-188,"176,0000",13,11,19,Adolescent,Indeterminate,124,113,135,Luzern,,28/06/2021
+FC-189,"201,0000",13,11,19,Adolescent,Indeterminate,124,116,132,Luzern,,05/09/2021
+FC-190,"311,0000",13,11,19,Adolescent,Indeterminate,126,114,138,Luzern,,22/02/2022
+FC-191,"351,0000",13,11,19,Adolescent,Indeterminate,128,117,139,Luzern,,11/08/2021
+FC-192,"353,0000",13,11,19,Adolescent,Probable Male,128,119,137,Luzern,,02/03/2022
+FC-193,"382,0000",13,11,19,Adolescent,Indeterminate,130,121,139,Luzern,,26/02/2022
+FC-194,"346,0000",13,11,19,Adolescent,Indeterminate,128,116,140,Obwalden,,08/12/2021
+FC-195,"375,0000",13,11,19,Adolescent,Indeterminate,129,119,139,Schaffhausen,,10/10/2021
+FC-196,"261,0000",13,11,19,Adolescent,Indeterminate,125,115,135,Schwyz,,28/02/2022
+FC-197,"328,0000",13,11,19,Adolescent,Indeterminate,127,117,137,Thurgau,,01/07/2021
+FC-198,"323,0000",13,11,19,Adolescent,Indeterminate,127,115,139,Uri,,26/11/2021
+FC-199,"381,0000",13,11,19,Adolescent,Indeterminate,130,118,142,Uri,,12/05/2022
+FC-200,"181,0000",13,11,19,Adolescent,Indeterminate,124,113,135,Valais,,02/03/2022
+FC-201,"364,0000",13,11,19,Adolescent,Indeterminate,128,116,140,Valais,,03/04/2022
+FC-202,"196,0000",13,11,19,Adolescent,Indeterminate,124,115,133,Zug,,25/05/2022
+FC-203,"215,0000",14,11,19,Adolescent,Indeterminate,131,121,141,Aargau,,15/01/2022
+FC-204,"350,0000",14,11,19,Adolescent,Probable Male,144,135,153,Basel,,25/10/2021
+FC-205,"220,0000",14,11,19,Adolescent,Indeterminate,132,121,143,Bern,,09/09/2021
+FC-206,"232,0000",14,11,19,Adolescent,Indeterminate,133,124,142,Bern,,09/06/2021
+FC-207,"359,0000",14,11,19,Adolescent,Indeterminate,145,135,155,Bern,,12/03/2022
+FC-208,"207,0000",14,11,19,Adolescent,Indeterminate,130,119,141,Fribourg,,18/11/2021
+FC-209,"287,0000",14,11,19,Adolescent,Probable Female,141,133,149,Fribourg,,17/05/2022
+FC-210,"209,0000",14,11,19,Adolescent,Indeterminate,130,122,138,Geneve,,03/01/2022
+FC-211,"291,0000",14,11,19,Adolescent,Probable Female,141,133,149,Geneve,,24/01/2022
+FC-212,"258,0000",14,11,19,Adolescent,Probable Female,135,127,143,Graubunden,,27/12/2021
+FC-213,"275,0000",14,11,19,Adolescent,Probable Female,140,128,152,Graubunden,,21/04/2022
+FC-214,"303,0000",14,11,19,Adolescent,Probable Male,142,133,151,Graubunden,,23/01/2022
+FC-215,"377,0000",14,11,19,Adolescent,Indeterminate,146,137,155,Jura,,12/04/2022
+FC-216,"244,0000",14,11,19,Adolescent,Indeterminate,133,122,144,Luzern,,10/05/2022
+FC-217,"265,0000",14,11,19,Adolescent,Probable Female,136,126,146,Luzern,,24/05/2022
+FC-218,"334,0000",14,11,19,Adolescent,Probable Male,144,136,152,Luzern,,08/10/2021
+FC-219,"214,0000",14,11,19,Adolescent,Indeterminate,131,120,142,Nidwalden,,28/02/2022
+FC-220,"253,0000",14,11,19,Adolescent,Indeterminate,133,124,142,Nidwalden,,23/09/2021
+FC-221,"221,0000",14,11,19,Adolescent,Indeterminate,132,120,144,Obwalden,,22/06/2021
+FC-222,"180,0000",14,11,19,Adolescent,Indeterminate,130,120,140,Schaffhausen,,22/07/2021
+FC-223,"300,0000",14,11,19,Adolescent,Probable Male,141,131,151,Schaffhausen,,13/10/2021
+FC-224,"342,0000",14,11,19,Adolescent,Probable Male,144,136,152,Schaffhausen,,02/07/2021
+FC-225,"310,0000",14,11,19,Adolescent,Probable Male,142,134,150,St Gallen,,05/09/2021
+FC-226,"319,0000",14,11,19,Adolescent,Probable Male,143,132,154,Thurgau,,05/08/2021
+FC-227,"373,0000",14,11,19,Adolescent,Indeterminate,145,137,153,Thurgau,,11/02/2022
+FC-228,"231,0000",14,11,19,Adolescent,Indeterminate,133,124,142,Ticino,,26/05/2022
+FC-229,"229,0000",14,11,19,Adolescent,Indeterminate,132,123,141,Uri,,08/04/2022
+FC-230,"257,0000",14,11,19,Adolescent,Indeterminate,134,124,144,Valais,,30/04/2022
+FC-231,"267,0000",14,11,19,Adolescent,Probable Female,137,125,149,Valais,,09/01/2022
+FC-232,"276,0000",14,11,19,Adolescent,Probable Female,141,130,152,Valais,,09/11/2021
+FC-233,"188,0000",14,11,19,Adolescent,Indeterminate,130,118,142,Vaud,,13/06/2021
+FC-234,"366,0000",14,11,19,Adolescent,Indeterminate,145,136,154,Vaud,,09/06/2021
+FC-235,"354,0000",14,11,19,Adolescent,Indeterminate,145,135,155,Zug,,20/08/2021
+FC-236,"269,0000",14,11,19,Adolescent,Probable Female,138,129,147,Zurich,,13/09/2021
+FC-237,"234,0000",15,11,19,Adolescent,Indeterminate,175,166,184,Aargau,,25/01/2022
+FC-238,"182,0000",15,11,19,Adolescent,Indeterminate,146,136,156,Appenzell,,07/03/2022
+FC-239,"268,0000",15,11,19,Adolescent,Probable Male,149,137,161,Appenzell,,05/09/2021
+FC-240,"183,0000",15,11,19,Adolescent,Indeterminate,146,138,154,Basel,,02/01/2022
+FC-241,"224,0000",15,11,19,Adolescent,Indeterminate,148,138,158,Basel,,11/09/2021
+FC-242,"223,0000",15,11,19,Adolescent,Indeterminate,148,139,157,Bern,,10/02/2022
+FC-243,"236,0000",15,11,19,Adolescent,Indeterminate,157,148,166,Glarus,,18/01/2022
+FC-244,"293,0000",15,11,19,Adolescent,Probable Male,150,138,162,Glarus,,07/12/2021
+FC-245,"329,0000",15,11,19,Adolescent,Probable Female,151,142,160,Glarus,,05/03/2022
+FC-246,"184,0000",15,11,19,Adolescent,Indeterminate,146,135,157,Graubunden,,07/09/2021
+FC-247,"390,0000",15,11,19,Adolescent,Probable Female,152,141,163,Graubunden,,29/05/2022
+FC-248,"198,0000",15,11,19,Adolescent,Indeterminate,147,136,158,Jura,,05/07/2021
+FC-249,"237,0000",15,11,19,Adolescent,Indeterminate,149,137,161,Luzern,,04/09/2021
+FC-250,"312,0000",15,11,19,Adolescent,Probable Male,151,139,163,Neuchatel,,16/07/2021
+FC-251,"247,0000",15,11,19,Adolescent,Indeterminate,149,138,160,Obwalden,,09/11/2021
+FC-252,"286,0000",15,11,19,Adolescent,Probable Male,150,138,162,Obwalden,,22/09/2021
+FC-253,"307,0000",15,11,19,Adolescent,Probable Male,151,145,157,Obwalden,,28/06/2021
+FC-254,"341,0000",15,11,19,Adolescent,Probable Female,151,143,159,Schwyz,,16/08/2021
+FC-255,"361,0000",15,11,19,Adolescent,Probable Female,151,141,161,Schwyz,,07/01/2022
+FC-256,"251,0000",15,11,19,Adolescent,Probable Male,149,141,157,Solothurn,,14/11/2021
+FC-257,"294,0000",15,11,19,Adolescent,Probable Male,150,141,159,Solothurn,,16/08/2021
+FC-258,"297,0000",15,11,19,Adolescent,Probable Male,150,141,159,Solothurn,,13/11/2021
+FC-259,"241,0000",15,11,19,Adolescent,Indeterminate,149,141,157,St Gallen,,01/03/2022
+FC-260,"271,0000",15,11,19,Adolescent,Probable Male,149,141,157,St Gallen,,01/08/2021
+FC-261,"189,0000",15,11,19,Adolescent,Indeterminate,147,139,155,Ticino,,29/03/2022
+FC-262,"301,0000",15,11,19,Adolescent,Probable Male,150,142,158,Ticino,,04/05/2022
+FC-263,"179,0000",15,11,19,Adolescent,Indeterminate,146,136,156,Valais,,19/09/2021
+FC-264,"210,0000",15,11,19,Adolescent,Indeterminate,147,137,157,Valais,,21/07/2021
+FC-265,"327,0000",15,11,19,Adolescent,Probable Male,151,140,162,Valais,,08/03/2022
+FC-266,"282,0000",15,11,19,Adolescent,Probable Male,149,141,157,Zurich,,01/01/2022
+FC-267,"379,0000",15,11,19,Adolescent,Probable Female,152,142,162,Zurich,,17/12/2021
+FC-268,"348,0000",16,11,19,Adolescent,Male,153,139,167,Appenzell,,10/10/2021
+FC-269,"284,0000",16,11,19,Adolescent,Female,152,142,162,Basel,,12/08/2021
+FC-270,"177,0000",16,11,19,Adolescent,Male,152,145,159,Bern,,15/07/2021
+FC-271,"389,0000",16,11,19,Adolescent,Female,153,146,160,Bern,,08/11/2021
+FC-272,"187,0000",16,11,19,Adolescent,Male,152,147,157,Geneve,,28/08/2021
+FC-273,"306,0000",16,11,19,Adolescent,Male,153,145,161,Glarus,,02/01/2022
+FC-274,"357,0000",16,11,19,Adolescent,Male,153,137,169,Graubunden,,16/11/2021
+FC-275,"239,0000",16,11,19,Adolescent,Male,152,139,165,Luzern,,09/06/2021
+FC-276,"252,0000",16,11,19,Adolescent,Male,152,139,165,Neuchatel,,28/12/2021
+FC-277,"380,0000",16,11,19,Adolescent,Female,153,142,164,Nidwalden,,09/02/2022
+FC-278,"385,0000",16,11,19,Adolescent,Female,153,137,169,Nidwalden,,04/03/2022
+FC-279,"225,0000",16,11,19,Adolescent,Male,152,138,166,Schaffhausen,,04/01/2022
+FC-280,"331,0000",16,11,19,Adolescent,Male,153,144,162,Schaffhausen,,03/01/2022
+FC-281,"248,0000",16,11,19,Adolescent,Male,152,143,161,Schwyz,,29/09/2021
+FC-282,"370,0000",16,11,19,Adolescent,Female,153,148,158,Schwyz,,27/06/2021
+FC-283,"246,0000",16,11,19,Adolescent,Male,152,146,158,Solothurn,,30/01/2022
+FC-284,"374,0000",16,11,19,Adolescent,Female,153,148,158,Solothurn,,23/11/2021
+FC-285,"292,0000",16,11,19,Adolescent,Male,152,146,158,Thurgau,,03/07/2021
+FC-286,"305,0000",16,11,19,Adolescent,Male,152,142,162,Thurgau,,07/10/2021
+FC-287,"344,0000",16,11,19,Adolescent,Male,153,138,168,Thurgau,,17/06/2021
+FC-288,"383,0000",16,11,19,Adolescent,Female,153,146,160,Uri,,14/01/2022
+FC-289,"197,0000",16,11,19,Adolescent,Male,152,142,162,Valais,,28/08/2021
+FC-290,"204,0000",16,11,19,Adolescent,Male,152,142,162,Valais,,07/05/2022
+FC-291,"211,0000",16,11,19,Adolescent,Male,152,140,164,Valais,,25/11/2021
+FC-292,"372,0000",16,11,19,Adolescent,Female,153,140,166,Zug,,28/12/2021
+FC-293,"279,0000",16,11,19,Adolescent,Female,152,140,164,Zurich,,16/03/2022
+FC-294,"208,0000",17,11,19,Adolescent,Male,154,139,169,Aargau,,29/12/2021
+FC-295,"219,0000",17,11,19,Adolescent,Male,154,141,167,Aargau,,28/09/2021
+FC-296,"360,0000",17,11,19,Adolescent,Male,155,146,164,Aargau,,04/11/2021
+FC-297,"333,0000",17,11,19,Adolescent,Male,154,139,169,Appenzell,,28/07/2021
+FC-298,"355,0000",17,11,19,Adolescent,Male,155,147,163,Appenzell,,10/02/2022
+FC-299,"264,0000",17,11,19,Adolescent,Female,154,144,164,Fribourg,,17/09/2021
+FC-300,"368,0000",17,11,19,Adolescent,Male,155,143,167,Fribourg,,20/01/2022
+FC-301,"192,0000",17,11,19,Adolescent,Male,154,139,169,Geneve,,16/01/2022
+FC-302,"186,0000",17,11,19,Adolescent,Male,153,145,161,Glarus,,23/01/2022
+FC-303,"281,0000",17,11,19,Adolescent,Female,154,141,167,Glarus,,11/03/2022
+FC-304,"387,0000",17,11,19,Adolescent,Female,155,149,161,Glarus,,07/05/2022
+FC-305,"238,0000",17,11,19,Adolescent,Male,154,142,166,Graubunden,,28/08/2021
+FC-306,"326,0000",17,11,19,Adolescent,Male,154,139,169,Graubunden,,16/08/2021
+FC-307,"243,0000",17,11,19,Adolescent,Male,154,142,166,Jura,,28/02/2022
+FC-308,"321,0000",17,11,19,Adolescent,Male,154,145,163,Jura,,28/06/2021
+FC-309,"228,0000",17,11,19,Adolescent,Male,154,148,160,Luzern,,18/12/2021
+FC-310,"365,0000",17,11,19,Adolescent,Male,155,139,171,Neuchatel,,27/07/2021
+FC-311,"263,0000",17,11,19,Adolescent,Female,154,144,164,Nidwalden,,03/09/2021
+FC-312,"347,0000",17,11,19,Adolescent,Male,155,139,171,Nidwalden,,14/12/2021
+FC-313,"378,0000",17,11,19,Adolescent,Female,155,145,165,Nidwalden,,28/12/2021
+FC-314,"256,0000",17,11,19,Adolescent,Male,154,144,164,Schaffhausen,,15/06/2021
+FC-315,"324,0000",17,11,19,Adolescent,Male,154,139,169,Schaffhausen,,21/03/2022
+FC-316,"309,0000",17,11,19,Adolescent,Male,154,146,162,Schwyz,,08/01/2022
+FC-317,"190,0000",17,11,19,Adolescent,Male,153,143,163,St Gallen,,07/01/2022
+FC-318,"202,0000",17,11,19,Adolescent,Male,154,146,162,Thurgau,,20/04/2022
+FC-319,"250,0000",17,11,19,Adolescent,Male,154,146,162,Thurgau,,06/06/2022
+FC-320,"299,0000",17,11,19,Adolescent,Male,154,140,168,Thurgau,,05/06/2022
+FC-321,"325,0000",17,11,19,Adolescent,Male,154,139,169,Thurgau,,20/11/2021
+FC-322,"371,0000",17,11,19,Adolescent,Female,155,141,169,Thurgau,,03/05/2022
+FC-323,"185,0000",17,11,19,Adolescent,Male,153,140,166,Ticino,,23/11/2021
+FC-324,"222,0000",17,11,19,Adolescent,Male,154,148,160,Ticino,,08/02/2022
+FC-325,"295,0000",17,11,19,Adolescent,Male,154,145,163,Ticino,,18/07/2021
+FC-326,"304,0000",17,11,19,Adolescent,Male,154,148,160,Uri,,11/07/2021
+FC-327,"320,0000",17,11,19,Adolescent,Male,154,140,168,Uri,,08/08/2021
+FC-328,"260,0000",17,11,19,Adolescent,Female,154,144,164,Valais,,23/06/2021
+FC-329,"343,0000",17,11,19,Adolescent,Male,154,147,161,Zug,,12/01/2022
+FC-330,"560,0000",18,16,20,Adult,Male,157,144,170,Aargau,,05/11/2021
+FC-331,"885,0000",18,16,20,Adult,Female,157,148,166,Basel,,27/04/2022
+FC-332,"903,0000",18,16,20,Adult,Female,157,144,170,Bern,,20/03/2022
+FC-333,"272,0000",18,16,20,Adult,Female,156,142,170,Fribourg,,09/06/2021
+FC-334,"313,0000",18,16,20,Adult,Male,156,151,161,Fribourg,,13/11/2021
+FC-335,"262,0000",18,16,20,Adult,Female,161,156,166,Geneve,,15/12/2021
+FC-336,"273,0000",18,16,20,Adult,Female,156,144,168,Glarus,,10/09/2021
+FC-337,"562,0000",18,16,20,Adult,Male,157,152,162,Glarus,,01/01/2022
+FC-338,"335,0000",18,16,20,Adult,Male,156,145,167,Graubunden,,31/05/2022
+FC-339,"277,0000",18,16,20,Adult,Female,156,142,170,Jura,,12/10/2021
+FC-340,"322,0000",18,16,20,Adult,Male,156,151,161,Jura,,11/11/2021
+FC-341,"538,0000",18,16,20,Adult,Male,157,143,171,Jura,,14/10/2021
+FC-342,"194,0000",18,16,20,Adult,Male,155,144,166,Luzern,,20/06/2021
+FC-343,"411,0000",18,16,20,Adult,Male,157,145,169,Luzern,,31/10/2021
+FC-344,"212,0000",18,16,20,Adult,Male,155,142,168,Neuchatel,,19/12/2021
+FC-345,"255,0000",18,16,20,Adult,Male,155,140,170,Neuchatel,,03/11/2021
+FC-346,"614,0000",18,16,20,Adult,Male,157,148,166,Neuchatel,,20/02/2022
+FC-347,"665,0000",18,16,20,Adult,Male,157,151,163,Neuchatel,,06/12/2021
+FC-348,"298,0000",18,16,20,Adult,Male,156,150,162,Nidwalden,,22/11/2021
+FC-349,"249,0000",18,16,20,Adult,Male,155,148,162,Obwalden,,05/01/2022
+FC-350,"384,0000",18,16,20,Adult,Female,157,141,173,Obwalden,,02/01/2022
+FC-351,"278,0000",18,16,20,Adult,Female,156,145,167,Schaffhausen,,23/10/2021
+FC-352,"314,0000",18,16,20,Adult,Male,156,145,167,Schaffhausen,,27/10/2021
+FC-353,"285,0000",18,16,20,Adult,Female,156,143,169,Schwyz,,15/04/2022
+FC-354,"336,0000",18,16,20,Adult,Male,156,140,172,Solothurn,,20/06/2021
+FC-355,"200,0000",18,16,20,Adult,Male,155,146,164,St Gallen,,24/09/2021
+FC-356,"339,0000",18,16,20,Adult,Male,156,146,166,St Gallen,,12/07/2021
+FC-357,"678,0000",18,16,20,Adult,Male,157,151,163,St Gallen,,22/04/2022
+FC-358,"919,0000",18,16,20,Adult,Male,158,150,166,St Gallen,,05/02/2022
+FC-359,"288,0000",18,16,20,Adult,Female,156,143,169,Thurgau,,23/02/2022
+FC-360,"318,0000",18,16,20,Adult,Male,156,145,167,Thurgau,,03/02/2022
+FC-361,"338,0000",18,16,20,Adult,Male,156,148,164,Thurgau,,02/09/2021
+FC-362,"392,0000",18,16,20,Adult,Male,157,152,162,Thurgau,,30/09/2021
+FC-363,"216,0000",18,16,20,Adult,Male,155,141,169,Ticino,,16/12/2021
+FC-364,"230,0000",18,16,20,Adult,Male,155,140,170,Uri,,20/06/2021
+FC-365,"217,0000",18,16,20,Adult,Male,155,145,165,Valais,,17/10/2021
+FC-366,"386,0000",18,16,20,Adult,Female,157,146,168,Vaud,,24/06/2021
+FC-367,"283,0000",18,16,20,Adult,Female,156,150,162,Zug,,21/09/2021
+FC-368,"869,0000",18,16,20,Adult,Male,157,146,168,Zurich,,06/06/2022
+FC-369,"266,0000",19,17,21,Adult,Female,158,152,164,Aargau,,03/02/2022
+FC-370,"203,0000",19,17,21,Adult,Male,158,149,167,Appenzell,,28/09/2021
+FC-371,"259,0000",19,17,21,Adult,Female,158,152,164,Appenzell,,26/09/2021
+FC-372,"245,0000",19,17,21,Adult,Male,158,144,172,Basel,,29/03/2022
+FC-373,"363,0000",19,17,21,Adult,Male,159,152,166,Basel,,07/04/2022
+FC-374,"349,0000",19,17,21,Adult,Male,159,143,175,Bern,,19/08/2021
+FC-375,"734,0000",19,17,21,Adult,Male,159,144,174,Geneve,,04/09/2021
+FC-376,"191,0000",19,17,21,Adult,Male,158,152,164,Glarus,,17/04/2022
+FC-377,"199,0000",19,17,21,Adult,Male,158,152,164,Glarus,,21/01/2022
+FC-378,"274,0000",19,17,21,Adult,Female,158,148,168,Glarus,,29/09/2021
+FC-379,"376,0000",19,17,21,Adult,Female,159,150,168,Glarus,,31/07/2021
+FC-380,"233,0000",19,17,21,Adult,Male,158,142,174,Graubunden,,18/04/2022
+FC-381,"240,0000",19,17,21,Adult,Male,158,145,171,Graubunden,,11/10/2021
+FC-382,"611,0000",19,17,21,Adult,Male,159,146,172,Graubunden,,08/04/2022
+FC-383,"290,0000",19,17,21,Adult,Female,158,151,165,Jura,,23/04/2022
+FC-384,"337,0000",19,17,21,Adult,Male,159,151,167,Luzern,,10/04/2022
+FC-385,"470,0000",19,17,21,Adult,Male,159,152,166,Luzern,,18/01/2022
+FC-386,"646,0000",19,17,21,Adult,Male,159,153,165,Luzern,,29/12/2021
+FC-387,"206,0000",19,17,21,Adult,Male,158,144,172,Neuchatel,,29/12/2021
+FC-388,"242,0000",19,17,21,Adult,Male,158,153,163,Neuchatel,,31/12/2021
+FC-389,"280,0000",19,17,21,Adult,Female,158,152,164,Neuchatel,,06/04/2022
+FC-390,"352,0000",19,17,21,Adult,Male,159,153,165,Neuchatel,,05/05/2022
+FC-391,"419,0000",19,17,21,Adult,Male,159,153,165,Neuchatel,,28/09/2021
+FC-392,"369,0000",19,17,21,Adult,Male,159,145,173,Nidwalden,,12/02/2022
+FC-393,"218,0000",19,17,21,Adult,Male,158,152,164,Obwalden,,24/02/2022
+FC-394,"330,0000",19,17,21,Adult,Male,159,145,173,Obwalden,,17/03/2022
+FC-395,"332,0000",19,17,21,Adult,Male,159,144,174,Schaffhausen,,05/04/2022
+FC-396,"746,0000",19,17,21,Adult,Male,159,146,172,Schwyz,,18/05/2022
+FC-397,"296,0000",19,17,21,Adult,Male,158,143,173,Solothurn,,07/05/2022
+FC-398,"317,0000",19,17,21,Adult,Male,159,147,171,Solothurn,,29/06/2021
+FC-399,"178,0000",19,17,21,Adult,Male,158,152,164,St Gallen,,02/12/2021
+FC-400,"516,0000",19,17,21,Adult,Male,159,143,175,St Gallen,,02/03/2022
+FC-401,"893,0000",19,17,21,Adult,Female,159,152,166,St Gallen,,05/02/2022
+FC-402,"270,0000",19,17,21,Adult,Female,158,149,167,Thurgau,,14/11/2021
+FC-403,"315,0000",19,17,21,Adult,Male,158,149,167,Thurgau,,03/09/2021
+FC-404,"362,0000",19,17,21,Adult,Male,159,143,175,Ticino,,26/12/2021
+FC-405,"195,0000",19,17,21,Adult,Male,158,150,166,Uri,,13/11/2021
+FC-406,"308,0000",19,17,21,Adult,Male,158,145,171,Uri,,24/04/2022
+FC-407,"226,0000",19,17,21,Adult,Male,158,142,174,Valais,,15/09/2021
+FC-408,"254,0000",19,17,21,Adult,Male,158,151,165,Vaud,,23/04/2022
+FC-409,"703,0000",19,17,21,Adult,Male,159,149,169,Vaud,,26/08/2021
+FC-410,"193,0000",19,17,21,Adult,Male,158,147,169,Zug,,01/07/2021
+FC-411,"836,0000",19,17,21,Adult,Female,159,151,167,Zug,,23/11/2021
+FC-412,"340,0000",19,17,21,Adult,Male,159,147,171,Zurich,,14/11/2021
+FC-413,"651,0000",19,17,21,Adult,Male,159,144,174,Zurich,,13/01/2022
+FC-414,"620,0000",20,18,22,Adult,Male,160,149,171,Aargau,,06/01/2022
+FC-415,"721,0000",20,18,22,Adult,Male,160,144,176,Fribourg,,10/03/2022
+FC-416,"698,0000",20,18,22,Adult,Male,160,149,171,Geneve,,04/10/2021
+FC-417,"435,0000",20,18,22,Adult,Male,159,152,166,Graubunden,,09/11/2021
+FC-418,"423,0000",20,18,22,Adult,Male,159,148,170,Jura,,16/05/2022
+FC-419,"830,0000",20,18,22,Adult,Female,160,148,172,Jura,,21/10/2021
+FC-420,"785,0000",20,18,22,Adult,Female,160,155,165,Luzern,,17/04/2022
+FC-421,"905,0000",20,18,22,Adult,Female,160,146,174,Nidwalden,,31/01/2022
+FC-422,"938,0000",20,18,22,Adult,Female,160,149,171,Obwalden,,13/05/2022
+FC-423,"391,0000",20,18,22,Adult,Male,159,151,167,Schaffhausen,,06/03/2022
+FC-424,"532,0000",20,18,22,Adult,Male,159,143,175,Schaffhausen,,07/06/2022
+FC-425,"627,0000",20,18,22,Adult,Male,160,153,167,Solothurn,,09/09/2021
+FC-426,"480,0000",20,18,22,Adult,Male,159,149,169,Ticino,,27/02/2022
+FC-427,"770,0000",20,18,22,Adult,Female,160,148,172,Ticino,,19/03/2022
+FC-428,"742,0000",20,18,22,Adult,Male,160,147,173,Valais,,27/09/2021
+FC-429,"751,0000",21,19,23,Adult,Male,160,150,170,Graubunden,,14/03/2022
+FC-430,"661,0000",21,19,23,Adult,Male,160,150,170,Schaffhausen,,14/10/2021
+FC-431,"884,0000",21,19,23,Adult,Female,160,144,176,Schaffhausen,,11/03/2022
+FC-432,"899,0000",21,19,23,Adult,Female,160,151,169,Thurgau,,25/12/2021
+FC-433,"590,0000",21,19,23,Adult,Male,160,155,165,Ticino,,01/08/2021
+FC-434,"539,0000",21,19,23,Adult,Male,160,155,165,Valais,,19/11/2021
+FC-435,"736,0000",21,19,23,Adult,Male,160,150,170,Valais,,31/01/2022
+FC-436,"393,0000",21,19,23,Adult,Male,160,151,169,Zurich,,20/02/2022
+FC-437,"444,0000",22,20,24,Adult,Male,160,151,169,Bern,,01/03/2022
+FC-438,"672,0000",22,20,24,Adult,Male,160,151,169,Bern,,18/03/2022
+FC-439,"887,0000",22,20,24,Adult,Female,161,146,176,Glarus,,31/12/2021
+FC-440,"783,0000",22,20,24,Adult,Female,161,152,170,Graubunden,,16/06/2021
+FC-441,"544,0000",22,20,24,Adult,Male,160,151,169,Luzern,,13/03/2022
+FC-442,"704,0000",22,20,24,Adult,Male,160,148,172,Schaffhausen,,07/02/2022
+FC-443,"531,0000",22,20,24,Adult,Male,160,147,173,Schwyz,,16/08/2021
+FC-444,"603,0000",22,20,24,Adult,Male,160,146,174,Schwyz,,25/02/2022
+FC-445,"683,0000",22,20,24,Adult,Male,160,151,169,St Gallen,,22/09/2021
+FC-446,"786,0000",22,20,24,Adult,Female,161,148,174,Zurich,,11/10/2021
+FC-447,"680,0000",23,21,25,Adult,Male,161,145,177,Basel,,12/11/2021
+FC-448,"932,0000",23,21,25,Adult,Female,161,148,174,Basel,,04/05/2022
+FC-449,"923,0000",23,21,25,Adult,Male,161,149,173,Graubunden,,19/06/2021
+FC-450,"473,0000",23,21,25,Adult,Male,161,147,175,Jura,,12/08/2021
+FC-451,"415,0000",23,21,25,Adult,Male,161,153,169,St Gallen,,05/08/2021
+FC-452,"547,0000",23,21,25,Adult,Male,161,150,172,Ticino,,20/10/2021
+FC-453,"460,0000",23,21,25,Adult,Male,161,154,168,Vaud,,07/08/2021
+FC-454,"832,0000",23,21,25,Adult,Female,161,145,177,Vaud,,21/11/2021
+FC-455,"822,0000",23,21,25,Adult,Female,161,154,168,Zug,,16/03/2022
+FC-456,"828,0000",23,21,25,Adult,Female,161,150,172,Zurich,,25/03/2022
+FC-457,"569,0000",24,22,26,Adult,Male,161,149,173,Appenzell,,07/09/2021
+FC-458,"434,0000",24,22,26,Adult,Male,161,154,168,Bern,,25/02/2022
+FC-459,"826,0000",24,22,26,Adult,Female,162,147,177,Geneve,,19/06/2021
+FC-460,"849,0000",24,22,26,Adult,Male,162,151,173,Geneve,,14/03/2022
+FC-461,"522,0000",24,22,26,Adult,Male,161,155,167,Graubunden,,16/11/2021
+FC-462,"733,0000",24,22,26,Adult,Male,161,152,170,Graubunden,,26/08/2021
+FC-463,"868,0000",24,22,26,Adult,Male,162,146,178,Jura,,10/07/2021
+FC-464,"810,0000",24,22,26,Adult,Female,162,156,168,Schaffhausen,,19/04/2022
+FC-465,"866,0000",24,22,26,Adult,Male,162,147,177,Schaffhausen,,19/08/2021
+FC-466,"856,0000",24,22,26,Adult,Male,162,151,173,Schwyz,,30/09/2021
+FC-467,"596,0000",24,22,26,Adult,Male,161,148,174,Solothurn,,11/10/2021
+FC-468,"555,0000",24,22,26,Adult,Male,161,148,174,St Gallen,,11/09/2021
+FC-469,"568,0000",24,22,26,Adult,Male,161,152,170,St Gallen,,06/05/2022
+FC-470,"864,0000",24,22,26,Adult,Male,162,150,174,Ticino,,05/04/2022
+FC-471,"821,0000",24,22,26,Adult,Female,162,147,177,Uri,,17/07/2021
+FC-472,"475,0000",24,22,26,Adult,Male,161,145,177,Vaud,,14/06/2021
+FC-473,"909,0000",24,22,26,Adult,Female,162,157,167,Zug,,18/02/2022
+FC-474,"495,0000",25,23,27,Adult,Male,162,146,178,Basel,,21/11/2021
+FC-475,"860,0000",25,23,27,Adult,Male,162,152,172,Basel,,21/12/2021
+FC-476,"446,0000",25,23,27,Adult,Male,162,157,167,Fribourg,,28/11/2021
+FC-477,"877,0000",25,23,27,Adult,Male,162,156,168,Geneve,,11/10/2021
+FC-478,"805,0000",25,23,27,Adult,Female,162,150,174,Glarus,,04/05/2022
+FC-479,"798,0000",25,23,27,Adult,Female,162,150,174,Graubunden,,06/03/2022
+FC-480,"668,0000",25,23,27,Adult,Male,162,155,169,Jura,,29/12/2021
+FC-481,"510,0000",25,23,27,Adult,Male,162,148,176,Nidwalden,,07/07/2021
+FC-482,"913,0000",25,23,27,Adult,Male,162,151,173,Nidwalden,,08/09/2021
+FC-483,"425,0000",25,23,27,Adult,Male,162,154,170,Schaffhausen,,25/09/2021
+FC-484,"719,0000",25,23,27,Adult,Male,162,149,175,Uri,,08/11/2021
+FC-485,"740,0000",25,23,27,Adult,Male,162,150,174,Zurich,,08/01/2022
+FC-486,"657,0000",26,23,30,Adult,Probable Male,163,154,172,Aargau,,13/03/2022
+FC-487,"694,0000",26,23,30,Adult,Probable Male,163,148,178,Aargau,,02/02/2022
+FC-488,"824,0000",26,23,30,Adult,Female,163,157,169,Aargau,,16/09/2021
+FC-489,"504,0000",26,23,30,Adult,Male,163,152,174,Bern,,09/04/2022
+FC-490,"928,0000",26,23,30,Adult,Probable Male,163,158,168,Geneve,,01/05/2022
+FC-491,"782,0000",26,23,30,Adult,Female,163,150,176,Luzern,,03/11/2021
+FC-492,"654,0000",26,23,30,Adult,Male,163,150,176,Obwalden,,04/11/2021
+FC-493,"879,0000",26,23,30,Adult,Probable Male,163,155,171,St Gallen,,04/02/2022
+FC-494,"418,0000",26,23,30,Adult,Male,162,153,171,Thurgau,,24/06/2021
+FC-495,"872,0000",26,23,30,Adult,Probable Male,163,149,177,Thurgau,,29/12/2021
+FC-496,"762,0000",26,23,30,Adult,Female,163,155,171,Ticino,,13/05/2022
+FC-497,"814,0000",27,25,40,Adult,Female,163,152,174,Basel,,18/10/2021
+FC-498,"660,0000",27,25,40,Adult,Probable Male,163,153,173,Geneve,,31/12/2021
+FC-499,"710,0000",27,25,40,Adult,Probable Male,163,156,170,Jura,,21/05/2022
+FC-500,"886,0000",27,25,40,Adult,Female,163,152,174,Jura,,25/03/2022
+FC-501,"644,0000",27,25,40,Adult,Probable Male,163,151,175,Neuchatel,,10/01/2022
+FC-502,"623,0000",27,25,40,Adult,Probable Male,163,147,179,Schaffhausen,,09/09/2021
+FC-503,"914,0000",27,25,40,Adult,Probable Male,163,153,173,Thurgau,,27/12/2021
+FC-504,"438,0000",28,25,40,Adult,Probable Male,164,156,172,Aargau,20/07/2021,29/09/2021
+FC-505,"911,0000",28,25,40,Adult,Female,164,157,171,Bern,17/08/2021,21/02/2022
+FC-506,"497,0000",28,25,40,Adult,Probable Male,164,149,179,Fribourg,21/07/2021,03/12/2021
+FC-507,"817,0000",28,25,40,Adult,Female,164,148,180,Geneve,04/08/2021,24/06/2021
+FC-508,"776,0000",28,25,40,Adult,Female,164,158,170,Jura,28/07/2021,13/01/2022
+FC-509,"855,0000",28,25,40,Adult,Probable Male,164,154,174,Jura,12/08/2021,06/02/2022
+FC-510,"417,0000",28,25,40,Adult,Probable Male,163,151,175,Nidwalden,16/07/2021,29/05/2022
+FC-511,"557,0000",28,25,40,Adult,Probable Male,164,159,169,Schaffhausen,23/07/2021,15/07/2021
+FC-512,"394,0000",28,25,40,Adult,Probable Male,163,158,168,Zurich,07/07/2021,06/07/2021
+FC-513,"554,0000",29,25,40,Adult,Probable Male,164,156,172,Aargau,17/11/2021,09/09/2021
+FC-514,"496,0000",29,25,40,Adult,Probable Male,164,149,179,Bern,31/08/2021,02/05/2022
+FC-515,"541,0000",29,25,40,Adult,Probable Male,164,150,178,Bern,23/09/2021,26/04/2022
+FC-516,"891,0000",29,25,40,Adult,Probable Female,164,149,179,Fribourg,04/01/2022,05/11/2021
+FC-517,"682,0000",29,25,40,Adult,Probable Male,164,152,176,Jura,19/11/2021,28/01/2022
+FC-518,"781,0000",29,25,40,Adult,Indeterminate,164,154,174,Schaffhausen,17/12/2021,02/06/2022
+FC-519,"714,0000",29,25,40,Adult,Probable Male,164,151,177,Solothurn,30/11/2021,25/09/2021
+FC-520,"772,0000",30,25,40,Adult,Probable Female,164,153,175,Aargau,,28/11/2021
+FC-521,"433,0000",30,25,40,Adult,Probable Male,164,152,176,Basel,18/01/2022,22/06/2021
+FC-522,"653,0000",30,25,40,Adult,Probable Male,164,157,171,Bern,19/05/2022,19/03/2022
+FC-523,"477,0000",30,25,40,Adult,Probable Male,164,157,171,Fribourg,24/02/2022,30/12/2021
+FC-524,"709,0000",30,25,40,Adult,Probable Male,164,148,180,Fribourg,,02/03/2022
+FC-525,"533,0000",30,25,40,Adult,Probable Male,164,151,177,Glarus,21/03/2022,24/04/2022
+FC-526,"570,0000",30,25,40,Adult,Probable Male,164,157,171,Luzern,14/04/2022,01/03/2022
+FC-527,"745,0000",30,25,40,Adult,Probable Male,164,150,178,Luzern,,13/02/2022
+FC-528,"601,0000",30,25,40,Adult,Probable Male,164,148,180,Neuchatel,20/04/2022,26/02/2022
+FC-529,"754,0000",30,25,40,Adult,Probable Female,164,151,177,Nidwalden,,13/05/2022
+FC-530,"606,0000",30,25,40,Adult,Probable Male,164,152,176,Solothurn,21/04/2022,12/01/2022
+FC-531,"744,0000",30,25,40,Adult,Probable Male,164,153,175,Solothurn,,24/01/2022
+FC-532,"448,0000",30,25,40,Adult,Probable Male,164,157,171,Valais,21/02/2022,06/04/2022
+FC-533,"638,0000",30,25,40,Adult,Probable Male,164,158,170,Zug,28/04/2022,10/05/2022
+FC-534,"663,0000",30,25,40,Adult,Probable Male,164,148,180,Zurich,,05/01/2022
+FC-535,"795,0000",30,25,40,Adult,Probable Female,164,155,173,Zurich,,31/05/2022
+FC-536,"765,0000",31,25,40,Adult,Probable Female,165,156,174,Aargau,,09/06/2021
+FC-537,"878,0000",31,25,40,Adult,Probable Male,165,152,178,Aargau,,09/11/2021
+FC-538,"669,0000",31,25,40,Adult,Probable Male,164,148,180,Basel,,19/07/2021
+FC-539,"455,0000",31,25,40,Adult,Probable Male,164,158,170,Bern,,20/10/2021
+FC-540,"428,0000",31,25,40,Adult,Probable Male,164,149,179,Jura,,05/12/2021
+FC-541,"491,0000",31,25,40,Adult,Probable Male,164,149,179,Neuchatel,,03/06/2022
+FC-542,"513,0000",31,25,40,Adult,Probable Male,164,149,179,Nidwalden,,11/01/2022
+FC-543,"667,0000",31,25,40,Adult,Probable Male,164,156,172,Obwalden,,24/03/2022
+FC-544,"918,0000",31,25,40,Adult,Probable Male,165,154,176,Schaffhausen,,18/06/2021
+FC-545,"801,0000",31,25,40,Adult,Probable Female,165,154,176,St Gallen,,01/10/2021
+FC-546,"843,0000",31,25,40,Adult,Probable Male,165,153,177,Ticino,,06/09/2021
+FC-547,"643,0000",31,25,40,Adult,Probable Male,164,152,176,Uri,,10/02/2022
+FC-548,"916,0000",31,25,40,Adult,Probable Male,165,156,174,Uri,,27/03/2022
+FC-549,"566,0000",31,25,40,Adult,Probable Male,164,156,172,Valais,,15/03/2022
+FC-550,"574,0000",31,25,40,Adult,Probable Male,164,155,173,Vaud,,26/12/2021
+FC-551,"484,0000",32,25,40,Adult,Probable Male,165,153,177,Appenzell,,02/08/2021
+FC-552,"527,0000",32,25,40,Adult,Probable Male,165,158,172,Bern,,03/08/2021
+FC-553,"481,0000",32,25,40,Adult,Probable Male,165,160,170,Fribourg,,09/07/2021
+FC-554,"889,0000",32,25,40,Adult,Probable Female,165,151,179,Fribourg,,11/01/2022
+FC-555,"818,0000",32,25,40,Adult,Probable Female,165,151,179,Neuchatel,,09/05/2022
+FC-556,"492,0000",32,25,40,Adult,Probable Male,165,158,172,Thurgau,,07/11/2021
+FC-557,"494,0000",32,25,40,Adult,Probable Male,165,160,170,Ticino,,26/08/2021
+FC-558,"530,0000",32,25,40,Adult,Probable Male,165,160,170,Ticino,,05/05/2022
+FC-559,"758,0000",32,25,40,Adult,Probable Female,165,149,181,Valais,,24/06/2021
+FC-560,"540,0000",33,25,40,Adult,Probable Male,165,151,179,Appenzell,,05/01/2022
+FC-561,"859,0000",33,25,40,Adult,Probable Male,166,152,180,Appenzell,28/07/2021,05/08/2021
+FC-562,"700,0000",33,25,40,Adult,Probable Male,165,152,178,Basel,,11/03/2022
+FC-563,"702,0000",33,25,40,Adult,Probable Male,165,153,177,Basel,,24/05/2022
+FC-564,"624,0000",33,25,40,Adult,Probable Male,165,151,179,Bern,,19/02/2022
+FC-565,"461,0000",33,25,40,Adult,Probable Male,165,150,180,Fribourg,,10/02/2022
+FC-566,"827,0000",33,25,40,Adult,Probable Female,166,155,177,Fribourg,23/07/2021,02/04/2022
+FC-567,"655,0000",33,25,40,Adult,Probable Male,165,159,171,Graubunden,,13/09/2021
+FC-568,"880,0000",33,25,40,Adult,Probable Male,166,151,181,Jura,04/08/2021,17/09/2021
+FC-569,"739,0000",33,25,40,Adult,Probable Male,170,163,177,Neuchatel,20/07/2021,11/10/2021
+FC-570,"493,0000",33,25,40,Adult,Probable Male,165,157,173,Obwalden,,30/04/2022
+FC-571,"679,0000",33,25,40,Adult,Probable Male,165,149,181,Obwalden,,23/02/2022
+FC-572,"685,0000",33,25,40,Adult,Probable Male,165,156,174,Schwyz,,10/03/2022
+FC-573,"462,0000",33,25,40,Adult,Probable Male,165,151,179,Thurgau,,11/10/2021
+FC-574,"713,0000",33,25,40,Adult,Probable Male,165,150,180,Thurgau,07/07/2021,06/04/2022
+FC-575,"898,0000",33,25,40,Adult,Probable Female,166,158,174,Thurgau,12/08/2021,29/10/2021
+FC-576,"750,0000",33,25,40,Adult,Probable Male,166,150,182,Ticino,21/07/2021,14/11/2021
+FC-577,"908,0000",33,25,40,Adult,Probable Female,166,160,172,Uri,17/08/2021,08/01/2022
+FC-578,"717,0000",33,25,40,Adult,Probable Male,157,144,170,Valais,16/07/2021,01/01/2022
+FC-579,"445,0000",33,25,40,Adult,Probable Male,165,157,173,Vaud,,17/12/2021
+FC-580,"910,0000",33,25,40,Adult,Probable Female,166,156,176,Vaud,31/08/2021,23/10/2021
+FC-581,"404,0000",33,25,40,Adult,Probable Male,165,150,180,Zug,,23/10/2021
+FC-582,"520,0000",33,25,40,Adult,Probable Male,165,157,173,Zug,,17/08/2021
+FC-583,"421,0000",33,25,40,Adult,Probable Male,165,155,175,Zurich,,17/07/2021
+FC-584,"586,0000",33,25,40,Adult,Probable Male,165,155,175,Zurich,,23/10/2021
+FC-585,"687,0000",34,25,40,Adult,Indeterminate,166,151,181,Geneve,17/11/2021,03/03/2022
+FC-586,"940,0000",34,25,40,Adult,Indeterminate,166,154,178,Glarus,18/01/2022,08/11/2021
+FC-587,"858,0000",34,25,40,Adult,Indeterminate,166,157,175,Schwyz,17/12/2021,02/10/2021
+FC-588,"426,0000",34,25,40,Adult,Probable Male,166,155,177,Thurgau,23/09/2021,07/04/2022
+FC-589,"922,0000",34,25,40,Adult,Indeterminate,166,153,179,Valais,04/01/2022,27/10/2021
+FC-590,"773,0000",34,25,40,Adult,Indeterminate,166,156,176,Zug,30/11/2021,10/02/2022
+FC-591,"715,0000",34,25,40,Adult,Indeterminate,166,150,182,Zurich,19/11/2021,11/11/2021
+FC-592,"883,0000",35,30,65,Adult,Indeterminate,167,160,174,Aargau,,22/05/2022
+FC-593,"840,0000",35,30,65,Adult,Female,167,151,183,Bern,,12/03/2022
+FC-594,"552,0000",35,30,65,Adult,Indeterminate,166,150,182,Geneve,21/03/2022,14/11/2021
+FC-595,"512,0000",35,30,65,Adult,Indeterminate,166,161,171,Glarus,21/02/2022,03/05/2022
+FC-596,"591,0000",35,30,65,Adult,Indeterminate,169,159,179,Graubunden,20/04/2022,17/01/2022
+FC-597,"599,0000",35,30,65,Adult,Indeterminate,167,152,182,Nidwalden,21/04/2022,04/03/2022
+FC-598,"874,0000",35,30,65,Adult,Indeterminate,167,152,182,Obwalden,,18/03/2022
+FC-599,"517,0000",35,30,65,Adult,Indeterminate,166,157,175,Schaffhausen,24/02/2022,08/06/2021
+FC-600,"671,0000",35,30,65,Adult,Indeterminate,167,154,180,Schaffhausen,,20/07/2021
+FC-601,"771,0000",35,30,65,Adult,Female,167,162,172,St Gallen,,29/04/2022
+FC-602,"583,0000",35,30,65,Adult,Indeterminate,166,153,179,Ticino,14/04/2022,01/09/2021
+FC-603,"628,0000",35,30,65,Adult,Indeterminate,167,160,174,Uri,28/04/2022,15/02/2022
+FC-604,"647,0000",35,30,65,Adult,Indeterminate,167,154,180,Vaud,19/05/2022,02/07/2021
+FC-605,"482,0000",36,30,65,Adult,Indeterminate,167,157,177,Bern,,14/03/2022
+FC-606,"622,0000",36,30,65,Adult,Indeterminate,167,159,175,Bern,,19/02/2022
+FC-607,"881,0000",36,30,65,Adult,Male,167,157,177,Fribourg,,03/05/2022
+FC-608,"823,0000",36,30,65,Adult,Female,167,156,178,Geneve,,23/09/2021
+FC-609,"812,0000",36,30,65,Adult,Indeterminate,167,159,175,Neuchatel,,09/08/2021
+FC-610,"593,0000",36,30,65,Adult,Indeterminate,167,153,181,Nidwalden,,09/01/2022
+FC-611,"732,0000",36,30,65,Adult,Male,167,158,176,Nidwalden,,12/02/2022
+FC-612,"399,0000",36,30,65,Adult,Indeterminate,167,154,180,Schaffhausen,,18/03/2022
+FC-613,"592,0000",36,30,65,Adult,Indeterminate,167,162,172,Schaffhausen,,25/07/2021
+FC-614,"608,0000",36,30,65,Adult,Indeterminate,167,158,176,Uri,,23/10/2021
+FC-615,"747,0000",37,30,65,Adult,Male,167,160,174,Glarus,,02/06/2022
+FC-616,"617,0000",37,30,65,Adult,Male,167,157,177,Nidwalden,,21/01/2022
+FC-617,"572,0000",37,30,65,Adult,Male,167,157,177,Solothurn,,26/11/2021
+FC-618,"534,0000",37,30,65,Adult,Male,167,157,177,Thurgau,,06/07/2021
+FC-619,"490,0000",37,30,65,Adult,Male,167,162,172,Ticino,,01/12/2021
+FC-620,"507,0000",37,30,65,Adult,Male,167,162,172,Uri,,30/12/2021
+FC-621,"549,0000",37,30,65,Adult,Male,167,162,172,Valais,,30/08/2021
+FC-622,"645,0000",37,30,65,Adult,Male,167,161,173,Valais,,16/11/2021
+FC-623,"561,0000",37,30,65,Adult,Male,167,162,172,Zug,,07/01/2022
+FC-624,"451,0000",38,30,65,Adult,Male,167,158,176,Bern,,29/01/2022
+FC-625,"629,0000",38,30,65,Adult,Male,168,163,173,Geneve,,07/05/2022
+FC-626,"902,0000",38,30,65,Adult,Female,168,159,177,Glarus,,22/12/2021
+FC-627,"618,0000",38,30,65,Adult,Male,160,144,176,Graubunden,,04/05/2022
+FC-628,"503,0000",38,30,65,Adult,Male,167,153,181,Obwalden,,16/06/2021
+FC-629,"831,0000",38,30,65,Adult,Female,168,156,180,Obwalden,,30/10/2021
+FC-630,"847,0000",38,30,65,Adult,Male,168,156,180,St Gallen,,15/03/2022
+FC-631,"926,0000",38,30,65,Adult,Male,168,155,181,Ticino,,02/12/2021
+FC-632,"937,0000",38,30,65,Adult,Female,168,156,180,Uri,,14/07/2021
+FC-633,"509,0000",38,30,65,Adult,Male,166,161,171,Vaud,,06/02/2022
+FC-634,"469,0000",39,30,65,Adult,Male,168,158,178,Appenzell,,14/11/2021
+FC-635,"398,0000",39,30,65,Adult,Male,168,158,178,Geneve,,30/12/2021
+FC-636,"774,0000",39,30,65,Adult,Female,168,153,183,Geneve,23/07/2021,09/09/2021
+FC-637,"581,0000",39,30,65,Adult,Male,168,160,176,Jura,16/07/2021,27/01/2022
+FC-638,"780,0000",39,30,65,Adult,Female,168,161,175,Jura,28/07/2021,13/08/2021
+FC-639,"553,0000",39,30,65,Adult,Male,168,157,179,Luzern,07/07/2021,13/05/2022
+FC-640,"641,0000",39,30,65,Adult,Male,168,155,181,Luzern,20/07/2021,06/07/2021
+FC-641,"825,0000",39,30,65,Adult,Female,168,157,179,Neuchatel,12/08/2021,09/05/2022
+FC-642,"652,0000",39,30,65,Adult,Male,168,160,176,Obwalden,21/07/2021,25/12/2021
+FC-643,"506,0000",39,30,65,Adult,Male,168,156,180,Uri,,07/11/2021
+FC-644,"808,0000",39,30,65,Adult,Female,168,158,178,Uri,04/08/2021,08/01/2022
+FC-645,"489,0000",39,30,65,Adult,Male,168,159,177,Vaud,,12/02/2022
+FC-646,"525,0000",40,30,65,Adult,Male,169,163,175,Aargau,04/01/2022,01/07/2021
+FC-647,"718,0000",40,30,65,Adult,Male,169,162,176,Aargau,21/03/2022,27/06/2021
+FC-648,"857,0000",40,30,65,Adult,Male,169,163,175,Basel,21/04/2022,25/11/2021
+FC-649,"403,0000",40,30,65,Adult,Male,169,162,176,Bern,31/08/2021,18/09/2021
+FC-650,"519,0000",40,30,65,Adult,Male,169,154,184,Graubunden,17/12/2021,10/02/2022
+FC-651,"441,0000",40,30,65,Adult,Male,169,158,180,Luzern,19/11/2021,15/09/2021
+FC-652,"619,0000",40,30,65,Adult,Male,169,163,175,Nidwalden,21/02/2022,17/09/2021
+FC-653,"934,0000",40,30,65,Adult,Female,169,157,181,Nidwalden,,19/12/2021
+FC-654,"486,0000",40,30,65,Adult,Male,169,154,184,Schaffhausen,30/11/2021,19/12/2021
+FC-655,"427,0000",40,30,65,Adult,Male,169,155,183,Schwyz,23/09/2021,22/12/2021
+FC-656,"543,0000",40,30,65,Adult,Male,169,161,177,Schwyz,18/01/2022,31/07/2021
+FC-657,"735,0000",40,30,65,Adult,Male,169,162,176,St Gallen,20/04/2022,24/06/2021
+FC-658,"395,0000",40,30,65,Adult,Male,166,150,182,Ticino,17/08/2021,26/02/2022
+FC-659,"895,0000",40,30,65,Adult,Female,169,161,177,Ticino,28/04/2022,13/08/2021
+FC-660,"431,0000",40,30,65,Adult,Male,169,154,184,Uri,17/11/2021,24/05/2022
+FC-661,"728,0000",40,30,65,Adult,Male,169,154,184,Vaud,14/04/2022,25/04/2022
+FC-662,"666,0000",40,30,65,Adult,Male,169,159,179,Zug,24/02/2022,28/10/2021
+FC-663,"906,0000",40,30,65,Adult,Female,169,158,180,Zurich,19/05/2022,02/09/2021
+FC-664,"935,0000",40,30,65,Adult,Female,169,157,181,Zurich,,01/08/2021
+FC-665,"729,0000",41,30,65,Adult,Male,169,155,183,Aargau,,03/01/2022
+FC-666,"748,0000",41,30,65,Adult,Male,169,157,181,Geneve,,15/01/2022
+FC-667,"424,0000",41,30,65,Adult,Male,169,158,180,Jura,,29/04/2022
+FC-668,"804,0000",41,30,65,Adult,Female,169,157,181,Jura,,24/10/2021
+FC-669,"708,0000",41,30,65,Adult,Male,169,155,183,Neuchatel,,07/10/2021
+FC-670,"677,0000",41,30,65,Adult,Male,169,157,181,St Gallen,,12/12/2021
+FC-671,"788,0000",41,30,65,Adult,Female,169,157,181,Ticino,,21/07/2021
+FC-672,"803,0000",41,30,65,Adult,Female,169,156,182,Ticino,,15/05/2022
+FC-673,"621,0000",41,30,65,Adult,Male,169,157,181,Uri,,02/04/2022
+FC-674,"755,0000",41,30,65,Adult,Female,169,155,183,Uri,,28/11/2021
+FC-675,"693,0000",41,30,65,Adult,Male,169,164,174,Vaud,,17/10/2021
+FC-676,"505,0000",42,30,65,Adult,Male,170,159,181,Appenzell,,15/12/2021
+FC-677,"563,0000",42,30,65,Adult,Male,170,159,181,Appenzell,,03/11/2021
+FC-678,"904,0000",42,30,65,Adult,Female,170,157,183,Appenzell,,23/12/2021
+FC-679,"873,0000",42,30,65,Adult,Male,170,160,180,Glarus,,26/11/2021
+FC-680,"852,0000",42,30,65,Adult,Male,170,157,183,Neuchatel,,01/11/2021
+FC-681,"594,0000",42,30,65,Adult,Male,170,161,179,Schwyz,,19/05/2022
+FC-682,"892,0000",42,30,65,Adult,Female,170,165,175,Schwyz,,17/02/2022
+FC-683,"681,0000",42,30,65,Adult,Male,170,155,185,Vaud,,23/10/2021
+FC-684,"432,0000",42,30,65,Adult,Male,170,154,186,Zug,,30/09/2021
+FC-685,"784,0000",42,30,65,Adult,Female,170,159,181,Zug,,04/01/2022
+FC-686,"690,0000",42,30,65,Adult,Male,170,162,178,Zurich,,07/01/2022
+FC-687,"478,0000",43,30,65,Adult,Male,170,154,186,Appenzell,,09/03/2022
+FC-688,"437,0000",43,30,65,Adult,Male,170,160,180,Basel,,20/09/2021
+FC-689,"775,0000",43,30,65,Adult,Female,170,160,180,Basel,,17/06/2021
+FC-690,"711,0000",43,30,65,Adult,Probable Male,170,163,177,Geneve,,03/12/2021
+FC-691,"699,0000",43,30,65,Adult,Probable Male,170,161,179,Glarus,,09/12/2021
+FC-692,"933,0000",43,30,65,Adult,Female,171,157,185,Glarus,,20/03/2022
+FC-693,"609,0000",43,30,65,Adult,Probable Male,170,163,177,Graubunden,,26/08/2021
+FC-694,"815,0000",43,30,65,Adult,Female,170,154,186,Jura,,22/11/2021
+FC-695,"894,0000",43,30,65,Adult,Female,150,136,164,Neuchatel,,19/07/2021
+FC-696,"901,0000",43,30,65,Adult,Female,171,157,185,Nidwalden,,23/02/2022
+FC-697,"676,0000",43,30,65,Adult,Probable Male,170,159,181,Schaffhausen,,07/06/2022
+FC-698,"447,0000",43,30,65,Adult,Male,170,160,180,Schwyz,,16/09/2021
+FC-699,"459,0000",43,30,65,Adult,Male,170,163,177,Solothurn,,26/09/2021
+FC-700,"691,0000",43,30,65,Adult,Probable Male,170,159,181,St Gallen,,29/08/2021
+FC-701,"458,0000",43,30,65,Adult,Male,170,164,176,Uri,,07/08/2021
+FC-702,"397,0000",43,30,65,Adult,Male,170,165,175,Valais,,08/05/2022
+FC-703,"511,0000",43,30,65,Adult,Probable Male,170,157,183,Zurich,,07/01/2022
+FC-704,"402,0000",44,30,65,Adult,Probable Male,171,161,181,Aargau,,08/09/2021
+FC-705,"726,0000",44,30,65,Adult,Probable Male,171,162,180,Bern,,23/08/2021
+FC-706,"789,0000",44,30,65,Adult,Female,171,164,178,Bern,,01/08/2021
+FC-707,"791,0000",44,30,65,Adult,Female,171,155,187,Bern,,25/08/2021
+FC-708,"796,0000",44,30,65,Adult,Female,171,160,182,Graubunden,,14/04/2022
+FC-709,"756,0000",44,30,65,Adult,Female,171,157,185,Luzern,,08/01/2022
+FC-710,"584,0000",44,30,65,Adult,Probable Male,171,166,176,Solothurn,,21/11/2021
+FC-711,"443,0000",44,30,65,Adult,Probable Male,171,165,177,Thurgau,,15/05/2022
+FC-712,"529,0000",44,30,65,Adult,Probable Male,171,164,178,Thurgau,,03/03/2022
+FC-713,"556,0000",44,30,65,Adult,Probable Male,171,159,183,Vaud,,21/07/2021
+FC-714,"422,0000",45,30,65,Adult,Probable Male,171,164,178,Bern,,14/11/2021
+FC-715,"640,0000",45,30,65,Adult,Probable Male,171,166,176,Fribourg,,06/09/2021
+FC-716,"453,0000",45,30,65,Adult,Probable Male,171,159,183,Glarus,,09/03/2022
+FC-717,"642,0000",45,30,65,Adult,Probable Male,171,166,176,Jura,07/07/2021,06/06/2022
+FC-718,"476,0000",45,30,65,Adult,Probable Male,171,160,182,Luzern,,11/02/2022
+FC-719,"548,0000",45,30,65,Adult,Probable Male,171,155,187,Obwalden,,28/08/2021
+FC-720,"800,0000",45,30,65,Adult,Female,172,157,187,Obwalden,23/07/2021,03/12/2021
+FC-721,"414,0000",45,30,65,Adult,Probable Male,171,163,179,Schwyz,,16/05/2022
+FC-722,"752,0000",45,30,65,Adult,Probable Male,171,166,176,Schwyz,16/07/2021,25/02/2022
+FC-723,"850,0000",45,30,65,Adult,Probable Male,172,158,186,St Gallen,28/07/2021,15/05/2022
+FC-724,"790,0000",45,30,65,Adult,Female,172,157,187,Vaud,21/07/2021,03/12/2021
+FC-725,"769,0000",45,30,65,Adult,Female,171,166,176,Zug,20/07/2021,26/12/2021
+FC-726,"508,0000",46,30,65,Adult,Probable Male,172,159,185,Appenzell,19/11/2021,07/11/2021
+FC-727,"875,0000",46,30,65,Adult,Probable Male,172,160,184,Basel,21/02/2022,23/05/2022
+FC-728,"761,0000",46,30,65,Adult,Female,172,165,179,Bern,04/01/2022,13/12/2021
+FC-729,"466,0000",46,30,65,Adult,Probable Male,172,162,182,Geneve,23/09/2021,06/04/2022
+FC-730,"483,0000",46,30,65,Adult,Probable Male,172,166,178,Geneve,17/11/2021,08/08/2021
+FC-731,"749,0000",46,30,65,Adult,Probable Male,172,162,182,Geneve,17/12/2021,02/12/2021
+FC-732,"409,0000",46,30,65,Adult,Probable Male,172,162,182,Graubunden,04/08/2021,11/05/2022
+FC-733,"767,0000",46,30,65,Adult,Female,172,158,186,Obwalden,18/01/2022,30/04/2022
+FC-734,"429,0000",46,30,65,Adult,Probable Male,172,166,178,Uri,17/08/2021,13/03/2022
+FC-735,"465,0000",46,30,65,Adult,Probable Male,172,165,179,Uri,31/08/2021,05/06/2022
+FC-736,"559,0000",46,30,65,Adult,Probable Male,172,156,188,Valais,30/11/2021,04/05/2022
+FC-737,"416,0000",46,30,65,Adult,Probable Male,172,159,185,Zurich,12/08/2021,28/05/2022
+FC-738,"813,0000",47,30,65,Adult,Female,173,157,189,Glarus,19/05/2022,28/03/2022
+FC-739,"420,0000",47,30,65,Adult,Probable Male,172,158,186,Graubunden,21/03/2022,03/05/2022
+FC-740,"615,0000",47,30,65,Adult,Probable Male,172,156,188,Neuchatel,20/04/2022,24/04/2022
+FC-741,"707,0000",47,30,65,Adult,Probable Male,173,157,189,Obwalden,21/04/2022,26/04/2022
+FC-742,"820,0000",47,30,65,Adult,Female,173,160,186,Schwyz,,18/08/2021
+FC-743,"854,0000",47,30,65,Adult,Probable Male,173,164,182,Schwyz,,03/03/2022
+FC-744,"410,0000",47,30,65,Adult,Probable Male,172,163,181,Solothurn,24/02/2022,13/04/2022
+FC-745,"523,0000",47,30,65,Adult,Probable Male,172,166,178,Uri,14/04/2022,14/04/2022
+FC-746,"806,0000",47,30,65,Adult,Female,173,162,184,Valais,28/04/2022,21/07/2021
+FC-747,"440,0000",48,30,65,Adult,Probable Male,173,160,186,Aargau,,04/06/2022
+FC-748,"498,0000",48,30,65,Adult,Probable Male,173,168,178,Basel,,19/12/2021
+FC-749,"631,0000",48,30,65,Adult,Probable Male,173,158,188,Obwalden,,22/09/2021
+FC-750,"616,0000",48,30,65,Adult,Probable Male,173,167,179,Schwyz,,31/08/2021
+FC-751,"816,0000",48,30,65,Adult,Female,173,163,183,St Gallen,,24/04/2022
+FC-752,"664,0000",48,30,65,Adult,Probable Male,173,163,183,Ticino,,04/08/2021
+FC-753,"589,0000",48,30,65,Adult,Probable Male,173,168,178,Uri,,20/10/2021
+FC-754,"811,0000",48,30,65,Adult,Female,173,161,185,Valais,,15/09/2021
+FC-755,"637,0000",48,30,65,Adult,Probable Male,173,158,188,Zug,,28/04/2022
+FC-756,"518,0000",49,30,65,Adult,Probable Male,173,167,179,Fribourg,,18/09/2021
+FC-757,"605,0000",49,30,65,Adult,Probable Male,173,165,181,Graubunden,,11/05/2022
+FC-758,"917,0000",49,30,65,Adult,Probable Male,173,168,178,Neuchatel,,23/04/2022
+FC-759,"939,0000",49,30,65,Adult,Female,173,159,187,Schaffhausen,,19/01/2022
+FC-760,"656,0000",49,30,65,Adult,Probable Male,173,159,187,St Gallen,,15/04/2022
+FC-761,"488,0000",49,30,65,Adult,Probable Male,173,157,189,Thurgau,,21/02/2022
+FC-762,"521,0000",49,30,65,Adult,Probable Male,173,158,188,Vaud,,10/03/2022
+FC-763,"542,0000",49,30,65,Adult,Probable Male,173,167,179,Vaud,,20/12/2021
+FC-764,"896,0000",49,30,65,Adult,Female,173,163,183,Vaud,,07/04/2022
+FC-765,"865,0000",50,45,120,Adult,Probable Male,173,161,185,Aargau,16/07/2021,11/04/2022
+FC-766,"536,0000",50,45,120,Adult,Probable Male,173,162,184,Geneve,,04/01/2022
+FC-767,"576,0000",50,45,120,Adult,Probable Male,173,166,180,Graubunden,07/07/2021,10/08/2021
+FC-768,"396,0000",50,45,120,Adult,Probable Male,173,162,184,Obwalden,,11/04/2022
+FC-769,"550,0000",50,45,120,Adult,Probable Male,173,160,186,Uri,,06/08/2021
+FC-770,"406,0000",50,45,120,Adult,Probable Male,173,157,189,Zug,,08/03/2022
+FC-771,"929,0000",51,45,120,Adult,Probable Male,174,167,181,Appenzell,17/12/2021,21/07/2021
+FC-772,"737,0000",51,45,120,Adult,Probable Male,174,163,185,Fribourg,19/11/2021,05/06/2022
+FC-773,"558,0000",51,45,120,Adult,Probable Male,174,162,186,Glarus,04/08/2021,28/12/2021
+FC-774,"597,0000",51,45,120,Adult,Probable Male,174,169,179,Jura,17/08/2021,01/12/2021
+FC-775,"626,0000",51,45,120,Adult,Probable Male,174,160,188,Jura,23/09/2021,12/05/2022
+FC-776,"844,0000",51,45,120,Adult,Probable Male,174,158,190,Jura,30/11/2021,27/12/2021
+FC-777,"545,0000",51,45,120,Adult,Probable Male,174,164,184,Schwyz,28/07/2021,19/04/2022
+FC-778,"607,0000",51,45,120,Adult,Probable Male,174,166,182,Solothurn,31/08/2021,28/11/2021
+FC-779,"467,0000",51,45,120,Adult,Probable Male,173,166,180,Valais,20/07/2021,17/08/2021
+FC-780,"485,0000",51,45,120,Adult,Probable Male,155,140,170,Valais,21/07/2021,07/09/2021
+FC-781,"579,0000",51,45,120,Adult,Probable Male,174,167,181,Valais,12/08/2021,08/07/2021
+FC-782,"515,0000",51,45,120,Adult,Probable Male,174,160,188,Vaud,23/07/2021,01/07/2021
+FC-783,"695,0000",51,45,120,Adult,Probable Male,174,169,179,Zurich,17/11/2021,03/12/2021
+FC-784,"500,0000",52,45,120,Adult,Probable Male,174,158,190,Appenzell,04/01/2022,02/09/2021
+FC-785,"848,0000",52,45,120,Adult,Probable Male,174,169,179,Bern,21/04/2022,13/10/2021
+FC-786,"931,0000",52,45,120,Adult,Probable Male,174,165,183,Bern,,28/09/2021
+FC-787,"870,0000",52,45,120,Adult,Probable Male,174,165,183,Geneve,28/04/2022,23/01/2022
+FC-788,"890,0000",52,45,120,Adult,Female,174,169,179,Jura,19/05/2022,03/10/2021
+FC-789,"612,0000",52,45,120,Adult,Probable Male,174,161,187,Luzern,18/01/2022,24/12/2021
+FC-790,"731,0000",52,45,120,Adult,Probable Male,174,165,183,Luzern,21/03/2022,18/09/2021
+FC-791,"692,0000",52,45,120,Adult,Probable Male,174,169,179,Nidwalden,21/02/2022,20/07/2021
+FC-792,"757,0000",52,45,120,Adult,Female,174,166,182,Nidwalden,14/04/2022,06/08/2021
+FC-793,"793,0000",52,45,120,Adult,Female,174,168,180,Schwyz,20/04/2022,29/09/2021
+FC-794,"925,0000",52,45,120,Adult,Probable Male,174,158,190,Schwyz,,28/08/2021
+FC-795,"725,0000",52,45,120,Adult,Probable Male,174,160,188,Valais,24/02/2022,01/03/2022
+FC-796,"551,0000",53,45,120,Adult,Probable Male,174,163,185,Appenzell,,01/07/2021
+FC-797,"630,0000",53,45,120,Adult,Probable Male,174,165,183,Appenzell,,15/12/2021
+FC-798,"658,0000",53,45,120,Adult,Probable Male,174,169,179,Fribourg,,14/05/2022
+FC-799,"764,0000",53,45,120,Adult,Female,174,165,183,Graubunden,,15/07/2021
+FC-800,"839,0000",53,45,120,Adult,Female,174,167,181,Graubunden,,21/08/2021
+FC-801,"405,0000",53,45,120,Adult,Probable Male,174,158,190,Schaffhausen,,11/12/2021
+FC-802,"930,0000",53,45,120,Adult,Probable Male,174,163,185,St Gallen,,18/08/2021
+FC-803,"565,0000",53,45,120,Adult,Probable Male,174,165,183,Thurgau,,06/02/2022
+FC-804,"588,0000",53,45,120,Adult,Probable Male,174,168,180,Thurgau,,08/10/2021
+FC-805,"684,0000",53,45,120,Adult,Probable Male,174,162,186,Uri,,14/06/2021
+FC-806,"907,0000",53,45,120,Adult,Female,174,166,182,Vaud,,08/01/2022
+FC-807,"649,0000",54,45,120,Adult,Probable Male,175,168,182,Aargau,,03/08/2021
+FC-808,"777,0000",54,45,120,Adult,Female,175,165,185,Glarus,,25/09/2021
+FC-809,"442,0000",54,45,120,Adult,Probable Male,175,163,187,Luzern,,17/06/2021
+FC-810,"712,0000",54,45,120,Adult,Probable Male,175,168,182,Neuchatel,,08/02/2022
+FC-811,"778,0000",54,45,120,Adult,Female,175,161,189,Neuchatel,,13/07/2021
+FC-812,"794,0000",54,45,120,Adult,Female,175,165,185,Neuchatel,,22/12/2021
+FC-813,"610,0000",54,45,120,Adult,Probable Male,175,165,185,Nidwalden,,22/10/2021
+FC-814,"487,0000",54,45,120,Adult,Probable Male,175,166,184,Schaffhausen,,06/04/2022
+FC-815,"524,0000",54,45,120,Adult,Probable Male,175,169,181,Schaffhausen,,09/03/2022
+FC-816,"401,0000",54,45,120,Adult,Probable Male,175,161,189,Schwyz,,11/09/2021
+FC-817,"636,0000",54,45,120,Adult,Probable Male,175,159,191,Uri,,12/05/2022
+FC-818,"720,0000",54,45,120,Adult,Probable Male,175,165,185,Vaud,,19/09/2021
+FC-819,"456,0000",55,45,120,Adult,Probable Male,175,162,188,Basel,,16/02/2022
+FC-820,"472,0000",55,45,120,Adult,Probable Male,175,168,182,Basel,,02/06/2022
+FC-821,"634,0000",55,45,120,Adult,Probable Male,176,161,191,Fribourg,,06/08/2021
+FC-822,"799,0000",55,45,120,Adult,Female,176,171,181,Fribourg,,05/06/2022
+FC-823,"650,0000",55,45,120,Adult,Probable Male,176,171,181,Geneve,,27/02/2022
+FC-824,"727,0000",55,45,120,Adult,Probable Male,176,169,183,Glarus,,11/12/2021
+FC-825,"567,0000",55,45,120,Adult,Probable Male,175,159,191,Nidwalden,,30/07/2021
+FC-826,"575,0000",55,45,120,Adult,Probable Male,175,161,189,Nidwalden,,12/09/2021
+FC-827,"632,0000",55,45,120,Adult,Probable Male,175,170,180,Nidwalden,,02/07/2021
+FC-828,"600,0000",55,45,120,Adult,Probable Male,175,160,190,Solothurn,,03/03/2022
+FC-829,"834,0000",55,45,120,Adult,Female,176,169,183,St Gallen,,17/09/2021
+FC-830,"502,0000",55,45,120,Adult,Probable Male,175,169,181,Uri,,17/04/2022
+FC-831,"454,0000",55,45,120,Adult,Probable Male,175,159,191,Zug,,27/06/2021
+FC-832,"738,0000",55,45,120,Adult,Probable Male,176,168,184,Zurich,,27/11/2021
+FC-833,"670,0000",56,45,120,Adult,Probable Male,176,168,184,Basel,,09/11/2021
+FC-834,"546,0000",56,45,120,Adult,Probable Male,176,168,184,Neuchatel,,12/02/2022
+FC-835,"829,0000",56,45,120,Adult,Indeterminate,176,168,184,Nidwalden,,07/05/2022
+FC-836,"863,0000",56,45,120,Adult,Probable Male,176,171,181,Schwyz,,21/05/2022
+FC-837,"835,0000",56,45,120,Adult,Probable Female,176,171,181,Thurgau,,29/05/2022
+FC-838,"838,0000",56,45,120,Adult,Probable Female,176,163,189,Thurgau,,05/02/2022
+FC-839,"787,0000",56,45,120,Adult,Indeterminate,176,162,190,Ticino,,06/09/2021
+FC-840,"876,0000",56,45,120,Adult,Probable Male,176,169,183,Uri,,24/08/2021
+FC-841,"407,0000",56,45,120,Adult,Probable Male,176,162,190,Vaud,,15/11/2021
+FC-842,"537,0000",56,45,120,Adult,Probable Male,176,165,187,Vaud,,11/06/2021
+FC-843,"689,0000",57,45,120,Adult,Probable Male,176,161,191,Appenzell,,02/06/2022
+FC-844,"705,0000",57,45,120,Adult,Probable Male,176,171,181,Basel,,08/06/2022
+FC-845,"716,0000",57,45,120,Adult,Probable Male,176,162,190,Bern,,27/07/2021
+FC-846,"580,0000",57,45,120,Adult,Probable Male,176,165,187,Geneve,,23/01/2022
+FC-847,"633,0000",57,45,120,Adult,Probable Male,176,169,183,Jura,,27/08/2021
+FC-848,"841,0000",57,45,120,Adult,Female,176,160,192,Luzern,,23/04/2022
+FC-849,"688,0000",57,45,120,Adult,Probable Male,176,161,191,Schaffhausen,,04/09/2021
+FC-850,"722,0000",57,45,120,Adult,Probable Male,176,168,184,Schwyz,,28/07/2021
+FC-851,"753,0000",57,45,120,Adult,Probable Female,176,160,192,St Gallen,,27/07/2021
+FC-852,"851,0000",57,45,120,Adult,Probable Male,176,162,190,Zug,,09/01/2022
+FC-853,"468,0000",57,45,120,Adult,Probable Male,176,169,183,Zurich,,11/11/2021
+FC-854,"819,0000",58,45,120,Adult,Female,176,170,182,Basel,,09/11/2021
+FC-855,"436,0000",58,45,120,Adult,Probable Male,176,162,190,Graubunden,,02/07/2021
+FC-856,"936,0000",58,45,120,Adult,Female,176,164,188,Luzern,,17/11/2021
+FC-857,"724,0000",58,45,120,Adult,Probable Male,176,167,185,Solothurn,,27/12/2021
+FC-858,"853,0000",58,45,120,Adult,Probable Male,176,163,189,Solothurn,,12/12/2021
+FC-859,"413,0000",58,45,120,Adult,Probable Male,176,168,184,St Gallen,,14/09/2021
+FC-860,"564,0000",58,45,120,Adult,Probable Male,176,162,190,Valais,,04/11/2021
+FC-861,"499,0000",58,45,120,Adult,Probable Male,176,164,188,Zug,,27/05/2022
+FC-862,"602,0000",59,45,120,Adult,Probable Male,177,164,190,Aargau,,11/09/2021
+FC-863,"471,0000",59,45,120,Adult,Probable Male,176,166,186,Geneve,,05/11/2021
+FC-864,"571,0000",59,45,120,Adult,Probable Male,177,165,189,Geneve,,15/07/2021
+FC-865,"697,0000",59,45,120,Adult,Probable Male,177,164,190,Nidwalden,,21/08/2021
+FC-866,"501,0000",59,45,120,Adult,Probable Male,177,168,186,Obwalden,,16/04/2022
+FC-867,"635,0000",59,45,120,Adult,Probable Male,177,167,187,Obwalden,,29/11/2021
+FC-868,"833,0000",59,45,120,Adult,Female,177,163,191,Obwalden,,20/09/2021
+FC-869,"598,0000",59,45,120,Adult,Probable Male,177,165,189,Schaffhausen,,24/12/2021
+FC-870,"792,0000",59,45,120,Adult,Female,177,171,183,Vaud,,16/03/2022
+FC-871,"845,0000",59,45,120,Adult,Probable Male,177,166,188,Zug,,19/12/2021
+FC-872,"585,0000",60,45,120,Adult,Probable Male,177,172,182,Basel,,03/12/2021
+FC-873,"706,0000",60,45,120,Adult,Probable Male,177,162,192,Basel,,18/02/2022
+FC-874,"743,0000",60,45,120,Adult,Probable Male,177,167,187,Basel,,12/08/2021
+FC-875,"577,0000",60,45,120,Adult,Probable Male,177,166,188,Bern,,29/06/2021
+FC-876,"457,0000",60,45,120,Adult,Probable Male,177,166,188,Geneve,,01/09/2021
+FC-877,"763,0000",60,45,120,Adult,Female,177,172,182,Neuchatel,,20/05/2022
+FC-878,"766,0000",60,45,120,Adult,Female,177,171,183,Solothurn,,02/03/2022
+FC-879,"479,0000",60,45,120,Adult,Probable Male,177,163,191,St Gallen,,09/02/2022
+FC-880,"625,0000",60,45,120,Adult,Probable Male,177,162,192,St Gallen,,06/04/2022
+FC-881,"912,0000",60,45,120,Adult,Female,177,171,183,Thurgau,,18/09/2021
+FC-882,"861,0000",60,45,120,Adult,Probable Male,177,171,183,Ticino,,23/01/2022
+FC-883,"604,0000",60,45,120,Adult,Probable Male,177,166,188,Uri,,11/07/2021
+FC-884,"862,0000",60,45,120,Adult,Probable Male,177,170,184,Valais,,14/07/2021
+FC-885,"659,0000",60,45,120,Adult,Probable Male,177,162,192,Vaud,,20/12/2021
+FC-886,"464,0000",60,45,120,Adult,Probable Male,177,165,189,Zurich,,17/04/2022
+FC-887,"802,0000",61,45,120,Adult,Female,178,167,189,St Gallen,,05/06/2022
+FC-888,"662,0000",61,45,120,Adult,Probable Male,178,169,187,Ticino,,18/04/2022
+FC-889,"400,0000",61,45,120,Adult,Probable Male,178,164,192,Vaud,,05/08/2021
+FC-890,"696,0000",61,45,120,Adult,Probable Male,178,162,194,Vaud,,29/11/2021
+FC-891,"759,0000",61,45,120,Adult,Female,178,169,187,Vaud,,08/01/2022
+FC-892,"867,0000",61,45,120,Adult,Probable Male,178,171,185,Zurich,,17/07/2021
+FC-893,"897,0000",61,45,120,Adult,Female,178,168,188,Zurich,,14/12/2021
+FC-894,"837,0000",62,45,120,Adult,Female,178,165,191,Neuchatel,,12/08/2021
+FC-895,"686,0000",62,45,120,Adult,Probable Male,178,164,192,Obwalden,,06/08/2021
+FC-896,"535,0000",62,45,120,Adult,Probable Male,178,168,188,Schaffhausen,,10/01/2022
+FC-897,"582,0000",62,45,120,Adult,Probable Male,178,164,192,Schwyz,,24/02/2022
+FC-898,"528,0000",62,45,120,Adult,Probable Male,178,171,185,St Gallen,,08/08/2021
+FC-899,"797,0000",62,45,120,Adult,Female,178,165,191,St Gallen,,07/05/2022
+FC-900,"474,0000",62,45,120,Adult,Probable Male,178,166,190,Ticino,,12/11/2021
+FC-901,"673,0000",62,45,120,Adult,Probable Male,178,173,183,Ticino,,04/02/2022
+FC-902,"578,0000",62,45,120,Adult,Probable Male,178,167,189,Uri,,26/11/2021
+FC-903,"807,0000",62,45,120,Adult,Female,178,164,192,Zug,,03/09/2021
+FC-904,"450,0000",62,45,120,Adult,Probable Male,178,166,190,Zurich,,16/01/2022
+FC-905,"408,0000",63,45,120,Adult,Probable Male,179,164,194,Basel,,23/11/2021
+FC-906,"882,0000",63,45,120,Adult,Male,179,173,185,Basel,,20/12/2021
+FC-907,"760,0000",63,45,120,Adult,Probable Female,179,169,189,Graubunden,,10/11/2021
+FC-908,"526,0000",63,45,120,Adult,Male,179,165,193,Neuchatel,,12/12/2021
+FC-909,"595,0000",63,45,120,Adult,Male,179,174,184,Obwalden,,27/01/2022
+FC-910,"452,0000",63,45,120,Adult,Male,179,166,192,Schwyz,,17/02/2022
+FC-911,"809,0000",63,45,120,Adult,Female,179,173,185,Schwyz,,23/11/2021
+FC-912,"639,0000",63,45,120,Adult,Male,179,163,195,Solothurn,,10/03/2022
+FC-913,"768,0000",63,45,120,Adult,Probable Female,179,174,184,Ticino,,20/11/2021
+FC-914,"779,0000",63,45,120,Adult,Indeterminate,179,164,194,Uri,,01/02/2022
+FC-915,"741,0000",64,45,120,Adult,Male,180,164,196,Aargau,16/07/2021,11/09/2021
+FC-916,"900,0000",64,45,120,Adult,Female,180,172,188,Appenzell,28/07/2021,26/12/2021
+FC-917,"730,0000",64,45,120,Adult,Male,180,167,193,Fribourg,07/07/2021,12/03/2022
+FC-918,"871,0000",64,45,120,Adult,Male,180,166,194,Fribourg,21/07/2021,05/11/2021
+FC-919,"587,0000",64,45,120,Adult,Male,180,173,187,Geneve,,26/03/2022
+FC-920,"842,0000",64,45,120,Adult,Female,180,166,194,Geneve,20/07/2021,28/09/2021
+FC-921,"723,0000",64,45,120,Adult,Male,180,175,185,Jura,,01/11/2021
+FC-922,"613,0000",64,45,120,Adult,Male,180,164,196,Luzern,,30/11/2021
+FC-923,"924,0000",64,45,120,Adult,Male,180,168,192,Luzern,04/08/2021,31/10/2021
+FC-924,"675,0000",64,45,120,Adult,Male,180,174,186,Nidwalden,,19/06/2021
+FC-925,"463,0000",64,45,120,Adult,Male,180,169,191,Schwyz,,30/10/2021
+FC-926,"674,0000",64,45,120,Adult,Male,180,175,185,St Gallen,,29/10/2021
+FC-927,"888,0000",64,45,120,Adult,Female,180,164,196,St Gallen,23/07/2021,25/03/2022
+FC-928,"430,0000",64,45,120,Adult,Male,179,163,195,Thurgau,,17/06/2021
+FC-929,"439,0000",64,45,120,Adult,Male,180,175,185,Uri,,03/11/2021
+FC-930,"921,0000",65,45,120,Elderly,Probable Male,181,166,196,Aargau,18/01/2022,06/01/2022
+FC-931,"449,0000",65,48,120,Elderly,Male,180,169,191,Geneve,17/08/2021,19/02/2022
+FC-932,"915,0000",65,47,120,Elderly,Probable Male,181,168,194,Glarus,17/12/2021,08/01/2022
+FC-933,"927,0000",65,59,120,Elderly,Indeterminate,181,172,190,Neuchatel,21/02/2022,29/01/2022
+FC-934,"412,0000",65,49,120,Elderly,Male,180,173,187,Obwalden,12/08/2021,10/10/2021
+FC-935,"942,0000",65,43,120,Elderly,Female,181,175,187,St Gallen,24/02/2022,02/05/2022
+FC-936,"648,0000",65,49,120,Elderly,Male,180,165,195,Thurgau,17/11/2021,15/01/2022
+FC-937,"846,0000",65,60,120,Elderly,Probable Male,181,169,193,Thurgau,30/11/2021,05/02/2022
+FC-938,"920,0000",65,41,120,Elderly,Probable Male,181,167,195,Thurgau,04/01/2022,08/11/2021
+FC-939,"514,0000",65,55,120,Elderly,Male,180,165,195,Vaud,31/08/2021,22/09/2021
+FC-940,"701,0000",65,53,120,Elderly,Male,181,168,194,Vaud,19/11/2021,14/05/2022
+FC-941,"573,0000",65,56,120,Elderly,Male,180,173,187,Zurich,23/09/2021,22/02/2022
+FC-942,"998,0000",66,36,120,Elderly,Female,181,166,196,Zurich,21/03/2022,05/05/2022
+FC-943,"953,0000",67,46,120,Elderly,Indeterminate,181,166,196,Appenzell,14/04/2022,21/11/2021
+FC-944,"987,0000",67,52,120,Elderly,Indeterminate,182,168,196,Bern,20/04/2022,08/03/2022
+FC-945,"973,0000",68,48,120,Elderly,Indeterminate,182,173,191,St Gallen,21/04/2022,25/12/2021
+FC-946,"946,0000",69,41,120,Elderly,Female,182,170,194,Jura,28/04/2022,16/07/2021
+FC-947,"966,0000",69,40,120,Elderly,Indeterminate,182,177,187,Jura,19/05/2022,18/09/2021
+FC-948,"951,0000",71,57,120,Elderly,Indeterminate,182,170,194,Fribourg,16/07/2021,16/02/2022
+FC-949,"961,0000",71,42,120,Elderly,Indeterminate,182,167,197,Fribourg,20/07/2021,08/12/2021
+FC-950,"1000,0000",71,56,120,Elderly,Female,182,170,194,Graubunden,21/07/2021,08/10/2021
+FC-951,"941,0000",71,42,120,Elderly,Female,182,173,191,Valais,07/07/2021,07/01/2022
+FC-952,"997,0000",72,55,120,Elderly,Female,182,176,188,Glarus,12/08/2021,15/11/2021
+FC-953,"985,0000",72,37,120,Elderly,Indeterminate,182,170,194,Graubunden,28/07/2021,08/09/2021
+FC-954,"989,0000",72,58,120,Elderly,Indeterminate,182,167,197,Schwyz,04/08/2021,14/02/2022
+FC-955,"968,0000",72,47,120,Elderly,Indeterminate,182,166,198,Thurgau,23/07/2021,13/04/2022
+FC-956,"978,0000",75,53,120,Elderly,Indeterminate,182,170,194,Basel,31/08/2021,17/10/2021
+FC-957,"948,0000",75,50,120,Elderly,Indeterminate,182,166,198,Thurgau,17/08/2021,03/02/2022
+FC-958,"979,0000",75,52,120,Elderly,Male,182,166,198,Zug,23/09/2021,09/05/2022
+FC-959,"993,0000",76,56,120,Elderly,Female,182,172,192,Luzern,17/11/2021,13/02/2022
+FC-960,"962,0000",77,51,120,Elderly,Male,183,169,197,Bern,30/11/2021,25/12/2021
+FC-961,"958,0000",77,43,120,Elderly,Male,182,169,195,Uri,19/11/2021,08/10/2021
+FC-962,"955,0000",78,56,120,Elderly,Male,183,174,192,Bern,17/12/2021,17/11/2021
+FC-963,"956,0000",78,56,120,Elderly,Male,183,170,196,Bern,04/01/2022,09/01/2022
+FC-964,"971,0000",80,39,120,Elderly,Male,183,172,194,Jura,24/02/2022,26/04/2022
+FC-965,"945,0000",80,51,120,Elderly,Female,183,174,192,Neuchatel,18/01/2022,25/05/2022
+FC-966,"960,0000",80,42,120,Elderly,Male,183,169,197,Schwyz,21/02/2022,16/04/2022
+FC-967,"974,0000",81,40,120,Elderly,Male,183,175,191,Appenzell,20/04/2022,17/11/2021
+FC-968,"950,0000",81,40,120,Elderly,Male,183,176,190,Zug,21/03/2022,08/02/2022
+FC-969,"959,0000",81,39,120,Elderly,Male,183,175,191,Zurich,14/04/2022,19/12/2021
+FC-970,"988,0000",82,50,120,Elderly,Male,183,171,195,Vaud,21/04/2022,02/08/2021
+FC-971,"991,0000",83,47,120,Elderly,Male,184,174,194,Zurich,28/04/2022,11/02/2022
+FC-972,"992,0000",84,47,120,Elderly,Male,184,174,194,Geneve,16/07/2021,09/10/2021
+FC-973,"970,0000",84,42,120,Elderly,Male,184,178,190,St Gallen,19/05/2022,06/12/2021
+FC-974,"990,0000",84,42,120,Elderly,Male,184,172,196,Zug,07/07/2021,03/11/2021
+FC-975,"969,0000",85,40,120,Elderly,Male,184,171,197,Jura,21/07/2021,13/07/2021
+FC-976,"957,0000",85,57,120,Elderly,Male,184,170,198,Obwalden,20/07/2021,12/09/2021
+FC-977,"980,0000",86,47,120,Elderly,Male,184,175,193,Nidwalden,28/07/2021,10/11/2021
+FC-978,"943,0000",86,46,120,Elderly,Female,184,171,197,Zug,23/07/2021,30/07/2021
+FC-979,"986,0000",88,39,120,Elderly,Male,184,172,196,Bern,04/08/2021,11/07/2021
+FC-980,"954,0000",89,48,120,Elderly,Male,184,178,190,Basel,17/08/2021,20/05/2022
+FC-981,"949,0000",89,35,120,Elderly,Male,184,173,195,Solothurn,12/08/2021,21/04/2022
+FC-982,"983,0000",89,36,120,Elderly,Male,184,178,190,Solothurn,31/08/2021,10/03/2022
+FC-983,"996,0000",90,57,120,Elderly,Probable Female,184,176,192,Geneve,30/11/2021,09/10/2021
+FC-984,"995,0000",90,46,120,Elderly,Female,184,170,198,Glarus,19/11/2021,26/01/2022
+FC-985,"977,0000",90,38,120,Elderly,Male,184,179,189,Nidwalden,17/11/2021,25/03/2022
+FC-986,"976,0000",90,41,120,Elderly,Male,184,176,192,Obwalden,23/09/2021,28/09/2021
+FC-987,"967,0000",91,59,120,Elderly,Male,185,173,197,Basel,18/01/2022,23/07/2021
+FC-988,"963,0000",91,38,120,Elderly,Male,185,180,190,Geneve,04/01/2022,01/09/2021
+FC-989,"947,0000",91,55,120,Elderly,Male,185,169,201,Uri,17/12/2021,18/11/2021
+FC-990,"975,0000",92,49,120,Elderly,Male,185,170,200,Valais,21/02/2022,16/05/2022
+FC-991,"994,0000",93,46,120,Elderly,Probable Female,185,177,193,Fribourg,24/02/2022,24/04/2022
+FC-992,"999,0000",93,49,120,Elderly,Probable Female,185,173,197,Zurich,21/03/2022,08/03/2022
+FC-993,"965,0000",94,42,120,Elderly,Male,185,176,194,Neuchatel,14/04/2022,30/01/2022
+FC-994,"981,0000",97,36,120,Elderly,Indeterminate,185,180,190,Schaffhausen,20/04/2022,12/04/2022
+FC-995,"982,0000",97,46,120,Elderly,Probable Male,185,173,197,Solothurn,21/04/2022,15/09/2021
+FC-996,"944,0000",98,40,120,Elderly,Probable Female,185,176,194,Fribourg,28/04/2022,09/01/2022
+FC-997,"984,0000",98,39,120,Elderly,Male,185,175,195,Glarus,,28/02/2022
+FC-998,"972,0000",98,39,120,Elderly,Probable Male,185,174,196,Nidwalden,19/05/2022,30/03/2022
+FC-999,"952,0000",99,52,120,Elderly,Indeterminate,185,179,191,Schaffhausen,,09/07/2021
+FC-1000,"964,0000",100,39,120,Elderly,Male,185,170,200,Appenzell,,27/01/2022
+FC-1001,DIG01-RP1-B027,,26,38,Adult,Male,,162,168,Tbilisi,,02/06/2014
+FC-1002,ODI02-RP1-B006,,30,50,Adult,Male,,176,188,Odishi,,10/07/2015
+FC-1003,DIG01-RP1-B018,,35,,Adult,Male,,,,Tbilisi,,30/05/2014
+FC-1004,DIG01-RP1-B016,,23,29,Adult,Male,,178,184,Tbilisi,,30/05/2014
+FC-1005,BAB01-RP1-B001,,30,40,Adult,Male,,,,Babushera,,12/05/2014
+FC-1006,BAB01-RP2-B032,,32,44,Adult,Male,,169,175,Babushera,,21/05/2014
+FC-1007,DIG01-RP1-B034,,22,30,Adult,Male,,171,177,Tbilisi,,03/06/2014
+FC-1008,SUK04-RP1-B003,,17,25,Adult,Male,,168,174,Sukhumi,,21/06/2017
+FC-1009,ODI02-RP1-B010,,25,45,Adult,Male,,,,Odishi,,10/07/2015
+FC-1010,SUK55-RP1-001,,40,,Adult,Male,,162,169,Achadara,,09/08/2019
+FC-1011,SUK55-RP1-002,,40,,Adult,Female,,157,165,Achadara,,09/08/2019
+FC-1012,YAS02-RP1-BP063,,,,,Male,,,,Sukhumi,,10/06/2016
+FC-1013,YAS02-RP1-BP072,,30,,Adult,Indeterminate,,,,Sukhumi,,11/06/2016
+FC-1014,YAS02-RP1-B087,,20,50,Adult,Male,,161,170,Sukhumi,,14/06/2016
+FC-1015,YAS02-RP1-B039,,25,45,Adult,Male,,,,Sukhumi,,06/06/2016
+FC-1016,ODI02-RP1-B009,,18,24,Adult,Male,,175,181,Odishi,,10/07/2015
+FC-1017,ODI02-RP1-B005,,18,24,Adult,Male,,167,181,Odishi,,10/07/2015
+FC-1018,ODI02-RP1-B004,,17,25,Adult,Male,,161,171,Odishi,,10/07/2015
+FC-1019,ODI02-RP1-B002,,25,39,Adult,Male,,167,173,Odishi,,10/07/2015
+FC-1020,YAS02-RP1-B065,,20,30,Adult,Male,,174,182,Sukhumi,,10/06/2016
+FC-1021,ODI02-RP1-B003,,20,30,Adult,Male,,166,173,Odishi,,10/07/2015
+FC-1022,AGU01-RP1-B017,,22,34,Adult,Male,,171,177,Agudzera,,06/07/2017
+FC-1023,YAS02-RP1-BP042,,,,,,,,,Sukhumi,,07/06/2018
+FC-1024,MAC03-RP2-B006,,35,55,Adult,Female,,153,160,Machara,,31/07/2017
+FC-1025,MAC03-RP2-B005,,,,,Male,,,,Machara,,31/07/2017
+FC-1026,ARA04-RP2-B001,,45,,Adult,Male,,168,174,Aradu,,03/08/2017
+FC-1027,ABG02-RP1-B001,,50,60,Adult,Female,,158,166,Abgarkhuk,,10/08/2017
+FC-1028,BAB01-RP3-B025,,19,25,Adult,Male,,172,178,Babushera,,11/05/2014
+FC-1029,GAG12-RP1-001,,20,49,Adult,Male,,170,181,Gagra,,17/08/2020
+FC-1030,YAS02-RP1-B054,,20,40,Adult,Male,,,177,Sukhumi,,09/06/2016
+FC-1031,YAS02-RP1-B047,,25,45,Adult,Male,,17444,180,Sukhumi,,08/06/2016
+FC-1032,LEC01-RP1-B002,,27,46,Adult,Male,,168,174,Lechkopi,,22/06/2017
+FC-1033,KUK01-RP1-B002,,16,22,,Male,,171,177,Tbilisi,,24/06/2015
+FC-1034,YAS02-RP1-B079,,25,45,Adult,Male,,161,171,Sukhumi,,13/06/2016
+FC-1035,DIG01-RP1-B006,,16,20,,Male,,177,183,Tbilisi,,28/05/2014
+FC-1036,BAB01-RP1-B003,,18,24,Adult,Male,,171,177,Babushera,,13/05/2014
+FC-1037,BAB01-RP3-B020,,22,28,Adult,Male,,166,174,Babushera,,20/05/2014
+FC-1038,BAB01-RP1-B011,,18,24,Adult,Male,,170,176,Babushera,,14/05/2014
+FC-1039,YAS02-RP2-B016,,40,,Adult,Female,,,,Sukhumi,,02/06/2016
+FC-1040,DIG01-RP1-B014,,19,25,Adult,Male,,,,Tbilisi,,29/05/2014
+FC-1041,YAS02-RP1-B049,,20,40,Adult,Male,,167,173,Sukhumi,,13/06/2016
+FC-1042,BAB01-RP1-B009,,16,20,,Male,,171,179,Babushera,,14/12/2014
+FC-1043,BAB01-RP1-B012,,33,45,Adult,Male,,168,176,Babushera,,14/12/2014
+FC-1044,BAB01-RP1-B010,,32,42,Adult,Male,,165,172,Babushera,,14/05/2014
+FC-1045,BAB01-RP3-B023,,21,27,Adult,Male,,172,179,Babushera,,19/05/2014
+FC-1046,YAS02-RP1-BP064,,,,,Male,,166,173,Sukhumi,,10/06/2016
+FC-1047,YAS02-RP1-B089,,30,50,Adult,Male,,168,178,Sukhumi,,14/06/2016
+FC-1048,BAB01-RP1-B008,,25,35,Adult,Male,,,,Babushera,,14/05/2014
+FC-1049,YAS02-RP1-B080,,20,36,Adult,Male,,176,182,Sukhumi,,13/06/2016
+FC-1050,KOCH01-RP1-B001,,18,,Adult,,,164,178,Kochara,,07/07/2015
+FC-1051,DIG01-RP1-B019,,23,31,Adult,Male,,170,176,Tbilisi,,30/05/2014
+FC-1052,GUL12-RP1-B003,,41,57,Adult,Female,,,,Baghmarani,,01/09/2018
+FC-1053,GUL12-RP1-B001,,,,,Male,,,,Baghmarani,,01/09/2018
+FC-1054,BAB01-RP1-B013,,24,30,Adult,Male,,163,173,Babushera,,14/05/2014
+FC-1055,BAB01-RP1-B002,,24,34,Adult,Male,,170,180,Babushera,,13/05/2014
+FC-1056,KOC02-RP1-B002,,35,55,Adult,Female,,146,154,Kochara,,09/08/2017
+FC-1057,KOC02-RP1-B001,,30,60,Adult,Male,,164,170,Kochara,,09/08/2017
+FC-1058,SUK37-RP1-B003,,40,40,Adult,Female,,155,163,Sukhumi,,06/07/2018
+FC-1059,ODI02-RP1-B007,,17,25,Adult,Male,,169,175,Odishi,,10/07/2015
+FC-1060,ODI02-RP1-B008,,25,45,Adult,Male,,164,170,Odishi,,10/07/2015
+FC-1061,ODI02-RP1-B001,,25,45,Adult,Male,,162,174,Odishi,,10/07/2015
+FC-1062,BAB01-RP3-B021,,25,35,Adult,Male,,175,181,Babushera,,21/05/2014
+FC-1063,SUK37-RP1-B001,,50,,Adult,Female,,143,151,Sukhumi,,
+FC-1064,ARA05-RP1-B001,,25,45,Adult,Male,,159,165,Aradu,,04/08/2017
+FC-1065,YAS02-RP1-B056,,20,34,Adult,Male,,176,184,Sukhumi,,09/06/2016
+FC-1066,YAS02-RP3-B032,,,30,Adult,Male,,161,169,Sukhumi,,04/06/2016
+FC-1067,DIG01-RP1-B017,,23,31,Adult,Male,,177,183,Tbilisi,,30/05/2014
+FC-1068,BAB01-RP3-B027,,32,44,Adult,Male,,174,180,Babushera,,16/05/2014
+FC-1069,BAB01-RP3-B017,,24,32,Adult,Female,,151,157,Babushera,,20/05/2014
+FC-1070,GUL12-RP1-B004,,27,47,Adult,Male,,,,Baghmarani,,01/09/2018
+FC-1071,GUL12-RP1-B002,,30,46,Adult,Female,,,,Baghmarani,,01/09/2018
+FC-1072,KOCH01-RP1-B003,,18,,Adult,,,1644,177,Kochara,,07/07/2015
+FC-1073,DIG01-RP1-B032,,26,42,Adult,Male,,170,176,Tbilisi,,03/06/2014
+FC-1074,BAB01-RP3-B024,,25,35,Adult,Male,,166,172,Babushera,,16/05/2014
