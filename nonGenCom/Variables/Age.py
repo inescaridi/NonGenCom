@@ -38,7 +38,7 @@ class Age(Variable):
 
     def get_likelihood(self, scenery_name=None) -> Series:
         """
-        The method computes de conditional probability of a chosen range of ages given it was a particular age
+        The method computes de conditional probability of a chosen range of the forensic assign a range of ages for the FC given that an actual age of MP
         or more formally:   P(FC = category | MP = missing_person_age)
         :return:
         """
