@@ -5,5 +5,5 @@ Library with independent functions to compare two databases (Forensic Case Datab
 Install the package using `pip install .` from base folder. 
 > Tip: if you are a developer add the `-e` flag so any changes you make to the code can directly affect execution.
 
-# other
-Stuff
+# Tasks
+Functions to compute scores for the variables Biological Sex and Age
