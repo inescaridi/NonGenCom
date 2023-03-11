@@ -28,6 +28,3 @@ if __name__ == '__main__':
     mp_age = 35
     posterior = age_v2.get_posterior_for_case(fc_min_age, fc_max_age, mp_age)
     print(f"* Posterior for case fc range ({fc_min_age}, {fc_max_age}) and mp_age {mp_age}:\n", posterior)
-
-    # for testing only
-    print(f"* Evidence: {age_v2.evidence}")

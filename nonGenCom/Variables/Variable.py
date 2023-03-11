@@ -134,8 +134,6 @@ class Variable:
             return self.sceneries[scenery_name]
 
     def _calculate_bayes(self, prior: Series, likelihood: Series) -> Series:
-        likelihood.fillna(0, inplace=True)  # TODO what should we do with NaN values?
-
         likelihood_x_prior = likelihood.multiply(prior, level=1)
         evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
 

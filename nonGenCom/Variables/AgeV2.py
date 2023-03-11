@@ -78,13 +78,13 @@ class AgeV2(Age):
         return self.evidence
 
     def add_score_fc_by_apply(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
-                              fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+                              fc_min_age_colname: str, fc_max_age_colname, mp_value_colname: str) -> DataFrame:
         self.set_context(context_name)
         print(f"Context: {context_name}")
         print(f"Scenery: {scenery_name}")
 
         merged_dbs[self.SCORE_COLNAME] = merged_dbs.apply(
-            lambda row: self.get_posterior_for_case(row[fc_value_colname], 0, row[mp_value_colname]), axis=1
+            lambda row: self.get_posterior_for_case(row[fc_min_age_colname], row[fc_max_age_colname], row[mp_value_colname]), axis=1
         )
 
         merged_dbs = merged_dbs.reset_index(drop=True)\
