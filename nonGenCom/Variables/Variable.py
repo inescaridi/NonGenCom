@@ -137,7 +137,6 @@ class Variable:
         likelihood_x_prior = likelihood.multiply(prior, level=1)
         evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
 
-        posterior = likelihood_x_prior.multiply(evidence ** -1, level=0)\
-            .astype(float).round(self.DECIMAL_PRECISION)
+        posterior = likelihood_x_prior.multiply(evidence ** -1, level=0).astype(float).round(self.DECIMAL_PRECISION)
 
         return posterior

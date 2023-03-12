@@ -63,4 +63,4 @@ class Age(Variable):
         likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
         # print(f"Age_{self.version_name}\n", likelihood_list)  # TODO remove or use logger
 
-        return likelihood.astype(float).round(self.DECIMAL_PRECISION)
+        return likelihood

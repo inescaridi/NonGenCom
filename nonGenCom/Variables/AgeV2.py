@@ -64,7 +64,7 @@ class AgeV2(Age):
     def _get_evidence_for_range(self, fc_age_range: range):
         evidence = self.get_evidence()
         e_filter = evidence.index.get_level_values(0).isin(fc_age_range)
-        return round(sum(evidence.loc[e_filter]), self.DECIMAL_PRECISION)
+        return sum(evidence.loc[e_filter])
 
     def get_evidence(self):
         if self.evidence is None:
