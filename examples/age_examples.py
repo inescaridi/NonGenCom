@@ -23,8 +23,8 @@ if __name__ == '__main__':
 
     age_v2.set_context('Standard')
 
-    fc_min_age = 18
-    fc_max_age = 64
+    fc_min_age = 40
+    fc_max_age = 40
     mp_age = 35
     posterior = age_v2.get_posterior_for_case(fc_min_age, fc_max_age, mp_age)
     print(f"* Posterior for case fc range ({fc_min_age}, {fc_max_age}) and mp_age {mp_age}:\n", posterior)

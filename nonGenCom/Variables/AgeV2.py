@@ -41,15 +41,15 @@ class AgeV2(Age):
         if pd.isna(mp_age):
             return None
 
+        from_age = fc_min_age if not pd.isna(fc_min_age) else self.min_age
+        to_age = fc_max_age if not pd.isna(fc_max_age) else self.max_age
+
         key = (fc_min_age, fc_max_age)
         if key in self.posteriors:
             if mp_age in self.posteriors[key]:
                 return self.posteriors[key][mp_age]
 
-        from_age = fc_min_age if not pd.isna(fc_min_age) else self.min_age
-        to_age = fc_max_age if not pd.isna(fc_max_age) else self.max_age
-
-        fc_age_range = range(from_age, to_age)
+        fc_age_range = range(from_age, to_age + (1 if from_age == to_age else 0))
 
         l_filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
                    (self.likelihood.index.get_level_values(1) == str(mp_age))

@@ -71,5 +71,5 @@ class TestAge(TestCase):
             expected_value = float(expected[fc_value][mp_value].replace(',', '.').replace('E', 'e'))
             obtained_value = float(obtained[fc_value][mp_value])
             self.assertAlmostEqual(expected_value, obtained_value,
-                                   places=3,
+                                   places=8,
                                    msg=f"different results for {(fc_value, mp_value)}")
