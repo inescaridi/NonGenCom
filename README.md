@@ -20,11 +20,11 @@ In *nonGenCom/Variables/* , each function to compute the score for a variable ar
 ## Examples of use
 In *examples/* are shown some examples, like:
 
-*fc_scoreCalculator_example.py* for implementing FC-selection search based on a set of elements of FC Database against all the MP Database
+*fc_scoreCalculator_example.py* for implementing FC-selection search based on a set of elements of FC Database against all the MP Database.
 
-*mp_scoreCalculator_example.py* for implementing MP-selection search based on a set of elements of MP Database against all the FC Database
+*mp_scoreCalculator_example.py* for implementing MP-selection search based on a set of elements of MP Database against all the FC Database.
 
-*age_examples.py* for calculating scores 
+*age_examples.py* for calculating scores. 
 
 *validation.py* to calculate the proportion of scores greater/equal/less than the correspondent case, for a specific score chosen. 
 
