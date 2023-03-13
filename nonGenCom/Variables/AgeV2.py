@@ -78,7 +78,7 @@ class AgeV2(Age):
         return self.evidence
 
     def add_score_fc_by_apply(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
-                              fc_min_age_colname: str, fc_max_age_colname, mp_value_colname: str) -> DataFrame:
+                              fc_min_age_colname: str, fc_max_age_colname: str, mp_value_colname: str) -> DataFrame:
         self.set_context(context_name)
         print(f"Context: {context_name}")
         print(f"Scenery: {scenery_name}")
@@ -93,10 +93,11 @@ class AgeV2(Age):
         return merged_dbs
 
     def add_score_mp_by_apply(self, merged_dbs: DataFrame, scenery_name: str,
-                              fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+                              fc_min_age_colname: str, fc_max_age_colname: str, mp_value_colname: str) -> DataFrame:
 
         merged_dbs[self.SCORE_COLNAME] = merged_dbs.apply(
-            lambda row: self._get_mp_score(row[fc_value_colname], row[mp_value_colname]), axis=1
+            lambda row: self._get_mp_score(row[fc_min_age_colname], row[fc_max_age_colname], row[mp_value_colname]),
+            axis=1
         )
 
         merged_dbs = merged_dbs.reset_index(drop=True)\
@@ -104,20 +105,22 @@ class AgeV2(Age):
 
         return merged_dbs
 
-    def _get_mp_score(self, fc_category, mp_age):
-        if pd.isna(fc_category) or pd.isna(mp_age):
+    def _get_mp_score(self, fc_min_age: int, fc_max_age: int, mp_age: int):
+        if pd.isna(mp_age):
             return None
 
-        if fc_category in self.mp_scores:
-            if mp_age in self.mp_scores[fc_category]:
-                return self.mp_scores[fc_category][mp_age]
+        from_age = fc_min_age if not pd.isna(fc_min_age) else self.min_age
+        to_age = fc_max_age if not pd.isna(fc_max_age) else self.max_age
 
-        min_v, max_v = self.category_ranges[fc_category]
-        c_range = range(int(min_v), int(max_v) + 1)
+        key = (fc_min_age, fc_max_age)
+        if key in self.mp_scores:
+            if mp_age in self.mp_scores[key]:
+                return self.mp_scores[key][mp_age]
 
-        l_categories = self.likelihood.index.get_level_values(0).isin(c_range)
+        fc_age_range = range(from_age, to_age + (1 if from_age == to_age else 0))
+        l_categories = self.likelihood.index.get_level_values(0).isin(fc_age_range)
 
         mp_score = sum(self.likelihood.loc[l_categories & mp_age])
 
-        self.mp_scores.setdefault(fc_category, {})[mp_age] = mp_score
+        self.mp_scores.setdefault(key, {})[mp_age] = mp_score
         return mp_score
