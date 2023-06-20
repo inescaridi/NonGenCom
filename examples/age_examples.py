@@ -1,9 +1,9 @@
-from nonGenCom.Variables.AgeV1 import AgeV1
-from nonGenCom.Variables.AgeV2 import AgeV2
+from nonGenCom.Variables.AgeByCategory import AgeByCategory
+from nonGenCom.Variables.AgeContinuous import AgeContinuous
 
 if __name__ == '__main__':
     print("Age V1:")
-    age_v1 = AgeV1()  # TODO add test context for age
+    age_v1 = AgeByCategory()  # TODO add test context for age
 
     likelihood_v1 = age_v1.get_likelihood()
     print("* Likelihood:\n", likelihood_v1)
@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     # --------------
     print("\nAge V2:")
-    age_v2 = AgeV2()
+    age_v2 = AgeContinuous()
 
     likelihood_v2 = age_v2.get_likelihood()
     print("* Likelihood v2:\n", likelihood_v2)

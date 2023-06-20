@@ -8,8 +8,8 @@ from nonGenCom.Utils import load_mp_indexed_file, load_fc_indexed_file, FC_INDEX
 from nonGenCom.Variables.Variable import Variable
 
 
-class Age(Variable):
-    SCORE_COLNAME = 'SHOULD USE AGE V1 OR V2'
+class AgeAbstract(Variable):
+    SCORE_COLNAME = 'SHOULD USE AgeByCategory OR AgeContinuous'
 
     def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv",

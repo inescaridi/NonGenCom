@@ -3,14 +3,14 @@ from unittest import TestCase
 import pandas as pd
 
 from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME, load_fc_indexed_file
-from nonGenCom.Variables.AgeV1 import AgeV1
-from nonGenCom.Variables.AgeV2 import AgeV2
+from nonGenCom.Variables.AgeByCategory import AgeByCategory
+from nonGenCom.Variables.AgeContinuous import AgeContinuous
 
 
 class TestAge(TestCase):
 
     def test_likelihood_v1(self):
-        age_var = AgeV1()
+        age_var = AgeByCategory()
 
         expected = pd.read_csv("tests/resources/age_likelihood_v1.csv", dtype=str)\
             .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
@@ -20,7 +20,7 @@ class TestAge(TestCase):
         self._compare_fc_mp_indexed(expected, obtained)
 
     def test_posterior_v1(self):
-        age_v1 = AgeV1()
+        age_v1 = AgeByCategory()
 
         expected = pd.read_csv("tests/resources/age_posterior_v1.csv", dtype=str)\
             .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
@@ -38,7 +38,7 @@ class TestAge(TestCase):
             .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME}) \
             .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['posterior'].astype(float)
 
-        age_v2 = AgeV2()
+        age_v2 = AgeContinuous()
         age_v2.set_context('Standard')
 
         for category, age_range in default_category_ranges.items():
@@ -50,7 +50,7 @@ class TestAge(TestCase):
                                        msg=f"different results for {(category, mp_age)}")
 
     def test_evidence_v2(self):
-        age_v2 = AgeV2()
+        age_v2 = AgeContinuous()
         age_v2.set_context('Standard')
 
         expected = pd.read_csv("tests/resources/age_evidence_v2.csv").set_index('FC')['Evidence']

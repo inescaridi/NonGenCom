@@ -1,8 +1,8 @@
-from nonGenCom.Variables.Age import Age
+from nonGenCom.Variables.AgeAbstract import AgeAbstract
 from nonGenCom.Utils import load_fc_indexed_file, FC_INDEX_NAME
 
 
-class AgeV1(Age):
+class AgeByCategory(AgeAbstract):
     SCORE_COLNAME = 'age_v1_score'
 
     def __init__(self, category_ranges_path="nonGenCom/default_inputs/age_ranges.csv",

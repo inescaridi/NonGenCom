@@ -5,10 +5,10 @@ import pandas as pd
 from pandas import DataFrame
 
 from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME
-from nonGenCom.Variables.Age import Age
+from nonGenCom.Variables.AgeAbstract import AgeAbstract
 
 
-class AgeV2(Age):
+class AgeContinuous(AgeAbstract):
     SCORE_COLNAME = 'age_v2_score'
 
     def __init__(self, min_age: int = -1, max_age: int = 100,
