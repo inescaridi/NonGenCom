@@ -48,7 +48,7 @@ class AgeAbstract(Variable):
             if str(mp_age) not in self.sigmas.index:
                 print(f"missing {mp_age} in sigma file!")
 
-            sigma = float(self.sigmas.loc[str(mp_age)])
+            sigma = float(self.sigmas.loc[str(mp_age)].iloc[0])
             normal_distribution = st.NormalDist(mp_age, sigma)
             lower = normal_distribution.cdf(self.max_age) - normal_distribution.cdf(self.min_age)
 

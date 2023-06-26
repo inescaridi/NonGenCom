@@ -1,3 +1,4 @@
+from abc import abstractmethod
 from typing import List
 
 import pandas as pd
@@ -103,12 +104,15 @@ class Variable:
     def renames(self) -> dict[str, str]:
         return {}
 
+    @abstractmethod
     def get_posterior(self, context_name: str, scenery_name: str) -> Series:
         raise NotImplementedError
 
+    @abstractmethod
     def get_likelihood(self, scenery_name: str) -> Series:
         raise NotImplementedError
 
+    @abstractmethod
     def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
         raise NotImplementedError
