@@ -59,20 +59,15 @@ class AgeContinuous(AgeAbstract):
         return posterior
 
     def _get_evidence_for_range(self, fc_age_range: range):
-        evidence = self.get_evidence()
-        e_filter = evidence.index.get_level_values(0).isin(fc_age_range)
-        return sum(evidence.loc[e_filter])
-
-    def get_evidence(self):
         if self.evidence is None:
             if self.prior is None:
                 print("WARNING context not setted")
             print("Calculating evidence")
-
-            likelihood_x_prior = self.likelihood.multiply(self.prior, level=1)
-            self.evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
+            self.evidence = self._calculate_evidence(self.prior, self.likelihood)
             print("Done")
-        return self.evidence
+
+        e_filter = self.evidence.index.get_level_values(0).isin(fc_age_range)
+        return sum(self.evidence.loc[e_filter])
 
     def add_score_fc_by_apply(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
                               fc_min_age_colname: str, fc_max_age_colname: str, mp_value_colname: str) -> DataFrame:

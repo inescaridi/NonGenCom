@@ -137,10 +137,17 @@ class Variable:
         if scenery_name in self.sceneries:
             return self.sceneries[scenery_name]
 
-    def _calculate_bayes(self, prior: Series, likelihood: Series) -> Series:
+    @classmethod
+    def _calculate_bayes(cls, prior: Series, likelihood: Series) -> Series:
         likelihood_x_prior = likelihood.multiply(prior, level=1)
         evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
 
-        posterior = likelihood_x_prior.multiply(evidence ** -1, level=0).astype(float).round(self.DECIMAL_PRECISION)
+        posterior = likelihood_x_prior.multiply(evidence ** -1, level=0).astype(float).round(cls.DECIMAL_PRECISION)
 
         return posterior
+
+    @classmethod
+    def _calculate_evidence(cls, prior: Series, likelihood: Series) -> Series:
+        likelihood_x_prior = likelihood.multiply(prior, level=1)
+        evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
+        return evidence
