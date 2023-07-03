@@ -5,7 +5,7 @@ if __name__ == '__main__':
     print("Age V1:")
     age_v1 = AgeByCategory()  # TODO add test context for age
 
-    likelihood_v1 = age_v1.get_likelihood()
+    likelihood_v1 = age_v1.get_FC_likelihood()
     print("* Likelihood:\n", likelihood_v1)
     likelihood_v1.to_csv("examples/age_example_likelihood_v1.csv")
 
@@ -17,7 +17,7 @@ if __name__ == '__main__':
     print("\nAge V2:")
     age_v2 = AgeContinuous()
 
-    likelihood_v2 = age_v2.get_likelihood()
+    likelihood_v2 = age_v2.get_FC_likelihood()
     print("* Likelihood v2:\n", likelihood_v2)
     likelihood_v2.to_csv("examples/age_example_likelihood_v2.csv")
 

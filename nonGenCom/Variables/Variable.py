@@ -74,7 +74,7 @@ class Variable:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        likelihood = self.get_likelihood(scenery_name)
+        likelihood = self.get_FC_likelihood(scenery_name)
         print(f"Scenery: {scenery_name}")
 
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
@@ -109,7 +109,7 @@ class Variable:
         raise NotImplementedError
 
     @abstractmethod
-    def get_likelihood(self, scenery_name: str) -> Series:
+    def get_FC_likelihood(self, scenery_name: str) -> Series:
         raise NotImplementedError
 
     @abstractmethod

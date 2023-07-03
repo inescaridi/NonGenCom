@@ -1,10 +1,7 @@
-from optparse import Option
-from typing import Any
-
 import pandas as pd
 from pandas import DataFrame
 
-from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME
+from nonGenCom.Utils import FC_INDEX_NAME
 from nonGenCom.Variables.AgeAbstract import AgeAbstract
 
 
@@ -27,7 +24,7 @@ class AgeContinuous(AgeAbstract):
         self.version_name = 'V2'
 
         # in order to not re-calculate for all posterior calls
-        self.likelihood = self.get_likelihood()
+        self.likelihood = self.get_FC_likelihood()
         self.prior = None
         self.evidence = None
         self.posteriors = {}
@@ -44,7 +41,7 @@ class AgeContinuous(AgeAbstract):
         from_age = fc_min_age if not pd.isna(fc_min_age) else self.min_age
         to_age = fc_max_age if not pd.isna(fc_max_age) else self.max_age
 
-        key = (fc_min_age, fc_max_age)
+        key = (from_age, to_age)
         if key in self.posteriors:
             if mp_age in self.posteriors[key]:
                 return self.posteriors[key][mp_age]
