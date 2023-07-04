@@ -8,7 +8,7 @@ from nonGenCom.Variables.AgeContinuous import AgeContinuous
 class AgeMPRange(AgeContinuous):
     SCORE_COLNAME = 'age_v3_score'
 
-    def __init__(self, context_name='Standard', min_age: int = -1, max_age: int = 100,
+    def __init__(self, context_name='Standard', epsilon=1, min_age: int = -1, max_age: int = 100,
                  contexts_path="nonGenCom/default_inputs/age_contexts.csv",
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
         super().__init__(context_name, min_age, max_age, contexts_path, sigmas_path)
@@ -16,7 +16,7 @@ class AgeMPRange(AgeContinuous):
         self.fc_likelihood = self.likelihood
         self.fc_evidence = self.evidence
 
-        self.mp_likelihood = self.get_MP_likelihood(min_age=min_age, max_age=max_age)
+        self.mp_likelihood = self.get_MP_likelihood(epsilon, min_age, max_age)
         self.mp_evidence = self._calculate_evidence(self.prior, self.mp_likelihood, MP_INDEX_NAME)
 
     def get_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int) -> float | None:
@@ -33,11 +33,10 @@ class AgeMPRange(AgeContinuous):
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
 
-        filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
+        l_filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
                  (self.likelihood.index.get_level_values(1).isin(mp_age_range))
 
         # TODO update calculation with v3
-
 
         sum_likelihoods_x_prior = sum(self.likelihood.loc[l_filter]) * self.prior[mp_age_range]
 

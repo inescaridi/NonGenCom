@@ -88,3 +88,19 @@ class TestAge(TestCase):
                 for r_age in range(min_age, max_age+1):
                     self.assertAlmostEqual(expected.iloc[mp_age, r_age], obtained.iloc[mp_age, r_age], places=8,
                                            msg=f"different results for {(mp_age, r_age)} with epsilon: {epsilon}")
+
+    def test_evidences_v3(self):
+        for epsilon in [0, 1]:
+            age_v3 = AgeMPRange(epsilon=epsilon)
+
+            expected = pd.read_csv(f"tests/resources/age/Age_MP_evidence_epsilon{epsilon}.csv", dtype=float, index_col=0)
+            min_age = int(expected.index.min())
+            max_age = int(expected.index.max())
+
+            obtained = age_v3.mp_evidence
+            obtained = obtained.unstack()
+
+            for mp_age in range(min_age, max_age + 1):
+                for r_age in range(min_age, max_age + 1):
+                    self.assertAlmostEqual(expected.iloc[mp_age, r_age], obtained.iloc[mp_age, r_age], places=8,
+                                           msg=f"different results for {(mp_age, r_age)} with epsilon: {epsilon}")
