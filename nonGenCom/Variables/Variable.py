@@ -138,8 +138,9 @@ class Variable:
             return self.sceneries[scenery_name]
 
     @classmethod
-    def _calculate_bayes(cls, prior: Series, likelihood: Series, group_by=FC_INDEX_NAME) -> Series:
-        likelihood_x_prior = likelihood.multiply(prior, level=1)
+    def _calculate_bayes(cls, prior: Series, likelihood: Series) -> Series:
+        likelihood_x_prior = cls._calculate_likelihood_x_prior(prior, likelihood)
+        group_by = likelihood.index.levels[0].name
         evidence = likelihood_x_prior.groupby(group_by).sum()
 
         posterior = likelihood_x_prior.multiply(evidence ** -1, level=0).astype(float).round(cls.DECIMAL_PRECISION)
@@ -147,7 +148,17 @@ class Variable:
         return posterior
 
     @classmethod
-    def _calculate_evidence(cls, prior: Series, likelihood: Series, group_by=FC_INDEX_NAME) -> Series:
-        likelihood_x_prior = likelihood.multiply(prior, level=1)
+    def _calculate_evidence(cls, prior: Series, likelihood: Series) -> Series:
+        likelihood_x_prior = cls._calculate_likelihood_x_prior(prior, likelihood)
+        group_by = likelihood.index.levels[0].name
         evidence = likelihood_x_prior.groupby(group_by).sum()
         return evidence
+
+    @classmethod
+    def _calculate_likelihood_x_prior(cls, prior: Series, likelihood: Series) -> Series:
+        # change index level 1 to match type of prior index
+        likelihood.index = likelihood.index.set_levels(likelihood.index.levels[1].astype(str), level=1)
+        # TODO add check for differences in index types, and convert if necessary
+
+        likelihood_x_prior = likelihood.multiply(prior, level=1)
+        return likelihood_x_prior

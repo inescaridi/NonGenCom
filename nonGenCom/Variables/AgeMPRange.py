@@ -16,8 +16,10 @@ class AgeMPRange(AgeContinuous):
         self.fc_likelihood = self.likelihood
         self.fc_evidence = self.evidence
 
+        self.mp_prior = self.prior.copy()
+        self.mp_prior.index.names = [R_INDEX_NAME]
         self.mp_likelihood = self.get_MP_likelihood(epsilon, min_age, max_age)
-        self.mp_evidence = self._calculate_evidence(self.prior, self.mp_likelihood, MP_INDEX_NAME)
+        self.mp_evidence = self._calculate_evidence(self.mp_prior, self.mp_likelihood)
 
     def get_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int) -> float | None:
         # TODO refactor this method and/or class and parents
