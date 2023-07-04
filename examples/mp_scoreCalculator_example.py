@@ -18,7 +18,7 @@ if __name__ == '__main__':
     result = (merged_dbs
               .pipe(BiologicalSex().add_score_mp_by_merge, "High", "FC estimate Biological Sex", "Sex")
               .pipe(AgeByCategory().add_score_mp_by_merge, None, "FC Age Category", "Age")
-              .pipe(AgeContinuous().add_score_mp_by_apply, None, "FC Age Minimum", "FC Age Maximum", "Age")
+              .pipe(AgeContinuous(context_name="Standard").add_score_mp_by_apply, "FC Age Minimum", "FC Age Maximum", "Age")
               )
 
     result['Final Score T1'] = result[BiologicalSex.SCORE_COLNAME] * result[AgeByCategory.SCORE_COLNAME]

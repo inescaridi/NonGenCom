@@ -8,10 +8,10 @@ from nonGenCom.Variables.AgeAbstract import AgeAbstract
 class AgeContinuous(AgeAbstract):
     SCORE_COLNAME = 'age_v2_score'
 
-    def __init__(self, min_age: int = -1, max_age: int = 100,
-                 contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
+    def __init__(self, context_name='Standard', min_age: int = -1, max_age: int = 100,
+                 contexts_path="nonGenCom/default_inputs/age_contexts.csv",
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
-        super().__init__(contexts_path, sceneries_path, sigmas_path)
+        super().__init__(contexts_path, sigmas_path)
 
         self.min_age = min_age
         self.max_age = max_age
@@ -25,14 +25,11 @@ class AgeContinuous(AgeAbstract):
 
         # in order to not re-calculate for all posterior calls
         self.likelihood = self.get_FC_likelihood()
-        self.prior = None
-        self.evidence = None
+        self.prior = self.get_context(context_name)
+        self.evidence = self._calculate_evidence(self.prior, self.likelihood)
         self.posteriors = {}
 
         self.mp_scores = {}
-
-    def set_context(self, context_name):
-        self.prior = self.get_context(context_name)
 
     def get_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_age: int) -> float | None:
         if pd.isna(mp_age):
@@ -59,21 +56,11 @@ class AgeContinuous(AgeAbstract):
         return posterior
 
     def _get_evidence_for_range(self, fc_age_range: range):
-        if self.evidence is None:
-            if self.prior is None:
-                print("WARNING context not setted")
-            print("Calculating evidence")
-            self.evidence = self._calculate_evidence(self.prior, self.likelihood)
-            print("Done")
-
         e_filter = self.evidence.index.get_level_values(0).isin(fc_age_range)
         return sum(self.evidence.loc[e_filter])
 
-    def add_score_fc_by_apply(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
-                              fc_min_age_colname: str, fc_max_age_colname: str, mp_value_colname: str) -> DataFrame:
-        self.set_context(context_name)
-        print(f"Context: {context_name}")
-        print(f"Scenery: {scenery_name}")
+    def add_score_fc_by_apply(self, merged_dbs: DataFrame, fc_min_age_colname: str, fc_max_age_colname: str,
+                              mp_value_colname: str) -> DataFrame:
 
         merged_dbs[self.SCORE_COLNAME] = merged_dbs.apply(
             lambda row: self.get_posterior_for_case(row[fc_min_age_colname], row[fc_max_age_colname], row[mp_value_colname]), axis=1
@@ -84,8 +71,8 @@ class AgeContinuous(AgeAbstract):
 
         return merged_dbs
 
-    def add_score_mp_by_apply(self, merged_dbs: DataFrame, scenery_name: str,
-                              fc_min_age_colname: str, fc_max_age_colname: str, mp_value_colname: str) -> DataFrame:
+    def add_score_mp_by_apply(self, merged_dbs: DataFrame, fc_min_age_colname: str, fc_max_age_colname: str,
+                              mp_value_colname: str) -> DataFrame:
 
         merged_dbs[self.SCORE_COLNAME] = merged_dbs.apply(
             lambda row: self._get_mp_score(row[fc_min_age_colname], row[fc_max_age_colname], row[mp_value_colname]),

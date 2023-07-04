@@ -39,8 +39,7 @@ class TestAge(TestCase):
             .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME}) \
             .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['posterior'].astype(float)
 
-        age_v2 = AgeContinuous()
-        age_v2.set_context('Standard')
+        age_v2 = AgeContinuous(context_name='Standard')
 
         for category, age_range in default_category_ranges.items():
             age_min, age_max = age_range
@@ -51,11 +50,10 @@ class TestAge(TestCase):
                                        msg=f"different results for {(category, mp_age)}")
 
     def test_evidence_v2(self):
-        age_v2 = AgeContinuous()
-        age_v2.set_context('Standard')
+        age_v2 = AgeContinuous(context_name='Standard')
 
         expected = pd.read_csv("tests/resources/age/age_evidence_v2.csv").set_index('FC')['Evidence']
-        obtained = age_v2.get_evidence()
+        obtained = age_v2.evidence
 
         for fc_value in expected.index:
             self.assertAlmostEqual(expected.loc[fc_value], obtained.loc[fc_value],
@@ -80,9 +78,13 @@ class TestAge(TestCase):
 
         for epsilon in [0, 1, 2, 5, 10]:
             expected = pd.read_csv(f"tests/resources/age/Age_MP_likelihood_epsilon{epsilon}.csv", dtype=float, index_col=0)
-            obtained = age_v3.get_MP_likelihood(epsilon=epsilon, min_age=-1, max_age=100)
+            min_age = int(expected.index.min())
+            max_age = int(expected.index.max())
+            obtained = age_v3.get_MP_likelihood(epsilon=epsilon, min_age=min_age, max_age=max_age)
 
-            for i in range(len(expected)):
-                for j in range(len(expected.columns)):
-                    self.assertAlmostEqual(expected.iloc[i, j], obtained.iloc[i, j], places=8,
-                                           msg=f"different results for {(i, j)} with epsilon: {epsilon}")
+            obtained = obtained.unstack()
+
+            for mp_age in range(min_age, max_age+1):
+                for r_age in range(min_age, max_age+1):
+                    self.assertAlmostEqual(expected.iloc[mp_age, r_age], obtained.iloc[mp_age, r_age], places=8,
+                                           msg=f"different results for {(mp_age, r_age)} with epsilon: {epsilon}")

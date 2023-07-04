@@ -1,11 +1,23 @@
 import pandas as pd
 from pandas import Series, DataFrame
 
+from nonGenCom.Utils import MP_INDEX_NAME, R_INDEX_NAME
 from nonGenCom.Variables.AgeContinuous import AgeContinuous
 
 
 class AgeMPRange(AgeContinuous):
     SCORE_COLNAME = 'age_v3_score'
+
+    def __init__(self, context_name='Standard', min_age: int = -1, max_age: int = 100,
+                 contexts_path="nonGenCom/default_inputs/age_contexts.csv",
+                 sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
+        super().__init__(context_name, min_age, max_age, contexts_path, sigmas_path)
+
+        self.fc_likelihood = self.likelihood
+        self.fc_evidence = self.evidence
+
+        self.mp_likelihood = self.get_MP_likelihood(min_age=min_age, max_age=max_age)
+        self.mp_evidence = self._calculate_evidence(self.prior, self.mp_likelihood, MP_INDEX_NAME)
 
     def get_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int) -> float | None:
         # TODO refactor this method and/or class and parents
@@ -21,10 +33,11 @@ class AgeMPRange(AgeContinuous):
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
 
-        l_filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
-                   (self.likelihood.index.get_level_values(1).isin(mp_age_range))
+        filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
+                 (self.likelihood.index.get_level_values(1).isin(mp_age_range))
 
         # TODO update calculation with v3
+
 
         sum_likelihoods_x_prior = sum(self.likelihood.loc[l_filter]) * self.prior[mp_age_range]
 
@@ -34,7 +47,7 @@ class AgeMPRange(AgeContinuous):
         return posterior
 
     # TODO move method to abstract class Variable if it makes sense
-    def get_MP_likelihood(self, epsilon: int = 1, min_age: int = -1, max_age: int = 100) -> DataFrame:
+    def get_MP_likelihood(self, epsilon: int = 1, min_age: int = -1, max_age: int = 100) -> Series:
         """
         Calculates the MP likelihood, we assume a uniform probability distribution over the interval [z-e, z+e] for
         the reported A_MP value
@@ -54,5 +67,10 @@ class AgeMPRange(AgeContinuous):
 
             for y in age_range:
                 df.at[y, z] = 1 / normalization if lower_bound <= y <= upper_bound else 0
-        return df
+
+        likelihood = df.stack()
+        likelihood.index.names = [MP_INDEX_NAME, R_INDEX_NAME]
+        likelihood.name = 'likelihood'
+
+        return likelihood
 

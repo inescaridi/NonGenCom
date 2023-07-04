@@ -8,6 +8,7 @@ from pandas import DataFrame
 # CONSTANTS
 FC_INDEX_NAME = 'FC_i'
 MP_INDEX_NAME = 'MP_i'
+R_INDEX_NAME = 'R_i'
 
 
 def load_fc_mp_indexed_file(path, to_upper=False):

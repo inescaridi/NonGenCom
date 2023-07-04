@@ -11,7 +11,7 @@ class Variable:
     DECIMAL_PRECISION = 8
     SCORE_COLNAME = 'BASE'
 
-    def __init__(self, contexts_path: str, sceneries_path: str):
+    def __init__(self, contexts_path: str | None, sceneries_path: str | None):
         """
         :param contexts_path:
         :param sceneries_path:
@@ -138,16 +138,16 @@ class Variable:
             return self.sceneries[scenery_name]
 
     @classmethod
-    def _calculate_bayes(cls, prior: Series, likelihood: Series) -> Series:
+    def _calculate_bayes(cls, prior: Series, likelihood: Series, group_by=FC_INDEX_NAME) -> Series:
         likelihood_x_prior = likelihood.multiply(prior, level=1)
-        evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
+        evidence = likelihood_x_prior.groupby(group_by).sum()
 
         posterior = likelihood_x_prior.multiply(evidence ** -1, level=0).astype(float).round(cls.DECIMAL_PRECISION)
 
         return posterior
 
     @classmethod
-    def _calculate_evidence(cls, prior: Series, likelihood: Series) -> Series:
+    def _calculate_evidence(cls, prior: Series, likelihood: Series, group_by=FC_INDEX_NAME) -> Series:
         likelihood_x_prior = likelihood.multiply(prior, level=1)
-        evidence = likelihood_x_prior.groupby(FC_INDEX_NAME).sum()
+        evidence = likelihood_x_prior.groupby(group_by).sum()
         return evidence

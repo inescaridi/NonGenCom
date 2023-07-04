@@ -15,13 +15,11 @@ if __name__ == '__main__':
 
     # --------------
     print("\nAge V2:")
-    age_v2 = AgeContinuous()
+    age_v2 = AgeContinuous(context_name='Standard')
 
     likelihood_v2 = age_v2.get_FC_likelihood()
     print("* Likelihood v2:\n", likelihood_v2)
     likelihood_v2.to_csv("examples/age_example_likelihood_v2.csv")
-
-    age_v2.set_context('Standard')
 
     fc_min_age = 40
     fc_max_age = 40

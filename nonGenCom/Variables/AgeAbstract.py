@@ -11,9 +11,9 @@ from nonGenCom.Variables.Variable import Variable
 class AgeAbstract(Variable):
     SCORE_COLNAME = 'SHOULD USE A NON ABSTRACT AGE'
 
-    def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv", sceneries_path=None,
+    def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv",
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
-        super().__init__(contexts_path, sceneries_path)
+        super().__init__(contexts_path, None)
         self.sigmas = load_mp_indexed_file(sigmas_path)
 
         # default values

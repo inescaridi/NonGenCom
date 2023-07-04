@@ -21,7 +21,7 @@ if __name__ == '__main__':
     result = (merged_dbs
               .pipe(BiologicalSex().add_score_fc_by_merge, "Female bias", "High", "FC estimate Biological Sex", "Sex")
               .pipe(AgeByCategory().add_score_fc_by_merge, "Standard", None, "FC Age Category", "Age")
-              .pipe(AgeContinuous().add_score_fc_by_apply, "Standard", None, "FC Age Minimum", "FC Age Maximum", "Age")
+              .pipe(AgeContinuous(context_name="Standard").add_score_fc_by_apply, "FC Age Minimum", "FC Age Maximum", "Age")
 
               )
 
