@@ -60,18 +60,17 @@ class TestAge(TestCase):
                                    places=8,
                                    msg=f"different results for {fc_value}")
 
-    def _compare_fc_mp_indexed(self, expected, obtained):
-        expected_index_set = set(expected.index)
-        obtained_index_set = set(expected.index)
-        self.assertEqual(expected_index_set, obtained_index_set,
-                         f"different index! missing {expected_index_set.symmetric_difference(obtained_index_set)}")
+    def test_likelihood_v2(self):
+        expected = pd.read_csv("tests/resources/age/Age_FC_likelihood_v2.csv", index_col=0).stack()
+        min_age = int(min(expected.index.levels[0].min(), expected.index.levels[1].astype(int).min()))
+        max_age = int(max(expected.index.levels[0].max(), expected.index.levels[1].astype(int).max()))
+        expected.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
 
-        for fc_value, mp_value in expected.index:
-            expected_value = float(expected[fc_value][mp_value].replace(',', '.').replace('E', 'e'))
-            obtained_value = float(obtained[fc_value][mp_value])
-            self.assertAlmostEqual(expected_value, obtained_value,
-                                   places=8,
-                                   msg=f"different results for {(fc_value, mp_value)}")
+        age_v2 = AgeContinuous(context_name='Standard', min_age=min_age, max_age=max_age)
+
+        obtained = age_v2.get_FC_likelihood()
+
+        self._compare_fc_mp_indexed(expected, obtained)
 
     def test_MP_likelihood_v3(self):
         age_v3 = AgeMPRange()
@@ -102,3 +101,22 @@ class TestAge(TestCase):
             for mp_age in range(min_age, max_age + 1):
                 self.assertAlmostEqual(expected.loc[mp_age], obtained.loc[mp_age], places=8,
                                        msg=f"different results for {mp_age} with epsilon: {epsilon}")
+
+    def _compare_fc_mp_indexed(self, expected, obtained):
+        expected_index_set = set(expected.index)
+        obtained_index_set = set(obtained.index)
+        self.assertTrue(obtained_index_set.issuperset(expected_index_set),
+                        f"missing {expected_index_set.difference(obtained_index_set)}")
+
+        for fc_value, mp_value in expected.index:
+            expected_value = self._safe_cast_to_float(expected[fc_value][mp_value])
+            obtained_value = float(obtained[fc_value][mp_value])
+            self.assertAlmostEqual(expected_value, obtained_value,
+                                   places=8,
+                                   msg=f"different results for {(fc_value, mp_value)}")
+
+    def _safe_cast_to_float(self, value) -> float:
+        if type(value) == str:
+            return float(value.replace(',', '.').replace('E', 'e'))
+        else:
+            return value

@@ -17,7 +17,7 @@ class AgeContinuous(AgeAbstract):
         self.max_age = max_age
 
         category_ranges = {}
-        for i in range(self.min_age, self.max_age):
+        for i in range(self.min_age, self.max_age+1):
             category_ranges[i] = (i, i)
         self.category_ranges = category_ranges
 
