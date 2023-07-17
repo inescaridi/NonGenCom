@@ -26,6 +26,7 @@ class AgeContinuous(AgeAbstract):
         # in order to not re-calculate for all posterior calls
         self.likelihood = self.get_FC_likelihood()
         self.prior = self.get_context(context_name)
+        self.prior.index = self.prior.index.astype(int)
         self.evidence = self._calculate_evidence(self.prior, self.likelihood)
         self.posteriors = {}
 

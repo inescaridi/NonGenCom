@@ -15,6 +15,7 @@ class AgeAbstract(Variable):
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
         super().__init__(contexts_path, None)
         self.sigmas = load_mp_indexed_file(sigmas_path)
+        self.sigmas.index = self.sigmas.index.astype(int)
 
         # default values
         self.category_ranges = {}
@@ -24,6 +25,7 @@ class AgeAbstract(Variable):
 
     def get_posterior(self, context_name: str, scenery_name: str = None) -> Series:
         prior = self.get_context(context_name)
+        prior.index = prior.index.astype(int)
         if scenery_name is not None and scenery_name != '' and scenery_name in self.sceneries:
             likelihood = self.get_scenery(scenery_name)
         else:
@@ -44,10 +46,10 @@ class AgeAbstract(Variable):
 
         likelihood_list = []
         for mp_age in range(self.min_age, self.max_age + 1):
-            if str(mp_age) not in self.sigmas.index:
+            if mp_age not in self.sigmas.index:
                 print(f"missing {mp_age} in sigma file!")
 
-            sigma = float(self.sigmas.loc[str(mp_age)].iloc[0])
+            sigma = float(self.sigmas.loc[mp_age].iloc[0])
             normal_distribution = st.NormalDist(mp_age, sigma)
             lower = normal_distribution.cdf(self.max_age) - normal_distribution.cdf(self.min_age)
 
@@ -57,9 +59,7 @@ class AgeAbstract(Variable):
                 upper = normal_distribution.cdf(min(category_max_age+1, self.max_age)) - normal_distribution.cdf(category_min_age)
                 value = upper / lower
 
-                likelihood_list.append({FC_INDEX_NAME: category_name, MP_INDEX_NAME: str(mp_age), 'likelihood': value})
+                likelihood_list.append({FC_INDEX_NAME: category_name, MP_INDEX_NAME: mp_age, 'likelihood': value})
 
         likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
-        # print(f"Age_{self.version_name}\n", likelihood_list)  # TODO remove or use logger
-
         return likelihood

@@ -156,9 +156,9 @@ class Variable:
 
     @classmethod
     def _calculate_likelihood_x_prior(cls, prior: Series, likelihood: Series) -> Series:
-        # change index level 1 to match type of prior index
-        likelihood.index = likelihood.index.set_levels(likelihood.index.levels[1].astype(str), level=1)
-        # TODO add check for differences in index types, and convert if necessary
+        if prior.index.dtype != likelihood.index.levels[1].dtype:
+            print("WARNING: prior index type is not the same type as likelihood index. Converting prior index type to ")
+            prior.index = prior.index.astype(likelihood.index.levels[1].dtype)
 
         likelihood_x_prior = likelihood.multiply(prior, level=1)
         return likelihood_x_prior
