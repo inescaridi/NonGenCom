@@ -41,10 +41,10 @@ class AgeMPRange(AgeContinuous):
                 return self.fc_posteriors[fc_key][mp_key]
 
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
-        fc_posterior_denominator = self.fc_evidence.loc[fc_age_range].sum()
-
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
+
         posterior_nominator = self.score_numerator.loc[fc_age_range, mp_age_range].sum()
+        fc_posterior_denominator = self.fc_evidence.loc[fc_age_range].sum() * len(mp_age_range)
 
         fc_posterior_value = posterior_nominator / fc_posterior_denominator
         self.fc_posteriors.setdefault(fc_key, {})[mp_key] = fc_posterior_value
@@ -62,11 +62,10 @@ class AgeMPRange(AgeContinuous):
                 return self.mp_posteriors[mp_key][fc_key]
 
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
-
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
-        mp_posterior_denominator = self.mp_evidence.loc[mp_age_range].sum()
 
         posterior_nominator = self.score_numerator.loc[fc_age_range, mp_age_range].sum()
+        mp_posterior_denominator = self.mp_evidence.loc[mp_age_range].sum() * len(fc_age_range)
 
         mp_posterior_value = posterior_nominator / mp_posterior_denominator
         self.mp_posteriors.setdefault(mp_key, {})[fc_key] = mp_posterior_value
