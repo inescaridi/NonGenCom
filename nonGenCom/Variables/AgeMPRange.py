@@ -25,34 +25,53 @@ class AgeMPRange(AgeContinuous):
         self.mp_evidence = self._calculate_evidence(self.mp_prior, self.mp_likelihood)
 
         # Posteriors
-        posterior_sum = (self.fc_likelihood * self.mp_likelihood.mul(self.mp_prior, level=0)).groupby(level=2).sum()  # TODO check this
-        # TODO level=2 is FC_INDEX_NAME, we should get the position of FC_INDEX_NAME in the index names and use that
-        # self.fc_posterior = posterior_sum.div(self.fc_evidence, level=0)  # TODO this doesn't take into account the index name
-        # self.mp_posterior = posterior_sum.div(self.mp_evidence, level=0)
+        self.score_numerator = self._get_score_numerator()
+        # posterior_numerator = self.fc_likelihood.mul(self.mp_likelihood.mul(self.mp_prior, level=1).groupby(level=1).sum(), level=1) # may be another way to do this
+        self.fc_posteriors = {}
+        self.mp_posteriors = {}
 
-    def get_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int):
-        # TODO refactor this method and/or class and parents
+    def get_fc_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int):
         if any(pd.isna([fc_min_age, fc_max_age, mp_min_age, mp_max_age])):
             return None
 
         fc_key = (fc_min_age, fc_max_age)
         mp_key = (mp_min_age, mp_max_age)
-        if fc_key in self.posteriors:
-            if mp_key in self.posteriors[fc_key]:
-                return self.posteriors[fc_key][mp_key]
+        if fc_key in self.fc_posteriors:
+            if mp_key in self.fc_posteriors[fc_key]:
+                return self.fc_posteriors[fc_key][mp_key]
 
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
+        fc_posterior_denominator = self.fc_evidence.loc[fc_age_range].sum()
+
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
+        posterior_nominator = self.score_numerator.loc[fc_age_range, mp_age_range].sum()
 
-        l_filter = self.likelihood.index.get_level_values(0).isin(fc_age_range) & \
-                 (self.likelihood.index.get_level_values(1).isin(mp_age_range))
+        fc_posterior_value = posterior_nominator / fc_posterior_denominator
+        self.fc_posteriors.setdefault(fc_key, {})[mp_key] = fc_posterior_value
 
-        # TODO how do we calculate the score?
-        fc_posterior_value = self.fc_likelihood[l_filter].sum() / self.fc_evidence[l_filter].sum()
-        mp_posterior_value = self.mp_likelihood[l_filter].sum() / self.mp_evidence[l_filter].sum()
+        return fc_posterior_value
 
-        # self.posteriors.setdefault(fc_key, {})[mp_key] = posterior
-        return fc_posterior_value, mp_posterior_value
+    def get_mp_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int):
+        if any(pd.isna([fc_min_age, fc_max_age, mp_min_age, mp_max_age])):
+            return None
+
+        fc_key = (fc_min_age, fc_max_age)
+        mp_key = (mp_min_age, mp_max_age)
+        if mp_key in self.mp_posteriors:
+            if fc_key in self.mp_posteriors[mp_key]:
+                return self.mp_posteriors[mp_key][fc_key]
+
+        fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
+
+        mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
+        mp_posterior_denominator = self.mp_evidence.loc[mp_age_range].sum()
+
+        posterior_nominator = self.score_numerator.loc[fc_age_range, mp_age_range].sum()
+
+        mp_posterior_value = posterior_nominator / mp_posterior_denominator
+        self.mp_posteriors.setdefault(mp_key, {})[fc_key] = mp_posterior_value
+
+        return mp_posterior_value
 
     # TODO move method to abstract class Variable if it makes sense
     def get_MP_likelihood(self, epsilon: int = 1, min_age: int = -1, max_age: int = 100) -> Series:
@@ -81,3 +100,10 @@ class AgeMPRange(AgeContinuous):
         likelihood.name = 'likelihood'
 
         return likelihood
+
+    def _get_score_numerator(self):
+        mp_as_matrix = self.mp_likelihood.unstack()
+        fc_as_matrix = self.fc_likelihood.unstack()
+        score_numerator = mp_as_matrix.T.dot(fc_as_matrix.mul(self.mp_prior, axis=0)).T.stack()
+        score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
+        return score_numerator
