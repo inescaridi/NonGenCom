@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 from pandas import Series, DataFrame
 
@@ -13,6 +15,8 @@ class AgeMPRange(AgeContinuous):
                  sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
         super().__init__(context_name, min_age, max_age, contexts_path, sigmas_path)
 
+        self.epsilon = epsilon
+
         self.fc_likelihood = self.likelihood
         self.fc_likelihood.index.names = [FC_INDEX_NAME, R_INDEX_NAME]
         self.fc_likelihood.index = self.fc_likelihood.index.set_levels(self.fc_likelihood.index.levels[1].astype(int), level=1)
@@ -27,8 +31,8 @@ class AgeMPRange(AgeContinuous):
         # Posteriors
         self.score_numerator = self._get_score_numerator()
         # posterior_numerator = self.fc_likelihood.mul(self.mp_likelihood.mul(self.mp_prior, level=1).groupby(level=1).sum(), level=1) # may be another way to do this
-        self.fc_posteriors = {}
-        self.mp_posteriors = {}
+        self._fc_posteriors = {}
+        self._mp_posteriors = {}
 
     def get_fc_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int):
         if any(pd.isna([fc_min_age, fc_max_age, mp_min_age, mp_max_age])):
@@ -36,18 +40,21 @@ class AgeMPRange(AgeContinuous):
 
         fc_key = (fc_min_age, fc_max_age)
         mp_key = (mp_min_age, mp_max_age)
-        if fc_key in self.fc_posteriors:
-            if mp_key in self.fc_posteriors[fc_key]:
-                return self.fc_posteriors[fc_key][mp_key]
+        if fc_key in self._fc_posteriors:
+            if mp_key in self._fc_posteriors[fc_key]:
+                return self._fc_posteriors[fc_key][mp_key]
 
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
 
-        posterior_nominator = self.score_numerator.loc[fc_age_range, mp_age_range].sum()
+        filter_age_range = self.score_numerator.index.get_level_values(0).isin(fc_age_range) & \
+                           self.score_numerator.index.get_level_values(1).isin(mp_age_range)
+
+        posterior_nominator = self.score_numerator.loc[filter_age_range].sum().item()
         fc_posterior_denominator = self.fc_evidence.loc[fc_age_range].sum() * len(mp_age_range)
 
         fc_posterior_value = posterior_nominator / fc_posterior_denominator
-        self.fc_posteriors.setdefault(fc_key, {})[mp_key] = fc_posterior_value
+        self._fc_posteriors.setdefault(fc_key, {})[mp_key] = fc_posterior_value
 
         return fc_posterior_value
 
@@ -57,18 +64,21 @@ class AgeMPRange(AgeContinuous):
 
         fc_key = (fc_min_age, fc_max_age)
         mp_key = (mp_min_age, mp_max_age)
-        if mp_key in self.mp_posteriors:
-            if fc_key in self.mp_posteriors[mp_key]:
-                return self.mp_posteriors[mp_key][fc_key]
+        if mp_key in self._mp_posteriors:
+            if fc_key in self._mp_posteriors[mp_key]:
+                return self._mp_posteriors[mp_key][fc_key]
 
         fc_age_range = range(fc_min_age, fc_max_age + (1 if fc_min_age == fc_max_age else 0))
         mp_age_range = range(mp_min_age, mp_max_age + (1 if mp_min_age == mp_max_age else 0))
 
-        posterior_nominator = self.score_numerator.loc[fc_age_range, mp_age_range].sum()
+        filter_age_range = self.score_numerator.index.get_level_values(0).isin(fc_age_range) & \
+                           self.score_numerator.index.get_level_values(1).isin(mp_age_range)
+
+        posterior_nominator = self.score_numerator.loc[filter_age_range].sum().item()
         mp_posterior_denominator = self.mp_evidence.loc[mp_age_range].sum() * len(fc_age_range)
 
         mp_posterior_value = posterior_nominator / mp_posterior_denominator
-        self.mp_posteriors.setdefault(mp_key, {})[fc_key] = mp_posterior_value
+        self._mp_posteriors.setdefault(mp_key, {})[fc_key] = mp_posterior_value
 
         return mp_posterior_value
 
@@ -101,8 +111,36 @@ class AgeMPRange(AgeContinuous):
         return likelihood
 
     def _get_score_numerator(self):
-        mp_as_matrix = self.mp_likelihood.unstack()
-        fc_as_matrix = self.fc_likelihood.unstack()
-        score_numerator = mp_as_matrix.T.dot(fc_as_matrix.mul(self.mp_prior, axis=0)).T.stack()
+        age_range = range(self.min_age, self.max_age + 1)
+
+        # check if the ".cache" folder exists in nonGenCom, otherwise create it
+        cache_path = os.path.join(os.path.dirname(__file__), '.cache')
+        if not os.path.exists(cache_path):
+            os.makedirs(cache_path)
+
+        # if there's a score_numerator_cache file, load it
+        score_numerator_file_name = f'score_numerator_epsilon_{self.epsilon}.csv'
+        if os.path.exists(os.path.join(cache_path, score_numerator_file_name)):
+            score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])
+            # limit the score_numerator to the age range
+            filter_age_range = score_numerator.index.get_level_values(0).isin(age_range) & \
+                               score_numerator.index.get_level_values(1).isin(age_range)
+            score_numerator = score_numerator.loc[filter_age_range]
+            return score_numerator
+
+        # calculate the score_numerator
+        score_numerator = pd.DataFrame(index=age_range,
+                                       columns=age_range)
+
+        for fc_age in age_range:
+            for mp_age in age_range:
+                res = sum(self.fc_likelihood.loc[fc_age] * self.mp_likelihood.loc[mp_age] * self.prior)
+
+                score_numerator.iloc[fc_age, mp_age] = res
+
+        score_numerator = score_numerator.stack()
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
+        # save the score_numerator for future use
+        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name))
+
         return score_numerator
