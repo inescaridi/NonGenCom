@@ -58,6 +58,11 @@ class AgeMPRange(AgeContinuous):
 
         return fc_posterior_value
 
+    def get_fc_mp_posteriors_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int):
+        fc_posterior = self.get_fc_posterior_for_case(fc_min_age, fc_max_age, mp_min_age, mp_max_age)
+        mp_posterior = self.get_mp_posterior_for_case(fc_min_age, fc_max_age, mp_min_age, mp_max_age)
+        return fc_posterior, mp_posterior
+
     def get_mp_posterior_for_case(self, fc_min_age: int, fc_max_age: int, mp_min_age: int, mp_max_age: int):
         if any(pd.isna([fc_min_age, fc_max_age, mp_min_age, mp_max_age])):
             return None
