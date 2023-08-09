@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME, load_fc_indexed_file
+from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME, load_fc_indexed_file, change_index_level_type
 from nonGenCom.Variables.AgeByCategory import AgeByCategory
 from nonGenCom.Variables.AgeContinuous import AgeContinuous
 from nonGenCom.Variables.AgeMPRange import AgeMPRange
@@ -16,7 +16,7 @@ class TestAge(TestCase):
         expected = pd.read_csv("tests/resources/age/age_likelihood_v1.csv")\
             .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
             .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
-        obtained = age_var.get_FC_likelihood()
+        obtained = age_var.get_fc_likelihood()
 
         self._compare_fc_mp_indexed(expected, obtained)
 
@@ -26,7 +26,7 @@ class TestAge(TestCase):
         expected = pd.read_csv("tests/resources/age/age_evidence_v1.csv").set_index(FC_INDEX_NAME)['Evidence']
 
         prior = age_v1.get_context('Standard')
-        likelihood = age_v1.get_FC_likelihood()
+        likelihood = age_v1.get_fc_likelihood()
         obtained = age_v1._calculate_evidence(prior, likelihood)
 
         for fc_value in expected.index:
@@ -40,7 +40,7 @@ class TestAge(TestCase):
         expected = pd.read_csv("tests/resources/age/age_posterior_v1.csv")\
             .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
             .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['posterior']
-        obtained = age_v1.get_posterior("Standard")
+        obtained = age_v1.get_fc_posterior("Standard")
 
         self._compare_fc_mp_indexed(expected, obtained)
 
@@ -76,13 +76,16 @@ class TestAge(TestCase):
 
     def test_likelihood_v2(self):
         expected = pd.read_csv("tests/resources/age/Age_FC_likelihood.csv", index_col=0).stack()
-        min_age = int(min(expected.index.levels[0].min(), expected.index.levels[1].astype(int).min()))
-        max_age = int(max(expected.index.levels[0].max(), expected.index.levels[1].astype(int).max()))
         expected.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
+        expected = change_index_level_type(expected, FC_INDEX_NAME, int)
+        expected = change_index_level_type(expected, MP_INDEX_NAME, int)
+
+        min_age = min(expected.index.levels[0].min(), expected.index.levels[1].min())
+        max_age = max(expected.index.levels[0].max(), expected.index.levels[1].max())
 
         age_v2 = AgeContinuous(context_name='Standard', min_age=min_age, max_age=max_age)
 
-        obtained = age_v2.get_FC_likelihood()
+        obtained = age_v2.get_fc_likelihood()
 
         self._compare_fc_mp_indexed(expected, obtained)
 
@@ -104,12 +107,12 @@ class TestAge(TestCase):
 
     def test_MP_evidence_v3(self):
         for epsilon in [0, 1]:
-            age_v3 = AgeMPRange(epsilon=epsilon)
 
             expected = pd.read_csv(f"tests/resources/age/Age_MP_evidence_epsilon{epsilon}.csv", index_col=0)['Evi']
             min_age = int(expected.index.min())
             max_age = int(expected.index.max())
 
+            age_v3 = AgeMPRange(epsilon=epsilon, min_age=min_age, max_age=max_age)
             obtained = age_v3.mp_evidence
 
             for age in range(min_age, max_age + 1):
@@ -117,10 +120,10 @@ class TestAge(TestCase):
                                        msg=f"different results for {age} with epsilon: {epsilon}")
 
     def test_FC_evidence_v3(self):
-        age_v3 = AgeMPRange()
         expected = pd.read_csv("tests/resources/age/Age_FC_evidence.csv", index_col=0)['Evi']
         min_age = int(expected.index.min())
         max_age = int(expected.index.max())
+        age_v3 = AgeMPRange(min_age=min_age, max_age=max_age)
 
         obtained = age_v3.fc_evidence
 
@@ -130,40 +133,16 @@ class TestAge(TestCase):
 
     def test_score_numerator_v3(self):
         expected = pd.read_csv("tests/resources/age/Age_score_numeratos_MPepsilon2.csv", index_col=0)
+        min_age = int(expected.index.min())
+        max_age = int(expected.index.max())
+        age_v3 = AgeMPRange(min_age=min_age, max_age=max_age)
 
-        expected = expected.stack()
-        expected.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
-        expected.index = expected.index.set_levels(expected.index.levels[1].astype(int), level=1)
+        obtained = age_v3.score_numerator
 
-        fc = pd.read_csv("tests/resources/age/Age_FC_likelihood.csv", index_col=0)
-        fc = fc.stack()
-        fc.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
-        fc.index = fc.index.set_levels(fc.index.levels[1].astype(int), level=1)
-
-        mp = pd.read_csv("tests/resources/age/Age_MP_likelihood_epsilon2.csv", index_col=0)
-        mp = mp.stack()
-        mp.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
-        mp.index = mp.index.set_levels(mp.index.levels[1].astype(int), level=1)
-
-        age_v3 = AgeMPRange(epsilon=2)
-        prior = age_v3.prior
-        # obtained = age_v3.score_numerator
-
-        for fc_age in range(-1, 100):
-            for mp_age in range(-1, 101):
-                # res = sum(fc.loc[fc_age] * mp.loc[mp_age] * prior)
-
-                res = 0
-                for k in prior.index:
-                    res = res + mp.loc[mp_age, k] * fc.loc[fc_age, k] * prior[k]
-
-                self.assertAlmostEqual(expected.loc[fc_age, mp_age], res, places=8,
+        for fc_age in range(min_age, max_age + 1):
+            for mp_age in range(min_age, max_age + 1):
+                self.assertAlmostEqual(expected.iloc[fc_age, mp_age], obtained.iloc[fc_age, mp_age], places=8,
                                        msg=f"different results for {(fc_age, mp_age)}")
-
-        # for fc_age in range(-1, 100):
-        #     for mp_age in range(-1, 101):
-        #         self.assertAlmostEqual(expected.loc[fc_age, mp_age], obtained.loc[fc_age, mp_age], places=8,
-        #                                msg=f"different results for {(fc_age, mp_age)}")
 
     def test_MP_posterior_v3(self):
         for epsilon in [0, 1]:

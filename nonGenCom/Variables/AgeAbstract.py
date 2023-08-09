@@ -29,7 +29,7 @@ class AgeAbstract(Variable):
         if scenery_name is not None and scenery_name != '' and scenery_name in self.sceneries:
             likelihood = self.get_scenery(scenery_name)
         else:
-            likelihood = self.get_FC_likelihood()
+            likelihood = self.get_fc_likelihood()
 
         return self._calculate_bayes(prior, likelihood)
 
@@ -37,7 +37,7 @@ class AgeAbstract(Variable):
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
         pass
 
-    def get_FC_likelihood(self, scenery_name=None) -> Series:
+    def get_fc_likelihood(self, scenery_name=None) -> Series:
         """
         The method computes de conditional probability of a chosen range of the forensic assign a range of ages for the FC given that an actual age of MP
         or more formally:   P(FC = category | MP = missing_person_age)

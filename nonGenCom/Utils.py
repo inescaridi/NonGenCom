@@ -77,3 +77,10 @@ def merge_dbs(db1: DataFrame, db2: DataFrame, db1_index_colname: str, db1_suffix
 
     merged_dbs = db1_rows.merge(db2, how='cross', suffixes=(db1_suffix, db2_suffix))
     return merged_dbs
+
+
+def change_index_level_type(df: DataFrame, level: str|int, expected_type: type):
+    if isinstance(level, str):
+        level = df.index.names.index(level)
+    df.index = df.index.set_levels(df.index.levels[level].astype(expected_type), level=level)
+    return df

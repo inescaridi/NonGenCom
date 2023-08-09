@@ -12,7 +12,7 @@ class BiologicalSex(Variable):
                  sceneries_path="nonGenCom/default_inputs/biolsex_sceneries.csv"):
         super().__init__(contexts_path, sceneries_path)
 
-    def get_posterior(self, context_name: str = None, scenery_name: str = None) -> Series:
+    def get_fc_posterior(self, context_name: str = None, scenery_name: str = None) -> Series:
         """
         Computes the posterior probability (the scores for FC-selection searches) for a given scenery and context.
         using the biological sex variable, given:
@@ -87,5 +87,5 @@ class BiologicalSex(Variable):
         # TODO move this to a configuration file
         return renames
 
-    def get_FC_likelihood(self, scenery_name: str) -> Series:
+    def get_fc_likelihood(self, scenery_name: str) -> Series:
         return self.get_scenery(scenery_name)

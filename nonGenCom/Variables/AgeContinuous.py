@@ -24,7 +24,7 @@ class AgeContinuous(AgeAbstract):
         self.version_name = 'V2'
 
         # in order to not re-calculate for all posterior calls
-        self.likelihood = self.get_FC_likelihood()
+        self.likelihood = self.get_fc_likelihood()
 
         prior = self.get_context(context_name)
         prior.index = prior.index.astype(int)

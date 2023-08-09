@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from pandas import Series, DataFrame
 
-from nonGenCom.Utils import MP_INDEX_NAME, R_INDEX_NAME, FC_INDEX_NAME
+from nonGenCom.Utils import MP_INDEX_NAME, R_INDEX_NAME, FC_INDEX_NAME, change_index_level_type
 from nonGenCom.Variables.AgeContinuous import AgeContinuous
 
 
@@ -19,7 +19,7 @@ class AgeMPRange(AgeContinuous):
 
         self.fc_likelihood = self.likelihood
         self.fc_likelihood.index.names = [FC_INDEX_NAME, R_INDEX_NAME]
-        self.fc_likelihood.index = self.fc_likelihood.index.set_levels(self.fc_likelihood.index.levels[1].astype(int), level=1)
+        self.fc_likelihood = change_index_level_type(self.fc_likelihood, FC_INDEX_NAME, int)
         self.fc_evidence = self.evidence
 
         self.mp_prior = self.prior.copy()

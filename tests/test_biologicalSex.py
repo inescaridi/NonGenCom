@@ -10,7 +10,7 @@ class TestBiologicalSex(TestCase):
         biolsex = BiologicalSex("tests/resources/biolsex_context_examples.csv", "tests/resources/biolsex_scenery_examples.csv")
 
         expected = load_fc_mp_indexed_file("tests/resources/biolsex_posterior_examples.csv")["Posterior1"]
-        obtained = biolsex.get_posterior("Context1", "Scenery1")
+        obtained = biolsex.get_fc_posterior("Context1", "Scenery1")
 
         self.assertEqual(expected.shape, obtained.shape, "different shape")
 

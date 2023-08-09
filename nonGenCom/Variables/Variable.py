@@ -46,7 +46,7 @@ class Variable:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        posterior = self.get_posterior(context_name, scenery_name)
+        posterior = self.get_fc_posterior(context_name, scenery_name)
         print(f"Context: {context_name}")
         print(f"Scenery: {scenery_name}")
         print("Posterior\n", posterior, "\n")
@@ -74,7 +74,7 @@ class Variable:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        likelihood = self.get_FC_likelihood(scenery_name)
+        likelihood = self.get_fc_likelihood(scenery_name)
         print(f"Scenery: {scenery_name}")
 
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
@@ -105,16 +105,11 @@ class Variable:
         return {}
 
     @abstractmethod
-    def get_posterior(self, context_name: str, scenery_name: str) -> Series:
+    def get_fc_likelihood(self, scenery_name: str) -> Series:
         raise NotImplementedError
 
     @abstractmethod
-    def get_FC_likelihood(self, scenery_name: str) -> Series:
-        raise NotImplementedError
-
-    @abstractmethod
-    def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
-                  ins_pairs: List[str] = None, inw_pairs: List[str] = None):
+    def get_fc_posterior(self, context_name: str, scenery_name: str) -> Series:
         raise NotImplementedError
 
     def get_context(self, context_name: str) -> Series:
