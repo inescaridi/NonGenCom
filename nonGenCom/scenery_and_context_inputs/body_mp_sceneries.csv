@@ -1,0 +1,26 @@
+MP, yes, no, yes, no
+R, yes, yes, no, no
+Head & Neck/Disease, 0.9, 0.1, 0, 1
+Head & Neck/Prosthesis, 0.9, 0.1, 0, 1
+Head & Neck/Interventions, 0.9, 0.1, 0, 1
+Head & Neck/Fractures, 0.9, 0.1, 0, 1
+Head & Neck/Skin Marks, 0.9, 0.1, 0, 1
+Head & Neck/Other Specific Characteristic, 0.9, 0.1, 0, 1
+Torso/Disease, 0.9, 0.1, 0, 1
+Torso/Prosthesis, 0.9, 0.1, 0, 1
+Torso/Interventions, 0.9, 0.1, 0, 1
+Torso/Fractures, 0.9, 0.1, 0, 1
+Torso/Skin Marks, 0.9, 0.1, 0, 1
+Torso/Other Specific Characteristic, 0.9, 0.1, 0, 1
+Upper Limbs/Disease, 0.9, 0.1, 0, 1
+Upper Limbs/Prosthesis, 0.9, 0.1, 0, 1
+Upper Limbs/Interventions, 0.9, 0.1, 0, 1
+Upper Limbs/Fractures, 0.9, 0.1, 0, 1
+Upper Limbs/Skin Marks, 0.9, 0.1, 0, 1
+Upper Limbs/Other Specific Characteristic, 0.9, 0.1, 0, 1
+Lower Limbs/Disease, 0.9, 0.1, 0, 1
+Lower Limbs/Prosthesis, 0.9, 0.1, 0, 1
+Lower Limbs/Interventions, 0.9, 0.1, 0, 1
+Lower Limbs/Fractures, 0.9, 0.1, 0, 1
+Lower Limbs/Skin Marks, 0.9, 0.1, 0, 1
+Lower Limbs/Other Specific Characteristic, 0.9, 0.1, 0, 1

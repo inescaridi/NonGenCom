@@ -3,49 +3,13 @@ from unittest import TestCase
 import pandas as pd
 
 from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME, load_fc_indexed_file, change_index_level_type
-from nonGenCom.Variables.AgeByCategory import AgeByCategory
 from nonGenCom.Variables.AgeContinuous import AgeContinuous
 from nonGenCom.Variables.AgeMPRange import AgeMPRange
 
 
 class TestAge(TestCase):
-
-    def test_likelihood_v1(self):
-        age_var = AgeByCategory()
-
-        expected = pd.read_csv("tests/resources/age/age_likelihood_v1.csv")\
-            .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
-            .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['likelihood']
-        obtained = age_var.get_fc_likelihood()
-
-        self._compare_fc_mp_indexed(expected, obtained)
-
-    def test_FC_evidence_v1(self):
-        age_v1 = AgeByCategory()
-
-        expected = pd.read_csv("tests/resources/age/age_evidence_v1.csv").set_index(FC_INDEX_NAME)['Evidence']
-
-        prior = age_v1.get_context('Standard')
-        likelihood = age_v1.get_fc_likelihood()
-        obtained = age_v1._calculate_evidence(prior, likelihood)
-
-        for fc_value in expected.index:
-            self.assertAlmostEqual(expected.loc[fc_value], obtained.loc[fc_value],
-                                   places=8,
-                                   msg=f"different results for {fc_value}")
-
-    def test_posterior_v1(self):
-        age_v1 = AgeByCategory()
-
-        expected = pd.read_csv("tests/resources/age/age_posterior_v1.csv")\
-            .rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
-            .set_index([FC_INDEX_NAME, MP_INDEX_NAME])['posterior']
-        obtained = age_v1.get_fc_posterior("Standard")
-
-        self._compare_fc_mp_indexed(expected, obtained)
-
     def test_posterior_v2(self):
-        ranges_df = load_fc_indexed_file("nonGenCom/default_inputs/age_ranges.csv")
+        ranges_df = load_fc_indexed_file("nonGenCom/scenery_and_context_inputs/age_ranges.csv")
         default_category_ranges = ranges_df.groupby(FC_INDEX_NAME).agg({'age': (min, max)})['age'].astype(int)\
             .apply(tuple, axis=1).to_dict()
 
@@ -96,7 +60,7 @@ class TestAge(TestCase):
             expected = pd.read_csv(f"tests/resources/age/Age_MP_likelihood_epsilon{epsilon}.csv", index_col=0)
             min_age = int(expected.index.min())
             max_age = int(expected.index.max())
-            obtained = age_v3.get_MP_likelihood(epsilon=epsilon, min_age=min_age, max_age=max_age)
+            obtained = age_v3.get_mp_likelihood(epsilon=epsilon, min_age=min_age, max_age=max_age)
 
             obtained = obtained.unstack()
 

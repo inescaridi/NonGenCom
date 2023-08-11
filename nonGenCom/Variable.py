@@ -1,35 +1,57 @@
-from abc import abstractmethod
-from typing import List
+import os
+from abc import abstractmethod, ABC
 
 import pandas as pd
 from pandas import Series, DataFrame
 
-from nonGenCom.Utils import load_contexts, load_sceneries, FC_INDEX_NAME, MP_INDEX_NAME
+from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME, load_r_indexed_file, load_double_indexed_indexed_file, \
+    R_INDEX_NAME
 
 
-class Variable:
+class Variable(ABC):
     DECIMAL_PRECISION = 8
     SCORE_COLNAME = 'BASE'
 
-    def __init__(self, contexts_path: str | None, sceneries_path: str | None):
+    def __init__(self, contexts_path: str | None, fc_sceneries_path: str | None, mp_sceneries_path: str | None,
+                 context_name: str | None, fc_scenery_name: str | None, mp_scenery_name: str | None):
         """
+        :param mp_sceneries_path:
+        :param context_name:
+        :param fc_scenery_name:
+        :param mp_scenery_name:
         :param contexts_path:
-        :param sceneries_path:
+        :param fc_sceneries_path:
         """
         self.contexts = pd.DataFrame()
-        self.sceneries = pd.DataFrame()
+        self.fc_sceneries = pd.DataFrame()
+        self.mp_sceneries = pd.DataFrame()
 
         if contexts_path is not None:
             try:
-                self.contexts = load_contexts(contexts_path)
+                self.contexts = load_r_indexed_file(contexts_path)
             except FileNotFoundError:
                 print(f"Contexts file not found: {contexts_path}")
 
-        if sceneries_path is not None:
+        if fc_sceneries_path is not None:
             try:
-                self.sceneries = load_sceneries(sceneries_path)
+                self.fc_sceneries = load_double_indexed_indexed_file(fc_sceneries_path,
+                                                                     'FC', FC_INDEX_NAME,
+                                                                     'R', R_INDEX_NAME)
             except FileNotFoundError:
-                print(f"Sceneries file not found: {sceneries_path}")
+                print(f"FC Sceneries file not found: {fc_sceneries_path}")
+
+        if mp_sceneries_path is not None:
+            try:
+                self.mp_sceneries = load_double_indexed_indexed_file(mp_sceneries_path,
+                                                                     'MP', MP_INDEX_NAME,
+                                                                     'R', R_INDEX_NAME)
+            except FileNotFoundError:
+                print(f"MP Sceneries file not found: {mp_sceneries_path}")
+
+        self.context_name = context_name
+        self.fc_scenery_name = fc_scenery_name
+        self.mp_scenery_name = mp_scenery_name
+        super().__init__()
 
     def add_score_fc_by_merge(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
                               fc_value_colname: str, mp_value_colname: str) -> DataFrame:
@@ -46,7 +68,7 @@ class Variable:
         :return:
         """
         # TODO move all database "config" (column names mostly) to a class
-        posterior = self.get_fc_posterior(context_name, scenery_name)
+        posterior = self.get_fc_score()
         print(f"Context: {context_name}")
         print(f"Scenery: {scenery_name}")
         print("Posterior\n", posterior, "\n")
@@ -104,14 +126,6 @@ class Variable:
     def renames(self) -> dict[str, str]:
         return {}
 
-    @abstractmethod
-    def get_fc_likelihood(self, scenery_name: str) -> Series:
-        raise NotImplementedError
-
-    @abstractmethod
-    def get_fc_posterior(self, context_name: str, scenery_name: str) -> Series:
-        raise NotImplementedError
-
     def get_context(self, context_name: str) -> Series:
         """
         Get context (aka prior)
@@ -122,25 +136,58 @@ class Variable:
         if context_name in self.contexts:
             return self.contexts[context_name]
 
-    def get_scenery(self, scenery_name: str) -> Series:
+    def get_fc_scenery(self, scenery_name: str) -> Series | None:
         """
         Get scenery (aka likelihood)
 
         :param scenery_name: str:
         :return:
         """
-        if scenery_name in self.sceneries:
-            return self.sceneries[scenery_name]
+        if self.fc_sceneries and scenery_name in self.fc_sceneries:
+            return self.fc_sceneries[scenery_name]
+        else:
+            return None
 
-    @classmethod
-    def _calculate_bayes(cls, prior: Series, likelihood: Series) -> Series:
-        likelihood_x_prior = cls._calculate_likelihood_x_prior(prior, likelihood)
-        group_by = likelihood.index.levels[0].name
-        evidence = likelihood_x_prior.groupby(group_by).sum()
+    def get_mp_scenery(self, scenery_name: str) -> Series | None:
+        """
+        Get scenery (aka likelihood)
 
-        posterior = likelihood_x_prior.multiply(evidence ** -1, level=0).astype(float).round(cls.DECIMAL_PRECISION)
+        :param scenery_name: str:
+        :return:
+        """
+        if self.mp_sceneries and scenery_name in self.mp_sceneries:
+            return self.mp_sceneries[scenery_name]
+        else:
+            return None
 
-        return posterior
+    def _get_score_numerator(self, fc_likelihood: Series, mp_likelihood: Series, prior: Series,
+                             fc_values, mp_values) -> Series:  # TODO list or "iterable"?
+        # check if the ".cache" folder exists in nonGenCom, otherwise create it
+        cache_path = os.path.join(os.path.dirname(__file__), 'Variables/.cache')
+        if not os.path.exists(cache_path):
+            os.makedirs(cache_path)
+
+        # if there's a score_numerator_cache file, load it
+        score_numerator_file_name = f'score_numerator_{self._score_numerator_file_name()}.csv'
+        if os.path.exists(os.path.join(cache_path, score_numerator_file_name)):
+            score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])
+            return score_numerator
+
+        # calculate the score_numerator
+        score_numerator = pd.DataFrame(index=fc_values, columns=mp_values)
+
+        for fc_age in fc_values:
+            for mp_age in mp_values:
+                res = sum(fc_likelihood.loc[fc_age] * mp_likelihood.loc[mp_age] * prior)
+
+                score_numerator.iloc[fc_age, mp_age] = res
+
+        score_numerator = score_numerator.stack()
+        score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
+        # save the score_numerator for future use
+        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name))
+
+        return score_numerator
 
     @classmethod
     def _calculate_evidence(cls, prior: Series, likelihood: Series) -> Series:
@@ -157,3 +204,27 @@ class Variable:
 
         likelihood_x_prior = likelihood.multiply(prior, level=1)
         return likelihood_x_prior
+
+    @abstractmethod
+    def _score_numerator_file_name(self) -> str:
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_fc_likelihood(self, scenery_name: str) -> Series:
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_fc_score(self) -> Series:
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_mp_likelihood(self, scenery_name: str) -> Series:
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+        raise NotImplementedError
+
+    @abstractmethod
+    def _reformat_prior(self, prior: Series):
+        raise NotImplementedError()

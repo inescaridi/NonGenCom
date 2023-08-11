@@ -1,19 +1,6 @@
-from nonGenCom.Variables.AgeByCategory import AgeByCategory
 from nonGenCom.Variables.AgeContinuous import AgeContinuous
 
 if __name__ == '__main__':
-    print("Age V1:")
-    age_v1 = AgeByCategory()  # TODO add test context for age
-
-    likelihood_v1 = age_v1.get_fc_likelihood()
-    print("* Likelihood:\n", likelihood_v1)
-    likelihood_v1.to_csv("examples/age_example_likelihood_v1.csv")
-
-    posterior = age_v1.get_fc_posterior("Standard")
-    print("* Posterior:\n", posterior)
-    posterior.to_csv("examples/age_example_posterior.csv")
-
-    # --------------
     print("\nAge V2:")
     age_v2 = AgeContinuous(context_name='Standard')
 

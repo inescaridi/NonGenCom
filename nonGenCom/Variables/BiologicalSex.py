@@ -2,29 +2,28 @@ from typing import List
 
 from pandas import Series
 
-from nonGenCom.Variables.Variable import Variable
+from nonGenCom.Variable import Variable
 
 
 class BiologicalSex(Variable):
     SCORE_COLNAME = 'biolsex_score'
 
-    def __init__(self, contexts_path="nonGenCom/default_inputs/biolsex_contexts.csv",
-                 sceneries_path="nonGenCom/default_inputs/biolsex_sceneries.csv"):
-        super().__init__(contexts_path, sceneries_path)
+    def __init__(self, contexts_path="nonGenCom/scenery_and_context_inputs/biolsex_contexts.csv",
+                 fc_sceneries_path="nonGenCom/scenery_and_context_inputs/biolsex_fc_sceneries.csv"):
+        super().__init__(contexts_path, fc_sceneries_path, "mp_sceneries_path", "context_name", "fc_scenery_name",
+                         "mp_scenery_name")
 
-    def get_fc_posterior(self, context_name: str = None, scenery_name: str = None) -> Series:
+    def get_fc_score(self) -> Series:
         """
         Computes the posterior probability (the scores for FC-selection searches) for a given scenery and context.
         using the biological sex variable, given:
         # TODO update docstring
-        :param context_name: representing P(MP= y) (context)
-        :param scenery_name: representing P(FC= x | MP= y)  (scenery)
         :return: posterior: Series: representing P(FC=x |MP=y) * P(MP= x) / P(FC= y)
         """
 
         prior = self.get_context(context_name)
-        likelihood = self.get_scenery(scenery_name)
-        return self._calculate_bayes(prior, likelihood)
+        likelihood = self.get_fc_scenery(scenery_name)
+        return self._get_score_numerator(likelihood, pd.DateFrame(), prior, None, None)
 
     def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
@@ -88,4 +87,12 @@ class BiologicalSex(Variable):
         return renames
 
     def get_fc_likelihood(self, scenery_name: str) -> Series:
-        return self.get_scenery(scenery_name)
+        return self.get_fc_scenery(scenery_name)
+    
+    def get_mp_likelihood(self, scenery_name: str) -> Series:
+        # TODO: implement
+        pass
+
+    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+        # TODO: implement
+        pass

@@ -11,8 +11,8 @@ class AgeMPRange(AgeContinuous):
     SCORE_COLNAME = 'age_v3_score'
 
     def __init__(self, context_name='Standard', epsilon=1, min_age: int = -1, max_age: int = 100,
-                 contexts_path="nonGenCom/default_inputs/age_contexts.csv",
-                 sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
+                 contexts_path="nonGenCom/scenery_and_context_inputs/age_contexts.csv",
+                 sigmas_path="nonGenCom/scenery_and_context_inputs/age_sigma.csv"):
         super().__init__(context_name, min_age, max_age, contexts_path, sigmas_path)
 
         self.epsilon = epsilon
@@ -25,11 +25,11 @@ class AgeMPRange(AgeContinuous):
         self.mp_prior = self.prior.copy()
         self.mp_prior.index.names = [R_INDEX_NAME]
         self.mp_prior.index = self.mp_prior.index.astype(int)
-        self.mp_likelihood = self.get_MP_likelihood(epsilon, min_age, max_age)
+        self.mp_likelihood = self.get_mp_likelihood(epsilon, min_age, max_age)
         self.mp_evidence = self._calculate_evidence(self.mp_prior, self.mp_likelihood)
 
         # Posteriors
-        self.score_numerator = self._get_score_numerator()
+        self.score_numerator = self._get_score_merator()
         # posterior_numerator = self.fc_likelihood.mul(self.mp_likelihood.mul(self.mp_prior, level=1).groupby(level=1).sum(), level=1) # may be another way to do this
         self._fc_posteriors = {}
         self._mp_posteriors = {}
@@ -79,16 +79,16 @@ class AgeMPRange(AgeContinuous):
         filter_age_range = self.score_numerator.index.get_level_values(0).isin(fc_age_range) & \
                            self.score_numerator.index.get_level_values(1).isin(mp_age_range)
 
-        posterior_nominator = self.score_numerator.loc[filter_age_range].sum().item()
+        posterior_numerator = self.score_numerator.loc[filter_age_range].sum().item()
         mp_posterior_denominator = self.mp_evidence.loc[mp_age_range].sum() * len(fc_age_range)
 
-        mp_posterior_value = posterior_nominator / mp_posterior_denominator
+        mp_posterior_value = posterior_numerator / mp_posterior_denominator
         self._mp_posteriors.setdefault(mp_key, {})[fc_key] = mp_posterior_value
 
         return mp_posterior_value
 
     # TODO move method to abstract class Variable if it makes sense
-    def get_MP_likelihood(self, epsilon: int = 1, min_age: int = -1, max_age: int = 100) -> Series:
+    def get_mp_likelihood(self, epsilon: int = 1, min_age: int = -1, max_age: int = 100) -> Series:
         """
         Calculates the MP likelihood, we assume a uniform probability distribution over the interval [z-e, z+e] for
         the reported A_MP value
@@ -149,3 +149,11 @@ class AgeMPRange(AgeContinuous):
         score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name))
 
         return score_numerator
+
+    def get_fc_score(self) -> Series:
+        # TODO implement
+        pass
+
+    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+        # TODO implement
+        pass

@@ -10,7 +10,7 @@ if __name__ == '__main__':
     biolsex_var = BiologicalSex()
 
     prior = biolsex_var.get_context(context_name)
-    likelihood = biolsex_var.get_scenery(scenery_name)
+    likelihood = biolsex_var.get_fc_scenery(scenery_name)
 
     cos, cow, ins, inw = biolsex_var.profiling(prior, likelihood)  # uses default values for cos,cow,ins and inw pairs
 

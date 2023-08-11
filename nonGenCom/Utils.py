@@ -11,51 +11,46 @@ MP_INDEX_NAME = 'MP_i'
 R_INDEX_NAME = 'R_i'
 
 
-def load_fc_mp_indexed_file(path, to_upper=False):
-    res_aux = pd.read_csv(path, header=None, dtype=str).transpose()  # dtype=str is for int/float indexes in FC or MP
-    # check for order and names of FC and MP
-    scen_columns = res_aux.iloc[0]
-    assert scen_columns[0] == 'FC' and scen_columns[1] == 'MP', "File must be indexed by FC and MP possible values"
+def load_double_indexed_indexed_file(path, first_index, first_index_rename, second_index, second_index_rename,
+                                     to_upper=False): # TODO change to load with R index and be able to be used for both FC and MP
+    res_aux = pd.read_csv(path, header=None, dtype=str).transpose()
+    names_column_values = res_aux.iloc[0]
+    assert names_column_values[0] == first_index and names_column_values[1] == second_index, \
+        f"Expecting file indexed by {first_index} and {second_index}"
 
     if to_upper:
         res_aux[0] = res_aux[0].str.upper()
         res_aux[1] = res_aux[1].str.upper()
-    result = res_aux.drop(index=0).set_axis(scen_columns, axis=1).rename(columns={'FC': FC_INDEX_NAME, 'MP': MP_INDEX_NAME})\
-        .set_index([FC_INDEX_NAME, MP_INDEX_NAME])
+    result = res_aux.drop(index=0).set_axis(names_column_values, axis=1).rename(columns={first_index: first_index_rename,
+                                                                                  second_index: second_index_rename})\
+        .set_index([first_index_rename, second_index_rename])
     convert_all_cells_to_float(result)
     return result
 
 
-def _load_one_indexed_file(path, original_index, new_index_name, to_upper=False):
-    res_aux = pd.read_csv(path, header=None, dtype=str).transpose()  # dtype=str is for int/float indexes in MP
+def _load_single_indexed_file(path, original_index, new_index_name, to_upper=False):
+    res_aux = pd.read_csv(path, header=None, dtype=str).transpose()
     if to_upper:
         res_aux[0] = res_aux[0].str.upper()
-    cont_columns = res_aux.iloc[0]
+    names_column_values = res_aux.iloc[0]
+    assert names_column_values[0] == original_index, f"Expecting file indexed by {original_index}"
 
-    result = res_aux.drop(index=0).set_axis(cont_columns, axis=1).rename(columns={original_index: new_index_name})\
+    result = res_aux.drop(index=0).set_axis(names_column_values, axis=1).rename(columns={original_index: new_index_name})\
         .set_index(new_index_name)
     convert_all_cells_to_float(result)
     return result
 
 
 def load_mp_indexed_file(path):
-    return _load_one_indexed_file(path, 'MP', MP_INDEX_NAME)
+    return _load_single_indexed_file(path, 'MP', MP_INDEX_NAME)
 
 
 def load_fc_indexed_file(path):
-    return _load_one_indexed_file(path, 'FC', FC_INDEX_NAME)
+    return _load_single_indexed_file(path, 'FC', FC_INDEX_NAME)
 
 
-def load_contexts(contexts_path):
-    return load_mp_indexed_file(contexts_path)
-
-
-def load_sceneries(sceneries_path):
-    return load_fc_mp_indexed_file(sceneries_path)
-
-
-def load_expected_posterior():
-    return load_fc_mp_indexed_file("tests/resources/biolsex_posterior_examples.csv")
+def load_r_indexed_file(path):
+    return _load_single_indexed_file(path, 'R', R_INDEX_NAME)
 
 
 def parse_float(n: Any) -> float:

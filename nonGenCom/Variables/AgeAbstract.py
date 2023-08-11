@@ -1,19 +1,20 @@
 import statistics as st
+from abc import ABC
 from typing import List
 
 import pandas as pd
 from pandas import Series
 
-from nonGenCom.Utils import load_mp_indexed_file, load_fc_indexed_file, FC_INDEX_NAME, MP_INDEX_NAME
-from nonGenCom.Variables.Variable import Variable
+from nonGenCom.Utils import load_mp_indexed_file, FC_INDEX_NAME, MP_INDEX_NAME
+from nonGenCom.Variable import Variable
 
 
-class AgeAbstract(Variable):
+class AgeAbstract(Variable, ABC):
     SCORE_COLNAME = 'SHOULD USE A NON ABSTRACT AGE'
 
-    def __init__(self, contexts_path="nonGenCom/default_inputs/age_contexts.csv",
-                 sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
-        super().__init__(contexts_path, None)
+    def __init__(self, contexts_path="nonGenCom/scenery_and_context_inputs/age_contexts.csv",
+                 sigmas_path="nonGenCom/scenery_and_context_inputs/age_sigma.csv"):
+        super().__init__(contexts_path, None, "mp_sceneries_path", "context_name", "fc_scenery_name", "mp_scenery_name")
         self.sigmas = load_mp_indexed_file(sigmas_path)
         self.sigmas.index = self.sigmas.index.astype(int)
 
@@ -23,15 +24,15 @@ class AgeAbstract(Variable):
         self.max_age: int = 100
         self.version_name = 'BASE'
 
-    def get_posterior(self, context_name: str, scenery_name: str = None) -> Series:
+    def get_fc_score(self) -> Series:
         prior = self.get_context(context_name)
         prior.index = prior.index.astype(int)
-        if scenery_name is not None and scenery_name != '' and scenery_name in self.sceneries:
-            likelihood = self.get_scenery(scenery_name)
+        if scenery_name is not None and scenery_name != '' and scenery_name in self.fc_sceneries:
+            likelihood = self.get_fc_scenery(scenery_name)
         else:
             likelihood = self.get_fc_likelihood()
 
-        return self._calculate_bayes(prior, likelihood)
+        return self._get_score_numerator(likelihood, pd.DateFrame(), prior, None, None)
 
     def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):

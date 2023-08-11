@@ -1,5 +1,5 @@
 import pandas as pd
-from pandas import DataFrame
+from pandas import DataFrame, Series
 
 from nonGenCom.Utils import FC_INDEX_NAME
 from nonGenCom.Variables.AgeAbstract import AgeAbstract
@@ -9,8 +9,8 @@ class AgeContinuous(AgeAbstract):
     SCORE_COLNAME = 'age_v2_score'
 
     def __init__(self, context_name='Standard', min_age: int = -1, max_age: int = 100,
-                 contexts_path="nonGenCom/default_inputs/age_contexts.csv",
-                 sigmas_path="nonGenCom/default_inputs/age_sigma.csv"):
+                 contexts_path="nonGenCom/scenery_and_context_inputs/age_contexts.csv",
+                 sigmas_path="nonGenCom/scenery_and_context_inputs/age_sigma.csv"):
         super().__init__(contexts_path, sigmas_path)
 
         self.min_age = min_age
@@ -107,3 +107,15 @@ class AgeContinuous(AgeAbstract):
 
         self.mp_scores.setdefault(key, {})[mp_age] = mp_score
         return mp_score
+
+    def get_fc_score(self) -> Series:
+        # TODO: implement
+        pass
+
+    def get_mp_likelihood(self, scenery_name: str) -> Series:
+        # TODO: implement
+        pass
+
+    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+        # TODO: implement
+        pass
