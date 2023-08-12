@@ -63,7 +63,7 @@ class CategoricalVariable(Variable, ABC):
         likelihood = pd.DataFrame(likelihood_list).set_index([MP_INDEX_NAME, R_INDEX_NAME])['likelihood']
         return likelihood
 
-    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+    def get_mp_score(self) -> Series:
         evidence = self._calculate_evidence(self.prior, self.mp_likelihood)
         return self.score_numerator.divide(evidence, level=MP_INDEX_NAME)
 

@@ -38,4 +38,17 @@ class TestBody(TestCase):
                                    places=8,
                                    msg=f"different results for {(fc_value, r_value)}")
 
-        self.assertAlmostEqual(expected, obtained, msg="different results")
+    def test_mp_score(self):
+        body = Body("Uniform", "Head & Neck/Disease", "Head & Neck/Disease", "Head & Neck/Disease")
+
+        expected = pd.read_csv("tests/resources/body/Body_MPscore_PriorUniform.csv", index_col=0).stack()
+        expected.index.names = [MP_INDEX_NAME, R_INDEX_NAME]
+        obtained = body.get_mp_score()
+
+        for fc_value, r_value in expected.index:
+            expected_value = expected.loc[fc_value][r_value]
+            obtained_value = obtained.loc[fc_value][r_value]
+
+            self.assertAlmostEqual(expected_value, obtained_value,
+                                   places=8,
+                                   msg=f"different results for {(fc_value, r_value)}")

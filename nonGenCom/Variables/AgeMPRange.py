@@ -154,6 +154,6 @@ class AgeMPRange(AgeContinuous):
         # TODO implement
         pass
 
-    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+    def get_mp_score(self) -> Series:
         # TODO implement
         pass

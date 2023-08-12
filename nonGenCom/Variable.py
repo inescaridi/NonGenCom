@@ -225,7 +225,7 @@ class Variable(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
+    def get_mp_score(self) -> Series:
         raise NotImplementedError
 
     @abstractmethod
