@@ -168,7 +168,7 @@ class Variable(ABC):
         # if there's a score_numerator_cache file, load it
         score_numerator_file_name = self._score_numerator_file_name()
         if os.path.exists(os.path.join(cache_path, score_numerator_file_name)):
-            score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])
+            score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])['values']
             return score_numerator
 
         # calculate the score_numerator
@@ -183,7 +183,7 @@ class Variable(ABC):
         score_numerator = pd.Series(score_numerator_dict)
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
         # save the score_numerator for future use
-        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name), index=False)
+        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name), header=['values'])
 
         return score_numerator
 
