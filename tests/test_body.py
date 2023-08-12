@@ -24,7 +24,7 @@ class TestBody(TestCase):
                                    msg=f"different results for {(fc_value, r_value)}")
 
     def test_fc_score(self):
-        body = Body("Uniform", "Head & Neck/Disease", "Head & Neck/Disease", "Head & Neck/Disease")
+        body = Body("Uniform", "Standard", "Standard", "Head & Neck/Disease")
 
         expected = pd.read_csv("tests/resources/body/Body_FCscore_PriorUniform.csv", index_col=0).stack()
         expected.index.names = [FC_INDEX_NAME, R_INDEX_NAME]
@@ -39,7 +39,7 @@ class TestBody(TestCase):
                                    msg=f"different results for {(fc_value, r_value)}")
 
     def test_mp_score(self):
-        body = Body("Uniform", "Head & Neck/Disease", "Head & Neck/Disease", "Head & Neck/Disease")
+        body = Body("Uniform", "Standard", "Standard", "Head & Neck/Disease")
 
         expected = pd.read_csv("tests/resources/body/Body_MPscore_PriorUniform.csv", index_col=0).stack()
         expected.index.names = [MP_INDEX_NAME, R_INDEX_NAME]
