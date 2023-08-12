@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-4", "FC-149", "FC-233", "FC-354", "FC-573", "FC-991"])
 
     result = (merged_dbs
-              .pipe(BiologicalSex().add_score_fc_by_merge, "Female bias", "High", "FC estimate Biological Sex", "Sex")
+              .pipe(BiologicalSex("Standard", "High", "Perfect representation").add_score_fc_by_merge, "FC estimate Biological Sex", "Sex")
               .pipe(AgeContinuous(context_name="Standard").add_score_fc_by_apply, "FC Age Minimum", "FC Age Maximum", "Age")
 
               )

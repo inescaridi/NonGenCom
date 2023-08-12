@@ -10,12 +10,12 @@ from nonGenCom.Variable import Variable
 class CategoricalVariable(Variable, ABC):
     def __init__(self, contexts_path: str | None, fc_sceneries_path: str | None, mp_sceneries_path: str | None,
                  context_name: str | None, fc_scenery_name: str | None, mp_scenery_name: str | None,
-                 r_categories: dict, mp_categories: dict, fc_categories: dict):
+                 r_categories: dict, fc_categories: dict, mp_categories: dict):
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name)
         self.r_categories = r_categories
-        self.mp_categories = mp_categories
         self.fc_categories = fc_categories
+        self.mp_categories = mp_categories
 
         self.prior = self.get_prior(context_name)
         self.fc_likelihood = self.get_fc_likelihood(fc_scenery_name)
@@ -24,8 +24,8 @@ class CategoricalVariable(Variable, ABC):
         self.score_numerator = self._get_score_numerator(self.fc_likelihood,
                                                          self.mp_likelihood,
                                                          self.prior,
-                                                         self.fc_categories.items(),
-                                                         self.mp_categories.items())
+                                                         self.fc_categories.keys(),
+                                                         self.mp_categories.keys())
 
     def get_fc_likelihood(self, scenery_name: str = None) -> Series:
         # TODO see if we move part of this up
@@ -44,7 +44,7 @@ class CategoricalVariable(Variable, ABC):
         return likelihood
 
     def get_fc_score(self) -> Series:
-        evidence = self._calculate_evidence(self.fc_likelihood, self.prior)
+        evidence = self._calculate_evidence(self.prior, self.fc_likelihood)
         return self.score_numerator.divide(evidence, level=FC_INDEX_NAME)
 
     def get_mp_likelihood(self, scenery_name: str) -> Series:
@@ -64,7 +64,7 @@ class CategoricalVariable(Variable, ABC):
         return likelihood
 
     def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
-        evidence = self._calculate_evidence(self.mp_likelihood, self.prior)
+        evidence = self._calculate_evidence(self.prior, self.mp_likelihood)
         return self.score_numerator.divide(evidence, level=MP_INDEX_NAME)
 
     def get_prior(self, context_name: str) -> Series:

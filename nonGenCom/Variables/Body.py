@@ -16,7 +16,8 @@ class Body(CategoricalVariable):
                          mp_scenery_name, yes_no_dict, yes_no_dict, yes_no_dict)
 
     def _score_numerator_file_name(self) -> str:
-        return "body_score_numerator"
+        # TODO change name with hash or create a folder or cache "manager"
+        return f"body_score_numerator_{self.context_name}__fc_{self.fc_scenery_name}__mp_{self.mp_scenery_name}__{self.characteristic}.csv"
 
     def _reformat_prior(self, prior: Series):
         return prior

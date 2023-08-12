@@ -25,10 +25,10 @@ class AgeAbstract(Variable, ABC):
         self.version_name = 'BASE'
 
     def get_fc_score(self) -> Series:
-        prior = self.get_context(context_name)
+        prior = self.get_context(self.context_name)
         prior.index = prior.index.astype(int)
-        if scenery_name is not None and scenery_name != '' and scenery_name in self.fc_sceneries:
-            likelihood = self.get_fc_scenery(scenery_name)
+        if self.fc_scenery_name is not None and self.fc_scenery_name != '' and self.fc_scenery_name in self.fc_sceneries:
+            likelihood = self.get_fc_scenery(self.fc_scenery_name)
         else:
             likelihood = self.get_fc_likelihood()
 

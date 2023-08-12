@@ -22,6 +22,10 @@ class Variable(ABC):
         :param contexts_path:
         :param fc_sceneries_path:
         """
+        self.context_name = context_name
+        self.fc_scenery_name = fc_scenery_name
+        self.mp_scenery_name = mp_scenery_name
+
         self.contexts = pd.DataFrame()
         self.fc_sceneries = pd.DataFrame()
         self.mp_sceneries = pd.DataFrame()
@@ -48,20 +52,13 @@ class Variable(ABC):
             except FileNotFoundError:
                 print(f"MP Sceneries file not found: {mp_sceneries_path}")
 
-        self.context_name = context_name
-        self.fc_scenery_name = fc_scenery_name
-        self.mp_scenery_name = mp_scenery_name
         super().__init__()
 
-    def add_score_fc_by_merge(self, merged_dbs: DataFrame, context_name: str, scenery_name: str,
-                              fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+    def add_score_fc_by_merge(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str) -> DataFrame:
         """
         # TODO complete docstring
 
         :param merged_dbs: databases already merged
-        :param context_name:
-        :param scenery_name:
-
         :param fc_value_colname: colname of value for variable in Fosensic Case Database
         :param mp_value_colname: colname of value for variable in Missing Person Database
 
@@ -69,8 +66,8 @@ class Variable(ABC):
         """
         # TODO move all database "config" (column names mostly) to a class
         posterior = self.get_fc_score()
-        print(f"Context: {context_name}")
-        print(f"Scenery: {scenery_name}")
+        print(f"Context: {self.context_name}")
+        print(f"Scenery: {self.fc_scenery_name}")
         print("Posterior\n", posterior, "\n")
 
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
@@ -143,7 +140,7 @@ class Variable(ABC):
         :param scenery_name: str:
         :return:
         """
-        if self.fc_sceneries and scenery_name in self.fc_sceneries:
+        if scenery_name in self.fc_sceneries:
             return self.fc_sceneries[scenery_name]
         else:
             return None
@@ -155,13 +152,14 @@ class Variable(ABC):
         :param scenery_name: str:
         :return:
         """
-        if self.mp_sceneries and scenery_name in self.mp_sceneries:
+        if scenery_name in self.mp_sceneries:
             return self.mp_sceneries[scenery_name]
         else:
             return None
 
     def _get_score_numerator(self, fc_likelihood: Series, mp_likelihood: Series, prior: Series,
-                             fc_values, mp_values) -> Series:  # TODO list or "iterable"?
+                             fc_values, mp_values) -> Series:
+        # TODO should we ask that fc and mp values be list or "iterable"?
         # check if the ".cache" folder exists in nonGenCom, otherwise create it
         cache_path = os.path.join(os.path.dirname(__file__), 'Variables/.cache')
         if not os.path.exists(cache_path):
@@ -174,15 +172,15 @@ class Variable(ABC):
             return score_numerator
 
         # calculate the score_numerator
-        score_numerator = pd.DataFrame(index=fc_values, columns=mp_values)
+        score_numerator_dict = {}
 
-        for fc_age in fc_values:
-            for mp_age in mp_values:
-                res = sum(fc_likelihood.loc[fc_age] * mp_likelihood.loc[mp_age] * prior)
+        for fc_value in fc_values:
+            for mp_value in mp_values:
+                res = sum(fc_likelihood.loc[fc_value] * mp_likelihood.loc[mp_value] * prior)
 
-                score_numerator.iloc[fc_age, mp_age] = res
+                score_numerator_dict[(fc_value, mp_value)] = res
 
-        score_numerator = score_numerator.stack()
+        score_numerator = pd.Series(score_numerator_dict)
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
         # save the score_numerator for future use
         score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name))

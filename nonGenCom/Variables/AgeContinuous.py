@@ -4,7 +4,6 @@ from pandas import DataFrame, Series
 from nonGenCom.Utils import FC_INDEX_NAME
 from nonGenCom.Variables.AgeAbstract import AgeAbstract
 
-
 class AgeContinuous(AgeAbstract):
     SCORE_COLNAME = 'age_v2_score'
 
@@ -108,14 +107,8 @@ class AgeContinuous(AgeAbstract):
         self.mp_scores.setdefault(key, {})[mp_age] = mp_score
         return mp_score
 
-    def get_fc_score(self) -> Series:
-        # TODO: implement
-        pass
+    def _score_numerator_file_name(self) -> str:
+        return
 
-    def get_mp_likelihood(self, scenery_name: str) -> Series:
-        # TODO: implement
-        pass
-
-    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
-        # TODO: implement
+    def _reformat_prior(self, prior: Series):
         pass

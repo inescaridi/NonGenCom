@@ -2,30 +2,39 @@ from typing import List
 
 from pandas import Series
 
-from nonGenCom.Variable import Variable
+from nonGenCom.CategoricalVariable import CategoricalVariable
 
 
-class BiologicalSex(Variable):
+class BiologicalSex(CategoricalVariable):
     SCORE_COLNAME = 'biolsex_score'
 
-    def __init__(self, contexts_path="nonGenCom/scenery_and_context_inputs/biolsex_contexts.csv",
-                 fc_sceneries_path="nonGenCom/scenery_and_context_inputs/biolsex_fc_sceneries.csv"):
-        super().__init__(contexts_path, fc_sceneries_path, "mp_sceneries_path", "context_name", "fc_scenery_name",
-                         "mp_scenery_name")
+    def __init__(self, context_name: str, fc_scenery_name: str, mp_scenery_name: str):
+        contexts_path = "nonGenCom/scenery_and_context_inputs/biolsex_contexts.csv"
+        fc_sceneries_path = "nonGenCom/scenery_and_context_inputs/biolsex_fc_sceneries.csv"
+        mp_sceneries_path = "nonGenCom/scenery_and_context_inputs/biolsex_mp_sceneries.csv"
 
-    def get_fc_score(self) -> Series:
-        """
-        Computes the posterior probability (the scores for FC-selection searches) for a given scenery and context.
-        using the biological sex variable, given:
-        # TODO update docstring
-        :return: posterior: Series: representing P(FC=x |MP=y) * P(MP= x) / P(FC= y)
-        """
+        r_categories = {'m': 'male', 'f': 'female', 'o': 'other', 'u': 'unknown'}
+        fc_categories = {'f': 'female', 'pf': 'possible female', 'm': 'male', 'pm': 'possible male', 'i': 'indeterminate'}
+        mp_categories = {'m': 'male', 'f': 'female', 'o': 'other', 'u': 'unknown'}
+        # TODO load from configuration file
 
-        prior = self.get_context(context_name)
-        likelihood = self.get_fc_scenery(scenery_name)
-        return self._get_score_numerator(likelihood, pd.DateFrame(), prior, None, None)
+        super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
+                         mp_scenery_name, r_categories, fc_categories, mp_categories)
 
-    def profiling(self, prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
+    def _get_fc_likelihood_for_combination(self, r_category: tuple, fc_category: tuple):
+        return 0  # TODO fc likelihood calculation, right now we are only using pre-defined sceneries
+
+    def _get_mp_likelihood_for_combination(self, r_category: tuple, mp_category: tuple):
+        return 0  # TODO mp likelihood calculation, right now we are only using pre-defined sceneries
+
+    def _score_numerator_file_name(self) -> str:
+        return f"biolsex_score_numerator_{self.context_name}__fc_{self.fc_scenery_name}__mp_{self.mp_scenery_name}.csv"
+
+    def _reformat_prior(self, prior: Series):
+        return prior
+
+    @staticmethod
+    def profiling(prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
         """
         # TODO complete
@@ -85,14 +94,3 @@ class BiologicalSex(Variable):
         }
         # TODO move this to a configuration file
         return renames
-
-    def get_fc_likelihood(self, scenery_name: str) -> Series:
-        return self.get_fc_scenery(scenery_name)
-    
-    def get_mp_likelihood(self, scenery_name: str) -> Series:
-        # TODO: implement
-        pass
-
-    def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
-        # TODO: implement
-        pass
