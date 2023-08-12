@@ -23,8 +23,6 @@ class TestBody(TestCase):
                                    places=8,
                                    msg=f"different results for {(fc_value, r_value)}")
 
-        self.assertAlmostEqual(expected, obtained, msg="different results")
-
     def test_fc_score(self):
         body = Body("Uniform", "Head & Neck/Disease", "Head & Neck/Disease", "Head & Neck/Disease")
 
