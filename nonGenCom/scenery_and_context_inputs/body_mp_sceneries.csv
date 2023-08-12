@@ -1,5 +1,5 @@
-MP, yes, no, yes, no
-R, yes, yes, no, no
+MP,YES,NO,YES,NO
+R,YES,YES,NO,NO
 Head & Neck/Disease, 0.9, 0.1, 0, 1
 Head & Neck/Prosthesis, 0.9, 0.1, 0, 1
 Head & Neck/Interventions, 0.9, 0.1, 0, 1

@@ -166,7 +166,7 @@ class Variable(ABC):
             os.makedirs(cache_path)
 
         # if there's a score_numerator_cache file, load it
-        score_numerator_file_name = f'score_numerator_{self._score_numerator_file_name()}.csv'
+        score_numerator_file_name = self._score_numerator_file_name()
         if os.path.exists(os.path.join(cache_path, score_numerator_file_name)):
             score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])
             return score_numerator
@@ -176,16 +176,21 @@ class Variable(ABC):
 
         for fc_value in fc_values:
             for mp_value in mp_values:
-                res = sum(fc_likelihood.loc[fc_value] * mp_likelihood.loc[mp_value] * prior)
+                res = sum((fc_likelihood.loc[fc_value] * mp_likelihood.loc[mp_value] * prior).dropna())
 
                 score_numerator_dict[(fc_value, mp_value)] = res
 
         score_numerator = pd.Series(score_numerator_dict)
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
         # save the score_numerator for future use
-        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name))
+        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name), index=False)
 
         return score_numerator
+
+    def get_prior(self, context_name: str) -> Series:
+        prior = self.get_context(context_name)
+        prior = self._reformat_prior(prior)
+        return prior
 
     @classmethod
     def _calculate_evidence(cls, prior: Series, likelihood: Series) -> Series:

@@ -10,14 +10,17 @@ class Body(CategoricalVariable):
         mp_sceneries_path = "nonGenCom/scenery_and_context_inputs/body_mp_sceneries.csv"
 
         self.characteristic = characteristic
-        yes_no_dict = {'yes': 'yes', 'no': 'no'}
+        yes_no_categories = {'YES', 'NO'}
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
-                         mp_scenery_name, yes_no_dict, yes_no_dict, yes_no_dict)
+                         mp_scenery_name, yes_no_categories, yes_no_categories, yes_no_categories)
 
     def _score_numerator_file_name(self) -> str:
         # TODO change name with hash or create a folder or cache "manager"
-        return f"body_score_numerator_{self.context_name}__fc_{self.fc_scenery_name}__mp_{self.mp_scenery_name}__{self.characteristic}.csv"
+        filename = f"body_score_numerator_{self.context_name}__fc_{self.fc_scenery_name}" \
+                   f"__mp_{self.mp_scenery_name}__{self.characteristic}.csv"\
+            .replace('/', '%2F')
+        return filename
 
     def _reformat_prior(self, prior: Series):
         return prior

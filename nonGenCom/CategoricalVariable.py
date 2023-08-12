@@ -10,7 +10,7 @@ from nonGenCom.Variable import Variable
 class CategoricalVariable(Variable, ABC):
     def __init__(self, contexts_path: str | None, fc_sceneries_path: str | None, mp_sceneries_path: str | None,
                  context_name: str | None, fc_scenery_name: str | None, mp_scenery_name: str | None,
-                 r_categories: dict, fc_categories: dict, mp_categories: dict):
+                 r_categories: set, fc_categories: set, mp_categories: set):
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name)
         self.r_categories = r_categories
@@ -24,8 +24,8 @@ class CategoricalVariable(Variable, ABC):
         self.score_numerator = self._get_score_numerator(self.fc_likelihood,
                                                          self.mp_likelihood,
                                                          self.prior,
-                                                         self.fc_categories.keys(),
-                                                         self.mp_categories.keys())
+                                                         self.fc_categories,
+                                                         self.mp_categories)
 
     def get_fc_likelihood(self, scenery_name: str = None) -> Series:
         # TODO see if we move part of this up
@@ -34,11 +34,11 @@ class CategoricalVariable(Variable, ABC):
             return scenery
 
         likelihood_list = []
-        for fc_category in self.fc_categories.items():
-            for r_category in self.r_categories.items():
-                value = self._get_fc_likelihood_for_combination(r_category, fc_category)
-                likelihood_list.append({FC_INDEX_NAME: fc_category[0], R_INDEX_NAME: r_category[0],
-                                        'likelihood': value})
+        for fc_category in self.fc_categories:
+            for r_category in self.r_categories:
+                likelihood_value = self._get_fc_likelihood_for_combination(r_category, fc_category)
+                likelihood_list.append({FC_INDEX_NAME: fc_category, R_INDEX_NAME: r_category,
+                                        'likelihood': likelihood_value})
 
         likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, R_INDEX_NAME])['likelihood']
         return likelihood
@@ -54,28 +54,23 @@ class CategoricalVariable(Variable, ABC):
             return scenery
 
         likelihood_list = []
-        for mp_category in self.mp_categories.items():
-            for r_category in self.r_categories.items():
-                value = self._get_mp_likelihood_for_combination(r_category, mp_category)
-                likelihood_list.append({FC_INDEX_NAME: mp_category[0], R_INDEX_NAME: r_category[0],
-                                        'likelihood': value})
+        for mp_category in self.mp_categories:
+            for r_category in self.r_categories:
+                likelihood_value = self._get_mp_likelihood_for_combination(r_category, mp_category)
+                likelihood_list.append({MP_INDEX_NAME: mp_category, R_INDEX_NAME: r_category,
+                                        'likelihood': likelihood_value})
 
-        likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, R_INDEX_NAME])['likelihood']
+        likelihood = pd.DataFrame(likelihood_list).set_index([MP_INDEX_NAME, R_INDEX_NAME])['likelihood']
         return likelihood
 
     def get_mp_score(self, context_name: str, scenery_name: str) -> Series:
         evidence = self._calculate_evidence(self.prior, self.mp_likelihood)
         return self.score_numerator.divide(evidence, level=MP_INDEX_NAME)
 
-    def get_prior(self, context_name: str) -> Series:
-        prior = self.get_context(context_name)
-        prior = self._reformat_prior(prior)
-        return prior
-
     @abstractmethod
-    def _get_fc_likelihood_for_combination(self, r_category: tuple, fc_category: tuple):
+    def _get_fc_likelihood_for_combination(self, r_category, fc_category):
         raise NotImplementedError()
 
     @abstractmethod
-    def _get_mp_likelihood_for_combination(self, r_category: tuple, mp_category: tuple):
+    def _get_mp_likelihood_for_combination(self, r_category, mp_category):
         raise NotImplementedError()

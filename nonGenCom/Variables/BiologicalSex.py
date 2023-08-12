@@ -13,9 +13,9 @@ class BiologicalSex(CategoricalVariable):
         fc_sceneries_path = "nonGenCom/scenery_and_context_inputs/biolsex_fc_sceneries.csv"
         mp_sceneries_path = "nonGenCom/scenery_and_context_inputs/biolsex_mp_sceneries.csv"
 
-        r_categories = {'m': 'male', 'f': 'female', 'o': 'other', 'u': 'unknown'}
-        fc_categories = {'f': 'female', 'pf': 'possible female', 'm': 'male', 'pm': 'possible male', 'i': 'indeterminate'}
-        mp_categories = {'m': 'male', 'f': 'female', 'o': 'other', 'u': 'unknown'}
+        r_categories = {'m', 'f', 'o', 'u'}
+        fc_categories = {'f', 'pf', 'm', 'pm', 'i'}
+        mp_categories = {'m', 'f', 'o', 'u'}
         # TODO load from configuration file
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,

@@ -7,9 +7,10 @@ from nonGenCom.Variables.AgeAbstract import AgeAbstract
 class AgeContinuous(AgeAbstract):
     SCORE_COLNAME = 'age_v2_score'
 
-    def __init__(self, context_name='Standard', min_age: int = -1, max_age: int = 100,
-                 contexts_path="nonGenCom/scenery_and_context_inputs/age_contexts.csv",
-                 sigmas_path="nonGenCom/scenery_and_context_inputs/age_sigma.csv"):
+    def __init__(self, context_name: str, fc_scenery_name: str, mp_scenery_name: str,
+                 min_age: int = -1, max_age: int = 100):
+        contexts_path = "nonGenCom/scenery_and_context_inputs/age_contexts.csv"
+        sigmas_path = "nonGenCom/scenery_and_context_inputs/age_sigma.csv"
         super().__init__(contexts_path, sigmas_path)
 
         self.min_age = min_age
