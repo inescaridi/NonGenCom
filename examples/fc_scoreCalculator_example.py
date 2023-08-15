@@ -1,7 +1,6 @@
 import pandas as pd
 
 from nonGenCom.Utils import merge_dbs
-from nonGenCom.Variables.AgeContinuous import AgeContinuous
 from nonGenCom.Variables.BiologicalSex import BiologicalSex
 
 if __name__ == '__main__':
@@ -19,12 +18,8 @@ if __name__ == '__main__':
 
     result = (merged_dbs
               .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_score_fc_by_merge, "FC estimate Biological Sex", "Sex")
-              .pipe(AgeContinuous(context_name="Standard").add_score_fc_by_apply, "FC Age Minimum", "FC Age Maximum", "Age")
-
               )
 
-    result['Final Score T1'] = result[BiologicalSex.SCORE_COLNAME] * result[AgeContinuous.SCORE_COLNAME]
-
-    result.sort_values('Final Score T2', ascending=False, inplace=True)
+    result['Final Score T1'] = result[BiologicalSex.SCORE_COLNAME]
 
     result.to_csv("examples/scoreCalculator_example_fc_select_output.csv", index=False)

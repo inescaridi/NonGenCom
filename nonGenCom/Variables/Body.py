@@ -4,6 +4,8 @@ from nonGenCom.CategoricalVariable import CategoricalVariable
 
 
 class Body(CategoricalVariable):
+    SCORE_COLNAME = 'body_score'
+
     def __init__(self, context_name: str, fc_scenery_name: str, mp_scenery_name: str, characteristic: str):
         contexts_path = "nonGenCom/scenery_and_context_inputs/body_contexts.csv"
         fc_sceneries_path = "nonGenCom/scenery_and_context_inputs/body_fc_sceneries.csv"
@@ -14,13 +16,6 @@ class Body(CategoricalVariable):
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, yes_no_categories, yes_no_categories, yes_no_categories)
-
-    def _score_numerator_file_name(self) -> str:
-        # TODO change name with hash or create a folder or cache "manager"
-        filename = f"body_score_numerator_{self.context_name}__fc_{self.fc_scenery_name}" \
-                   f"__mp_{self.mp_scenery_name}__{self.characteristic}.csv"\
-            .replace('/', '%2F')
-        return filename
 
     def _reformat_prior(self, prior: Series):
         return prior

@@ -1,4 +1,5 @@
 from abc import abstractmethod, ABC
+from functools import lru_cache
 
 import pandas as pd
 from pandas import Series
@@ -26,6 +27,8 @@ class CategoricalVariable(Variable, ABC):
                                                          self.prior,
                                                          self.fc_categories,
                                                          self.mp_categories)
+        self.fc_score = self.get_fc_score()
+        self.mp_score = self.get_mp_score()
 
     def get_fc_likelihood(self, scenery_name: str = None) -> Series:
         # TODO see if we move part of this up
@@ -43,10 +46,6 @@ class CategoricalVariable(Variable, ABC):
         likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, R_INDEX_NAME])['likelihood']
         return likelihood
 
-    def get_fc_score(self) -> Series:
-        evidence = self._calculate_evidence(self.prior, self.fc_likelihood)
-        return self.score_numerator.divide(evidence, level=FC_INDEX_NAME)
-
     def get_mp_likelihood(self, scenery_name: str) -> Series:
         # TODO see if we move part of this up
         scenery = self.get_mp_scenery(scenery_name)
@@ -63,9 +62,19 @@ class CategoricalVariable(Variable, ABC):
         likelihood = pd.DataFrame(likelihood_list).set_index([MP_INDEX_NAME, R_INDEX_NAME])['likelihood']
         return likelihood
 
+    def get_fc_score(self) -> Series:
+        evidence = self._calculate_evidence(self.prior, self.fc_likelihood)
+        return self.score_numerator.divide(evidence, level=FC_INDEX_NAME)
+
     def get_mp_score(self) -> Series:
         evidence = self._calculate_evidence(self.prior, self.mp_likelihood)
         return self.score_numerator.divide(evidence, level=MP_INDEX_NAME)
+
+    def get_fc_score_for_combination(self, fc_category: str, mp_category: str) -> float:
+        return self.fc_score.loc[(fc_category, mp_category)]
+
+    def get_mp_score_for_combination(self, fc_category: str, mp_category: str) -> float:
+        return self.mp_score.loc[(fc_category, mp_category)]
 
     @abstractmethod
     def _get_fc_likelihood_for_combination(self, r_category, fc_category):

@@ -1,5 +1,5 @@
-import os
 from abc import abstractmethod, ABC
+from functools import lru_cache
 
 import pandas as pd
 from pandas import Series, DataFrame
@@ -123,7 +123,7 @@ class Variable(ABC):
     def renames(self) -> dict[str, str]:
         return {}
 
-    def get_context(self, context_name: str) -> Series:
+    def get_context(self, context_name: str) -> Series | None:
         """
         Get context (aka prior)
 
@@ -132,6 +132,9 @@ class Variable(ABC):
         """
         if context_name in self.contexts:
             return self.contexts[context_name]
+        else:
+            # TODO maybe raise Exception?
+            return None
 
     def get_fc_scenery(self, scenery_name: str) -> Series | None:
         """
@@ -140,7 +143,7 @@ class Variable(ABC):
         :param scenery_name: str:
         :return:
         """
-        if scenery_name in self.fc_sceneries:
+        if scenery_name is not None and scenery_name in self.fc_sceneries:
             return self.fc_sceneries[scenery_name]
         else:
             return None
@@ -152,38 +155,24 @@ class Variable(ABC):
         :param scenery_name: str:
         :return:
         """
-        if scenery_name in self.mp_sceneries:
+        if scenery_name is not None and scenery_name in self.mp_sceneries:
             return self.mp_sceneries[scenery_name]
         else:
             return None
 
+    @lru_cache(maxsize=128)
     def _get_score_numerator(self, fc_likelihood: Series, mp_likelihood: Series, prior: Series,
                              fc_values, mp_values) -> Series:
-        # TODO should we ask that fc and mp values be list or "iterable"?
-        # check if the ".cache" folder exists in nonGenCom, otherwise create it
-        cache_path = os.path.join(os.path.dirname(__file__), 'Variables/.cache')
-        if not os.path.exists(cache_path):
-            os.makedirs(cache_path)
-
-        # if there's a score_numerator_cache file, load it
-        score_numerator_file_name = self._score_numerator_file_name()
-        if os.path.exists(os.path.join(cache_path, score_numerator_file_name)):
-            score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])['values']
-            return score_numerator
-
-        # calculate the score_numerator
         score_numerator_dict = {}
 
         for fc_value in fc_values:
             for mp_value in mp_values:
                 res = sum((fc_likelihood.loc[fc_value] * mp_likelihood.loc[mp_value] * prior).dropna())
-
                 score_numerator_dict[(fc_value, mp_value)] = res
 
         score_numerator = pd.Series(score_numerator_dict)
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
         # save the score_numerator for future use
-        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name), header=['values'])
 
         return score_numerator
 
@@ -209,15 +198,7 @@ class Variable(ABC):
         return likelihood_x_prior
 
     @abstractmethod
-    def _score_numerator_file_name(self) -> str:
-        raise NotImplementedError
-
-    @abstractmethod
     def get_fc_likelihood(self, scenery_name: str) -> Series:
-        raise NotImplementedError
-
-    @abstractmethod
-    def get_fc_score(self) -> Series:
         raise NotImplementedError
 
     @abstractmethod
@@ -225,9 +206,10 @@ class Variable(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_mp_score(self) -> Series:
-        raise NotImplementedError
-
-    @abstractmethod
     def _reformat_prior(self, prior: Series):
+        """
+        Returns the prior Series in the format expected by the subclass (but always a Series)
+        :param prior: Series
+        :return:
+        """
         raise NotImplementedError()

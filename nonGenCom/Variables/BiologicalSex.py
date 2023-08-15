@@ -27,9 +27,6 @@ class BiologicalSex(CategoricalVariable):
     def _get_mp_likelihood_for_combination(self, r_category: tuple, mp_category: tuple):
         return 0  # TODO mp likelihood calculation, right now we are only using pre-defined sceneries
 
-    def _score_numerator_file_name(self) -> str:
-        return f"biolsex_score_numerator_{self.context_name}__fc_{self.fc_scenery_name}__mp_{self.mp_scenery_name}.csv"
-
     def _reformat_prior(self, prior: Series):
         return prior
 
