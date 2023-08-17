@@ -1,25 +1,39 @@
 from typing import List
 
+import pandas as pd
 from pandas import Series
 
 from nonGenCom.CategoricalVariable import CategoricalVariable
 
 
 class BiologicalSex(CategoricalVariable):
-    SCORE_COLNAME = 'biolsex_score'
-
     def __init__(self, context_name: str, fc_scenery_name: str, mp_scenery_name: str):
+        """
+
+        :param context_name:
+        :param fc_scenery_name:
+        :param mp_scenery_name:
+        """
         contexts_path = "nonGenCom/scenery_and_context_inputs/biolsex_contexts.csv"
         fc_sceneries_path = "nonGenCom/scenery_and_context_inputs/biolsex_fc_sceneries.csv"
         mp_sceneries_path = "nonGenCom/scenery_and_context_inputs/biolsex_mp_sceneries.csv"
 
-        r_categories = {'m', 'f', 'o', 'u'}
-        fc_categories = {'f', 'pf', 'm', 'pm', 'i'}
-        mp_categories = {'m', 'f', 'o', 'u'}
+        r_categories = self._get_categories_from_file(contexts_path)
+        fc_categories = self._get_categories_from_file(fc_sceneries_path)
+        mp_categories = self._get_categories_from_file(mp_sceneries_path)
         # TODO load from configuration file
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, r_categories, fc_categories, mp_categories)
+
+    @staticmethod
+    def _get_categories_from_file(filename) -> set:
+        values = pd.read_csv(filename, header=None, index_col=0).iloc[0].values
+        # TODO improve this or get information from configuration file
+        return set(values)
+
+    def score_colname(self) -> str:
+        return 'biolsex_score'
 
     def _get_fc_likelihood_for_combination(self, r_category: tuple, fc_category: tuple):
         return 0  # TODO fc likelihood calculation, right now we are only using pre-defined sceneries
@@ -34,8 +48,6 @@ class BiologicalSex(CategoricalVariable):
     def profiling(prior: Series, likelihood: Series, cos_pairs: List[str] = None, cow_pairs: List[str] = None,
                   ins_pairs: List[str] = None, inw_pairs: List[str] = None):
         """
-        # TODO complete
-        # TODO in general: add types to docstring
         Computes the performance metrics Strong Consistency (CoS), Weak consistency (CoW), Strong Inconsistency (InS),
         and Weak Inconsistency (InW) for a given scenery and context based on the biological sex variable.
 
@@ -48,7 +60,7 @@ class BiologicalSex(CategoricalVariable):
         :return: metrics CoS, CoW, InS, InW
         """
         if cos_pairs is None:
-            cos_pairs = [('F', 'F'), ('M', 'M')]  # TODO move this "defaults" to config file
+            cos_pairs = [('F', 'F'), ('M', 'M')]
 
         if cow_pairs is None:
             cow_pairs = cos_pairs + [('PF', 'F'), ('PM', 'M'),
@@ -89,5 +101,4 @@ class BiologicalSex(CategoricalVariable):
             'Male': 'm',
             'Female': 'f',
         }
-        # TODO move this to a configuration file
         return renames

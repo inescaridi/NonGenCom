@@ -12,7 +12,7 @@ R_INDEX_NAME = 'R_i'
 
 
 def load_double_indexed_indexed_file(path, first_index, first_index_rename, second_index, second_index_rename,
-                                     to_upper=False): # TODO change to load with R index and be able to be used for both FC and MP
+                                     to_upper=False):
     res_aux = pd.read_csv(path, header=None, dtype=str).transpose()
     names_column_values = res_aux.iloc[0]
     assert names_column_values[0] == first_index and names_column_values[1] == second_index, \

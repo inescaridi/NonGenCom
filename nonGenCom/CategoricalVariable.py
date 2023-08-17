@@ -1,10 +1,9 @@
-from abc import abstractmethod, ABC
-from functools import lru_cache
+from abc import ABC
 
-import pandas as pd
-from pandas import Series
+import numpy as np
+from pandas import Series, DataFrame
 
-from nonGenCom.Utils import MP_INDEX_NAME, FC_INDEX_NAME, R_INDEX_NAME
+from nonGenCom.Utils import MP_INDEX_NAME, FC_INDEX_NAME
 from nonGenCom.Variable import Variable
 
 
@@ -12,6 +11,18 @@ class CategoricalVariable(Variable, ABC):
     def __init__(self, contexts_path: str | None, fc_sceneries_path: str | None, mp_sceneries_path: str | None,
                  context_name: str | None, fc_scenery_name: str | None, mp_scenery_name: str | None,
                  r_categories: set, fc_categories: set, mp_categories: set):
+        """
+
+        :param contexts_path:
+        :param fc_sceneries_path:
+        :param mp_sceneries_path:
+        :param context_name:
+        :param fc_scenery_name:
+        :param mp_scenery_name:
+        :param r_categories:
+        :param fc_categories:
+        :param mp_categories:
+        """
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name)
         self.r_categories = r_categories
@@ -31,55 +42,105 @@ class CategoricalVariable(Variable, ABC):
         self.mp_score = self.get_mp_score()
 
     def get_fc_likelihood(self, scenery_name: str = None) -> Series:
-        # TODO see if we move part of this up
-        scenery = self.get_fc_scenery(scenery_name)
-        if scenery is not None:
-            return scenery
+        return self._calculate_fc_likelihood(scenery_name, self.fc_categories, self.r_categories)
 
-        likelihood_list = []
-        for fc_category in self.fc_categories:
-            for r_category in self.r_categories:
-                likelihood_value = self._get_fc_likelihood_for_combination(r_category, fc_category)
-                likelihood_list.append({FC_INDEX_NAME: fc_category, R_INDEX_NAME: r_category,
-                                        'likelihood': likelihood_value})
-
-        likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, R_INDEX_NAME])['likelihood']
-        return likelihood
-
-    def get_mp_likelihood(self, scenery_name: str) -> Series:
-        # TODO see if we move part of this up
-        scenery = self.get_mp_scenery(scenery_name)
-        if scenery is not None:
-            return scenery
-
-        likelihood_list = []
-        for mp_category in self.mp_categories:
-            for r_category in self.r_categories:
-                likelihood_value = self._get_mp_likelihood_for_combination(r_category, mp_category)
-                likelihood_list.append({MP_INDEX_NAME: mp_category, R_INDEX_NAME: r_category,
-                                        'likelihood': likelihood_value})
-
-        likelihood = pd.DataFrame(likelihood_list).set_index([MP_INDEX_NAME, R_INDEX_NAME])['likelihood']
-        return likelihood
+    def get_mp_likelihood(self, scenery_name: str = None) -> Series:
+        return self._calculate_mp_likelihood(scenery_name, self.mp_categories, self.r_categories)
 
     def get_fc_score(self) -> Series:
+        """
+
+        :return:
+        """
         evidence = self._calculate_evidence(self.prior, self.fc_likelihood)
+        evidence.replace(0, np.NAN, inplace=True)  # avoid division by zero
         return self.score_numerator.divide(evidence, level=FC_INDEX_NAME)
 
     def get_mp_score(self) -> Series:
+        """
+
+        :return:
+        """
         evidence = self._calculate_evidence(self.prior, self.mp_likelihood)
+        evidence.replace(0, np.NAN, inplace=True)  # avoid division by zero
         return self.score_numerator.divide(evidence, level=MP_INDEX_NAME)
 
     def get_fc_score_for_combination(self, fc_category: str, mp_category: str) -> float:
+        """
+
+        :param fc_category:
+        :param mp_category:
+        :return:
+        """
         return self.fc_score.loc[(fc_category, mp_category)]
 
     def get_mp_score_for_combination(self, fc_category: str, mp_category: str) -> float:
+        """
+
+        :param fc_category:
+        :param mp_category:
+        :return:
+        """
         return self.mp_score.loc[(fc_category, mp_category)]
 
-    @abstractmethod
-    def _get_fc_likelihood_for_combination(self, r_category, fc_category):
-        raise NotImplementedError()
+    def add_score_fc_by_merge(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+        """
 
-    @abstractmethod
-    def _get_mp_likelihood_for_combination(self, r_category, mp_category):
-        raise NotImplementedError()
+        :param merged_dbs: databases already merged
+        :param fc_value_colname: colname of value for variable in Fosensic Case Database
+        :param mp_value_colname: colname of value for variable in Missing Person Database
+
+        :return:
+        """
+        posterior = self.get_fc_score()
+        print(f"Context: {self.context_name}")
+        print(f"Scenery: {self.fc_scenery_name}")
+        print("Posterior\n", posterior, "\n")
+
+        merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
+
+        # merge with posterior
+        merged_dbs = merged_dbs.join(posterior.rename(self.score_colname)) \
+            .reset_index(drop=True) \
+            .sort_values(self.score_colname, ascending=False)
+
+        return merged_dbs
+
+    def add_score_mp_by_merge(self, merged_dbs: DataFrame, scenery_name: str,
+                              fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+        """
+
+        :param merged_dbs: databases already merged
+        :param scenery_name:
+
+        :param fc_value_colname: colname of value for variable in Fosensic Case Database
+        :param mp_value_colname: colname of value for variable in Missing Person Database
+
+        :return:
+        """
+        likelihood = self.get_fc_likelihood(scenery_name)
+        print(f"Scenery: {scenery_name}")
+
+        merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
+
+        # merge with posterior
+        merged_dbs = merged_dbs.join(likelihood.rename(self.score_colname)) \
+            .reset_index(drop=True) \
+            .sort_values(self.score_colname, ascending=False)
+
+        return merged_dbs
+
+    def _reindex(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str):
+        # create new FC and MP columns, renaming if necessary
+        if len(self.renames) > 0:
+            merged_dbs['fc_index_aux'] = merged_dbs[fc_value_colname].astype(str).map(self.renames)
+            merged_dbs['mp_index_aux'] = merged_dbs[mp_value_colname].astype(str).map(self.renames)
+        else:
+            merged_dbs['fc_index_aux'] = merged_dbs[fc_value_colname].astype(str)
+            merged_dbs['mp_index_aux'] = merged_dbs[mp_value_colname].astype(str)
+
+        # set the same index as posterior
+        merged_dbs = merged_dbs.set_index(['fc_index_aux', 'mp_index_aux'])
+        merged_dbs.index = merged_dbs.index.rename([FC_INDEX_NAME, MP_INDEX_NAME])
+        return merged_dbs
+

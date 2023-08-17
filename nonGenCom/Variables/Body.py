@@ -4,9 +4,14 @@ from nonGenCom.CategoricalVariable import CategoricalVariable
 
 
 class Body(CategoricalVariable):
-    SCORE_COLNAME = 'body_score'
-
     def __init__(self, context_name: str, fc_scenery_name: str, mp_scenery_name: str, characteristic: str):
+        """
+
+        :param context_name:
+        :param fc_scenery_name:
+        :param mp_scenery_name:
+        :param characteristic:
+        """
         contexts_path = "nonGenCom/scenery_and_context_inputs/body_contexts.csv"
         fc_sceneries_path = "nonGenCom/scenery_and_context_inputs/body_fc_sceneries.csv"
         mp_sceneries_path = "nonGenCom/scenery_and_context_inputs/body_mp_sceneries.csv"
@@ -16,6 +21,9 @@ class Body(CategoricalVariable):
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, yes_no_categories, yes_no_categories, yes_no_categories)
+
+    def score_colname(self) -> str:
+        return "body_score"
 
     def _reformat_prior(self, prior: Series):
         return prior

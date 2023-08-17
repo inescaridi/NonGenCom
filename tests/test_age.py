@@ -14,7 +14,7 @@ class TestAge(TestCase):
             expected = pd.read_csv(f"tests/resources/age/Age_MP_likelihood_epsilon{epsilon}.csv", index_col=0)
             min_age = int(expected.index.min())
             max_age = int(expected.index.max())
-            obtained = age.get_mp_likelihood(epsilon=epsilon, min_age=min_age, max_age=max_age)
+            obtained = age.get_mp_likelihood()
 
             obtained = obtained.unstack()
 
