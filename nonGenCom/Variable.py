@@ -16,12 +16,12 @@ class Variable(ABC):
                  context_name: str | None, fc_scenery_name: str | None, mp_scenery_name: str | None):
         """
 
-        :param contexts_path:
-        :param fc_sceneries_path:
-        :param mp_sceneries_path:
-        :param context_name:
-        :param fc_scenery_name:
-        :param mp_scenery_name:
+        :param contexts_path: path of the context input file 
+        :param fc_sceneries_path: path of the FC scenerie input file
+        :param mp_sceneries_path: path of the MP scenerie input file
+        :param context_name:  name of the context input file 
+        :param fc_scenery_name: name of the FC scenerie input file
+        :param mp_scenery_name: name of the MP scenerie input file
         """
         self.context_name = context_name
         self.fc_scenery_name = fc_scenery_name
@@ -61,9 +61,9 @@ class Variable(ABC):
 
     def get_context(self, context_name: str) -> Series | None:
         """
-        Get context (aka prior)
+        Get context (aka prior of R variable)
 
-        :param context_name: str:
+        :param context_name: str: name of the context input file 
         :return:
         """
         if context_name in self.contexts:
@@ -73,9 +73,8 @@ class Variable(ABC):
 
     def get_fc_scenery(self, scenery_name: str) -> Series | None:
         """
-        Get scenery (aka likelihood)
-
-        :param scenery_name: str:
+        Get scenery (aka FC-likelihood)
+        :param scenery_name: str: name of the FC scenerie input file
         :return:
         """
         if scenery_name is not None and scenery_name in self.fc_sceneries:
@@ -85,9 +84,8 @@ class Variable(ABC):
 
     def get_mp_scenery(self, scenery_name: str) -> Series | None:
         """
-        Get scenery (aka likelihood)
-
-        :param scenery_name: str:
+        Get scenery (aka MP-likelihood)
+        :param scenery_name: str: name of the MP scenerie input file
         :return:
         """
         if scenery_name is not None and scenery_name in self.mp_sceneries:
@@ -98,12 +96,13 @@ class Variable(ABC):
     def _get_score_numerator(self, fc_likelihood: Series, mp_likelihood: Series, prior: Series,
                              fc_values, mp_values) -> Series:
         """
-
-        :param fc_likelihood:
-        :param mp_likelihood:
-        :param prior:
-        :param fc_values:
-        :param mp_values:
+        Calculate score_numerator
+        
+        :param fc_likelihood: FC-Likelihood P(FC=i | R=k)
+        :param mp_likelihood: MP-Likelihood P(MP=j | R=k)
+        :param prior: Prioris P(R=k)
+        :param fc_values: possible values of FC
+        :param mp_values: possible values of MP
         :return:
         """
         score_numerator_dict = {}
@@ -121,8 +120,9 @@ class Variable(ABC):
 
     def get_prior(self, context_name: str = None) -> Series:
         """
+        Get Prior (aka prior of R variable)
 
-        :param context_name:
+        :param context_name: name of the context input file 
         :return:
         """
         prior = self.get_context(context_name)
@@ -133,10 +133,10 @@ class Variable(ABC):
 
     def _calculate_fc_likelihood(self, scenery_name, fc_values, r_values) -> Series:
         """
-
-        :param scenery_name:
-        :param fc_values:
-        :param r_values:
+        Calculate FC-Likelihood  P(FC=i | R=k)
+        :param scenery_name: name of the FC scenerie input file
+        :param fc_values: possible values of FC
+        :param r_values: possible values of R
         :return:
         """
         scenery = self.get_fc_scenery(scenery_name)
@@ -155,8 +155,8 @@ class Variable(ABC):
 
     def _calculate_mp_likelihood(self, scenery_name, mp_values, r_values):
         """
-
-        :param scenery_name:
+        Calculate MP-Likelihood  P(MP=j | R=k)
+        :param scenery_name: 
         :param mp_values:
         :param r_values:
         :return:
@@ -215,8 +215,8 @@ class Variable(ABC):
     @abstractmethod
     def get_fc_likelihood(self, scenery_name: str = None) -> Series:
         """
-
-        :param scenery_name:
+        Get FC-Likelihood  P(FC=i | R=k)
+        :param scenery_name: name of the FC scenerie input file
         :return:
         """
         raise NotImplementedError
@@ -224,8 +224,8 @@ class Variable(ABC):
     @abstractmethod
     def get_mp_likelihood(self, scenery_name: str = None) -> Series:
         """
-
-        :param scenery_name:
+        Get MP-Likelihood  P(MP=j | R=k)
+        :param scenery_name: name of the MP scenerie input file
         :return:
         """
         raise NotImplementedError
