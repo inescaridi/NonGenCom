@@ -31,7 +31,7 @@ class Age(ContinuousVariable):
     def score_colname(self) -> str:
         return 'age_score'
 
-    def _get_fc_likelihood_for_combination(self, r_value: int | float, fc_value: int | float):
+    def _get_fc_likelihood_for_combination(self, r_value: int, fc_value: int):
         sigma = float(self.sigmas.loc[r_value].iloc[0])
         normal_distribution = st.NormalDist(r_value, sigma)
 
@@ -39,7 +39,7 @@ class Age(ContinuousVariable):
         lower = normal_distribution.cdf(self.max_value) - normal_distribution.cdf(self.min_value)
         return upper / lower
 
-    def _get_mp_likelihood_for_combination(self, r_value: int | float, mp_value: int | float):
+    def _get_mp_likelihood_for_combination(self, r_value: int, mp_value: int):
         lower_bound = max(self.min_value, r_value - self.epsilon)
         upper_bound = min(self.max_value, r_value + self.epsilon)
 

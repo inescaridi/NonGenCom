@@ -10,7 +10,7 @@ from nonGenCom.Utils import load_r_indexed_file, R_INDEX_NAME
 
 class Date(ContinuousVariable):
     def __init__(self, initial_date: datetime.date, final_date: datetime.date, delta_in_days: int,
-                 geometrical_q: float = 0.5, context_name='Standard'):
+                 geometrical_q: float = 0.5, context_name='Standard', context_config: list = None):
         """
 
         :param initial_date:
@@ -18,6 +18,8 @@ class Date(ContinuousVariable):
         :param delta_in_days:
         :param geometrical_q:
         :param context_name:
+        :param context_config: optional parameter to define the context configuration, it must be a list of tuples
+        (date, probability) with the date as string in format YYYY-MM-DD. If this is provided the context_name is ignored
         """
         contexts_path = None
         fc_sceneries_path = fc_scenery_name = None
@@ -29,7 +31,11 @@ class Date(ContinuousVariable):
 
         self.periods_date = pd.date_range(start=self.initial_time, end=self.final_time, freq=f"{self.delta_in_days}D")
         self.geometrical_q = geometrical_q
-        self.prior_definition = load_r_indexed_file("nonGenCom/scenery_and_context_inputs/date_context_config.csv")[context_name]
+
+        if context_config is not None:
+            self.prior_definition = pd.DataFrame(context_config, columns=[R_INDEX_NAME, 'probability'])
+        else:
+            self.prior_definition = load_r_indexed_file("nonGenCom/scenery_and_context_inputs/date_context_config.csv")[context_name].reset_index()
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, 0, len(self.periods_date)-1, 1)
@@ -46,18 +52,17 @@ class Date(ContinuousVariable):
         return floor((d - self.initial_time).days / self.delta_in_days)
 
     def _reformat_prior(self, prior: Series):
-        config = self.prior_definition.reset_index()
-        config['date'] = pd.to_datetime(config['R_i'], format="%Y-%m-%d").dt.date
-        config[R_INDEX_NAME] = config['date'].apply(self._get_period_for_date)
-        config.drop(columns=['date'], inplace=True)
+        config = self.prior_definition.copy()
+        config[R_INDEX_NAME] = pd.to_datetime(config[R_INDEX_NAME], format="%Y-%m-%d").dt.date.apply(self._get_period_for_date)
+        config.drop_duplicates(subset=[R_INDEX_NAME], inplace=True, keep='last')
 
-        return config.set_index('R_i')[self.context_name]
+        return config.set_index(R_INDEX_NAME).iloc[:, 0]
 
-    def _get_fc_likelihood_for_combination(self, r_category, fc_category):
-        return self.geometrical_q * ((1 - self.geometrical_q) ** abs(fc_category - r_category))
+    def _get_fc_likelihood_for_combination(self, r_value, fc_value):
+        return self.geometrical_q * ((1 - self.geometrical_q) ** (fc_value - r_value)) if fc_value >= r_value else 0
 
-    def _get_mp_likelihood_for_combination(self, r_category, mp_category):
-        return int(r_category == mp_category)  # we assume perfect representation for MP
+    def _get_mp_likelihood_for_combination(self, r_value, mp_value):
+        return int(r_value == mp_value)  # we assume perfect representation for MP
 
     def get_fc_score_for_range(self, fc_min_value: datetime.date, fc_max_value: datetime.date,
                                mp_min_value: datetime.date, mp_max_value: datetime.date) -> Series:

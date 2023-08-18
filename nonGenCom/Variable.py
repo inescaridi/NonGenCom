@@ -151,6 +151,8 @@ class Variable(ABC):
                                         'likelihood': likelihood_value})
 
         likelihood = pd.DataFrame(likelihood_list).set_index([FC_INDEX_NAME, R_INDEX_NAME])['likelihood']
+        # normalize by R_INDEX_NAME sum
+        likelihood = likelihood.groupby(R_INDEX_NAME).transform(lambda x: x / x.sum())
         return likelihood
 
     def _calculate_mp_likelihood(self, scenery_name, mp_values, r_values):
@@ -173,6 +175,8 @@ class Variable(ABC):
                                         'likelihood': likelihood_value})
 
         likelihood = pd.DataFrame(likelihood_list).set_index([MP_INDEX_NAME, R_INDEX_NAME])['likelihood']
+        # normalize by R_INDEX_NAME sum
+        likelihood = likelihood.groupby(R_INDEX_NAME).transform(lambda x: x / x.sum())
         return likelihood
 
     @classmethod
@@ -240,21 +244,21 @@ class Variable(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def _get_fc_likelihood_for_combination(self, r_category, fc_category):
+    def _get_fc_likelihood_for_combination(self, r_value, fc_value):
         """
 
-        :param r_category:
-        :param fc_category:
+        :param r_value:
+        :param fc_value:
         :return:
         """
         raise NotImplementedError()
 
     @abstractmethod
-    def _get_mp_likelihood_for_combination(self, r_category, mp_category):
+    def _get_mp_likelihood_for_combination(self, r_value, mp_value):
         """
 
-        :param r_category:
-        :param mp_category:
+        :param r_value:
+        :param mp_value:
         :return:
         """
         raise NotImplementedError()

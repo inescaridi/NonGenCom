@@ -35,10 +35,10 @@ class BiologicalSex(CategoricalVariable):
     def score_colname(self) -> str:
         return 'biolsex_score'
 
-    def _get_fc_likelihood_for_combination(self, r_category: tuple, fc_category: tuple):
+    def _get_fc_likelihood_for_combination(self, r_value: tuple, fc_value: tuple):
         return 0  # TODO fc likelihood calculation, right now we are only using pre-defined sceneries
 
-    def _get_mp_likelihood_for_combination(self, r_category: tuple, mp_category: tuple):
+    def _get_mp_likelihood_for_combination(self, r_value: tuple, mp_value: tuple):
         return 0  # TODO mp likelihood calculation, right now we are only using pre-defined sceneries
 
     def _reformat_prior(self, prior: Series):
