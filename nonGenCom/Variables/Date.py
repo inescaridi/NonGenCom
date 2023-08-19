@@ -9,11 +9,11 @@ from nonGenCom.Utils import load_r_indexed_file, R_INDEX_NAME
 
 
 class Date(ContinuousVariable):
-    def __init__(self, initial_date: datetime.date, final_date: datetime.date, delta_in_days: int,
+    def __init__(self, initial_date: datetime.date | str, final_date: datetime.date | str, delta_in_days: int,
                  geometrical_q: float = 0.5, context_name='Standard', context_config: list = None):
         """
 
-        :param initial_date:
+        :param initial_date: If a str is provided it should have the format %Y-%m-%d
         :param final_date:
         :param delta_in_days:
         :param geometrical_q:
@@ -25,8 +25,8 @@ class Date(ContinuousVariable):
         fc_sceneries_path = fc_scenery_name = None
         mp_sceneries_path = mp_scenery_name = None
 
-        self.initial_time = initial_date
-        self.final_time = final_date
+        self.initial_time = self._convert_to_date(initial_date)
+        self.final_time = self._convert_to_date(final_date)
         self.delta_in_days = delta_in_days
 
         self.periods_date = pd.date_range(start=self.initial_time, end=self.final_time, freq=f"{self.delta_in_days}D")
@@ -40,15 +40,27 @@ class Date(ContinuousVariable):
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, 0, len(self.periods_date)-1, 1)
 
+    @staticmethod
+    def _convert_to_date(date_to_convert):
+        if isinstance(date_to_convert, str):
+            return datetime.datetime.strptime(date_to_convert, "%Y-%m-%d")
+        if isinstance(date_to_convert, datetime.datetime):
+            return date_to_convert.date()
+        if isinstance(date_to_convert, datetime.date):
+            return date_to_convert
+        else:
+            raise ValueError()  # TODO add info to the exception
+
     def score_colname(self) -> str:
         return "date_score"
 
-    def _get_period_for_date(self, d: datetime.date):
+    def _get_period_for_date(self, d: datetime.date | str):
         """
 
         :param d:
         :return:
         """
+        d = self._convert_to_date(d)
         return floor((d - self.initial_time).days / self.delta_in_days)
 
     def _reformat_prior(self, prior: Series):
@@ -64,8 +76,8 @@ class Date(ContinuousVariable):
     def _get_mp_likelihood_for_combination(self, r_value, mp_value):
         return int(r_value == mp_value)  # we assume perfect representation for MP
 
-    def get_fc_score_for_range(self, fc_min_value: datetime.date, fc_max_value: datetime.date,
-                               mp_min_value: datetime.date, mp_max_value: datetime.date) -> Series:
+    def get_fc_score_for_range(self, fc_min_value: datetime.date | str, fc_max_value: datetime.date | str,
+                               mp_min_value: datetime.date | str, mp_max_value: datetime.date | str) -> Series:
         """
         Returns the fc score for a given range of values
         :param fc_min_value: datetime.date:
@@ -80,8 +92,8 @@ class Date(ContinuousVariable):
         mp_max_period = self._get_period_for_date(mp_max_value)
         return self._calculate_fc_score_for_range(fc_min_period, fc_max_period, mp_min_period, mp_max_period)
 
-    def get_mp_score_for_range(self, fc_min_value: datetime.date, fc_max_value: datetime.date,
-                               mp_min_value: datetime.date, mp_max_value: datetime.date) -> Series:
+    def get_mp_score_for_range(self, fc_min_value: datetime.date | str, fc_max_value: datetime.date | str,
+                               mp_min_value: datetime.date | str, mp_max_value: datetime.date | str) -> Series:
         """
         Returns the mp score for a given range of values
         :param fc_min_value: datetime.date:

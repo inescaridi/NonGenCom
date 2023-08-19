@@ -19,14 +19,15 @@ class Age(ContinuousVariable):
         contexts_path = "nonGenCom/scenery_and_context_inputs/age_contexts.csv"
         fc_sceneries_path = fc_scenery_name = None
         mp_sceneries_path = mp_scenery_name = None
-        super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
-                         mp_scenery_name, min_age, max_age, step)
 
         sigmas_path = "nonGenCom/scenery_and_context_inputs/age_sigma.csv"
         self.sigmas = load_r_indexed_file(sigmas_path)
         self.sigmas.index = self.sigmas.index.astype(int)
 
         self.epsilon = epsilon
+
+        super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
+                         mp_scenery_name, min_age, max_age, step)
 
     def score_colname(self) -> str:
         return 'age_score'
