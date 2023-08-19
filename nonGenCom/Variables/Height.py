@@ -1,8 +1,9 @@
 import statistics as st
+
 from pandas import Series
 
 from nonGenCom.ContinuousVariable import ContinuousVariable
-from nonGenCom.Utils import load_mp_indexed_file
+from nonGenCom.Utils import load_fc_indexed_file, load_r_indexed_file
 
 
 class Height(ContinuousVariable):
@@ -22,7 +23,7 @@ class Height(ContinuousVariable):
                          mp_scenery_name, min_height, max_height, step)
 
         sigmas_path = "nonGenCom/scenery_and_context_inputs/height_sigma.csv"
-        self.sigmas = load_mp_indexed_file(sigmas_path)
+        self.sigmas = load_r_indexed_file(sigmas_path)
         self.sigmas.index = self.sigmas.index.astype(int)
 
         self.epsilon = epsilon
@@ -38,15 +39,35 @@ class Height(ContinuousVariable):
         sigma = float(self.sigmas.loc[r_value].iloc[0])
         normal_distribution = st.NormalDist(r_value, sigma)
 
-        upper = normal_distribution.cdf(min(fc_value + 0.5, self.max_value)) - normal_distribution.cdf(max(fc_value - 0.5, self.min_value))
-        lower = normal_distribution.cdf(self.max_value) - normal_distribution.cdf(self.min_value)
-        return upper / lower
+        return normal_distribution.cdf(min(fc_value + 0.5, self.max_value)) - normal_distribution.cdf(max(fc_value - 0.5, self.min_value))
 
     def _get_mp_likelihood_for_combination(self, r_value, mp_value):
-        pass
+        lower_bound = max(self.min_value, r_value - self.epsilon)
+        upper_bound = min(self.max_value, r_value + self.epsilon)
 
-    def get_fc_score_for_range(self, fc_min_value, fc_max_value, mp_min_value, mp_max_value) -> Series:
-        pass
+        return 1 if lower_bound <= mp_value <= upper_bound else 0
 
-    def get_mp_score_for_range(self, fc_min_value, fc_max_value, mp_min_value, mp_max_value) -> Series:
-        pass
+    def get_fc_score_for_range(self, fc_min_height: int, fc_max_height: int,
+                               mp_min_height: int, mp_max_height: int) -> Series:
+        """
+
+        :param fc_min_height:
+        :param fc_max_height:
+        :param mp_min_height:
+        :param mp_max_height:
+        :return:
+        """
+        return self._calculate_fc_score_for_range(fc_min_height, fc_max_height, mp_min_height, mp_max_height)
+
+    def get_mp_score_for_range(self, fc_min_height: int, fc_max_height: int,
+                               mp_min_height: int, mp_max_height: int) -> Series:
+        """
+
+        :param fc_min_height:
+        :param fc_max_height:
+        :param mp_min_height:
+        :param mp_max_height:
+        :return:
+        """
+        return self._calculate_mp_score_for_range(fc_min_height, fc_max_height, mp_min_height, mp_max_height)
+
