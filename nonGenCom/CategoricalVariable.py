@@ -83,7 +83,7 @@ class CategoricalVariable(Variable, ABC):
         """
         return self.mp_score.loc[(fc_category, mp_category)]
 
-    def add_score_fc_by_merge(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+    def add_fc_score(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str) -> DataFrame:
         """
 
         :param merged_dbs: databases already merged
@@ -92,41 +92,30 @@ class CategoricalVariable(Variable, ABC):
 
         :return:
         """
-        posterior = self.get_fc_score()
-        print(f"Context: {self.context_name}")
-        print(f"Scenery: {self.fc_scenery_name}")
-        print("Posterior\n", posterior, "\n")
-
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
         score_colname = self.score_colname_template.format('fc')
 
         # merge with posterior
-        merged_dbs = merged_dbs.join(posterior.rename(score_colname)) \
+        merged_dbs = merged_dbs.join(self.fc_score.rename(score_colname)) \
             .reset_index(drop=True) \
             .sort_values(score_colname, ascending=False)
 
         return merged_dbs
 
-    def add_score_mp_by_merge(self, merged_dbs: DataFrame, scenery_name: str,
-                              fc_value_colname: str, mp_value_colname: str) -> DataFrame:
+    def add_mp_score(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str) -> DataFrame:
         """
 
         :param merged_dbs: databases already merged
-        :param scenery_name:
-
         :param fc_value_colname: colname of value for variable in Fosensic Case Database
         :param mp_value_colname: colname of value for variable in Missing Person Database
 
         :return:
         """
-        likelihood = self.get_fc_likelihood(scenery_name)
-        print(f"Scenery: {scenery_name}")
-
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
         score_colname = self.score_colname_template.format('mp')
 
         # merge with posterior
-        merged_dbs = merged_dbs.join(likelihood.rename(score_colname)) \
+        merged_dbs = merged_dbs.join(self.mp_score.rename(score_colname)) \
             .reset_index(drop=True) \
             .sort_values(score_colname, ascending=False)
 

@@ -1,5 +1,6 @@
 import statistics as st
 
+from numpy import int64
 from pandas import Series
 
 from nonGenCom.ContinuousVariable import ContinuousVariable
@@ -69,4 +70,5 @@ class Age(ContinuousVariable):
         return self._calculate_mp_score_for_range(fc_min_age, fc_max_age, mp_min_age, mp_max_age)
 
     def _reformat_prior(self, prior: Series):
+        prior.index = prior.index.astype(int64)
         return prior

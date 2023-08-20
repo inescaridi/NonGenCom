@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from functools import lru_cache
 
-from pandas import Series
+from pandas import Series, DataFrame
 
 from nonGenCom.Variable import Variable
 
@@ -90,6 +90,30 @@ class ContinuousVariable(Variable, ABC):
         mp_posterior_denominator = self.mp_evidence.loc[mp_range].sum() * len(fc_range)
 
         return posterior_numerator / mp_posterior_denominator
+
+    def add_fc_score(self, merged_dbs: DataFrame, fc_min_value_colname: str, fc_max_value_colname: str,
+                     mp_min_value_colname: str, mp_max_value_colname: str) -> DataFrame:
+        score_colname = self.score_colname_template.format('fc')
+        merged_dbs[score_colname] = merged_dbs.apply(
+            lambda row: self.get_fc_score_for_range(row[fc_min_value_colname], row[fc_max_value_colname],
+                                                    row[mp_min_value_colname], row[mp_max_value_colname]), axis=1)
+
+        merged_dbs = merged_dbs.reset_index(drop=True)\
+            .sort_values(score_colname, ascending=False)
+
+        return merged_dbs
+
+    def add_mp_score(self, merged_dbs: DataFrame, fc_min_value_colname: str, fc_max_value_colname: str,
+                     mp_min_value_colname: str, mp_max_value_colname: str) -> DataFrame:
+        score_colname = self.score_colname_template.format('mp')
+        merged_dbs[score_colname] = merged_dbs.apply(
+            lambda row: self.get_mp_score_for_range(row[fc_min_value_colname], row[fc_max_value_colname],
+                                                    row[mp_min_value_colname], row[mp_max_value_colname]), axis=1)
+
+        merged_dbs = merged_dbs.reset_index(drop=True)\
+            .sort_values(score_colname, ascending=False)
+
+        return merged_dbs
 
     @abstractmethod
     def get_fc_score_for_range(self, fc_min_value, fc_max_value, mp_min_value, mp_max_value) -> Series:

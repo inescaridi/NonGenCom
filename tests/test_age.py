@@ -14,8 +14,8 @@ class TestAge(TestCase):
             expected = pd.read_csv(f"tests/resources/age/Age_MP_likelihood_epsilon{epsilon}.csv", index_col=0)
             min_age = int(expected.index.min())
             max_age = int(expected.index.max())
-            obtained = age.get_mp_likelihood()
 
+            obtained = age.mp_likelihood
             obtained = obtained.unstack()
 
             for mp_age in range(min_age, max_age+1):
@@ -50,7 +50,7 @@ class TestAge(TestCase):
                                    msg=f"different results for {age}")
 
     def test_score_numerator(self):
-        expected = pd.read_csv("tests/resources/age/Age_score_numeratos_MPepsilon2.csv", index_col=0)
+        expected = pd.read_csv("tests/resources/age/Age_score_numerator_MPepsilon2.csv", index_col=0)
         min_age = int(expected.index.min())
         max_age = int(expected.index.max())
         age = Age(min_age=min_age, max_age=max_age)

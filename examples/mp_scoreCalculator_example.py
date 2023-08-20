@@ -14,7 +14,7 @@ if __name__ == '__main__':
     merged_dbs = merge_dbs(mp_db, fc_db, "ID", '_MP', '_FC', ["MP-6"])
 
     result = (merged_dbs
-              .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_score_mp_by_merge, "FC estimate Biological Sex", "Sex")
+              .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_mp_score, "FC estimate Biological Sex", "Sex")
               )
 
     result['Final Score T1'] = result[BiologicalSex.SCORE_COLNAME]
