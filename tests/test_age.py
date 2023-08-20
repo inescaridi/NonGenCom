@@ -2,7 +2,6 @@ from unittest import TestCase
 
 import pandas as pd
 
-from nonGenCom.Utils import FC_INDEX_NAME, MP_INDEX_NAME, load_fc_indexed_file, change_index_level_type
 from nonGenCom.Variables.Age import Age
 
 

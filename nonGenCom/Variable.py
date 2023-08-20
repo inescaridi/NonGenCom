@@ -207,7 +207,6 @@ class Variable(ABC):
         likelihood_x_prior = likelihood.multiply(prior, level=1)
         return likelihood_x_prior
 
-    @property
     @abstractmethod
     def score_colname_template(self) -> str:
         """

@@ -100,5 +100,11 @@ class BiologicalSex(CategoricalVariable):
             'Probable Female': 'pf',
             'Male': 'm',
             'Female': 'f',
+            'i': 'i',
+            'pm': 'pm',
+            'pf': 'pf',
+            'm': 'm',
+            'f': 'f',
+            'o': 'o'
         }
         return renames

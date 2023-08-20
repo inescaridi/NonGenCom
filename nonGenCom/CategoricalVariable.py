@@ -93,7 +93,7 @@ class CategoricalVariable(Variable, ABC):
         :return:
         """
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
-        score_colname = self.score_colname_template.format('fc')
+        score_colname = self.score_colname_template().format('fc')
 
         # merge with posterior
         merged_dbs = merged_dbs.join(self.fc_score.rename(score_colname)) \
@@ -112,7 +112,7 @@ class CategoricalVariable(Variable, ABC):
         :return:
         """
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
-        score_colname = self.score_colname_template.format('mp')
+        score_colname = self.score_colname_template().format('mp')
 
         # merge with posterior
         merged_dbs = merged_dbs.join(self.mp_score.rename(score_colname)) \

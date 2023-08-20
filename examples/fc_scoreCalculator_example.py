@@ -1,25 +1,25 @@
+import os
+
 import pandas as pd
 
 from nonGenCom.Utils import merge_dbs
 from nonGenCom.Variables.BiologicalSex import BiologicalSex
 
 if __name__ == '__main__':
-    fc_db = pd.read_csv("examples/resources/Database_FC_proof1_ID.csv")
-    fc_db[["FC Age", "FC Age Minimum", "FC Age Maximum"]] = fc_db[["FC Age", "FC Age Minimum", "FC Age Maximum"]].astype('Int64')
-
-    mp_db = pd.read_csv("examples/resources/Database_MP_proof1_ID.csv")
-    mp_db['Age'] = mp_db['Age'].astype('Int64')
+    fc_db = pd.read_csv("examples/resources/FC_database_example.csv")
+    mp_db = pd.read_csv("examples/resources/MP_database_example.csv")
 
     # FC-SELECTION
     # remove the last parameter for comparing against whole fc database
     # be careful with matching column renames
-    merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-1024", "FC-1063"])
-    # merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', ["FC-4", "FC-149", "FC-233", "FC-354", "FC-573", "FC-991"])
+    merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP')
+    # merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', [158, 6])
+    # merged_dbs = merge_dbs(fc_db, mp_db, "ID", '_FC', '_MP', [2, 3, 6, 9, 110, 40, 32])
 
     result = (merged_dbs
-              .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_fc_score, "FC estimate Biological Sex", "Sex")
+              .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_fc_score, "FC estimate Biological Sex", "MP estimate Biological Sex")
               )
 
-    result['Final Score T1'] = result[BiologicalSex.SCORE_COLNAME]
+    print(result)
 
-    result.to_csv("examples/scoreCalculator_example_fc_select_output.csv", index=False)
+    result.to_csv("examples/results/fc_scoreCalculator_example.csv", index=False)

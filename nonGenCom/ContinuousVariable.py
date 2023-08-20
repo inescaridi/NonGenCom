@@ -93,7 +93,7 @@ class ContinuousVariable(Variable, ABC):
 
     def add_fc_score(self, merged_dbs: DataFrame, fc_min_value_colname: str, fc_max_value_colname: str,
                      mp_min_value_colname: str, mp_max_value_colname: str) -> DataFrame:
-        score_colname = self.score_colname_template.format('fc')
+        score_colname = self.score_colname_template().format('fc')
         merged_dbs[score_colname] = merged_dbs.apply(
             lambda row: self.get_fc_score_for_range(row[fc_min_value_colname], row[fc_max_value_colname],
                                                     row[mp_min_value_colname], row[mp_max_value_colname]), axis=1)
@@ -105,7 +105,7 @@ class ContinuousVariable(Variable, ABC):
 
     def add_mp_score(self, merged_dbs: DataFrame, fc_min_value_colname: str, fc_max_value_colname: str,
                      mp_min_value_colname: str, mp_max_value_colname: str) -> DataFrame:
-        score_colname = self.score_colname_template.format('mp')
+        score_colname = self.score_colname_template().format('mp')
         merged_dbs[score_colname] = merged_dbs.apply(
             lambda row: self.get_mp_score_for_range(row[fc_min_value_colname], row[fc_max_value_colname],
                                                     row[mp_min_value_colname], row[mp_max_value_colname]), axis=1)
