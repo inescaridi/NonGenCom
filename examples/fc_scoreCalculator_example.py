@@ -5,7 +5,9 @@ import pandas as pd
 from nonGenCom.Utils import merge_dbs
 from nonGenCom.Variables.Age import Age
 from nonGenCom.Variables.BiologicalSex import BiologicalSex
+from nonGenCom.Variables.Body import Body
 from nonGenCom.Variables.Date import Date
+from nonGenCom.Variables.Height import Height
 
 if __name__ == '__main__':
     fc_db = pd.read_csv("examples/resources/FC_database_example.csv")
@@ -23,10 +25,15 @@ if __name__ == '__main__':
     # for Categorical values we only need the FC value and MP value
     # for Continuous values we need the FC min and max value, and the MP min and max value since we are comparing a range
     result = (merged_dbs
-              # .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_fc_score, "FC estimate Biological Sex", "MP estimate Biological Sex")
-              # .pipe(Age().add_fc_score, "FC estimate Age Minimum (years)", "FC estimate Age Maximum (years)", "MP estimate Age Minimum (years)", "MP estimate Age Maximum (years)")
-              .pipe(Date("2022-12-01", "2022-12-01", 120).add_fc_score, "FC Estimated Date of Death", "FC Estimated Date of Burial", "MP Estimated Date of Death", "MP Estimated Date of Burial")
+              .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_fc_score, "FC estimate Biological Sex", "MP estimate Biological Sex")
+              .pipe(Age().add_fc_score, "FC estimate Age Minimum (years)", "FC estimate Age Maximum (years)", "MP estimate Age Minimum (years)", "MP estimate Age Maximum (years)")
+              .pipe(Date("2020-02-01", "2022-12-01", 120).add_fc_score, "FC Estimated Date of Death", "FC Estimated Date of Burial", "MP Estimated Date of Death", "MP Estimated Date of Burial")
+              .pipe(Body("Uniform", "Standard", "Standard", "Torso/Disease").add_fc_score, "Torso/Disease", "MP Torso/Disease")
+              .pipe(Height().add_fc_score, "FC height min estimated", "FC height max estimated", "MP height min estimated", "MP height max estimated")
               )
+
+    # allow pandas to print all the columns
+    pd.set_option('display.max_columns', None)
 
     print(result)
 

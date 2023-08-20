@@ -4,7 +4,7 @@ from numpy import int64
 from pandas import Series
 
 from nonGenCom.ContinuousVariable import ContinuousVariable
-from nonGenCom.Utils import load_mp_indexed_file, load_r_indexed_file
+from nonGenCom.Utils import load_r_indexed_file, get_md5_encoding
 
 
 class Age(ContinuousVariable):
@@ -29,6 +29,10 @@ class Age(ContinuousVariable):
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, min_age, max_age, step)
+
+    def _score_numerator_filename(self) -> str:
+        fn = get_md5_encoding(self.context_name, self.min_value, self.max_value, self.step, self.epsilon)
+        return f"age_{fn}.csv"
 
     def score_colname_template(self) -> str:
         return 'age_{}_score'

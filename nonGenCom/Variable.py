@@ -1,3 +1,4 @@
+import os
 from abc import abstractmethod, ABC
 from functools import lru_cache
 
@@ -101,6 +102,17 @@ class Variable(ABC):
         :param mp_values: possible values of MP
         :return:
         """
+        cache_path = os.path.join(os.path.dirname(__file__), 'Variables/.cache')
+        if not os.path.exists(cache_path):
+            os.makedirs(cache_path)
+
+        # if there's a score_numerator_cache file, load it
+        score_numerator_file_name = self._score_numerator_filename()
+        if os.path.exists(os.path.join(cache_path, score_numerator_file_name)):
+            score_numerator = pd.read_csv(os.path.join(cache_path, score_numerator_file_name), index_col=[0, 1])['values']
+            return score_numerator
+
+        # calculate the score_numerator
         score_numerator_dict = {}
 
         for fc_value in fc_values:
@@ -110,6 +122,9 @@ class Variable(ABC):
 
         score_numerator = pd.Series(score_numerator_dict)
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
+
+        # save the score_numerator for future use
+        score_numerator.to_csv(os.path.join(cache_path, score_numerator_file_name), header=['values'])
 
         return score_numerator
 
@@ -207,6 +222,14 @@ class Variable(ABC):
     def score_colname_template(self) -> str:
         """
         Name of the column for this variable score in the final dataframe
+        :return:
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def _score_numerator_filename(self) -> str:
+        """
+        Name of the file for this variable score numerator, should depend on the interfering parameters
         :return:
         """
         raise NotImplementedError

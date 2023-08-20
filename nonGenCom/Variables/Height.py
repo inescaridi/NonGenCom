@@ -1,13 +1,14 @@
 import statistics as st
 
+from numpy import int64
 from pandas import Series
 
 from nonGenCom.ContinuousVariable import ContinuousVariable
-from nonGenCom.Utils import load_fc_indexed_file, load_r_indexed_file
+from nonGenCom.Utils import load_r_indexed_file, get_md5_encoding
 
 
 class Height(ContinuousVariable):
-    def __init__(self, context_name='Standard', min_height: int = 50, max_height: int = 200, step: int = 1, epsilon=4):
+    def __init__(self, context_name='Uniform', min_height: int = 50, max_height: int = 200, step: int = 1, epsilon=4):
         """
 
         :param context_name:
@@ -29,11 +30,15 @@ class Height(ContinuousVariable):
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, min_height, max_height, step)
 
-    @property
+    def _score_numerator_filename(self) -> str:
+        fn = get_md5_encoding(self.context_name, self.min_value, self.max_value, self.step, self.epsilon)
+        return f"height_{fn}.csv"
+
     def score_colname_template(self) -> str:
         return 'height_{}_score'
 
     def _reformat_prior(self, prior: Series | None):
+        prior.index = prior.index.astype(int64)
         return prior
 
     def _get_fc_likelihood_for_combination(self, r_value: int, fc_value):
@@ -71,4 +76,3 @@ class Height(ContinuousVariable):
         :return:
         """
         return self._calculate_mp_score_for_range(fc_min_height, fc_max_height, mp_min_height, mp_max_height)
-

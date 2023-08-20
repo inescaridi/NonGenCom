@@ -5,7 +5,7 @@ import pandas as pd
 from pandas import Series
 
 from nonGenCom.ContinuousVariable import ContinuousVariable
-from nonGenCom.Utils import load_r_indexed_file, R_INDEX_NAME
+from nonGenCom.Utils import load_r_indexed_file, R_INDEX_NAME, get_md5_encoding
 
 
 class Date(ContinuousVariable):
@@ -38,6 +38,9 @@ class Date(ContinuousVariable):
         self.periods_date = pd.date_range(start=self.initial_time, end=self.final_time, freq=f"{self.delta_in_days}D")
         self.geometrical_q = geometrical_q
 
+        self.context_config_filename = context_config_filename
+        self.context_config_name = context_config_name
+        self.context_config = context_config
         if context_config is not None:  # TODO improve the way we configure the prior
             self.prior_definition = pd.DataFrame(context_config, columns=[R_INDEX_NAME, 'probability'])
         else:
@@ -45,6 +48,14 @@ class Date(ContinuousVariable):
 
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, 0, len(self.periods_date) - 1, 1)
+
+    def _score_numerator_filename(self) -> str:
+        prior_encoding = get_md5_encoding(sorted(list(self.prior_definition.itertuples(index=False, name=None))))
+        fn = get_md5_encoding(self.initial_time, self.final_time, self.delta_in_days, self.geometrical_q, prior_encoding)
+        return f"date_{fn}.csv"
+
+    def score_colname_template(self) -> str:
+        return "date_{}_score"
 
     @staticmethod
     def _convert_to_date(date_to_convert) -> datetime.date:
@@ -56,9 +67,6 @@ class Date(ContinuousVariable):
             return date_to_convert
         else:
             raise ValueError()  # TODO add info to the exception
-
-    def score_colname_template(self) -> str:
-        return "date_{}_score"
 
     def _get_period_for_date(self, d: datetime.date | str):
         """

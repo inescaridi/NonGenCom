@@ -1,3 +1,4 @@
+import hashlib
 from typing import Any, Optional, List
 
 import numpy as np
@@ -79,3 +80,10 @@ def change_index_level_type(df: DataFrame, level: str|int, expected_type: type):
         level = df.index.names.index(level)
     df.index = df.index.set_levels(df.index.levels[level].astype(expected_type), level=level)
     return df
+
+
+def get_md5_encoding(*params):
+    m = hashlib.md5()
+    for p in params:
+        m.update(str(p).encode())
+    return m.hexdigest()

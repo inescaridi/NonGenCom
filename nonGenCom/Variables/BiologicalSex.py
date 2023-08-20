@@ -4,6 +4,7 @@ import pandas as pd
 from pandas import Series
 
 from nonGenCom.CategoricalVariable import CategoricalVariable
+from nonGenCom.Utils import get_md5_encoding
 
 
 class BiologicalSex(CategoricalVariable):
@@ -31,6 +32,12 @@ class BiologicalSex(CategoricalVariable):
         values = pd.read_csv(filename, header=None, index_col=0).iloc[0].values
         # TODO improve this or get information from configuration file
         return set(values)
+
+    def _score_numerator_filename(self) -> str:
+        fn = get_md5_encoding(self.context_name, self.fc_scenery_name, self.mp_scenery_name,
+                              sorted(list(self.r_categories)), sorted(list(self.fc_categories)),
+                              sorted(list(self.mp_categories)))
+        return f"biologicalSex_{fn}.csv"
 
     def score_colname_template(self) -> str:
         return 'biolsex_{}_score'
