@@ -51,8 +51,8 @@ class Date(ContinuousVariable):
         else:
             raise ValueError()  # TODO add info to the exception
 
-    def score_colname(self) -> str:
-        return "date_score"
+    def score_colname_template(self) -> str:
+        return "date_{}_score"
 
     def _get_period_for_date(self, d: datetime.date | str):
         """

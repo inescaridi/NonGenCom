@@ -29,8 +29,8 @@ class Age(ContinuousVariable):
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, min_age, max_age, step)
 
-    def score_colname(self) -> str:
-        return 'age_score'
+    def score_colname_template(self) -> str:
+        return 'age_{}_score'
 
     def _get_fc_likelihood_for_combination(self, r_value: int, fc_value: int):
         sigma = float(self.sigmas.loc[r_value].iloc[0])

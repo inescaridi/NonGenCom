@@ -30,8 +30,8 @@ class Height(ContinuousVariable):
                          mp_scenery_name, min_height, max_height, step)
 
     @property
-    def score_colname(self) -> str:
-        return 'height_score'
+    def score_colname_template(self) -> str:
+        return 'height_{}_score'
 
     def _reformat_prior(self, prior: Series | None):
         return prior

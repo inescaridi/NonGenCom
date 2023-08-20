@@ -98,11 +98,12 @@ class CategoricalVariable(Variable, ABC):
         print("Posterior\n", posterior, "\n")
 
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
+        score_colname = self.score_colname_template.format('fc')
 
         # merge with posterior
-        merged_dbs = merged_dbs.join(posterior.rename(self.score_colname)) \
+        merged_dbs = merged_dbs.join(posterior.rename(score_colname)) \
             .reset_index(drop=True) \
-            .sort_values(self.score_colname, ascending=False)
+            .sort_values(score_colname, ascending=False)
 
         return merged_dbs
 
@@ -122,11 +123,12 @@ class CategoricalVariable(Variable, ABC):
         print(f"Scenery: {scenery_name}")
 
         merged_dbs = self._reindex(merged_dbs, fc_value_colname, mp_value_colname)
+        score_colname = self.score_colname_template.format('mp')
 
         # merge with posterior
-        merged_dbs = merged_dbs.join(likelihood.rename(self.score_colname)) \
+        merged_dbs = merged_dbs.join(likelihood.rename(score_colname)) \
             .reset_index(drop=True) \
-            .sort_values(self.score_colname, ascending=False)
+            .sort_values(score_colname, ascending=False)
 
         return merged_dbs
 

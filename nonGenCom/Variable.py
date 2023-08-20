@@ -114,7 +114,6 @@ class Variable(ABC):
 
         score_numerator = pd.Series(score_numerator_dict)
         score_numerator.index.names = [FC_INDEX_NAME, MP_INDEX_NAME]
-        # save the score_numerator for future use
 
         return score_numerator
 
@@ -201,7 +200,8 @@ class Variable(ABC):
         :return:
         """
         if prior.index.dtype != likelihood.index.levels[1].dtype:
-            print("WARNING: prior index type is not the same type as likelihood index. Converting prior index type to ")
+            print(f"WARNING: prior index type ({prior.index.dtype}) is not the same type as likelihood index "
+                  f"({likelihood.index.levels[1].dtype}). Converting")
             prior.index = prior.index.astype(likelihood.index.levels[1].dtype)
 
         likelihood_x_prior = likelihood.multiply(prior, level=1)
@@ -209,7 +209,7 @@ class Variable(ABC):
 
     @property
     @abstractmethod
-    def score_colname(self) -> str:
+    def score_colname_template(self) -> str:
         """
         Name of the column for this variable score in the final dataframe
         :return:

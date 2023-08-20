@@ -71,7 +71,7 @@ class TestAge(TestCase):
 
             for fc_age in range(min_age, max_age+1):
                 for mp_age in range(min_age, max_age+1):
-                    obtained = age.get_mp_posterior_for_case(fc_age, fc_age, mp_age, mp_age)
+                    obtained = age.get_mp_score_for_range(fc_age, fc_age, mp_age, mp_age)
 
                     self.assertAlmostEqual(expected.iloc[fc_age, mp_age], obtained, places=8,
                                            msg=f"different results for {(fc_age, mp_age)} with epsilon: {epsilon}")
@@ -85,7 +85,7 @@ class TestAge(TestCase):
 
             for fc_age in range(min_age, max_age + 1):
                 for mp_age in range(min_age, max_age + 1):
-                    obtained = age.get_fc_posterior_for_case(fc_age, fc_age, mp_age, mp_age)
+                    obtained = age.get_fc_score_for_range(fc_age, fc_age, mp_age, mp_age)
 
                     self.assertAlmostEqual(expected.iloc[fc_age, mp_age], obtained, places=8,
                                            msg=f"different results for {(fc_age, mp_age)} with epsilon: {epsilon}")

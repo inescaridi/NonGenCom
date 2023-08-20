@@ -32,8 +32,8 @@ class BiologicalSex(CategoricalVariable):
         # TODO improve this or get information from configuration file
         return set(values)
 
-    def score_colname(self) -> str:
-        return 'biolsex_score'
+    def score_colname_template(self) -> str:
+        return 'biolsex_{}_score'
 
     def _get_fc_likelihood_for_combination(self, r_value: tuple, fc_value: tuple):
         return 0  # TODO fc likelihood calculation, right now we are only using pre-defined sceneries

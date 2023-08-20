@@ -22,8 +22,8 @@ class Body(CategoricalVariable):
         super().__init__(contexts_path, fc_sceneries_path, mp_sceneries_path, context_name, fc_scenery_name,
                          mp_scenery_name, yes_no_categories, yes_no_categories, yes_no_categories)
 
-    def score_colname(self) -> str:
-        return "body_score"
+    def score_colname_template(self) -> str:
+        return "body_{}_score"
 
     def _reformat_prior(self, prior: Series):
         return prior
