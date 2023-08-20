@@ -55,10 +55,6 @@ class Variable(ABC):
 
         super().__init__()
 
-    @property
-    def renames(self) -> dict[str, str]:
-        return {}
-
     def get_context(self, context_name: str) -> Series | None:
         """
         Get context (aka prior of R variable)

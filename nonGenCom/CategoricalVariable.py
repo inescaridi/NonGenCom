@@ -121,6 +121,10 @@ class CategoricalVariable(Variable, ABC):
 
         return merged_dbs
 
+    @property
+    def renames(self) -> dict[str, str]:
+        return {}
+
     def _reindex(self, merged_dbs: DataFrame, fc_value_colname: str, mp_value_colname: str):
         # create new FC and MP columns, renaming if necessary
         if len(self.renames) > 0:

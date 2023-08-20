@@ -6,14 +6,28 @@ from nonGenCom.Variables.Age import Age
 
 
 class TestAge(TestCase):
-    def test_MP_likelihood(self):
+    def test_FC_likelihood(self):
         age = Age()
 
+        expected = pd.read_csv(f"tests/resources/age/Age_FC_likelihood.csv", index_col=0)
+        min_age = int(expected.index.min())
+        max_age = int(expected.index.max())
+
+        obtained = age.fc_likelihood
+        obtained = obtained.unstack()
+
+        for mp_age in range(min_age, max_age+1):
+            for r_age in range(min_age, max_age+1):
+                self.assertAlmostEqual(expected.iloc[mp_age, r_age], obtained.iloc[mp_age, r_age], places=8,
+                                       msg=f"different results for {(mp_age, r_age)}")
+
+    def test_MP_likelihood(self):
         for epsilon in [2]:
             expected = pd.read_csv(f"tests/resources/age/Age_MP_likelihood_epsilon{epsilon}.csv", index_col=0)
             min_age = int(expected.index.min())
             max_age = int(expected.index.max())
 
+            age = Age(min_age=min_age, max_age=max_age, epsilon=epsilon)
             obtained = age.mp_likelihood
             obtained = obtained.unstack()
 
