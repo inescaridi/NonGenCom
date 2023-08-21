@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 
 from nonGenCom.Utils import merge_dbs

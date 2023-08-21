@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from functools import lru_cache
 
+import numpy as np
 from pandas import Series, DataFrame
 
 from nonGenCom.Variable import Variable
@@ -49,7 +50,7 @@ class ContinuousVariable(Variable, ABC):
     def get_mp_likelihood(self, scenery_name: str = None) -> Series:
         return self._calculate_mp_likelihood(scenery_name, self.value_range, self.value_range)
 
-    @lru_cache(maxsize=128)
+    @lru_cache(maxsize=15000)
     def _calculate_fc_score_for_range(self, fc_min_value: int, fc_max_value: int, mp_min_value: int, mp_max_value: int) -> Series:
         """
         Internal function to calculate the fc score, given a range of fc and mp values, they must be integers
@@ -65,12 +66,17 @@ class ContinuousVariable(Variable, ABC):
         filter_range = self.score_numerator.index.get_level_values(0).isin(fc_range) & \
                            self.score_numerator.index.get_level_values(1).isin(mp_range)
 
-        posterior_nominator = self.score_numerator.loc[filter_range].sum().item()
+        posterior_numerator = self.score_numerator.loc[filter_range].sum().item()
         fc_posterior_denominator = self.fc_evidence.loc[fc_range].sum() * len(mp_range)
 
-        return posterior_nominator / fc_posterior_denominator
+        try:
+            result = posterior_numerator / fc_posterior_denominator
+        except ZeroDivisionError:
+            result = np.NAN
 
-    @lru_cache(maxsize=128)
+        return result
+
+    @lru_cache(maxsize=15000)
     def _calculate_mp_score_for_range(self, fc_min_value: int, fc_max_value: int, mp_min_value: int, mp_max_value: int) -> Series:
         """
         Internal function to calculate the mp score, given a range of fc and mp values, they must be integers
@@ -89,7 +95,12 @@ class ContinuousVariable(Variable, ABC):
         posterior_numerator = self.score_numerator.loc[filter_range].sum().item()
         mp_posterior_denominator = self.mp_evidence.loc[mp_range].sum() * len(fc_range)
 
-        return posterior_numerator / mp_posterior_denominator
+        try:
+            result = posterior_numerator / mp_posterior_denominator
+        except ZeroDivisionError:
+            result = np.NAN
+
+        return result
 
     def add_fc_score(self, merged_dbs: DataFrame, fc_min_value_colname: str, fc_max_value_colname: str,
                      mp_min_value_colname: str, mp_max_value_colname: str) -> DataFrame:
