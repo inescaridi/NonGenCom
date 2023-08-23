@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import Series
 
 
 def get_correspondent_mp_id(fc_id, correspondences):
@@ -19,7 +20,7 @@ def get_corresp_scores(df, correspondences):
     return pd.Series(corresp_scores)
 
 
-def count_values(group, thresholds):
+def count_values(group: Series, thresholds: Series):
     threshold = thresholds[group.name]
     lt = (group < threshold).sum()
     eq = (group == threshold).sum()
@@ -30,14 +31,14 @@ def count_values(group, thresholds):
 
 if __name__ == '__main__':
     try:
-        scores_df = pd.read_csv('examples/scoreCalculator_example_fc_select_output.csv')
+        scores_df = pd.read_csv('examples/results/fc_scoreCalculator_example.csv')
     except FileNotFoundError:
         print("Please run example script fc_scoreCalculator_example.py first!")
         raise
 
-    correspondences = pd.read_csv('examples/resources/correspondences.csv').set_index('ID_FC')
+    correspondences = pd.read_csv('examples/resources/correspondences_example.csv').set_index('ID_FC')
 
-    score_colnames = ['biolsex_score', 'age_v1_score', 'age_v2_score', 'Final Score T1', 'Final Score T2']
+    score_colnames = [colname for colname in scores_df.columns if '_score' in colname]
 
     for score_colname in score_colnames:
         variable_name = score_colname.split('_')[0]
@@ -51,7 +52,6 @@ if __name__ == '__main__':
         proportions.columns = proportions.columns.droplevel()
 
         scores_df = scores_df.merge(proportions.add_suffix(f"_{variable_name}").reset_index(), on='ID_FC')
-        print('a')
 
     # leave only correspondence rows
     scores_df = scores_df.set_index(['ID_FC', 'ID_MP'], drop=False)
@@ -60,6 +60,6 @@ if __name__ == '__main__':
     merged_df = scores_df.join(correspondences, how='right')
     filtered_df = scores_df.loc[scores_df.index.isin(merged_df.index)]
 
-    filtered_df.to_csv("examples/validation.csv", index=False)
+    filtered_df.to_csv("examples/results/validation.csv", index=False)
 
     print(filtered_df)

@@ -1,3 +1,4 @@
+import hashlib
 from typing import Any, Optional, List
 
 import numpy as np
@@ -12,7 +13,7 @@ R_INDEX_NAME = 'R_i'
 
 
 def load_double_indexed_indexed_file(path, first_index, first_index_rename, second_index, second_index_rename,
-                                     to_upper=False): # TODO change to load with R index and be able to be used for both FC and MP
+                                     to_upper=False):
     res_aux = pd.read_csv(path, header=None, dtype=str).transpose()
     names_column_values = res_aux.iloc[0]
     assert names_column_values[0] == first_index and names_column_values[1] == second_index, \
@@ -79,3 +80,10 @@ def change_index_level_type(df: DataFrame, level: str|int, expected_type: type):
         level = df.index.names.index(level)
     df.index = df.index.set_levels(df.index.levels[level].astype(expected_type), level=level)
     return df
+
+
+def get_md5_encoding(*params):
+    m = hashlib.md5()
+    for p in params:
+        m.update(str(p).encode())
+    return m.hexdigest()
