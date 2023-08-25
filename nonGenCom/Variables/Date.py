@@ -78,6 +78,8 @@ class Date(ContinuousVariable):
         return floor((d - self.initial_time).days / self.delta_in_days)
 
     def _reformat_prior(self, prior: Series):
+        periods_size = len(self.periods_date)
+
         config = self.prior_definition.copy()
         config[R_INDEX_NAME] = pd.to_datetime(config[R_INDEX_NAME], format="%Y-%m-%d").dt.date.apply(self._get_period_for_date)
 
@@ -88,7 +90,31 @@ class Date(ContinuousVariable):
         config = config.diff().fillna(0)
 
         # leave only valid periods
-        config = config[config.index.isin(range(len(self.periods_date)))]
+        config = config[config.index.isin(range(periods_size))]
+
+        # if we have missing periods, fill them by dividing the probability of the next not missing equally between them
+        i = 0
+        while i < periods_size:
+            consecutive_missing_periods = []
+            while i < periods_size and i not in config.index:
+                consecutive_missing_periods.append(i)
+                i += 1
+
+            if len(consecutive_missing_periods) > 0:
+                consecutive_missing_periods.append(i)
+
+                try:
+                    probability = config.loc[i] / len(consecutive_missing_periods)
+                except KeyError:
+                    probability = 0
+                    print(f"WARNING Missing probability for last period {i}, setting it to 0")  # TODO use logger
+
+                # Reindex config to include missing indices and set the probability for them
+                config = config.reindex(index=config.index.union(consecutive_missing_periods))
+                config.loc[consecutive_missing_periods] = probability
+
+            i += 1
+
         return config
 
     def _get_fc_likelihood_for_combination(self, r_value, fc_value):

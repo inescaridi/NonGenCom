@@ -25,7 +25,7 @@ if __name__ == '__main__':
     result = (merged_dbs
               .pipe(BiologicalSex("Uniform", "High", "Perfect representation").add_fc_score, "FC estimate Biological Sex", "MP estimate Biological Sex")
               .pipe(Age().add_fc_score, "FC estimate Age Minimum (years)", "FC estimate Age Maximum (years)", "MP estimate Age Minimum (years)", "MP estimate Age Maximum (years)")
-              .pipe(Date("2020-02-01", "2022-12-01", 120).add_fc_score, "FC Estimated Date of Death", "FC Estimated Date of Burial", "MP Estimated Date of Death", "MP Estimated Date of Burial")
+              .pipe(Date("2020-02-01", "2022-12-01", 130).add_fc_score, "FC Estimated Date of Death", "FC Estimated Date of Burial", "MP Estimated Date of Death", "MP Estimated Date of Burial")
               .pipe(Body("Uniform", "Standard", "Standard", "Torso/Disease").add_fc_score, "Torso/Disease", "MP Torso/Disease")
               .pipe(Height().add_fc_score, "FC height min estimated", "FC height max estimated", "MP height min estimated", "MP height max estimated")
               )
