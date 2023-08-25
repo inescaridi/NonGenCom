@@ -81,8 +81,10 @@ class Date(ContinuousVariable):
         config = self.prior_definition.copy()
         config[R_INDEX_NAME] = pd.to_datetime(config[R_INDEX_NAME], format="%Y-%m-%d").dt.date.apply(self._get_period_for_date)
         config.dropna().drop_duplicates(subset=[R_INDEX_NAME], inplace=True, keep='last')
+        config.sort_values(R_INDEX_NAME, inplace=True)
 
-        return config.set_index(R_INDEX_NAME).iloc[:, 0]
+        # calculate the probability for each one of the periods given the diff in the accumulated probability
+        return config.set_index(R_INDEX_NAME).iloc[:, 0].diff().fillna(0)
 
     def _get_fc_likelihood_for_combination(self, r_value, fc_value):
         return self.geometrical_q * ((1 - self.geometrical_q) ** (fc_value - r_value)) if fc_value >= r_value else 0
