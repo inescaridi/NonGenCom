@@ -50,6 +50,17 @@ class ContinuousVariable(Variable, ABC):
     def get_mp_likelihood(self, scenery_name: str = None) -> Series:
         return self._calculate_mp_likelihood(scenery_name, self.value_range, self.value_range)
 
+    def _get_ranges(self, fc_min_value, fc_max_value, mp_min_value, mp_max_value):
+        fc_min_value = max(fc_min_value, self.min_value)
+        fc_max_value = min(fc_max_value, self.max_value)
+
+        mp_min_value = max(mp_min_value, self.min_value)
+        mp_max_value = min(mp_max_value, self.max_value)
+
+        fc_range = range(fc_min_value, fc_max_value + (1 if fc_min_value == fc_max_value else 0))
+        mp_range = range(mp_min_value, mp_max_value + (1 if mp_min_value == mp_max_value else 0))
+        return fc_range, mp_range
+
     @lru_cache(maxsize=15000)
     def _calculate_fc_score_for_range(self, fc_min_value: int, fc_max_value: int, mp_min_value: int, mp_max_value: int) -> Series:
         """
@@ -60,11 +71,10 @@ class ContinuousVariable(Variable, ABC):
         :param mp_max_value: int:
         :return:
         """
-        fc_range = range(fc_min_value, fc_max_value + (1 if fc_min_value == fc_max_value else 0))
-        mp_range = range(mp_min_value, mp_max_value + (1 if mp_min_value == mp_max_value else 0))
+        fc_range, mp_range = self._get_ranges(fc_min_value, fc_max_value, mp_min_value, mp_max_value)
 
         filter_range = self.score_numerator.index.get_level_values(0).isin(fc_range) & \
-                           self.score_numerator.index.get_level_values(1).isin(mp_range)
+                       self.score_numerator.index.get_level_values(1).isin(mp_range)
 
         posterior_numerator = self.score_numerator.loc[filter_range].sum().item()
         fc_posterior_denominator = self.fc_evidence.loc[fc_range].sum() * len(mp_range)
@@ -86,11 +96,10 @@ class ContinuousVariable(Variable, ABC):
         :param mp_max_value: int:
         :return:
         """
-        fc_range = range(fc_min_value, fc_max_value + (1 if fc_min_value == fc_max_value else 0))
-        mp_range = range(mp_min_value, mp_max_value + (1 if mp_min_value == mp_max_value else 0))
+        fc_range, mp_range = self._get_ranges(fc_min_value, fc_max_value, mp_min_value, mp_max_value)
 
         filter_range = self.score_numerator.index.get_level_values(0).isin(fc_range) & \
-                           self.score_numerator.index.get_level_values(1).isin(mp_range)
+                       self.score_numerator.index.get_level_values(1).isin(mp_range)
 
         posterior_numerator = self.score_numerator.loc[filter_range].sum().item()
         mp_posterior_denominator = self.mp_evidence.loc[mp_range].sum() * len(fc_range)
