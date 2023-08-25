@@ -81,17 +81,14 @@ class Date(ContinuousVariable):
         config = self.prior_definition.copy()
         config[R_INDEX_NAME] = pd.to_datetime(config[R_INDEX_NAME], format="%Y-%m-%d").dt.date.apply(self._get_period_for_date)
 
-        # leave only valid periods
-        config = config[(config[R_INDEX_NAME] >= 0) & (config[R_INDEX_NAME] < len(self.periods_date))]
-
         config = config.dropna().drop_duplicates(subset=[R_INDEX_NAME], keep='last')\
             .sort_values(R_INDEX_NAME).set_index(R_INDEX_NAME).iloc[:, 0]
 
-        first_prob = config.iloc[0]
         # calculate the probability for each one of the periods given the diff in the accumulated probability
-        config = config.diff()
-        # leaving the first one as it is
-        config.iloc[0] = first_prob
+        config = config.diff().fillna(0)
+
+        # leave only valid periods
+        config = config[config.index.isin(range(len(self.periods_date)))]
         return config
 
     def _get_fc_likelihood_for_combination(self, r_value, fc_value):
