@@ -12,7 +12,7 @@ class Date(ContinuousVariable):
     def __init__(self, initial_date: datetime.date | str, final_date: datetime.date | str, delta_in_days: int,
                  geometrical_q: float = 0.5,
                  context_config_filename="nonGenCom/scenery_and_context_inputs/date_context_config.csv",
-                 context_config_name='Standard', context_config: list = None):
+                 context_config_name='Uniform', context_config: list = None):
         """
 
         :param context_config_filename:
@@ -80,11 +80,19 @@ class Date(ContinuousVariable):
     def _reformat_prior(self, prior: Series):
         config = self.prior_definition.copy()
         config[R_INDEX_NAME] = pd.to_datetime(config[R_INDEX_NAME], format="%Y-%m-%d").dt.date.apply(self._get_period_for_date)
-        config.dropna().drop_duplicates(subset=[R_INDEX_NAME], inplace=True, keep='last')
-        config.sort_values(R_INDEX_NAME, inplace=True)
 
+        # leave only valid periods
+        config = config[(config[R_INDEX_NAME] >= 0) & (config[R_INDEX_NAME] < len(self.periods_date))]
+
+        config = config.dropna().drop_duplicates(subset=[R_INDEX_NAME], keep='last')\
+            .sort_values(R_INDEX_NAME).set_index(R_INDEX_NAME).iloc[:, 0]
+
+        first_prob = config.iloc[0]
         # calculate the probability for each one of the periods given the diff in the accumulated probability
-        return config.set_index(R_INDEX_NAME).iloc[:, 0].diff().fillna(0)
+        config = config.diff()
+        # leaving the first one as it is
+        config.iloc[0] = first_prob
+        return config
 
     def _get_fc_likelihood_for_combination(self, r_value, fc_value):
         return self.geometrical_q * ((1 - self.geometrical_q) ** (fc_value - r_value)) if fc_value >= r_value else 0
